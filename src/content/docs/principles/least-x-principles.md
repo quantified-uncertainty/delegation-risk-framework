@@ -4,6 +4,10 @@ title: 'The Family of "Least X" Principles'
 
 # The Family of "Least X" Principles
 
+:::note[TL;DR]
+Extend "least privilege" across multiple dimensions: **Least Intelligence** (minimum capability), **Least Privilege** (minimum permissions), **Least Context** (minimum information), **Least Persistence** (no memory), **Least Autonomy** (human oversight), **Least Connectivity** (isolated components), **Least Compute** (bounded resources). Each principle bounds a different attack surface. Apply all of them.
+:::
+
 Security engineering has long relied on the **principle of least privilege**: give each component minimum access rights needed for its function. We need to extend this thinking across multiple dimensions for AI safety.
 
 :::note
@@ -552,15 +556,38 @@ Generality isn't just capability—it's adaptability, transferability, and novel
 
 **Design principle**: Start with least general solution. Only increase generality if necessary, and add proportional safety measures.
 
-Example decision tree:
+### Implementation Decision Tree
 
-1. Can this be hard-coded rules? → Use rules
-1. If not, can this be deterministic algorithm? → Use algorithm
-1. If not, can this be fine-tuned narrow model? → Fine-tune
-1. If not, can general model be heavily constrained? → Add constraints
-1. If not, accept high generality + massive safety measures
+Use this flowchart to select the right implementation for each component:
 
-Most components should stop at level 1-3. Only special cases need 4-5.
+```mermaid
+flowchart TB
+    START([New Component Needed]) --> Q1{Can behavior be<br/>fully specified<br/>as rules?}
+
+    Q1 -->|Yes| RULES[✅ Use Hard-coded Rules<br/>Level 1 - Safest]
+    Q1 -->|No| Q2{Can it be solved<br/>with deterministic<br/>algorithm?}
+
+    Q2 -->|Yes| ALGO[✅ Use Algorithm<br/>Level 2 - Very Safe]
+    Q2 -->|No| Q3{Is the domain<br/>narrow and<br/>well-defined?}
+
+    Q3 -->|Yes| NARROW[✅ Fine-tune Narrow Model<br/>Level 3 - Moderate Risk]
+    Q3 -->|No| Q4{Can a general model<br/>be heavily<br/>constrained?}
+
+    Q4 -->|Yes| CONSTRAINED[⚠️ General Model + Constraints<br/>Level 4 - Higher Risk<br/>Add: redundancy, monitoring]
+    Q4 -->|No| GENERAL[🔴 General/RL System<br/>Level 5-6 - Highest Risk<br/>Requires: all safety mechanisms]
+
+    RULES --> CHECK{Critical<br/>component?}
+    ALGO --> CHECK
+    NARROW --> CHECK
+    CONSTRAINED --> CHECK
+    GENERAL --> CHECK
+
+    CHECK -->|Yes| VERIFY[Add formal verification<br/>+ redundant implementations]
+    CHECK -->|No| DONE([Deploy with monitoring])
+    VERIFY --> DONE
+```
+
+**Most components should stop at Level 1-3.** If you find yourself at Level 4-5, ask: "Can we decompose this into simpler subproblems?"
 
 ## Principle of Maximum Verifiability
 
@@ -751,3 +778,33 @@ Now that you understand the principles, here's where to go:
 **To start implementing**:
 - [Quick Start](/implementation/quick-start/) — Step-by-step checklist
 - [Decision Guide](/implementation/decision-guide/) — Choosing implementations
+
+---
+
+:::note[Related: Capability-Based Security]
+The "Least X" principles extend [capability-based security](https://en.wikipedia.org/wiki/Capability-based_security), where access rights are unforgeable tokens rather than access control lists. Systems like [seL4](https://en.wikipedia.org/wiki/L4_microkernel_family#High_assurance:_seL4) implement formally verified capability systems. The key insight: security is easier to verify when permissions are explicit, minimal, and compositional—exactly what these principles achieve for AI components.
+:::
+
+---
+
+## Further Reading
+
+### Security Foundations
+- Saltzer, J.H., & Schroeder, M.D. (1975). *The Protection of Information in Computer Systems*. Proceedings of the IEEE. — The classic paper establishing security design principles including least privilege.
+- [Object-Capability Model](https://en.wikipedia.org/wiki/Object-capability_model) — Combining object-oriented programming with capability security
+- Miller, M.S. (2006). *Robust Composition*. PhD thesis, Johns Hopkins. — Modern capability security foundations
+
+### Operating Systems Security
+- [Mandatory Access Control](https://en.wikipedia.org/wiki/Mandatory_access_control) — SELinux, AppArmor
+- [Sandboxing](https://en.wikipedia.org/wiki/Sandbox_(computer_security)) — Process isolation techniques
+- [Container Security](https://en.wikipedia.org/wiki/OS-level_virtualization) — Namespaces, cgroups
+
+### AI Safety Applications
+- [AI Control](https://arxiv.org/abs/2312.06942) — Greenblatt et al. on controlling potentially scheming models
+- [Comprehensive AI Services](https://www.fhi.ox.ac.uk/reframing/) — Drexler's narrow services approach
+
+### Formal Methods
+- [Information Flow Control](https://en.wikipedia.org/wiki/Information_flow_(information_theory)) — Tracking data flow through systems
+- [Noninterference](https://en.wikipedia.org/wiki/Non-interference_(security)) — Formal security property
+
+See the [full bibliography](/overview/bibliography/) for comprehensive references.

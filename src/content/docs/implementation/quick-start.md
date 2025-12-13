@@ -223,6 +223,14 @@ Verified Code > Regular Code > Narrow Models > Constrained LLMs > Base LLMs > RL
 5. How will I know if it's happening (monitoring)?
 6. How will I stop it (rollback, circuit breakers)?
 
+### Interactive Tools
+
+Use these calculators to run the numbers:
+
+- **[ETE Calculator](/implementation/ete-calculator/)** — Input failure modes, get total ETE
+- **[Trust Propagation](/implementation/trust-propagation/)** — Compute effective trust through networks
+- **[Tradeoff Frontier](/implementation/tradeoff-frontier/)** — Explore capability vs. safety tradeoffs
+
 ---
 
 ## Example: 30-Minute Assessment

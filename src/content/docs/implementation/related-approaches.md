@@ -4,9 +4,9 @@ title: "Relationship to Existing Approaches"
 
 # Relationship to Existing Approaches
 
-## vs CAIS (Drexler, 2019)
+## vs CAIS ([Drexler, 2019](https://www.fhi.ox.ac.uk/reframing/))
 
-**CAIS proposed**: Build superintelligence as ecosystem of narrow services, avoid monolithic agents
+**[CAIS](https://www.fhi.ox.ac.uk/wp-content/uploads/Reframing_Superintelligence.pdf) proposed**: Build superintelligence as ecosystem of narrow services, avoid monolithic agents
 
 **Key limitation**: Foundation model era made "train from scratch for each task" obsolete. Also, pure tool AI faces economic pressure to add agency.
 
@@ -16,9 +16,9 @@ title: "Relationship to Existing Approaches"
 We're not trying to avoid agency—we're trying to make agency safe through architecture.
 :::
 
-## AI Control (Redwood Research, 2024)
+## [AI Control](https://arxiv.org/abs/2312.06942) ([Redwood Research](https://www.redwoodresearch.org/), 2024)
 
-**AI Control**: Assume models might be scheming, build protocols that maintain safety regardless
+**[AI Control](https://arxiv.org/abs/2312.06942)**: Assume models might be scheming, build protocols that maintain safety regardless
 
 **This proposal**: Architectural foundation that makes scheming harder + forecasting-based navigation
 
@@ -109,9 +109,9 @@ This is **defense in depth**:
 You don't choose "architecture OR control"—you obviously use both. They're complementary, not competing.
 :::
 
-## vs IDA (Christiano, 2018)
+## vs [IDA](https://arxiv.org/abs/1810.08575) ([Christiano](https://paulfchristiano.com/), 2018)
 
-**IDA**: Recursively amplify human judgment—human + AI assistants decompose hard problems, distill back into faster model, iterate
+**[IDA (Iterated Distillation and Amplification)](https://arxiv.org/abs/1810.08575)**: Recursively amplify human judgment—human + AI assistants decompose hard problems, distill back into faster model, iterate
 
 **This proposal**: Use forecasting-based navigation with AI self-evaluation, not human amplification
 
@@ -125,7 +125,7 @@ You don't choose "architecture OR control"—you obviously use both. They're com
 
 **This proposal**: Allow full capabilities (including agency), but allocate and structure them carefully
 
-**Key difference**: You can build transformatively useful AI with this approach. Pure limitation fails Gwern's economic test—limited AI gets outcompeted.
+**Key difference**: You can build transformatively useful AI with this approach. Pure limitation fails [Gwern's economic test](https://gwern.net/tool-ai)—limited AI gets outcompeted.
 
 ## Why This Might Actually Work
 
@@ -144,4 +144,36 @@ Not claiming this solves superintelligence alignment. Claiming it might keep hum
 Not relying on single mechanism—combining 10+ principles, multiple safety layers, continuous monitoring, diverse redundancy. Many points of failure before catastrophe.
 
 **5. Builds on proven techniques**
-Borrowing from security engineering (least privilege, defense in depth), software engineering (modularity, testing), distributed systems (Byzantine fault tolerance), formal methods (verification). Not inventing from scratch.
+Borrowing from security engineering ([least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), [defense in depth](https://en.wikipedia.org/wiki/Defense_in_depth_(computing))), software engineering (modularity, testing), distributed systems ([Byzantine fault tolerance](https://en.wikipedia.org/wiki/Byzantine_fault)), formal methods (verification). Not inventing from scratch.
+
+---
+
+## Comparison Table
+
+| Approach | Core Idea | Strengths | Limitations | Compatibility |
+|----------|-----------|-----------|-------------|---------------|
+| **This Framework** | Decomposed components with trust budgets | Quantified risk, works with agency, proven cross-domain | Implementation overhead, uncertain AI-specific evidence | — |
+| **CAIS** | Narrow AI services, no agents | Avoids agency risk entirely | Economically uncompetitive, obsolete with foundation models | Complementary (we accept agency) |
+| **AI Control** | Assume scheming, design for safety anyway | Adversarial mindset, practical protocols | Doesn't reduce scheming probability | Highly complementary |
+| **IDA** | Amplify human judgment recursively | Human values preserved | Enormous human effort required | Partially compatible |
+| **[Constitutional AI](https://arxiv.org/abs/2212.08073)** | Train model on principles | Scalable, built into weights | Doesn't guarantee constraint following | Use for base models in components |
+| **[RLHF](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)** | Optimize for human preference | Effective for helpfulness | Doesn't solve deception, [reward hacking](https://en.wikipedia.org/wiki/Reward_hacking) | Use for component fine-tuning |
+| **Boxing/Containment** | Restrict AI capabilities | Simple conceptually | Economically unviable, breaks usefulness | Apply within components |
+| **Interpretability** | Understand model internals | Could provide ground truth | Far from deployment-ready | Would enhance verification |
+
+### When to Use What
+
+| Situation | Recommended Approaches |
+|-----------|----------------------|
+| Building production AI systems now | This framework + AI Control + RLHF |
+| Research on alignment foundations | Interpretability + Constitutional AI |
+| Extremely high-stakes deployment | All of the above + human oversight |
+| Internal tools, low risk | Light application of this framework |
+
+---
+
+## See Also
+
+- [Core Concepts](/overview/core-concepts/) — Framework fundamentals
+- [FAQ](/overview/faq/) — Common objections addressed
+- [Empirical Tests](/implementation/empirical-tests/) — Validating the approach

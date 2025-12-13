@@ -4,6 +4,10 @@ title: "Trust Calculus: Overview"
 
 # Trust Calculus: Overview
 
+:::note[TL;DR]
+**ETE = Σ P(outcome) × Damage(outcome)** — the core formula for quantifying trust. This page walks through a complete example: a research assistant with $1,770/month total ETE, reduced to $671/month by adding a deterministic verifier. Trust propagates multiplicatively by default (0.95 × 0.85 = 0.81 effective trust).
+:::
+
 A mature trust calculus provides the mathematical and operational foundation for managing AI systems safely at scale.
 
 ## The Trust Calculus Vision
@@ -185,3 +189,28 @@ The goal isn't zero trust—that would mean zero delegation, zero AI benefit. Th
 **To start implementing**:
 - [Quick Start](/implementation/quick-start/) — Step-by-step application checklist
 - [Decision Guide](/implementation/decision-guide/) — Choosing implementations based on trust budget
+
+**Interactive tools**:
+- [ETE Calculator](/implementation/ete-calculator/) — Compute ETE for your system
+- [Trust Propagation Calculator](/implementation/trust-propagation/) — Compute effective trust through networks
+
+---
+
+## Further Reading
+
+### Foundational Concepts
+- [Coherent Risk Measures](https://en.wikipedia.org/wiki/Coherent_risk_measure) — Mathematical foundations for risk quantification (Wikipedia)
+- [Expected Shortfall](https://en.wikipedia.org/wiki/Expected_shortfall) — Why CVaR is preferred to VaR for tail risk (Wikipedia)
+- [Kelly Criterion](https://en.wikipedia.org/wiki/Kelly_criterion) — Optimal bet sizing under uncertainty (Wikipedia)
+
+### Academic Papers
+- Artzner, P., et al. (1999). *Coherent Measures of Risk*. Mathematical Finance. — Axiomatic foundations
+- Tasche, D. (2008). *Capital Allocation to Business Units: the Euler Principle*. [arXiv](https://arxiv.org/abs/0708.2542) — Risk decomposition
+- Fritz, T. (2020). *A Synthetic Approach to Markov Kernels*. [arXiv](https://arxiv.org/abs/1908.07021) — Compositional probability
+
+### Related Domains
+- [Social Choice Theory](https://en.wikipedia.org/wiki/Social_choice_theory) — How to aggregate individual preferences into collective decisions
+- [Principal-Agent Problem](https://en.wikipedia.org/wiki/Principal%E2%80%93agent_problem) — Information asymmetry in delegation relationships
+- [Probabilistic Risk Assessment](https://www.nrc.gov/about-nrc/regulatory/risk-informed/pra.html) — NRC's approach to nuclear safety
+
+See the [full bibliography](/overview/bibliography/) for comprehensive references.

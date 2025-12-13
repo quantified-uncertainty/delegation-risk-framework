@@ -51,6 +51,37 @@ Trust(P→E via C) = Trust(P→C) × Trust(C→E) × discount^depth = 0.8 × 0.7
 
 Interpretation: Each hop adds overhead/uncertainty beyond the multiplication.
 
+### Comparing the Rules
+
+The choice of propagation rule significantly affects trust calculations. Here's the same network under different rules:
+
+```mermaid
+flowchart LR
+    subgraph Example["P trusts C (0.8), C trusts E (0.7)"]
+        direction TB
+        P1((P)) -->|0.8| C1((C)) -->|0.7| E1((E))
+    end
+
+    subgraph Results["P's effective trust in E"]
+        direction TB
+        R1["Multiplicative: 0.56"]
+        R2["Minimum: 0.70"]
+        R3["Harmonic: 0.75"]
+        R4["Discounted (0.9): 0.50"]
+    end
+
+    Example ~~~ Results
+```
+
+| Rule | Formula | Result | Best When |
+|------|---------|--------|-----------|
+| **Multiplicative** | 0.8 × 0.7 | **0.56** | Stages filter independently; conservative |
+| **Minimum** | min(0.8, 0.7) | **0.70** | Bottleneck matters most; optimistic |
+| **Harmonic** | 2×0.8×0.7/(0.8+0.7) | **0.75** | Balanced view; penalizes asymmetry |
+| **Discounted** | 0.8×0.7×0.9 | **0.50** | Long chains are inherently risky |
+
+**Recommendation**: Use **multiplicative** for safety-critical systems (most conservative). Use **minimum** when you trust verification at each stage. Use **discounted** when chain length itself is a concern.
+
 ## Multi-Path Trust
 
 When multiple paths exist from P to E:
@@ -205,3 +236,32 @@ Standard propagation assumes passive components. With adversarial components:
 :::caution[Sybil Resistance]
 Adversary might create many fake components to gain trust. Mitigate by: trust only accumulates slowly (rate limiting), new components start with minimal trust, and trust transfer requires stake/collateral.
 :::
+
+---
+
+:::note[Related: Trust and Reputation Systems]
+Trust propagation in AI systems builds on decades of research in [reputation systems](https://en.wikipedia.org/wiki/Reputation_system) (eBay, Airbnb), [web of trust](https://en.wikipedia.org/wiki/Web_of_trust) (PGP), and [recommender systems](https://en.wikipedia.org/wiki/Recommender_system). Key lessons: reputation is contextual (good in one domain ≠ good in another), gaming is inevitable (Goodhart's law), and cold-start is hard. [EigenTrust](https://en.wikipedia.org/wiki/EigenTrust) pioneered PageRank-style trust in P2P networks.
+:::
+
+---
+
+## Further Reading
+
+### Network Science
+- [PageRank](https://en.wikipedia.org/wiki/PageRank) — The original link-based trust algorithm
+- [Centrality Measures](https://en.wikipedia.org/wiki/Centrality) — Different ways to measure node importance
+- Kleinberg, J. (1999). *Authoritative Sources in a Hyperlinked Environment*. JACM. — HITS algorithm
+
+### Trust & Reputation
+- [EigenTrust](https://en.wikipedia.org/wiki/EigenTrust) — Distributed trust computation
+- [Sybil Attack](https://en.wikipedia.org/wiki/Sybil_attack) — When adversaries create fake identities
+- Resnick, P., et al. (2000). *Reputation Systems*. Communications of the ACM.
+
+### Formal Methods
+- [Dempster-Shafer Theory](https://en.wikipedia.org/wiki/Dempster%E2%80%93Shafer_theory) — Evidence combination under uncertainty
+- [Markov Chains](https://en.wikipedia.org/wiki/Markov_chain) — Mathematical foundation for PageRank-style propagation
+
+### Interactive Tool
+- [Trust Propagation Calculator](/implementation/trust-propagation/) — Compute effective trust through your network
+
+See the [full bibliography](/overview/bibliography/) for comprehensive references.

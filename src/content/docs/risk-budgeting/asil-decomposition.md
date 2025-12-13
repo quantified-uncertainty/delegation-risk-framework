@@ -87,11 +87,11 @@ An AI function requiring ASIL D equivalent safety can be decomposed:
 ```mermaid
 flowchart TD
     subgraph Requirement["Safety Requirement: ASIL D"]
-        Req[Critical AI Decision<br/>P(fail) < 10⁻⁸]
+        Req["Critical AI Decision<br/>P(fail) &lt; 10⁻⁸"]
     end
     subgraph Implementation["Decomposed Implementation"]
-        ML[ML Component<br/>ASIL B equivalent]
-        Rule[Rule-Based Check<br/>ASIL B equivalent]
+        ML["ML Component<br/>ASIL B equivalent"]
+        Rule["Rule-Based Check<br/>ASIL B equivalent"]
     end
     Req --> ML
     Req --> Rule

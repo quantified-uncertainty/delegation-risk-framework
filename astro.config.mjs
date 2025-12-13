@@ -9,6 +9,9 @@ export default defineConfig({
 		mermaid(),
 		starlight({
 			title: 'AI Safety Framework',
+			components: {
+				Footer: './src/components/Footer.astro',
+			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/ozziegooen/trust-website' },
 			],
@@ -48,6 +51,11 @@ export default defineConfig({
 					label: 'Implementation',
 					collapsed: true,
 					autogenerate: { directory: 'implementation' },
+				},
+				{
+					label: 'Applications',
+					collapsed: true,
+					autogenerate: { directory: 'applications' },
 				},
 				{
 					label: 'Background Research',

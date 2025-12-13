@@ -27,6 +27,44 @@ This Euler decomposition guarantees that allocated risks "add up" exactly to tot
 
 The practical implementation uses Component VaR (CoVaR) for Value at Risk or Expected Shortfall contributions. Component VaR for position i equals **CoVaR_i = x_i · β_i · VaR**, where β_i is the position's beta to the portfolio. The crucial property: **Σᵢ CoVaR_i = Total VaR** exactly, accounting for diversification benefits. Banks cascade these budgets from board-level risk appetite through business units to trading desks, with each level receiving explicit risk limits derived from the aggregate. The Financial Stability Board's 2013 Risk Appetite Framework established this as regulatory standard, requiring quantitative risk tolerances that flow hierarchically through organizations.
 
+### Budget Cascade Example
+
+Here's how a $10M annual risk budget might flow through an AI research organization:
+
+```mermaid
+flowchart TB
+    BOARD["🏛️ Board Level<br/>Total Risk Budget: $10M/year<br/>(System-wide harm tolerance)"]
+
+    BOARD --> DIV1["Research Division<br/>$4M (40%)"]
+    BOARD --> DIV2["Engineering Division<br/>$4M (40%)"]
+    BOARD --> DIV3["Operations Division<br/>$2M (20%)"]
+
+    DIV1 --> T1["Hypothesis Generation<br/>$1.5M"]
+    DIV1 --> T2["Literature Analysis<br/>$1.5M"]
+    DIV1 --> T3["Experiment Planning<br/>$1M"]
+
+    DIV2 --> T4["Code Generation<br/>$2M"]
+    DIV2 --> T5["Code Review<br/>$1M"]
+    DIV2 --> T6["Deployment<br/>$1M"]
+
+    T4 --> C1["Coordinator<br/>$500K"]
+    T4 --> C2["Generator<br/>$800K"]
+    T4 --> C3["Verifier<br/>$400K"]
+    T4 --> C4["Human Gate<br/>$300K"]
+
+    style BOARD fill:#e1f5fe
+    style C1 fill:#fff3e0
+    style C2 fill:#fff3e0
+    style C3 fill:#fff3e0
+    style C4 fill:#fff3e0
+```
+
+**Key properties of this cascade**:
+- **Full allocation**: $500K + $800K + $400K + $300K = $2M (Code Generation budget)
+- **Marginal contribution**: Generator gets more budget because it has higher impact potential
+- **Diversification**: Independent components can use their full budgets simultaneously
+- **Accountability**: Each level is responsible for staying within its allocation
+
 ## Application to AI Safety
 
 This approach directly transfers to AI safety: if system-level harm probability is the risk measure, and subsystem contributions can be computed via marginal impacts, Euler allocation provides mathematically principled decomposition. The challenge lies in defining appropriate homogeneous risk measures for AI systems—current approaches like Anthropic's AI Safety Levels provide tiers but lack the continuous differentiability Euler allocation requires.

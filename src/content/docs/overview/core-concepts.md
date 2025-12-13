@@ -6,11 +6,51 @@ title: "Core Concepts"
 
 This page introduces the key ideas without mathematical formalism. For the quantitative details, see [Trust Calculus](/trust-calculus/overview/).
 
+## Framework Overview
+
+How all the pieces fit together:
+
+```mermaid
+flowchart TB
+    subgraph Foundation["Foundation: What We're Managing"]
+        TRUST["Trust as Resource<br/>ETE = Σ P(harm) × Damage"]
+    end
+
+    subgraph Principles["Principles: How We Constrain"]
+        LEASTX["Least X Principles<br/>Intelligence, Privilege, Context..."]
+        COORD["Coordinator Constraints<br/>Decomposed, stateless, verified"]
+    end
+
+    subgraph Architecture["Architecture: How We Build"]
+        DECOMP["Decomposed Components<br/>Narrow, specialized, isolated"]
+        SAFETY["Safety Mechanisms<br/>Tripwires, circuit breakers, gates"]
+        VERIFY["Verification Layers<br/>Multi-method, diverse, redundant"]
+    end
+
+    subgraph Operations["Operations: How We Run"]
+        BUDGET["Risk Budgeting<br/>Allocate, monitor, enforce"]
+        MONITOR["Continuous Monitoring<br/>Behavioral fingerprints, anomalies"]
+    end
+
+    TRUST --> LEASTX
+    TRUST --> COORD
+    LEASTX --> DECOMP
+    COORD --> DECOMP
+    DECOMP --> SAFETY
+    DECOMP --> VERIFY
+    SAFETY --> BUDGET
+    VERIFY --> BUDGET
+    BUDGET --> MONITOR
+    MONITOR -.->|feedback| BUDGET
+```
+
+**Reading the diagram**: Trust is the resource we're managing. Principles constrain how we use it. Architecture implements those constraints. Operations ensure they hold over time.
+
 ## Trust as a Resource
 
 When you delegate a task to an AI system, you're extending **trust**. Trust isn't abstract—it's the potential for harm if the system fails or misbehaves.
 
-**Expected Trust Exposure (ETE)** is a way to quantify this: for each component, sum over all possible bad outcomes, weighted by their probability. A component with access to your bank account has higher ETE than one that can only read public web pages.
+**[Expected Trust Exposure (ETE)](/overview/glossary/#core-framework-terms)** is a way to quantify this: for each component, sum over all possible bad outcomes, weighted by their probability. A component with access to your bank account has higher ETE than one that can only read public web pages.
 
 :::tip
 Trust is finite and should be budgeted. Just as organizations allocate compute and money, they should allocate trust—tracking how much they're extending, to which components, for what purposes.
@@ -26,32 +66,58 @@ A single powerful AI agent is dangerous because it concentrates capability, cont
 - No single component can cause catastrophic harm
 - Components can't easily coordinate against the system
 
-Think of it like separation of powers in government, or microservices in software architecture. The coordinator itself is decomposed—strategy, tactics, verification, and aggregation handled by different components with different implementations.
+Think of it like [separation of powers](https://en.wikipedia.org/wiki/Separation_of_powers) in government, or [microservices](https://en.wikipedia.org/wiki/Microservices) in software architecture. The coordinator itself is decomposed—strategy, tactics, verification, and aggregation handled by different components with different implementations.
+
+### Before and After: Monolithic vs Decomposed
 
 ```mermaid
 flowchart TB
-    subgraph Monolithic["❌ Monolithic Agent"]
-        M[Single Powerful AI]
+    subgraph Before["❌ BEFORE: Monolithic Agent"]
+        direction TB
+        M["GPT-4 Agent<br/>────────────<br/>• Full context access<br/>• All capabilities<br/>• Unbounded autonomy<br/>• Single point of failure"]
+        M --> OUT1[Any Output]
     end
-    subgraph Decomposed["✅ Decomposed"]
-        S[Strategy] --> T1[Task 1]
-        S --> T2[Task 2]
-        T1 --> V[Verifier]
-        T2 --> V
+
+    subgraph After["✅ AFTER: Decomposed System"]
+        direction TB
+        subgraph Coord["Coordination (Code)"]
+            R[Router]
+        end
+        subgraph Workers["Narrow Components"]
+            W1["Searcher<br/>Read-only"]
+            W2["Summarizer<br/>Text only"]
+            W3["Analyzer<br/>No actions"]
+        end
+        subgraph Safety["Safety Layer"]
+            V[Verifier]
+            G[Human Gate]
+        end
+        R --> W1 & W2 & W3
+        W1 & W2 & W3 --> V
+        V --> G
+        G --> OUT2[Verified Output]
     end
 ```
 
+| Aspect | Monolithic | Decomposed |
+|--------|------------|------------|
+| **Single point of failure** | Yes—one bad output, system fails | No—failure isolated to component |
+| **Attack surface** | Entire model capability | Only exposed component interfaces |
+| **Verification** | Must verify everything the model can do | Verify narrow, specific behaviors |
+| **Blast radius** | Unlimited—model can do anything | Bounded—each component has limits |
+| **Coordination risk** | Model coordinates with itself | Components can't easily collude |
+
 ## The "Least X" Principles
 
-Security engineering has the principle of least privilege: give each component minimum necessary access. We extend this across multiple dimensions:
+Security engineering has the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege): give each component minimum necessary access. We extend this across multiple dimensions (see [full definitions](/overview/glossary/#least-x-principles)):
 
-- **Least Intelligence**: Minimum cognitive capability needed
-- **Least Privilege**: Minimum permissions and access rights
-- **Least Context**: Minimum information about the broader system
-- **Least Persistence**: Minimum state maintained across invocations
-- **Least Autonomy**: Minimum ability to act without oversight
-- **Least Connectivity**: Minimum communication paths between components
-- **Least Compute**: Bounded computational resources
+- **[Least Intelligence](/overview/glossary/#least-x-principles)**: Minimum cognitive capability needed
+- **[Least Privilege](/overview/glossary/#least-x-principles)**: Minimum permissions and access rights
+- **[Least Context](/overview/glossary/#least-x-principles)**: Minimum information about the broader system
+- **[Least Persistence](/overview/glossary/#least-x-principles)**: Minimum state maintained across invocations
+- **[Least Autonomy](/overview/glossary/#least-x-principles)**: Minimum ability to act without oversight
+- **[Least Connectivity](/overview/glossary/#least-x-principles)**: Minimum communication paths between components
+- **[Least Compute](/overview/glossary/#least-x-principles)**: Bounded computational resources
 
 Each principle bounds a different attack surface. Applied together, they create components that are limited in what they can do, know, remember, and coordinate.
 
@@ -116,7 +182,7 @@ graph TB
 
 ## Trust Propagation
 
-When components delegate to other components, trust relationships form networks. If A trusts B with weight 0.8, and B trusts C with weight 0.7, how much should A trust C?
+When components delegate to other components, [trust relationships](/overview/glossary/#core-framework-terms) form networks. If A trusts B with weight 0.8, and B trusts C with weight 0.7, how much should A trust C?
 
 Different rules give different answers:
 - **Multiplicative**: 0.8 × 0.7 = 0.56 (each stage is independent risk)
@@ -146,14 +212,18 @@ Most systems should start with **multiplicative** propagation—it's intuitive, 
 
 </details>
 
+:::note[Related: Social Choice Theory]
+Trust aggregation across multiple components relates to [social choice theory](https://en.wikipedia.org/wiki/Social_choice_theory)—how to combine individual inputs into collective outcomes. [Arrow's impossibility theorem](https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem) has implications for trust aggregation: no perfect rule exists.
+:::
+
 ## Risk Budgeting
 
-Borrowed from finance and nuclear safety: set a total acceptable risk level for the system, then allocate budgets to components.
+Borrowed from finance and nuclear safety: set a total acceptable risk level for the system, then allocate [trust budgets](/overview/glossary/#core-framework-terms) to components.
 
 Key requirements:
 - **Compositional guarantees**: Component risks must aggregate predictably
-- **Principled allocation**: Methods like Euler decomposition ensure budgets sum correctly
-- **Incentive-compatible reporting**: Mechanisms that make honest risk reporting optimal
+- **Principled allocation**: Methods like [Euler allocation](/overview/glossary/#risk-budgeting-terms-finance) ensure budgets sum correctly
+- **[Incentive-compatible](/overview/glossary/#mechanism-design-terms) reporting**: Mechanisms that make honest risk reporting optimal
 - **Verification infrastructure**: Independent confirmation that claimed levels match reality
 - **Conservative margins**: Buffer for uncertainty and unknown unknowns
 
@@ -195,3 +265,23 @@ These structural constraints provide defense in depth. They don't replace alignm
 5. **Cross-domain wisdom**: Adapted methods from finance, nuclear safety, security engineering
 
 The goal is infrastructure for safely deploying AI at scale—not a complete solution to AI safety, but a foundation for managing risk as systems become more capable.
+
+---
+
+## Key Takeaways
+
+:::note[Key Takeaways]
+1. **ETE quantifies trust**: Expected Trust Exposure = Σ P(outcome) × Damage(outcome)
+2. **Decompose, don't centralize**: Many limited components are safer than one powerful agent
+3. **Apply "Least X" principles**: Minimize intelligence, privilege, context, persistence, autonomy, connectivity
+4. **Use the most verifiable implementation**: Code > narrow models > general LLMs > RL
+5. **Propagate trust conservatively**: Multiplicative rule is safest default
+6. **Budget risk like finance/nuclear**: Allocate, verify, and enforce trust limits
+:::
+
+## See Also
+
+- [Introduction](/overview/introduction/) — The full problem statement and approach
+- [Least X Principles](/principles/least-x-principles/) — Deep dive into each principle
+- [Trust Calculus Overview](/trust-calculus/overview/) — The math behind ETE
+- [Quick Start](/implementation/quick-start/) — Apply these concepts step-by-step

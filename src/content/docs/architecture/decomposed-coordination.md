@@ -4,7 +4,11 @@ title: "Honest Agency Through Decomposed Coordination"
 
 # Honest Agency Through Decomposed Coordination
 
-Here's where we part ways with pure tool AI approaches: **you need agency to accomplish real-world tasks**. Gwern was right about tool→agent pressure—users don't want advice, they want results.
+:::note[TL;DR]
+Coordination should be an **architecture, not a component**. Break it into: task decomposition, priority ranking, resource allocation, routing, aggregation, exception handling, and progress monitoring—each with appropriate verifiability. Use **older/weaker models for strategy** (less capable = less risky), frontier models only for narrow tactical execution with heavy monitoring.
+:::
+
+Here's where we part ways with pure tool AI approaches: **you need agency to accomplish real-world tasks**. [Gwern was right about tool→agent pressure](https://gwern.net/tool-ai)—users don't want advice, they want results.
 
 But agency without scheming is tractable. The key insight: you can have **agentic coordination** making high-level decisions, but coordination itself should be decomposed, limited, and verified.
 
@@ -236,3 +240,38 @@ If a coordinator tries to scheme:
 :::note[Empirical Validation Needed]
 This needs empirical validation, but the logic is sound: **strategic deception requires persistent context and coordination**. Architectural decomposition breaks both.
 :::
+
+---
+
+:::note[Related: Microservices Architecture]
+Decomposed coordination parallels [microservices architecture](https://en.wikipedia.org/wiki/Microservices) in software engineering—breaking monolithic applications into independently deployable services. Key shared principles: single responsibility, bounded contexts, and failure isolation. The difference: we're decomposing *intelligence and agency*, not just functionality. See [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) for related patterns.
+:::
+
+---
+
+## Further Reading
+
+### Distributed Systems
+- [Microservices](https://martinfowler.com/articles/microservices.html) — Martin Fowler's canonical article
+- [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture) — Predecessor patterns
+- [Choreography vs Orchestration](https://en.wikipedia.org/wiki/Service_choreography) — Decentralized vs centralized coordination
+
+### AI Safety
+- Gwern. [*Why Tool AIs Want to Be Agent AIs*](https://gwern.net/tool-ai) — The pressure toward agency
+- Drexler, K.E. (2019). [*Comprehensive AI Services*](https://www.fhi.ox.ac.uk/reframing/) — Narrow services approach
+
+### Organizational Theory
+- [Separation of Powers](https://en.wikipedia.org/wiki/Separation_of_powers) — Constitutional design preventing concentration of authority
+- [Checks and Balances](https://en.wikipedia.org/wiki/Separation_of_powers#Checks_and_balances) — Mechanisms for mutual constraint
+
+See the [full bibliography](/overview/bibliography/) for comprehensive references.
+
+---
+
+## See Also
+
+- [Coordinator Constraints](/principles/coordinator-constraints/) — Specific principles for limiting coordinator power
+- [Safety Mechanisms](/architecture/safety-mechanisms/) — System-level defenses (circuit breakers, redundancy)
+- [Research Assistant Example](/architecture/research-assistant-example/) — Full worked example of decomposed coordination
+- [Code Deployment Example](/architecture/code-deployment-example/) — Higher-stakes example with different constraints
+- [Anti-patterns](/overview/anti-patterns/) — Common mistakes including "God Coordinator"

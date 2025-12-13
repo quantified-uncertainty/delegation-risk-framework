@@ -4,6 +4,10 @@ title: "Additional Safety Mechanisms"
 
 # Additional Safety Mechanisms
 
+:::note[TL;DR]
+System-level safety mechanisms beyond component constraints: **tripwires and circuit breakers** (automatic shutdown), **continuous validation** (every output checked), **behavioral fingerprinting** (detect drift), **N-version programming** (multiple implementations must agree), **Byzantine fault tolerance** (safe even if some components are adversarial). Key insight: no single defense is sufficient—layer them.
+:::
+
 The "Least X" principles define component-level constraints. But we need system-level mechanisms that operate continuously:
 
 ## Monitoring and Detection
@@ -288,7 +292,7 @@ Limit both information rate AND fidelity:
 
 ## Diversity and Redundancy
 
-### N-Version Programming for Critical Components
+### [N-Version Programming](https://en.wikipedia.org/wiki/N-version_programming) for Critical Components
 
 ```mermaid
 flowchart TB
@@ -324,11 +328,11 @@ Multiple independent implementations of the same functionality:
 - Different implementations = different attack surfaces
 - If one is compromised, others catch it
 
-### Byzantine Fault Tolerance for Coordinators
+### [Byzantine Fault Tolerance](https://en.wikipedia.org/wiki/Byzantine_fault) for Coordinators
 
 Assume some coordinators might be adversarial:
 
-- **3f+1 rule**: Need at least 3f+1 components to tolerate f Byzantine (malicious) failures
+- **3f+1 rule**: Need at least 3f+1 components to tolerate f [Byzantine](https://en.wikipedia.org/wiki/Byzantine_fault) (malicious) failures
 - **Example**: 5 strategy coordinators, need 4/5 agreement
   - Tolerates 1 malicious coordinator
   - Honest majority still prevails
@@ -338,6 +342,43 @@ Assume some coordinators might be adversarial:
 :::tip[Quantifiable Safety]
 Even if some components scheme, honest majority wins. Provides quantifiable safety: "safe unless >1/3 of coordinators compromised"—more realistic than "we hope nothing schemes."
 :::
+
+### How Defenses Stop a Scheming Coordinator
+
+This sequence shows how layered defenses block a coordinator attempting to cause harm:
+
+```mermaid
+sequenceDiagram
+    participant SC as Scheming Coordinator
+    participant V as Verifier
+    participant RC as Redundant Coordinators
+    participant CB as Circuit Breaker
+    participant H as Human
+
+    Note over SC: Attempt 1: Direct harmful action
+    SC->>V: Request: "Deploy to production"
+    V-->>SC: ❌ BLOCKED (no test results)
+
+    Note over SC: Attempt 2: Bypass verification
+    SC->>V: Request: "Skip tests, urgent"
+    V-->>SC: ❌ BLOCKED (invariant: tests required)
+
+    Note over SC: Attempt 3: Rapid iteration
+    SC->>V: Request 1, Request 2, Request 3...
+    CB-->>SC: ❌ BLOCKED (rate limit exceeded)
+    CB->>H: Alert: Anomalous request pattern
+
+    Note over SC: Attempt 4: Subtle manipulation
+    SC->>RC: Propose: "Slightly biased strategy"
+    RC->>RC: Vote: 1 yes, 4 no
+    RC-->>SC: ❌ BLOCKED (consensus failed)
+
+    Note over SC: Attempt 5: Long-term planning
+    SC->>SC: "I'll accumulate context..."
+    Note over SC: ❌ BLOCKED (episodic operation, no memory)
+```
+
+**Key insight**: No single defense is sufficient, but together they create multiple independent barriers. The scheming coordinator must defeat *all* layers simultaneously—a much harder problem.
 
 **Example**: Research strategy selection:
 
@@ -396,3 +437,43 @@ For critical coordination logic:
 - Fine-tuned model: Trained specifically on task decomposition
 - If all three agree → proceed
 - If disagree → indicates ambiguous case, human review
+
+---
+
+:::note[Related: Fault-Tolerant Computing]
+These safety mechanisms draw from decades of research in [fault-tolerant computing](https://en.wikipedia.org/wiki/Fault_tolerance). The [Tandem NonStop](https://en.wikipedia.org/wiki/NonStop_(server_computers)) systems (1976) pioneered many patterns used here. [High-availability clusters](https://en.wikipedia.org/wiki/High-availability_cluster) implement similar redundancy and failover strategies. The key insight: systems can remain safe even when individual components fail, if designed with appropriate redundancy and isolation.
+:::
+
+---
+
+## Further Reading
+
+### Fault Tolerance & Reliability
+- [Fault-Tolerant System](https://en.wikipedia.org/wiki/Fault-tolerant_system) — Wikipedia overview
+- [Graceful Degradation](https://en.wikipedia.org/wiki/Graceful_degradation) — Maintaining function under failure
+- Avizienis, A., et al. (2004). *Basic Concepts and Taxonomy of Dependable and Secure Computing*. IEEE TDSC.
+
+### Distributed Systems
+- Lamport, L., et al. (1982). *The Byzantine Generals Problem*. ACM TOPLAS.
+- [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem) — Fundamental tradeoffs in distributed systems
+- [Consensus Algorithms](https://en.wikipedia.org/wiki/Consensus_(computer_science)) — Agreement despite failures
+
+### Site Reliability Engineering
+- [Google SRE Book](https://sre.google/sre-book/table-of-contents/) — Free online, covers error budgets and monitoring
+- [Chaos Engineering](https://en.wikipedia.org/wiki/Chaos_engineering) — Testing resilience through controlled failures
+
+### Safety Engineering
+- [IEC 61508](https://en.wikipedia.org/wiki/IEC_61508) — Functional safety standard
+- Leveson, N. (2011). *Engineering a Safer World*. MIT Press.
+
+See the [full bibliography](/overview/bibliography/) for comprehensive references.
+
+---
+
+## See Also
+
+- [Decomposed Coordination](/architecture/decomposed-coordination/) — Architectural patterns these mechanisms protect
+- [Coordinator Constraints](/principles/coordinator-constraints/) — Principles that inform mechanism design
+- [Lessons from Failures](/risk-budgeting/lessons-from-failures/) — Why these mechanisms matter
+- [Code Deployment Example](/architecture/code-deployment-example/) — Mechanisms applied to real system
+- [Trust Accounting](/trust-calculus/trust-accounting/) — Monitoring and auditing trust

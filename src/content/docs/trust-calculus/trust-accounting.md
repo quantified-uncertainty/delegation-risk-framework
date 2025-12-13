@@ -120,6 +120,64 @@ flowchart LR
 - Alert status for trust violations
 - Verification schedule and status
 
+### Dashboard Mockup
+
+What a trust monitoring dashboard might look like:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  TRUST DASHBOARD                                    Last updated: 2 min ago │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────┐  ┌─────────────────────┐  ┌─────────────────────┐ │
+│  │ SYSTEM ETE          │  │ VERIFICATION        │  │ INCIDENTS           │ │
+│  │                     │  │                     │  │                     │ │
+│  │   $4,230/month     │  │      94.2%          │  │        0            │ │
+│  │   ██████████░░ 85% │  │   ████████████░░    │  │   this quarter      │ │
+│  │   of $5,000 budget │  │   coverage          │  │   ✓ target met      │ │
+│  └─────────────────────┘  └─────────────────────┘  └─────────────────────┘ │
+│                                                                             │
+│  COMPONENT ETE BREAKDOWN                      TRUST TOPOLOGY               │
+│  ┌─────────────────────────────────────┐     ┌─────────────────────────┐   │
+│  │ Coordinator      ████████░░  $1,200 │     │      [Human]            │   │
+│  │ Code Generator   ██████████  $1,500 │     │         │ 0.95          │   │
+│  │ Code Reviewer    ██████░░░░    $800 │     │    [Coordinator]        │   │
+│  │ Test Runner      ███░░░░░░░    $400 │     │      /    \             │   │
+│  │ Deployer         █░░░░░░░░░    $180 │     │   0.8      0.7          │   │
+│  │ Other            ██░░░░░░░░    $150 │     │  [Gen]    [Review]      │   │
+│  └─────────────────────────────────────┘     └─────────────────────────┘   │
+│                                                                             │
+│  ALERTS                                       VERIFICATION STATUS          │
+│  ┌─────────────────────────────────────┐     ┌─────────────────────────┐   │
+│  │ ⚠ Code Generator ETE +15% (24h)    │     │ ✓ Coordinator    3d ago │   │
+│  │ ℹ Scheduled verify: Reviewer (2h)  │     │ ✓ Generator      1d ago │   │
+│  │                                     │     │ ⏳ Reviewer      due 2h  │   │
+│  │                                     │     │ ✓ Test Runner   5d ago │   │
+│  └─────────────────────────────────────┘     └─────────────────────────┘   │
+│                                                                             │
+│  ETE TREND (30 days)                                                        │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ $5k ┤                                           budget line         │   │
+│  │     │ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    │   │
+│  │ $4k ┤        ╭─╮    ╭───╮                                          │   │
+│  │     │   ╭───╯  ╰───╯     ╰──────────────────╮                      │   │
+│  │ $3k ┤──╯                                     ╰────────────         │   │
+│  │     │                                                              │   │
+│  │ $2k ┤                                                              │   │
+│  │     └──────────────────────────────────────────────────────────    │   │
+│  │       Day 1      Day 10      Day 20      Day 30                    │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Key dashboard features**:
+- **Top row**: Critical KPIs at a glance (ETE vs budget, verification coverage, incidents)
+- **Component breakdown**: Which components contribute most to system risk
+- **Trust topology**: Visual representation of delegation chains with trust weights
+- **Alerts**: Proactive warnings about budget trends and due verifications
+- **Trend chart**: Historical ETE to spot drift before it becomes a problem
+
 ## Trust Forensics
 
 After a trust violation, determine:

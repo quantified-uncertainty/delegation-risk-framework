@@ -118,3 +118,38 @@ If you're new, start with:
 2. [Decomposed Coordination](/architecture/decomposed-coordination/) — how to structure agentic systems safely
 3. [Trust Calculus Overview](/trust-calculus/overview/) — when you're ready for the math
 :::
+
+---
+
+## Key Takeaways
+
+:::note[Key Takeaways]
+1. **Trust is quantifiable**: Expected Trust Exposure (ETE) = Σ P(harm) × Damage
+2. **Safety can be structural**: Architectural constraints can bound harm even without perfect alignment
+3. **Decomposition limits risk**: No single component should have enough power to cause catastrophe
+4. **Cross-domain methods work**: Nuclear, finance, and security engineering have solved similar problems
+5. **This complements alignment**: Defense in depth while we work on deeper solutions
+:::
+
+## Further Reading
+
+### Key Background Papers
+- Gwern. [*Why Tool AIs Want to Be Agent AIs*](https://gwern.net/tool-ai) — Economic pressures toward agentic AI
+- Greenblatt, R., et al. (2024). [*AI Control*](https://arxiv.org/abs/2312.06942) — Safety despite potential scheming
+- Drexler, K.E. (2019). [*Comprehensive AI Services*](https://www.fhi.ox.ac.uk/reframing/) — Narrow services approach
+
+### Related Concepts
+- [Defense in Depth](https://en.wikipedia.org/wiki/Defense_in_depth_(computing)) — Multiple independent safety barriers
+- [Separation of Powers](https://en.wikipedia.org/wiki/Separation_of_powers) — Distributing authority to prevent concentration
+- [Safety Integrity Levels](https://en.wikipedia.org/wiki/Safety_integrity_level) — Quantified reliability requirements
+
+See the [full bibliography](/overview/bibliography/) for comprehensive references.
+
+---
+
+## See Also
+
+- [Core Concepts](/overview/core-concepts/) — Key ideas without mathematical formalism
+- [Quick Start](/implementation/quick-start/) — Step-by-step application checklist
+- [Glossary](/overview/glossary/) — Terminology reference
+- [Site Map](/overview/site-map/) — Navigate the documentation

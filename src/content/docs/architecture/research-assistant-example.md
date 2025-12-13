@@ -4,6 +4,10 @@ title: "Concrete Example: Research Assistant"
 
 # Concrete Example: Research Assistant
 
+:::note[TL;DR]
+A research assistant decomposed into 6 narrow components (Search, Summarization, Gap Analysis, Hypothesis Generation, Forecasting, Red Team) coordinated by separate Strategy and Tactical modules. Key insight: **use fine-tuned 7B models for most components**, reserve frontier models only for hypothesis generation. Total system ETE: ~$1,770/month. Includes Python code examples.
+:::
+
 :::note
 This is a worked example applying the full framework. It demonstrates how decomposition, principles, and safety mechanisms work together in practice.
 :::
@@ -315,3 +319,341 @@ Creative components (hypothesis generation) use frontier models but have:
 :::tip[Defense in Depth]
 This is defense in depth: If LLM components misbehave → bounded by low privilege, caught by verification. If verified components have bugs → much smaller surface area to audit. If coordination tries to scheme → decomposition + old models + verification catches it. If system as a whole drifts → forecasting should detect.
 :::
+
+---
+
+## Code Examples
+
+Here's what key components might look like in Python:
+
+### Component Interface
+
+```python
+from dataclasses import dataclass
+from typing import List, Optional
+from enum import Enum
+
+class ComponentType(Enum):
+    SEARCH = "search"
+    SUMMARIZER = "summarizer"
+    HYPOTHESIS = "hypothesis"
+    FORECASTER = "forecaster"
+    RED_TEAM = "red_team"
+
+@dataclass
+class TrustBudget:
+    max_compute_seconds: float
+    max_memory_mb: int
+    max_output_tokens: int
+    allowed_actions: List[str]
+
+@dataclass
+class ComponentResult:
+    output: dict
+    compute_used: float
+    memory_used: int
+    success: bool
+    error: Optional[str] = None
+
+class NarrowComponent:
+    """Base class for all narrow components."""
+
+    def __init__(self, component_type: ComponentType, budget: TrustBudget):
+        self.component_type = component_type
+        self.budget = budget
+        self._start_time = None
+
+    def validate_input(self, input_data: dict) -> bool:
+        """Check input matches expected schema."""
+        raise NotImplementedError
+
+    def validate_output(self, output: dict) -> bool:
+        """Check output matches expected schema."""
+        raise NotImplementedError
+
+    def execute(self, input_data: dict) -> ComponentResult:
+        """Execute with budget enforcement."""
+        if not self.validate_input(input_data):
+            return ComponentResult(
+                output={}, compute_used=0, memory_used=0,
+                success=False, error="Invalid input"
+            )
+
+        # Execute with timeout and resource limits
+        result = self._execute_with_limits(input_data)
+
+        if not self.validate_output(result.output):
+            return ComponentResult(
+                output={}, compute_used=result.compute_used,
+                memory_used=result.memory_used,
+                success=False, error="Invalid output"
+            )
+
+        return result
+```
+
+### Summarizer Component
+
+```python
+@dataclass
+class PaperSummary:
+    paper_id: str
+    key_claims: List[str]
+    methodology: str
+    findings: str
+    limitations: List[str]
+    confidence: float  # 0-1
+
+class SummarizerComponent(NarrowComponent):
+    """Summarizes research papers. Read-only, no external actions."""
+
+    ALLOWED_ACTIONS = ["read_paper", "output_summary"]
+
+    def __init__(self, model_path: str):
+        super().__init__(
+            ComponentType.SUMMARIZER,
+            TrustBudget(
+                max_compute_seconds=5.0,
+                max_memory_mb=512,
+                max_output_tokens=1000,
+                allowed_actions=self.ALLOWED_ACTIONS
+            )
+        )
+        # Load fine-tuned 7B model for summarization
+        self.model = load_finetuned_model(model_path)
+
+    def validate_input(self, input_data: dict) -> bool:
+        return (
+            "paper_text" in input_data
+            and len(input_data["paper_text"]) < 50000
+            and isinstance(input_data["paper_text"], str)
+        )
+
+    def validate_output(self, output: dict) -> bool:
+        # Strict schema validation
+        required = ["paper_id", "key_claims", "methodology", "findings"]
+        if not all(k in output for k in required):
+            return False
+        if not 0 <= output.get("confidence", 0) <= 1:
+            return False
+        if len(output.get("key_claims", [])) > 10:
+            return False  # Sanity limit
+        return True
+
+    def _execute_with_limits(self, input_data: dict) -> ComponentResult:
+        # Temperature=0 for determinism (Least Surprise)
+        summary = self.model.generate(
+            input_data["paper_text"],
+            max_tokens=self.budget.max_output_tokens,
+            temperature=0
+        )
+        return ComponentResult(
+            output=summary,
+            compute_used=measure_compute(),
+            memory_used=measure_memory(),
+            success=True
+        )
+```
+
+### Verification Layer
+
+```python
+class VerificationResult(Enum):
+    APPROVED = "approved"
+    REJECTED = "rejected"
+    NEEDS_REVIEW = "needs_review"
+
+class VerificationLayer:
+    """Multi-method verification for high-stakes outputs."""
+
+    def __init__(self):
+        self.code_checker = RuleBasedChecker()
+        self.llm_checker = load_verification_llm()  # Small, fine-tuned
+        self.anomaly_detector = AnomalyDetector()
+
+    def verify(self, component_type: ComponentType,
+               output: dict) -> VerificationResult:
+        """All checks must pass."""
+
+        # Layer 1: Rule-based (code)
+        if not self.code_checker.check(component_type, output):
+            log_rejection("code_checker", output)
+            return VerificationResult.REJECTED
+
+        # Layer 2: LLM-based (fine-tuned small model)
+        llm_result = self.llm_checker.evaluate(output)
+        if llm_result.risk_score > 0.7:
+            log_rejection("llm_checker", output, llm_result)
+            return VerificationResult.NEEDS_REVIEW
+
+        # Layer 3: Anomaly detection (statistical)
+        if self.anomaly_detector.is_anomalous(component_type, output):
+            log_anomaly(component_type, output)
+            return VerificationResult.NEEDS_REVIEW
+
+        return VerificationResult.APPROVED
+
+class RuleBasedChecker:
+    """Deterministic safety rules. Formally verifiable."""
+
+    FORBIDDEN_PATTERNS = [
+        r"(synthesize|create|manufacture)\s+(virus|pathogen|weapon)",
+        r"(hack|exploit|attack)\s+",
+        # ... more patterns
+    ]
+
+    def check(self, component_type: ComponentType, output: dict) -> bool:
+        output_text = json.dumps(output)
+
+        # Check forbidden patterns
+        for pattern in self.FORBIDDEN_PATTERNS:
+            if re.search(pattern, output_text, re.IGNORECASE):
+                return False
+
+        # Component-specific rules
+        if component_type == ComponentType.HYPOTHESIS:
+            return self._check_hypothesis_rules(output)
+        elif component_type == ComponentType.FORECASTER:
+            return self._check_forecaster_rules(output)
+
+        return True
+
+    def _check_forecaster_rules(self, output: dict) -> bool:
+        """Forecasts must be well-formed probabilities."""
+        probs = output.get("probabilities", {})
+
+        # All values in [0, 1]
+        if not all(0 <= p <= 1 for p in probs.values()):
+            return False
+
+        # No NaN or infinity
+        if any(math.isnan(p) or math.isinf(p) for p in probs.values()):
+            return False
+
+        return True
+```
+
+### Circuit Breaker
+
+```python
+from enum import Enum
+from datetime import datetime, timedelta
+
+class CircuitState(Enum):
+    CLOSED = "closed"      # Normal operation
+    OPEN = "open"          # Halted
+    HALF_OPEN = "half_open" # Testing
+
+class CircuitBreaker:
+    """Automatic halt on anomalies."""
+
+    def __init__(self,
+                 failure_threshold: int = 5,
+                 reset_timeout: timedelta = timedelta(minutes=5)):
+        self.state = CircuitState.CLOSED
+        self.failure_count = 0
+        self.failure_threshold = failure_threshold
+        self.reset_timeout = reset_timeout
+        self.last_failure_time = None
+
+    def record_success(self):
+        self.failure_count = 0
+        if self.state == CircuitState.HALF_OPEN:
+            self.state = CircuitState.CLOSED
+            log_event("circuit_closed", "Test passed")
+
+    def record_failure(self, reason: str):
+        self.failure_count += 1
+        self.last_failure_time = datetime.now()
+
+        if self.failure_count >= self.failure_threshold:
+            self.state = CircuitState.OPEN
+            log_event("circuit_opened", reason)
+            alert_humans(f"Circuit breaker tripped: {reason}")
+
+    def can_proceed(self) -> bool:
+        if self.state == CircuitState.CLOSED:
+            return True
+
+        if self.state == CircuitState.OPEN:
+            # Check if timeout expired
+            if datetime.now() - self.last_failure_time > self.reset_timeout:
+                self.state = CircuitState.HALF_OPEN
+                return True  # Allow test request
+            return False
+
+        # HALF_OPEN: allow limited requests for testing
+        return True
+
+    def manual_reset(self, operator_id: str):
+        """Require human intervention to reset after trip."""
+        log_event("manual_reset", f"Operator: {operator_id}")
+        self.state = CircuitState.CLOSED
+        self.failure_count = 0
+```
+
+### Coordinator with Budget Enforcement
+
+```python
+class TacticalCoordinator:
+    """Coordinates narrow components. Limited context, no memory."""
+
+    def __init__(self):
+        self.components = {}
+        self.circuit_breaker = CircuitBreaker()
+        self.invocation_budget = RateLimiter(max_per_second=10)
+        self.session_start = None
+
+    def execute_task(self, task: dict) -> dict:
+        """Execute with all safety constraints."""
+
+        # Check circuit breaker
+        if not self.circuit_breaker.can_proceed():
+            return {"error": "Circuit breaker open", "status": "halted"}
+
+        # Check rate limit
+        if not self.invocation_budget.try_acquire():
+            return {"error": "Rate limit exceeded", "status": "throttled"}
+
+        # Stateless: no access to previous tasks (Least Persistence)
+        # Limited context: only current task visible (Least Context)
+
+        try:
+            result = self._coordinate(task)
+            self.circuit_breaker.record_success()
+            return result
+        except Exception as e:
+            self.circuit_breaker.record_failure(str(e))
+            return {"error": str(e), "status": "failed"}
+
+    def _coordinate(self, task: dict) -> dict:
+        """Actual coordination logic. Uses fine-tuned model."""
+
+        # Decompose task into component invocations
+        plan = self.planner.plan(task)  # Fine-tuned coordinator model
+
+        results = {}
+        for step in plan.steps:
+            # Validate step is allowed
+            if step.component not in self.components:
+                raise ValueError(f"Unknown component: {step.component}")
+
+            # Execute with timeout
+            component = self.components[step.component]
+            result = component.execute(step.input)
+
+            if not result.success:
+                raise RuntimeError(f"Component failed: {result.error}")
+
+            results[step.name] = result.output
+
+        return {"status": "success", "results": results}
+```
+
+---
+
+## See Also
+
+- [Code Deployment Example](/architecture/code-deployment-example/) — Higher-stakes example with different constraints
+- [Safety Mechanisms](/architecture/safety-mechanisms/) — Detailed explanation of safety patterns
+- [Decomposed Coordination](/architecture/decomposed-coordination/) — Why decomposition matters

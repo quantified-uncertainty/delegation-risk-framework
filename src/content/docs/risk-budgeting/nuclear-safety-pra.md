@@ -30,6 +30,49 @@ flowchart TB
 
 The decomposition mechanism uses fault tree and event tree analysis. Fault trees propagate failure probabilities upward: AND gates multiply component probabilities (P_output = Π P_inputs), while OR gates combine them (P_output ≈ Σ P_inputs for rare events). Importance measures then identify which components contribute most to total risk. **Fussell-Vesely importance** quantifies what fraction of total risk comes from cut sets containing a component; **Risk Achievement Worth (RAW)** measures how much risk increases if that component fails (RAW > 2 triggers NRC significance thresholds). These metrics guide resource allocation—components with high RAW receive more redundancy, testing, and maintenance budget.
 
+### Example: AI System Fault Tree
+
+How might this apply to an AI deployment system? Consider the goal: "Harmful code reaches production."
+
+```mermaid
+flowchart TB
+    TOP["🎯 Harmful Code in Production<br/>Target: < 10⁻⁶/year"]
+
+    TOP --- OR1[OR]
+
+    OR1 --- PATH1["Path 1: Bypass All Checks"]
+    OR1 --- PATH2["Path 2: Compromise Coordinator"]
+    OR1 --- PATH3["Path 3: Human Error"]
+
+    PATH1 --- AND1[AND]
+    AND1 --- A1["Code Review Fails<br/>P = 10⁻²"]
+    AND1 --- A2["Static Analysis Fails<br/>P = 10⁻²"]
+    AND1 --- A3["Tests Pass Bad Code<br/>P = 10⁻²"]
+    AND1 --- A4["Human Approves<br/>P = 10⁻¹"]
+    AND1 --- R1["Path 1 Result<br/>P = 10⁻⁷"]
+
+    PATH2 --- AND2[AND]
+    AND2 --- B1["Coordinator Schemes<br/>P = 10⁻³"]
+    AND2 --- B2["Defeats Redundancy<br/>P = 10⁻²"]
+    AND2 --- B3["Evades Monitoring<br/>P = 10⁻²"]
+    AND2 --- R2["Path 2 Result<br/>P = 10⁻⁷"]
+
+    PATH3 --- AND3[AND]
+    AND3 --- C1["Human Override<br/>P = 10⁻²"]
+    AND3 --- C2["Malicious Intent<br/>P = 10⁻⁴"]
+    AND3 --- R3["Path 3 Result<br/>P = 10⁻⁶"]
+
+    R1 --- OR2[OR]
+    R2 --- OR2
+    R3 --- OR2
+    OR2 --- TOTAL["Total: ~1.2 × 10⁻⁶/year"]
+```
+
+**Reading the tree**:
+- **AND gates (×)**: All children must fail. Path 1 requires code review AND static analysis AND tests AND human all failing: 10⁻² × 10⁻² × 10⁻² × 10⁻¹ = 10⁻⁷
+- **OR gates (+)**: Any child failing causes parent. Total ≈ 10⁻⁷ + 10⁻⁷ + 10⁻⁶ ≈ 1.2 × 10⁻⁶
+- **Path 3 dominates**: Human error is the largest contributor—focus safety investment there
+
 ## Safety Integrity Levels (IEC 61508)
 
 IEC 61508's Safety Integrity Levels provide an even more explicit budget framework. Each SIL corresponds to a Probability of Failure on Demand range: **SIL 4 requires PFD between 10⁻⁵ and 10⁻⁴**, representing a Risk Reduction Factor of 10,000-100,000×. When a Safety Instrumented Function requires SIL 3, its constituent sensor, logic solver, and actuator subsystems each receive allocated PFD targets that sum to the overall requirement: **PFD_system = PFD_sensor + PFD_logic + PFD_actuator**. This additive decomposition for series reliability is the direct analog of Euler allocation for independent failure modes.
