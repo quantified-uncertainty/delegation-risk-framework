@@ -1,0 +1,34 @@
+---
+title: AI Safety Framework
+description: A structured approach to AI safety through capability containment and trust calculus.
+template: splash
+hero:
+  tagline: Structural constraints for safe AI systems
+  actions:
+    - text: Get Started
+      link: /trust-calculus/overview/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/ozziegooen/trust-website
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Core Areas
+
+<CardGrid stagger>
+  <Card title="Trust Calculus" icon="open-book">
+    Core framework: Expected Trust Exposure, trust propagation, interfaces, optimization, and dynamics.
+  </Card>
+  <Card title="Principles" icon="list-format">
+    The "Least X" family of principles and coordinator constraints for safe system design.
+  </Card>
+  <Card title="Architecture" icon="setting">
+    System design patterns: decomposed coordination, forecasting-based navigation, safety mechanisms.
+  </Card>
+  <Card title="Risk Budgeting" icon="document">
+    Cross-domain approaches: Euler allocation, nuclear safety PRA, mechanism design.
+  </Card>
+</CardGrid>
