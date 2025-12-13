@@ -8,11 +8,32 @@ Here's where we part ways with pure tool AI approaches: **you need agency to acc
 
 But agency without scheming is tractable. The key insight: you can have **agentic coordination** making high-level decisions, but coordination itself should be decomposed, limited, and verified.
 
+:::tip[Key Insight]
+Coordination is an **architecture**, not a component. Break coordination into sub-tasks, each with its own implementation and verifiability level.
+:::
+
 ## Coordinators Are Not Single Components
 
 **Critical mistake**: Treating "the coordinator" as one monolithic decision-maker. This concentrates risk.
 
 **Better approach**: Coordination is an **architecture**, not a component. Break coordination into sub-tasks:
+
+```mermaid
+flowchart TB
+    subgraph "Decomposed Coordination"
+        TD[Task Decomposition<br/>code + narrow LLM]
+        PR[Priority Ranking<br/>heuristics + forecasting]
+        RA[Resource Allocation<br/>rule-based + budgets]
+        RT[Routing<br/>lookup + logic]
+        AG[Aggregation<br/>statistics + verification]
+        EH[Exception Handling<br/>finite state machine]
+        PM[Progress Monitoring<br/>metrics + thresholds]
+    end
+    TD --> PR --> RA --> RT
+    RT --> AG
+    EH --> AG
+    PM --> EH
+```
 
 - **Task decomposition**: "What sub-tasks are needed?" (code + narrow LLM)
 - **Priority ranking**: "Which order to execute?" (simple heuristics + forecasting input)
@@ -26,7 +47,9 @@ Each coordination sub-task gets its own implementation, with appropriate verifia
 
 ## Severe Limitations on Coordination
 
-Don't try to make coordination "safe enough" - make it **severely limited**:
+:::caution
+Don't try to make coordination "safe enough"—make it **severely limited**.
+:::
 
 ### 1. Use Older, Weaker Models
 
@@ -77,6 +100,31 @@ Don't try to make coordination "safe enough" - make it **severely limited**:
 - Deeper recursion = tighter constraints
 
 ## Example: Decomposed Research Coordination
+
+```mermaid
+flowchart TB
+    subgraph Strategy["Strategy Layer (older model)"]
+        S[GPT-3.5 + rules]
+    end
+    subgraph Forecast["Forecasting Delegation"]
+        F1[Impact Forecaster]
+        F2[Feasibility Forecaster]
+        F3[Risk Forecaster]
+    end
+    subgraph Tactics["Tactical Execution (frontier, narrow)"]
+        T[Claude-level, limited context]
+    end
+    subgraph Monitor["Progress & Verification"]
+        PM[Progress Monitor<br/>mostly code]
+        V[Verification<br/>dumb but reliable]
+    end
+
+    S --> Forecast
+    Forecast --> T
+    T --> PM
+    PM --> V
+    V --> Output[Human-readable results]
+```
 
 Instead of one "coordinator" component, you have:
 
@@ -185,4 +233,6 @@ If a coordinator tries to scheme:
 - Verification layers flag suspicious patterns
 - Audit trail reveals inconsistent behavior over time
 
+:::note[Empirical Validation Needed]
 This needs empirical validation, but the logic is sound: **strategic deception requires persistent context and coordination**. Architectural decomposition breaks both.
+:::

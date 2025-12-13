@@ -6,7 +6,7 @@ hero:
   tagline: Structural constraints for safe AI systems
   actions:
     - text: Get Started
-      link: /trust-calculus/overview/
+      link: /overview/introduction/
       icon: right-arrow
     - text: View on GitHub
       link: https://github.com/ozziegooen/trust-website
@@ -16,19 +16,86 @@ hero:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Core Areas
+## The Problem
 
-<CardGrid stagger>
-  <Card title="Trust Calculus" icon="open-book">
-    Core framework: Expected Trust Exposure, trust propagation, interfaces, optimization, and dynamics.
+AI systems are becoming more capable, more autonomous, and more interconnected. We're moving from AI as a tool to AI as an agent—systems that plan, execute, and delegate to other AI systems.
+
+This creates fundamental safety challenges:
+
+- **Capability without containment**: The same capabilities that make AI useful make failures potentially catastrophic
+- **Delegation without verification**: When agents delegate to other agents, trust relationships multiply without principled bounds
+- **Autonomy without accountability**: Less human oversight requires structural guarantees, not just hopes
+
+---
+
+## The Approach
+
+This framework proposes **structural constraints** as the foundation for AI safety. Rather than relying solely on training, oversight, or detection, we focus on **architectural properties** that make dangerous behavior difficult regardless of what an AI "wants."
+
+<CardGrid>
+  <Card title="Trust as a Resource" icon="seti:notebook">
+    Every delegation involves trust. We can measure it, budget it, and optimize it—just like compute or money. [Expected Trust Exposure](/trust-calculus/overview/) quantifies how much we're betting on each component.
   </Card>
-  <Card title="Principles" icon="list-format">
-    The "Least X" family of principles and coordinator constraints for safe system design.
+  <Card title="Containment via Decomposition" icon="puzzle">
+    Instead of one powerful AI, decompose tasks across many limited components. No single component has enough capability, context, or connectivity to cause catastrophic harm.
   </Card>
-  <Card title="Architecture" icon="setting">
-    System design patterns: decomposed coordination, forecasting-based navigation, safety mechanisms.
+  <Card title="Principles that Bound Behavior" icon="list-format">
+    The ["Least X" principles](/principles/least-x-principles/)—least privilege, least intelligence, least context—systematically limit what each component can do.
   </Card>
-  <Card title="Risk Budgeting" icon="document">
-    Cross-domain approaches: Euler allocation, nuclear safety PRA, mechanism design.
+  <Card title="Cross-Domain Wisdom" icon="open-book">
+    Nuclear safety, financial risk, and security engineering have decades of experience. We adapt their [proven methods](/risk-budgeting/overview/) for AI systems.
   </Card>
 </CardGrid>
+
+---
+
+## Key Insight
+
+**Safety can be architectural, not just behavioral.**
+
+We don't need perfect alignment if we build systems where:
+- No component has enough power to cause catastrophic harm
+- Components can't coordinate to amplify their power
+- Trust relationships are explicit and bounded
+- Failures are contained and recoverable
+
+This complements alignment research with defense in depth.
+
+---
+
+## Documentation Structure
+
+<CardGrid stagger>
+  <Card title="Principles" icon="approve-check">
+    Start here. The "Least X" principles provide foundational constraints you can apply immediately.
+  </Card>
+  <Card title="Architecture" icon="setting">
+    How to structure AI systems: decomposed coordination, forecasting-based navigation, worked examples.
+  </Card>
+  <Card title="Trust Calculus" icon="document">
+    The math: Expected Trust Exposure, propagation algorithms, optimization methods.
+  </Card>
+  <Card title="Risk Budgeting" icon="random">
+    Cross-domain approaches from finance, nuclear safety, and mechanism design.
+  </Card>
+  <Card title="Implementation" icon="rocket">
+    Practical guidance: empirical validation, relationship to existing work, adoption roadmap.
+  </Card>
+</CardGrid>
+
+---
+
+## Who This Is For
+
+- **AI safety researchers** thinking about scalable alignment
+- **ML engineers** building agentic systems with principled constraints
+- **Organizations** deploying AI that need risk management frameworks
+- **Policy makers** looking for concrete technical approaches
+
+---
+
+## Start Reading
+
+1. **[Introduction](/overview/introduction/)** — The full problem statement and approach
+2. **[Least X Principles](/principles/least-x-principles/)** — Foundational design constraints
+3. **[Decomposed Coordination](/architecture/decomposed-coordination/)** — Safe agentic architectures

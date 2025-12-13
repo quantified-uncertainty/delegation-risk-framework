@@ -31,7 +31,9 @@ For differentiable trust functions, compute gradients:
 ∂ETE_system / ∂capability_i = marginal trust cost of capability i
 ```
 
-High gradient capabilities are expensive in trust terms—candidates for removal or externalization.
+:::tip
+High gradient capabilities are expensive in trust terms—candidates for removal or externalization. Focus optimization effort on the capabilities that dominate your trust budget.
+:::
 
 **Example**: System with components A, B, C
 
@@ -47,18 +49,18 @@ If ∂ETE/∂cap_A >> ∂ETE/∂cap_B, reducing A's capability gives more trust 
 
 Plot achievable (capability, trust) pairs:
 
-```
-    Trust
-      │
-      │    ×  High capability, high trust
-      │
-      │  ×    Pareto frontier
-      │ ×
-      │×
-      └──────────────────── Capability
-          Low cap,         High cap,
-          low trust        low trust
-                          (infeasible)
+```mermaid
+quadrantChart
+    title Trust-Capability Tradeoff
+    x-axis Low Capability --> High Capability
+    y-axis Low Trust --> High Trust
+    quadrant-1 High Cap, High Trust
+    quadrant-2 Low Cap, High Trust
+    quadrant-3 Low Cap, Low Trust
+    quadrant-4 Infeasible Zone
+    Pareto Optimal: [0.3, 0.3]
+    Current Design: [0.5, 0.6]
+    Target: [0.7, 0.4]
 ```
 
 **Pareto efficient designs**: Can't reduce trust without reducing capability.
@@ -127,7 +129,9 @@ If ETE is convex in capabilities, optimization is tractable (gradient descent fi
 - Discrete choices (which implementation) make problem combinatorial
 - Verification effectiveness might have non-convex relationship with investment
 
-**Practical approach**: Assume local convexity, use multiple random starts, verify solutions.
+:::note[Practical Approach]
+Assume local convexity, use multiple random starts, verify solutions. Most real architectures have enough structure that local search finds good solutions.
+:::
 
 ## Trust Sensitivity Analysis
 

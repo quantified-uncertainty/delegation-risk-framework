@@ -69,11 +69,9 @@ If trust is mispriced, arbitrage opportunities exist:
 
 **Market efficiency**: In efficient trust markets, prices reflect actual trustworthiness.
 
-**Market failures**:
-
-- Information asymmetry (agent knows own trustworthiness, principal doesn't)
-- Adverse selection (untrustworthy agents willing to work for less)
-- Moral hazard (agent behavior changes after trust granted)
+:::caution[Market Failures]
+Information asymmetry (agent knows own trustworthiness, principal doesn't), adverse selection (untrustworthy agents willing to work for less), and moral hazard (agent behavior changes after trust granted).
+:::
 
 ## Trust Insurance
 
@@ -117,7 +115,9 @@ If trust is mispriced, arbitrage opportunities exist:
 
 For any mechanism achieving trustworthy behavior in equilibrium, there exists a direct mechanism where reporting true trustworthiness is optimal.
 
-**Implication**: Can focus on designing mechanisms where honest trust reporting is incentive compatible.
+:::tip
+Implication: can focus on designing mechanisms where honest trust reporting is incentive compatible. This is the core insight enabling principled trust markets.
+:::
 
 **VCG for trust allocation**:
 

@@ -13,7 +13,9 @@ Given a system of n components with pairwise trust relationships, how does trust
 - **Sources**: Principals (infinite trust capacity)
 - **Sinks**: Executors (consume trust to act)
 
-**The propagation question**: If principal P trusts coordinator C with weight 0.8, and C trusts executor E with weight 0.7, what's P's effective trust in E?
+:::note[The Propagation Question]
+If principal P trusts coordinator C with weight 0.8, and C trusts executor E with weight 0.7, what's P's effective trust in E?
+:::
 
 ## Candidate Propagation Rules
 
@@ -53,10 +55,12 @@ Interpretation: Each hop adds overhead/uncertainty beyond the multiplication.
 
 When multiple paths exist from P to E:
 
-```
-      ┌── C₁ ──┐
-P ────┤        ├──── E
-      └── C₂ ──┘
+```mermaid
+graph LR
+    P((P)) --> C1((C₁))
+    P --> C2((C₂))
+    C1 --> E((E))
+    C2 --> E
 ```
 
 **Option 1: Maximum Path**
@@ -198,10 +202,6 @@ Standard propagation assumes passive components. With adversarial components:
 - Discount any path that passes through potentially adversarial component
 - Use threshold signatures: k of n paths must agree
 
-**Sybil resistance**: Adversary might create many fake components to gain trust.
-
-Mitigation:
-
-- Trust only accumulates slowly (rate limiting)
-- New components start with minimal trust
-- Trust transfer requires stake/collateral
+:::caution[Sybil Resistance]
+Adversary might create many fake components to gain trust. Mitigate by: trust only accumulates slowly (rate limiting), new components start with minimal trust, and trust transfer requires stake/collateral.
+:::

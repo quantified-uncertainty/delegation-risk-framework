@@ -4,6 +4,10 @@ title: "Concrete Example: Research Assistant"
 
 # Concrete Example: Research Assistant
 
+:::note
+This is a worked example applying the full framework. It demonstrates how decomposition, principles, and safety mechanisms work together in practice.
+:::
+
 Let's make the framework concrete with a system that actually does something useful.
 
 ## Task
@@ -11,6 +15,29 @@ Let's make the framework concrete with a system that actually does something use
 "Advance understanding of protein folding mechanisms"
 
 ## Component Architecture
+
+```mermaid
+flowchart TB
+    subgraph Narrow["Narrow Components"]
+        Search[Search<br/>retrieval only]
+        Sum[Summarization<br/>extraction only]
+        Gap[Gap Analysis<br/>analysis only]
+        Hyp[Hypothesis Gen<br/>ideation only]
+        For[Forecasting<br/>estimation only]
+        Red[Red Team<br/>critique only]
+    end
+    subgraph Coord["Coordination"]
+        Strat[Strategy Module<br/>GPT-3.5]
+        Tact[Tactical Coord<br/>frontier, narrow]
+    end
+    Strat --> For
+    For --> Tact
+    Tact --> Search
+    Tact --> Sum
+    Tact --> Gap
+    Tact --> Hyp
+    Hyp --> Red
+```
 
 **Narrow components** (each with bounded intelligence):
 
@@ -210,11 +237,9 @@ How would you actually build each component? Apply the verifiability principle a
 
 - Implementation: **Frontier LLM** (Claude/GPT-4 level)
 - Why: Creativity and novelty are goals, hard to constrain
-- Safety: Acceptable because component has:
-  - Low privilege (can't execute ideas)
-  - Low autonomy (output evaluated by others)
-  - Low scope (ideation only)
-  - Low persistence (stateless)
+:::tip
+Frontier models are acceptable here because the component has low privilege (can't execute ideas), low autonomy (output evaluated by others), low scope (ideation only), and low persistence (stateless).
+:::
 
 **Forecasting Component**:
 
@@ -269,9 +294,9 @@ Instead of using GPT-4/Claude for everything:
 - Combined: as capable as frontier model for overall system
 - But: Much more predictable, verifiable, and safe
 
-Cost: Fine-tuning 10 models ~$10K-50K
-Benefit: Each model's behavior is specific and auditable
-Alternative: Using frontier model for everything = higher risk, less verifiable
+:::note[Cost-Benefit]
+Fine-tuning 10 models costs ~$10K-50K. The benefit: each model's behavior is specific and auditable. The alternative—using a frontier model for everything—is higher risk and less verifiable.
+:::
 
 ## Why This Layering Matters
 
@@ -287,9 +312,6 @@ Creative components (hypothesis generation) use frontier models but have:
 - Heavy monitoring
 - Output evaluated by independent forecasters
 
-This is defense in depth:
-
-- If LLM components misbehave: bounded by low privilege, caught by verification
-- If verified components have bugs: much smaller surface area to audit
-- If coordination tries to scheme: decomposition + old models + verification catches it
-- If system as a whole drifts: forecasting should detect
+:::tip[Defense in Depth]
+This is defense in depth: If LLM components misbehave → bounded by low privilege, caught by verification. If verified components have bugs → much smaller surface area to audit. If coordination tries to scheme → decomposition + old models + verification catches it. If system as a whole drifts → forecasting should detect.
+:::

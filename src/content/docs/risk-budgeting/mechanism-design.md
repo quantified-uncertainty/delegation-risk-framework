@@ -8,7 +8,21 @@ The fundamental challenge in risk budgeting is that those closest to the work—
 
 ## The Revelation Principle
 
-The **Revelation Principle** (Gibbard 1973, Myerson 1979) dramatically simplifies mechanism design: for any mechanism achieving a social choice function in equilibrium, there exists an equivalent direct mechanism where truthful reporting is an equilibrium strategy. This means designers can restrict attention to incentive-compatible direct mechanisms where agents reveal true risk assessments, rather than searching over arbitrary indirect mechanisms.
+```mermaid
+flowchart LR
+    subgraph "Mechanism Design"
+        Agent[Agent with<br/>Private Info] -->|Reports| Mechanism
+        Mechanism -->|Allocation| Outcome
+        Mechanism -->|Payment| Agent
+    end
+    Truth[Truthful Reporting] -.->|Incentive Compatible| Mechanism
+```
+
+The **Revelation Principle** (Gibbard 1973, Myerson 1979) dramatically simplifies mechanism design: for any mechanism achieving a social choice function in equilibrium, there exists an equivalent direct mechanism where truthful reporting is an equilibrium strategy.
+
+:::tip
+This means designers can restrict attention to incentive-compatible direct mechanisms where agents reveal true risk assessments, rather than searching over arbitrary indirect mechanisms.
+:::
 
 ## VCG Mechanism
 
@@ -20,7 +34,13 @@ Applied to risk budgeting, subsystems would report their risk requirements, and 
 
 ## Principal-Agent Theory
 
-Principal-agent theory addresses the complementary problem of unobservable effort. The **Holmström-Milgrom informativeness principle** states that any performance measure revealing information about agent effort should be included in compensation contracts. For AI safety, this implies that safety metrics, audit results, and incident reports should all affect compensation for development teams. Optimal contracts balance risk-sharing against incentive provision—risk-averse agents prefer stable compensation, but efficiency requires performance-contingent payments.
+Principal-agent theory addresses the complementary problem of unobservable effort. The **Holmström-Milgrom informativeness principle** states that any performance measure revealing information about agent effort should be included in compensation contracts.
+
+:::note[AI Safety Application]
+For AI safety, this implies that safety metrics, audit results, and incident reports should all affect compensation for development teams.
+:::
+
+Optimal contracts balance risk-sharing against incentive provision—risk-averse agents prefer stable compensation, but efficiency requires performance-contingent payments.
 
 The **Pareto-optimal fee schedule** satisfies:
 

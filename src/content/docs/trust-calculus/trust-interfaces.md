@@ -6,12 +6,28 @@ title: "Trust Interfaces and Contracts"
 
 When component A delegates to component B, there's an implicit interface:
 
-- What A expects B to do
-- What B is allowed to do
-- What resources B can access
-- How B's output will be verified
+```mermaid
+flowchart LR
+    A[Component A<br/>Delegator] --> Contract
+    Contract --> B[Component B<br/>Delegatee]
+    subgraph Contract["Trust Contract"]
+        E[Expectations] --> P[Permissions]
+        P --> R[Resources]
+        R --> V[Verification]
+    end
+```
+
+The trust contract specifies:
+- **Expectations**: What A expects B to do
+- **Permissions**: What B is allowed to do
+- **Resources**: What B can access
+- **Verification**: How B's output will be verified
 
 Making this explicit creates a **trust contract**.
+
+:::tip
+Explicit trust contracts turn implicit assumptions into verifiable agreements. They enable automated enforcement, auditing, and composition across delegation chains.
+:::
 
 ## Trust Contract Structure
 
@@ -187,6 +203,6 @@ In dynamic systems, contracts might be negotiated:
 - Lowest trust bidder wins (if capable)
 - Incentivizes trust minimization
 
-**Concern**: Strategic misrepresentation—agent claims low trust requirement, then violates
-
-**Mitigation**: Bonding, reputation stakes, verification with penalties
+:::caution[Strategic Misrepresentation]
+Agent might claim low trust requirement, then violate. Mitigate with bonding, reputation stakes, and verification with penalties.
+:::

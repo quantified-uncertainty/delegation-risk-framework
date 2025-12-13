@@ -6,7 +6,12 @@ title: "Empirical Tests and Validation"
 
 ## Testable Predictions
 
-If this approach is promising, we should see:
+If this approach is promising, we should see concrete, measurable results across four validation stages:
+
+1. **Empirical Tests** — Validate core assumptions (scheming reduction, forecasting calibration)
+2. **Prototypes** — Build working systems (research assistant, code deployment)
+3. **Red Team Testing** — Adversarial evaluation of architectural patterns
+4. **Low-Stakes Deployment** — Real-world validation in bounded environments
 
 ### Empirically Testable Now
 
@@ -114,7 +119,9 @@ Recent work (Factor(T,U) paper) shows factored cognition helps monitoring. Need 
 
 **Question**: What's the performance penalty vs monolithic models? Is it acceptable?
 
-**Economic reality**: If modular systems are 10x slower/more expensive, they won't be deployed except under regulation.
+:::caution[Economic Reality]
+If modular systems are 10x slower/more expensive, they won't be deployed except under regulation.
+:::
 
 **What's needed**: Benchmarks. Prototype a modular system, compare performance to monolithic baseline. Quantify the safety-capability tradeoff.
 

@@ -4,7 +4,9 @@ title: "Historical Failures in Quantified Risk Management"
 
 # Historical Failures in Quantified Risk Management
 
-Every domain studied has experienced catastrophic failures of quantified risk frameworks, offering crucial lessons for AI safety.
+:::caution
+Every domain studied has experienced catastrophic failures of quantified risk frameworks. These failures offer crucial lessons for AI safety.
+:::
 
 ## Finance
 
@@ -69,7 +71,11 @@ Quantified risk frameworks fail when:
 
 ## The Meta-Lesson
 
-The most dangerous failure is believing your risk framework is complete. Every framework makes assumptions that will eventually be violated. AI safety must:
+:::danger
+The most dangerous failure is believing your risk framework is complete. Every framework makes assumptions that will eventually be violated.
+:::
+
+AI safety must:
 
 - Acknowledge model limitations explicitly
 - Build in margins for unknown unknowns

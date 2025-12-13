@@ -64,6 +64,19 @@ High-information tasks:
 
 ## Trust Decay Models
 
+```mermaid
+flowchart LR
+    subgraph "Trust Over Time"
+        T0[Trust₀] --> T1[Trust₁]
+        T1 --> T2[Trust₂]
+        T2 --> Tn[Trust_n]
+    end
+    D[Decay λ] -.-> T1
+    D -.-> T2
+    O[Observations] --> T1
+    O --> T2
+```
+
 ### Exponential Decay
 
 ```
@@ -90,7 +103,9 @@ Trust drops on specific events (capability change, environment change, time sinc
 
 **Strategic agent**: Agent chooses behavior to maximize long-term payoff, not immediate task performance.
 
-**Deceptive equilibrium**: Agent behaves well during evaluation period, defects after gaining trust.
+:::danger[Deceptive Equilibrium]
+Agent behaves well during evaluation period, defects after gaining trust.
+:::
 
 **Formal model**:
 
@@ -107,12 +122,9 @@ Where δ is discount factor, benefit includes both legitimate rewards and defect
 - High benefit from late defection
 - Low cost of early good behavior
 
-**Counter-strategies**:
-
-- Unpredictable monitoring (maintain P(caught))
-- Delayed trust (don't give high-stakes access until very high trust)
-- Trust decay (past behavior doesn't guarantee future)
-- Structural constraints (limit benefit from defection)
+:::tip[Counter-Strategies]
+Unpredictable monitoring (maintain P(caught)), delayed trust (don't give high-stakes access until very high trust), trust decay (past behavior doesn't guarantee future), and structural constraints (limit benefit from defection).
+:::
 
 ## Multi-Agent Trust Learning
 

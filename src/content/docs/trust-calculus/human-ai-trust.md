@@ -14,10 +14,9 @@ title: "Trust in Human-AI Teams"
 - Benevolence (does AI seem to care about human interests?)
 - Familiarity (has human worked with this AI before?)
 
-**Trust calibration problem**: Humans often miscalibrate trust in AI
-
-- Over-trust: Believing AI is more capable/aligned than it is
-- Under-trust: Not using AI when it would help
+:::caution[Trust Calibration Problem]
+Humans often miscalibrate trust in AI—either over-trust (believing AI is more capable/aligned than it is) or under-trust (not using AI when it would help).
+:::
 
 **Calibration interventions**:
 
@@ -45,6 +44,20 @@ Should AI agents trust humans?
 **AI trust in human = P(human input is accurate and well-intentioned)**
 
 ## Human-AI Trust Handoffs
+
+```mermaid
+flowchart LR
+    subgraph "Human → AI"
+        H1[Human specifies] --> G1[Grants trust]
+        G1 --> E1[AI executes]
+        E1 --> V1[Human verifies]
+    end
+    subgraph "AI → Human"
+        A1[AI identifies need] --> C1[Provides context]
+        C1 --> D1[Human decides]
+        D1 --> R1[AI records]
+    end
+```
 
 When task passes between human and AI:
 
@@ -75,12 +88,13 @@ Team of humans and AI agents working together:
 
 **Trust topology**:
 
-```
-      Human_manager
-       /    |    \
-    AI₁  Human₂  AI₃
-           |
-          AI₄
+```mermaid
+flowchart TB
+    HM[Human Manager]
+    HM --> AI1[AI₁]
+    HM --> H2[Human₂]
+    HM --> AI3[AI₃]
+    H2 --> AI4[AI₄]
 ```
 
 **Principles for hybrid trust**:
@@ -172,4 +186,6 @@ class TrustSimulator:
 - Token manipulation (forge or replay trust tokens)
 - Revocation evasion (continue using revoked trust)
 
-**Success criteria**: Red team finds vulnerabilities before adversaries do.
+:::tip[Success Criteria]
+Red team finds vulnerabilities before adversaries do. The goal is proactive discovery, not reactive patching.
+:::

@@ -12,7 +12,9 @@ title: "Relationship to Existing Approaches"
 
 **This proposal**: Embrace agency, but structure it through modularity. Agentic coordinators over narrow components, not passive services waiting for calls.
 
-**Key difference**: We're not trying to avoid agency—we're trying to make agency safe through architecture.
+:::tip[Key Difference]
+We're not trying to avoid agency—we're trying to make agency safe through architecture.
+:::
 
 ## AI Control (Redwood Research, 2024)
 
@@ -66,6 +68,16 @@ title: "Relationship to Existing Approaches"
 
 ### Why They're Complementary
 
+```mermaid
+flowchart TB
+    subgraph "Defense in Depth"
+        Arch[Modular Architecture<br/>Reduces scheming] --> Control[AI Control<br/>Catches if happens]
+        Control --> Budget[Limited Budgets<br/>Bounds damage]
+        Budget --> Forecast[Forecasting<br/>Predicts problems]
+        Forecast --> Human[Human Review<br/>Final check]
+    end
+```
+
 **Modular architecture alone**: Might prevent scheming, but not proven
 **AI Control alone**: Handles scheming but doesn't reduce it
 **Combined**: Architecture reduces scheming probability + Control catches it if it happens
@@ -93,7 +105,9 @@ This is **defense in depth**:
 - Audit trails more analyzable with structured component interactions
 - Fine-tuned models more predictable for control evaluations
 
-You don't choose "architecture OR control" - you obviously use both.
+:::note
+You don't choose "architecture OR control"—you obviously use both. They're complementary, not competing.
+:::
 
 ## vs IDA (Christiano, 2018)
 

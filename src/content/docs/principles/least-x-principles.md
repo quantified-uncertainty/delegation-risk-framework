@@ -6,7 +6,24 @@ title: 'The Family of "Least X" Principles'
 
 Security engineering has long relied on the **principle of least privilege**: give each component minimum access rights needed for its function. We need to extend this thinking across multiple dimensions for AI safety.
 
+:::note
+Each principle bounds a different attack surface. Applied together, they create components that are limited in what they can do, know, remember, and coordinate.
+:::
+
 This is a family of containment principles, each addressing a different attack surface:
+
+| Principle | What It Bounds |
+|-----------|----------------|
+| **Least Intelligence** | Cognitive capability, optimization power |
+| **Least Privilege** | Permissions, access rights |
+| **Least Context** | Information about broader system |
+| **Least Persistence** | State/memory across invocations |
+| **Least Autonomy** | Ability to act without oversight |
+| **Least Scope** | Domain of operation |
+| **Least Surprise** | Output randomness, unpredictability |
+| **Least Connectivity** | Communication paths between components |
+| **Least Observability** | Self-knowledge and system awareness |
+| **Least Compute** | Computational resources |
 
 ## Principle of Least Intelligence
 
@@ -99,6 +116,10 @@ Not just what it can do, but where:
 - When LLM considers multiple outputs "similar quality," use consistent tiebreaking
 - Don't let component choose randomly—use deterministic selection (e.g., alphabetical, hash-based)
 - Example: If summarization could produce 3 equivalent summaries, always pick based on deterministic criterion (shortest, most common words, etc.)
+
+:::danger[Covert Channels]
+If a scheming component can vary outputs slightly, it can encode hidden signals—communicating across time or to other components. Deterministic outputs eliminate this attack vector.
+:::
 
 **Why this matters for safety**:
 
@@ -215,6 +236,14 @@ Not just "can component A access component B" but the entire communication topol
 
 **Directed graphs, not fully connected**:
 
+```mermaid
+graph LR
+    A[Component A] --> B[Component B]
+    B --> C[Component C]
+    A -.->|forbidden| C
+    C -.->|forbidden| A
+```
+
 - Component A → B doesn't mean B → A
 - Specify allowed paths explicitly
 - Example: Hypothesis generator → Forecaster (allowed), Forecaster → Hypothesis generator (forbidden)
@@ -244,12 +273,9 @@ Not just "can component A access component B" but the entire communication topol
 - Only strictly necessary functions callable
 - Example: Forecaster exposes predict(scenario), nothing else
 
-**Why this matters**:
-
-- Scheming requires coordination
-- Coordination requires communication
-- Limiting connectivity limits coordination capability
-- Even if components want to collude, they physically can't if no path exists
+:::tip[Why This Matters]
+Scheming requires coordination. Coordination requires communication. Even if components want to collude, they physically can't if no path exists.
+:::
 
 ## Principle of Least Observability
 
@@ -297,13 +323,9 @@ Not just "can component A access component B" but the entire communication topol
 - Prevents reasoning about "how I was built"
 - Example: LLM can't access its own parameters
 
-**Why this matters**:
-
-- Observability enables strategic behavior
-- "I notice I'm being tested" → behave differently
-- "I see lots of components" → attempt coordination
-- "I see my resource usage spiking" → someone's investigating me
-- Blindness prevents adaptive scheming
+:::caution
+Observability enables strategic behavior: "I notice I'm being tested" → behave differently. "I see my resource usage spiking" → someone's investigating me. Blindness prevents adaptive scheming.
+:::
 
 ## Principle of Least Compute
 
@@ -410,6 +432,15 @@ This principle unifies and explains the verifiability hierarchy: generality corr
 
 **The generality spectrum:**
 
+| Level | Implementation | Generality | Verifiability |
+|-------|---------------|------------|---------------|
+| 1 | Hard-coded Rules | Lowest | Highest |
+| 2 | Deterministic Algorithms | ↓ | ↓ |
+| 3 | Fine-tuned Narrow Models | ↓ | ↓ |
+| 4 | General Models + Constraints | ↓ | ↓ |
+| 5 | General Foundation Models | ↓ | ↓ |
+| 6 | RL / Self-modifying Systems | Highest | Lowest |
+
 **1. Hard-coded rules** (Least General)
 
 - Handles only predefined cases
@@ -515,9 +546,9 @@ Which is:
 
 Least general > Low generality > High generality > Most general
 
-**Generality isn't just capability—it's adaptability, transferability, and novelty-handling.**
-
-The safest implementations can only do exactly what they're designed for. The most dangerous can adapt to do anything, including things we didn't anticipate.
+:::tip[Key Insight]
+Generality isn't just capability—it's adaptability, transferability, and novelty-handling. The safest implementations can only do exactly what they're designed for. The most dangerous can adapt to do anything, including things we didn't anticipate.
+:::
 
 **Design principle**: Start with least general solution. Only increase generality if necessary, and add proportional safety measures.
 
@@ -582,7 +613,9 @@ There's a clear hierarchy of implementation methods, ordered by generality (low 
 - Use sparingly: only when other methods insufficient
 - Examples: complex strategic planning, multi-step optimization
 
-**Key insight**: Fine-tuned narrow models are dramatically safer than general frontier models. For any component, ask: "Can we fine-tune a small model specifically for this task?" If yes, do that instead of using GPT-4/Claude for everything.
+:::tip[Key Insight]
+Fine-tuned narrow models are dramatically safer than general frontier models. For any component, ask: "Can we fine-tune a small model specifically for this task?" If yes, do that instead of using GPT-4/Claude for everything.
+:::
 
 ### The Implementation Strategy
 
@@ -680,3 +713,41 @@ You can't minimize everything—some capabilities require specific allowances:
 - Low persistence (shouldn't accumulate power over time)
 
 The art is in choosing the right allocation for each component's function while maintaining overall safety.
+
+---
+
+## Applying to Coordinators
+
+Coordinators are the highest-risk components—they have leverage over other components and see more context than any individual component should. The general "Least X" principles apply, but coordinators need additional, more stringent constraints.
+
+See [Coordinator-Specific Principles](/principles/coordinator-constraints/) for:
+
+- **Least Influence**: Routes work, doesn't directly cause outcomes
+- **Least Direct Impact**: Works through intermediaries, never touches final outputs
+- **Maximum Transparency**: All coordination logic auditable
+- **Simplest Communication**: Structured data only, not natural language
+- **Mandatory Redundancy**: Critical coordination requires N independent implementations
+- **Byzantine Tolerance**: Assume some coordinators may be adversarial
+
+These coordinator constraints are more restrictive than general principles because coordination is the leverage point where scheming would be most dangerous.
+
+---
+
+## What's Next?
+
+Now that you understand the principles, here's where to go:
+
+**To see principles in action**:
+- [Research Assistant Example](/architecture/research-assistant-example/) — Complete worked example applying all principles
+- [Code Deployment Example](/architecture/code-deployment-example/) — Higher-stakes example with different tradeoffs
+- [Principles to Practice](/overview/principles-to-practice/) — Cross-reference mapping principles to implementations
+
+**To understand coordinator constraints deeply**:
+- [Coordinator-Specific Principles](/principles/coordinator-constraints/) — Additional constraints for coordinators
+
+**To learn the math behind trust**:
+- [Trust Calculus Overview](/trust-calculus/overview/) — ETE computation and trust propagation
+
+**To start implementing**:
+- [Quick Start](/implementation/quick-start/) — Step-by-step checklist
+- [Decision Guide](/implementation/decision-guide/) — Choosing implementations

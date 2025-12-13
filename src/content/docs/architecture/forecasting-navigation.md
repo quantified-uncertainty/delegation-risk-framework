@@ -6,7 +6,9 @@ title: "Forecasting-Based Navigation"
 
 The hardest part of alignment is specifying what you want. Value specification is philosophically fraught and practically difficult.
 
-The key move: **don't solve specification, solve navigation.**
+:::tip[Key Move]
+Don't solve specification, solve navigation.
+:::
 
 Instead of:
 
@@ -15,6 +17,16 @@ Instead of:
 1. Hope you got it right
 
 Do this:
+
+```mermaid
+flowchart LR
+    subgraph "Forecasting-Based Navigation"
+        A[AI forecasts outcomes] --> B[Sample action space]
+        B --> C[Identify robust regions]
+        C --> D[Iterate with honest forecasting]
+        D --> A
+    end
+```
 
 1. Have AI forecast outcomes of different strategies
 1. Sample broadly across action space
@@ -48,7 +60,9 @@ Do this:
 
 You're not trying to write down human values in formal logic. You're using AI's predictive capabilities to **navigate the space of outcomes**, choosing paths that look good across many forecasted scenarios.
 
-The critical requirement: **calibrated forecasting**. If the AI predicts "70% chance this leads to good outcome," it should actually lead to good outcomes ~70% of the time. No strategic over/under-confidence to manipulate you.
+:::caution[Critical Requirement]
+**Calibrated forecasting**: If the AI predicts "70% chance this leads to good outcome," it should actually lead to good outcomes ~70% of the time. No strategic over/under-confidence to manipulate you.
+:::
 
 Recent evidence (Anthropic's forecasting work, various LLM forecasting benchmarks) suggests frontier models can achieve near-superforecaster calibration on many tasks. The key question is whether they can forecast their own behavior after self-modification—that's empirically testable.
 
@@ -65,6 +79,17 @@ You ask:
 This is **navigable alignment**: steering through outcome space using predictions, rather than specifying destinations using philosophical arguments.
 
 ## Compositional Safety: How The Pieces Work Together
+
+```mermaid
+flowchart TB
+    P1[Decomposition] --> S1[No single catastrophe point]
+    P2[Honest Coordination] --> S2[No scheming cascade]
+    P3[Forecasting] --> S3[Emergent risks caught]
+    S1 --> Safe[Safe System]
+    S2 --> Safe
+    S3 --> Safe
+    Safe --> R[Reversible, Non-catastrophic Failures]
+```
 
 The three principles compose into safety properties:
 
@@ -94,4 +119,6 @@ The three principles compose into safety properties:
 - Human oversight at decision points
 - No single-point-of-failure
 
+:::note[Safety Margins]
 This gives you **safety margins**: distance between current operation and catastrophic failure. As systems get more capable, margins might shrink—but forecasting should detect this, allowing course correction.
+:::

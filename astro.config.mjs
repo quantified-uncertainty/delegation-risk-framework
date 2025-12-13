@@ -1,10 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
+		mermaid(),
 		starlight({
 			title: 'AI Safety Framework',
 			social: [
@@ -13,29 +15,49 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Overview',
+					collapsed: true,
 					items: [
-						{ label: 'Introduction', slug: 'index' },
+						{ label: 'Home', slug: 'index' },
+						{ label: 'Introduction', slug: 'overview/introduction' },
+						{ label: 'Core Concepts', slug: 'overview/core-concepts' },
+						{ label: 'Principles to Practice', slug: 'overview/principles-to-practice' },
+						{ label: 'Glossary', slug: 'overview/glossary' },
 					],
 				},
 				{
-					label: 'Trust Calculus',
-					autogenerate: { directory: 'trust-calculus' },
-				},
-				{
 					label: 'Principles',
+					collapsed: true,
 					autogenerate: { directory: 'principles' },
 				},
 				{
 					label: 'Architecture',
+					collapsed: true,
 					autogenerate: { directory: 'architecture' },
 				},
 				{
+					label: 'Trust Calculus',
+					collapsed: true,
+					autogenerate: { directory: 'trust-calculus' },
+				},
+				{
 					label: 'Risk Budgeting',
+					collapsed: true,
 					autogenerate: { directory: 'risk-budgeting' },
 				},
 				{
 					label: 'Implementation',
+					collapsed: true,
 					autogenerate: { directory: 'implementation' },
+				},
+				{
+					label: 'Background Research',
+					collapsed: true,
+					autogenerate: { directory: 'background-research' },
+				},
+				{
+					label: 'Notes',
+					collapsed: true,
+					autogenerate: { directory: 'notes' },
 				},
 			],
 		}),

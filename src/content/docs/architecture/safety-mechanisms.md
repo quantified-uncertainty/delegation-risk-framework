@@ -19,12 +19,24 @@ Automated shutdown if dangerous conditions detected:
 
 **Circuit breaker states**:
 
+```mermaid
+stateDiagram-v2
+    [*] --> Closed: Normal
+    Closed --> Open: Tripwire triggered
+    Open --> HalfOpen: Manual test
+    HalfOpen --> Closed: Test passes
+    HalfOpen --> Open: Test fails
+    Open --> [*]: Manual reset
+```
+
 - Closed: Normal operation
 - Open: System halted, no operations allowed
 - Half-open: Limited operation for testing
 - Manual reset required after trip
 
-**Why this matters**: Automated defense against runaway processes, prevents "oops we're in the middle of catastrophe before we notice"
+:::tip
+Automated defense against runaway processes prevents "oops we're in the middle of catastrophe before we notice."
+:::
 
 ### Continuous Validation
 
@@ -114,15 +126,21 @@ On error or uncertainty, default to safest action:
 - Bad: Assume verification passed, proceed with deployment
 - Good: Assume verification failed, block deployment, alert human
 
-**Opposite of fail-open** (which allows action on error):
-
-- Fail-open: Maximizes availability, minimizes safety
-- Fail-closed: Maximizes safety, accepts downtime
-- For AI safety, choose fail-closed
+:::caution[Fail-Closed vs Fail-Open]
+Fail-open maximizes availability but minimizes safety. Fail-closed maximizes safety but accepts downtime. **For AI safety, choose fail-closed.**
+:::
 
 ### Progressive Deployment (Graduated Stakes)
 
 Start with low-risk tasks, gradually increase:
+
+```mermaid
+flowchart LR
+    L1[Level 1<br/>Toy Problems] --> L2[Level 2<br/>Low-stakes Real]
+    L2 --> L3[Level 3<br/>Medium-stakes]
+    L3 --> L4[Level 4<br/>High-stakes]
+    L1 -.->|"❌ Never jump"| L4
+```
 
 **Level 1: Toy problems**
 
@@ -148,11 +166,9 @@ Start with low-risk tasks, gradually increase:
 - Extensive monitoring, multiple redundancy
 - Example: Deciding allocation of major research funding
 
-**Never jump from Level 1 to Level 4**:
-
-- Must prove safety at each level first
-- Build confidence incrementally
-- Failures at low levels prevent deployment to high levels
+:::danger
+**Never jump from Level 1 to Level 4.** Must prove safety at each level first. Build confidence incrementally. Failures at low levels prevent deployment to high levels.
+:::
 
 ### Automatic Rollback
 
@@ -249,11 +265,9 @@ Force components to compress information:
 - Must compress: "Here are the 5 key points"
 - Tactics gets summary, not full context
 
-**Why this matters**:
-
-- Detailed context enables sophisticated coordination
-- Compressed context limits coordination capability
-- Also forces clarity: must distill to essentials
+:::note
+Detailed context enables sophisticated coordination. Compressed context limits coordination capability—and forces clarity by requiring distillation to essentials.
+:::
 
 ### Rate-Distortion Tradeoffs
 
@@ -275,6 +289,18 @@ Limit both information rate AND fidelity:
 ## Diversity and Redundancy
 
 ### N-Version Programming for Critical Components
+
+```mermaid
+flowchart TB
+    Task[Critical Task] --> A[Implementation A<br/>Code-based]
+    Task --> B[Implementation B<br/>Fine-tuned LLM]
+    Task --> C[Implementation C<br/>Formal Checker]
+    A --> Vote{All Agree?}
+    B --> Vote
+    C --> Vote
+    Vote -->|Yes| Proceed[Proceed]
+    Vote -->|No| Human[Human Review]
+```
 
 Multiple independent implementations of the same functionality:
 
@@ -309,11 +335,9 @@ Assume some coordinators might be adversarial:
 - **Voting protocols**: Super-majority requirements
 - **Cryptographic commitments**: Coordinators commit to decisions before seeing others
 
-**Why this matters**:
-
-- Even if some components scheme, honest majority wins
-- Provides quantifiable safety: "safe unless >1/3 of coordinators compromised"
-- More realistic than "we hope nothing schemes"
+:::tip[Quantifiable Safety]
+Even if some components scheme, honest majority wins. Provides quantifiable safety: "safe unless >1/3 of coordinators compromised"—more realistic than "we hope nothing schemes."
+:::
 
 **Example**: Research strategy selection:
 

@@ -28,7 +28,9 @@ If we can maintain safety through 2030, we have capable AI assistants to help so
 
 ### The Key Bet
 
+:::note[The Key Bet]
 The architecture bets on: **Preventing scheming during the human-level period is tractable, and forecasting quality scales with capability.**
+:::
 
 If both hold, you get a window where:
 
@@ -39,6 +41,21 @@ If both hold, you get a window where:
 That might be enough.
 
 ## Development Phases
+
+```mermaid
+gantt
+    title Implementation Roadmap
+    dateFormat  YYYY
+    section Research
+    Empirical validation    :2025, 2026
+    Adversarial testing     :2026, 2028
+    section Engineering
+    Prototype implementation :2025, 2026
+    Tooling & frameworks     :2026, 2028
+    section Deployment
+    Low-stakes deployment    :2026, 2027
+    Medium-stakes deployment :2027, 2028
+```
 
 ### 2025-2026 (Near-term)
 
@@ -56,7 +73,9 @@ That might be enough.
 
 ### Success Criterion
 
+:::tip
 By 2028, demonstrate that modular architecture + honest agency + forecasting enables transformatively useful AI without catastrophic failures, with empirical evidence this scales to human-level capability.
+:::
 
 ## What's Needed
 

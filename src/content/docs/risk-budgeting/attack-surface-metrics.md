@@ -10,7 +10,11 @@ Cybersecurity's attack surface quantification provides a template for measuring 
 
 The attack surface is defined as a three-tuple: **Attack_Surface = ⟨SA, CA, DA⟩** representing system attackability across methods (entry/exit points), channels (communication pathways), and data (untrusted inputs). Each resource's attackability is computed as **damage_potential / effort**, with numeric values assigned via total orderings (e.g., root privilege = 4, non-root = 1). Resources are grouped into attack classes with shared attackability profiles, and total attack surface sums across classes.
 
-This compositional structure—resources aggregating to classes aggregating to total surface area—directly parallels the hierarchical risk budget decomposition needed for AI safety. An AI capability surface area metric might similarly enumerate dangerous capabilities, weight them by harm potential and accessibility, and aggregate across system components.
+:::note
+This compositional structure—resources aggregating to classes aggregating to total surface area—directly parallels the hierarchical risk budget decomposition needed for AI safety.
+:::
+
+An AI capability surface area metric might similarly enumerate dangerous capabilities, weight them by harm potential and accessibility, and aggregate across system components.
 
 ## CVSS (Common Vulnerability Scoring System)
 
@@ -25,6 +29,22 @@ The Cloud Security Alliance's Capabilities-Based Risk Assessment (CBRA) for AI s
 with each factor rated 1-4, producing composite scores 1-256 that map to Low (1-6), Medium (7-24), and High (25+) risk tiers. Higher scores require more stringent controls from the AI Controls Matrix. This multiplicative composition captures the intuition that risk increases superlinearly with capability.
 
 ## AI Capability Surface Area
+
+```mermaid
+flowchart LR
+    subgraph "Capability Dimensions"
+        I[Intelligence<br/>1-4]
+        A[Autonomy<br/>1-4]
+        P[Privilege<br/>1-4]
+        S[Scope<br/>1-4]
+        C[Connectivity<br/>1-4]
+        Per[Persistence<br/>1-4]
+    end
+    I --> CS[Capability Surface<br/>= Π dimensions]
+    A --> CS
+    P --> CS
+    S --> CS
+```
 
 An analogous metric for AI systems might include:
 
@@ -48,4 +68,6 @@ The lack of consensus on CVSS composition illustrates the difficulty:
 - **Multiplicative**: Assumes independence that may not hold
 - **Attack graphs**: More accurate but computationally expensive
 
-For AI, similar challenges apply: how do you aggregate risks across components that may interact in complex ways?
+:::caution
+For AI, similar challenges apply: how do you aggregate risks across components that may interact in complex ways? No consensus exists yet.
+:::

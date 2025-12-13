@@ -4,7 +4,24 @@ title: "Euler Allocation: The Fundamental Aggregation Problem"
 
 # Euler Allocation: The Fundamental Aggregation Problem
 
-The mathematical foundation for hierarchical risk decomposition comes from financial risk budgeting, where **Euler's theorem for homogeneous functions** enables perfect additive decomposition of total risk into component contributions. For any risk measure R(x) that is homogeneous of degree 1 in portfolio weights, total risk equals the sum of each component's marginal contribution multiplied by its weight: **R(x) = Σᵢ xᵢ · ∂R(x)/∂xᵢ**. This Euler decomposition guarantees that allocated risks "add up" exactly to total risk—a property called full allocation that no ad-hoc method achieves.
+```mermaid
+flowchart TB
+    TR["Total Risk (R)"]
+    TR -->|decompose| C1["Component 1: RC1"]
+    TR -->|decompose| C2["Component 2: RC2"]
+    TR -->|decompose| C3["Component 3: RC3"]
+    C1 --> Sum["Sum: RC1 + RC2 + RC3 = R"]
+    C2 --> Sum
+    C3 --> Sum
+```
+
+Each component's risk contribution is: **RC_i = x_i × (∂R/∂x_i)** — weight times marginal impact.
+
+The mathematical foundation for hierarchical risk decomposition comes from financial risk budgeting, where **Euler's theorem for homogeneous functions** enables perfect additive decomposition of total risk into component contributions. For any risk measure R(x) that is homogeneous of degree 1 in portfolio weights, total risk equals the sum of each component's marginal contribution multiplied by its weight: **R(x) = Σᵢ xᵢ · ∂R(x)/∂xᵢ**.
+
+:::tip[Why This Matters]
+This Euler decomposition guarantees that allocated risks "add up" exactly to total risk—a property called full allocation that no ad-hoc method achieves.
+:::
 
 ## Practical Implementation
 
@@ -21,9 +38,6 @@ This approach directly transfers to AI safety: if system-level harm probability 
 - **Diversification accounting**: Correlations between components are handled correctly
 - **Hierarchical cascading**: Budgets flow from top-level to components
 
-## Limitations for AI
-
-- Requires continuous, differentiable risk measures
-- Assumes risks can be meaningfully quantified
-- Historical data may not predict future AI behavior
-- Independence assumptions may fail for correlated AI failures
+:::caution[Limitations for AI]
+Requires continuous, differentiable risk measures. Assumes risks can be meaningfully quantified. Historical data may not predict future AI behavior. Independence assumptions may fail for correlated AI failures.
+:::

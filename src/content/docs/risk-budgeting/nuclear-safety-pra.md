@@ -6,7 +6,27 @@ title: "Nuclear Safety: Probabilistic Risk Assessment"
 
 Probabilistic Risk Assessment (PRA), developed after Three Mile Island and codified in NRC regulations, demonstrates how a single system-level risk target can be decomposed across thousands of components. U.S. nuclear plants operate to quantified safety goals: **Core Damage Frequency below 10⁻⁴ per reactor-year** and **Large Early Release Frequency below 10⁻⁵ per reactor-year**. Actual performance achieves an order of magnitude better—CDF around **10⁻⁵** and LERF around **10⁻⁶**—demonstrating that aggressive targets coupled with defense-in-depth create substantial safety margins.
 
+:::note
+Nuclear safety has decades of operational experience achieving 10⁻⁵ to 10⁻⁶ failure rates. This provides a calibration point for AI safety targets.
+:::
+
 ## Decomposition Mechanism
+
+```mermaid
+flowchart TB
+    subgraph "Fault Tree Gates"
+        subgraph AND["AND Gate (all must fail)"]
+            A1[P=0.01] --> AND1[×]
+            A2[P=0.01] --> AND1
+            AND1 --> AR[P=0.0001]
+        end
+        subgraph OR["OR Gate (any failure)"]
+            O1[P=0.01] --> OR1[+]
+            O2[P=0.01] --> OR1
+            OR1 --> ORR[P≈0.02]
+        end
+    end
+```
 
 The decomposition mechanism uses fault tree and event tree analysis. Fault trees propagate failure probabilities upward: AND gates multiply component probabilities (P_output = Π P_inputs), while OR gates combine them (P_output ≈ Σ P_inputs for rare events). Importance measures then identify which components contribute most to total risk. **Fussell-Vesely importance** quantifies what fraction of total risk comes from cut sets containing a component; **Risk Achievement Worth (RAW)** measures how much risk increases if that component fails (RAW > 2 triggers NRC significance thresholds). These metrics guide resource allocation—components with high RAW receive more redundancy, testing, and maintenance budget.
 
@@ -29,9 +49,6 @@ Aerospace safety assessment extends this with an inverse relationship between se
 | Safety Integrity Level | Quantified reliability requirement | AI capability/trust level |
 | Defense in Depth | Multiple independent barriers | Layered AI safety mechanisms |
 
-## Limitations for AI
-
-- Assumes independent random failures
-- Historical failure rates inform future predictions
-- Components have well-characterized failure modes
-- AI exhibits systematic, not random, failures
+:::caution[Limitations for AI]
+Assumes independent random failures. Historical failure rates inform future predictions. Components have well-characterized failure modes. AI exhibits systematic, not random, failures—the key gap this framework must address.
+:::

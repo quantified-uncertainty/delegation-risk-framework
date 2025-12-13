@@ -49,11 +49,9 @@ HHI = Σᵢ (Trust_i / Trust_total)²
 - No single component should have > X% of total trust
 - HHI should be < Y
 
-**Why limit concentration**:
-
-- Single point of failure
-- Harder to recover from violation
-- Too much power in one component
+:::danger[Why Limit Concentration]
+Single point of failure, harder to recover from violation, and too much power in one component. Concentration creates fragility.
+:::
 
 ## Trust Bottleneck Analysis
 
@@ -89,7 +87,9 @@ Can't simultaneously have all of:
 - AP: Available trust but might be inconsistent across partitions
 - CA: Consistent and available but can't handle partitions
 
-**Practical choice**: Most systems choose AP (eventual trust consistency).
+:::note
+Practical choice: Most systems choose AP (eventual trust consistency). Accept that trust views may temporarily diverge during partitions.
+:::
 
 **Eventual trust consistency**: After partition heals, trust views converge.
 
@@ -141,6 +141,22 @@ Trust_share_i ∝ Priority_i
 - Arbiter principal for conflicts
 
 ### Federated Trust
+
+```mermaid
+flowchart TB
+    subgraph OrgA["Organization A"]
+        A1[Agent A₁]
+        A2[Agent A₂]
+    end
+    subgraph OrgB["Organization B"]
+        B1[Agent B₁]
+        B2[Agent B₂]
+    end
+    A1 -.->|Cross-org delegation| B1
+    SL[(Shared Ledger)]
+    A1 --> SL
+    B1 --> SL
+```
 
 Multiple organizations share AI infrastructure but don't fully trust each other.
 

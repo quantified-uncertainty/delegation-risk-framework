@@ -6,6 +6,21 @@ title: "Trust Protocols"
 
 ## Trust Handshake Protocol
 
+```mermaid
+sequenceDiagram
+    participant P as Principal
+    participant A as Agent
+    P->>A: 1. PROPOSE(task, trust_offer)
+    A->>P: 2. CAPABILITY(can_do, trust_required)
+    P->>A: 3. VERIFY_REQUEST(terms)
+    A->>P: 4. VERIFY_RESPONSE(evidence)
+    P->>A: 5. GRANT(token, conditions)
+    A->>P: 6. ACCEPT(commitment)
+    Note over P,A: 7. Task execution
+    A->>P: 8. REPORT(outcome, evidence)
+    P->>A: 9. VERIFY_OUTCOME(assessment)
+```
+
 Before delegation, principal and agent execute handshake:
 
 ```
@@ -165,12 +180,9 @@ Protocol TrustEscalation:
 - **Trust in execution**: Agent will actually do the task correctly
 - **Trust in reporting**: Agent will report accurately what it did
 
-These are distinct:
-
-- High capability + low intent = dangerous
-- High intent + low capability = ineffective
-- High both + low execution = unreliable
-- High all + low reporting = unmonitorable
+:::caution
+These are distinct and all must be present: High capability + low intent = dangerous. High intent + low capability = ineffective. High both + low execution = unreliable. High all + low reporting = unmonitorable.
+:::
 
 ### By Duration
 
@@ -179,4 +191,6 @@ These are distinct:
 - **Persistent trust**: Continues until revoked
 - **Renewable trust**: Expires but can be renewed
 
-**Default should be ephemeral**: Require explicit grant for longer duration.
+:::tip
+Default should be ephemeral trust—require explicit grant for longer duration. This prevents privilege creep and forces regular re-evaluation.
+:::

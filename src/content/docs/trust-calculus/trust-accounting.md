@@ -53,12 +53,19 @@ Trust_granted = Σⱼ Trust(us → j)
 Net_trust = Trust_received - Trust_granted
 ```
 
-**Interpretation**:
-
-- Net positive: We're a trust sink (others depend on us)
-- Net negative: We're a trust source (we depend on others)
+:::note[Interpretation]
+Net positive means we're a trust sink (others depend on us). Net negative means we're a trust source (we depend on others).
+:::
 
 ## Trust Audit Process
+
+```mermaid
+flowchart LR
+    S[1. Scope Definition] --> E[2. Evidence Collection]
+    E --> C[3. Trust Computation]
+    C --> Ch[4. Compliance Checking]
+    Ch --> R[5. Recommendations]
+```
 
 ### 1. Scope Definition
 
