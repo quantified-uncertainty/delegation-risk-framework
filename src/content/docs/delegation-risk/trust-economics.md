@@ -75,6 +75,10 @@ Information asymmetry (agent knows own trustworthiness, principal doesn't), adve
 
 ## Trust Insurance
 
+:::tip[Deep Dive]
+For extensive coverage of how the insurance industry actually prices defection risk, see [Fidelity Insurance: Pricing Defection Risk](/background-research/fidelity-insurance/).
+:::
+
 **Insurance structure**:
 
 - Principal pays premium P

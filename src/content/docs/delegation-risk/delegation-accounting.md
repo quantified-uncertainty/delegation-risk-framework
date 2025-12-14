@@ -174,4 +174,13 @@ Net Delegation Value = Receivable - Exposure - Costs
 | **Receivable** | What you expect to get |
 | **Cost** | Certain expenses |
 | **Exposure** | Potential losses (probability × damage) |
+| **Contingent Liability** | Consequences of deliberate choices |
 | **NDV** | Expected profit after accounting for risk |
+
+---
+
+## Next Steps
+
+- [Power Struggles](/delegation-risk/power-struggles/) — Apply delegation accounting to corporate governance, dictatorships, and political systems
+- [Fidelity Insurance](/background-research/fidelity-insurance/) — How insurance markets price defection risk
+- [A Walk-Through: The $1,000 Delivery](/delegation-risk/walkthrough/) — Progressive complexity with risk reduction measures

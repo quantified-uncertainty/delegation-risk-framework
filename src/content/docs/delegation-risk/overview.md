@@ -183,6 +183,10 @@ This kind of cross-domain comparison helps calibrate whether AI safety investmen
 - [Delegation at Scale](/delegation-risk/trust-at-scale/) - Distributed systems and bottlenecks
 - [Human-AI Delegation](/delegation-risk/human-ai-trust/) - Team dynamics and calibration
 
+### Applications
+- [Power Struggles](/delegation-risk/power-struggles/) - Board vs CEO, dictator vs military, regulatory capture
+- [Delegation Accounting](/delegation-risk/delegation-accounting/) - Balance sheet view of delegation
+
 ## The Goal
 
 :::tip[The Goal]

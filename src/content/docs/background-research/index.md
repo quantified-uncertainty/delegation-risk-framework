@@ -52,6 +52,17 @@ Deep dive into how finance manages quantified risk:
 
 **Relevance to framework**: [Trust Economics](/delegation-risk/trust-economics/) and the Delegation Risk computation borrow heavily from financial risk concepts.
 
+### [Fidelity Insurance: Pricing Defection Risk](/background-research/fidelity-insurance/)
+
+How the insurance industry prices "bad actor" risk:
+
+- **Product categories** — Fidelity bonds, D&O liability, cyber crime coverage
+- **Control-premium relationship** — Better controls = lower premiums (30-70% reduction)
+- **Political insurance** — Why it doesn't exist, and what that tells us about oversight
+- **Novel structures** — Parametric triggers, prediction market hybrids, dynamic pricing
+
+**Relevance to framework**: Insurance premiums provide **market prices** for defection risk, making delegation balance sheets more concrete. The control-premium relationship directly maps to exposure reduction.
+
 ### [Potential Research Projects](/background-research/potential-projects/)
 
 Research agenda for validating and extending the framework:
