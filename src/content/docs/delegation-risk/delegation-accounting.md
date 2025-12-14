@@ -394,6 +394,177 @@ The key insight: **voluntary transparency + structural constraints can make high
 
 ---
 
+### Mr. X
+
+A month later, a figure appears at Alice's door. He introduces himself only as **Mr. X**.
+
+He's clearly brilliant—he speaks twelve languages, knows Alice's business better than she does, and correctly predicts what she'll say before she says it. His eyes seem to look through walls. He offers to do the courier job for free.
+
+Alice calls Carol.
+
+---
+
+**Carol**: I'm not writing this policy.
+
+**Alice**: Why not?
+
+**Carol**: My exposure models assume rational actors with comprehensible goals. Mr. X... I don't know what he wants. Maybe he wants the gem. Maybe he wants your client list. Maybe he wants something I can't even conceive of. The standard controls assume I understand the threat model. Here, I don't.
+
+**Alice**: So what do I do?
+
+**Carol**: I'm bringing in Diana. She's a reinsurance specialist. She handles... unusual situations.
+
+---
+
+**Diana** arrives. She's handled nuclear facilities, bioweapon containment, and—she implies—things she can't discuss.
+
+**Diana**: Let me be direct. With Xavier, we were managing *known* risks with *known* controls. With Mr. X, we're managing *unknown* risks from an agent whose capabilities and motives we can't fully model.
+
+The question isn't "will he steal the gem?" The question is: **"What does he actually want, and how do we bound our exposure to things we can't imagine?"**
+
+---
+
+**Diana**: Mr. X, I'll need you to propose controls. But I warn you—my standards are not normal.
+
+**Mr. X**: I expected nothing less.
+
+---
+
+**Extreme transparency:**
+
+| Commitment | Effect |
+|------------|--------|
+| Full-body scan before and after each visit | Detect any physical items taken |
+| Faraday-cage clothing (provided by us) | No electronic transmission possible |
+| Three independent surveillance systems that don't know about each other | Can't compromise all of them |
+| Real-time neural activity monitoring headset | Flags anomalous cognitive patterns |
+| Post-visit interrogation under truth serum (sodium pentothal) | Verify nothing unusual occurred |
+| Memory audit: describe everything you saw, compared against room inventory | Detect information gathering |
+
+**Mr. X**: Acceptable. The headset is crude, but I understand your concern.
+
+---
+
+**Capability annihilation:**
+
+| Commitment | Effect |
+|------------|--------|
+| Blindfolded entry and exit, guided by handler | Can't map the facility |
+| Hands enclosed in sealed mitts during visit | Can't manipulate objects except the gem |
+| 90-second maximum room time, enforced by automatic extraction | Limits reconnaissance |
+| Deliver to different random location each time | Can't plan based on destination |
+| Random decoy missions (no real gem 80% of the time) | Never knows which delivery matters |
+| Voice modulator: can only speak pre-approved phrases | Can't socially engineer recipients |
+
+**Mr. X**: The decoy missions are clever. I commend you.
+
+---
+
+**Financial structures beyond normal scale:**
+
+| Commitment | Effect |
+|------------|--------|
+| $10 million bond held by a consortium of my known enemies | They *want* me to fail—maximally hostile custodians |
+| Bond denominated in assets I cannot manipulate | Eliminates financial engineering |
+| Automatic forfeiture triggered by *any* anomaly, not just proven theft | Shifts burden of proof |
+| Personal guarantee from three entities who have leverage over me | They'll ensure my compliance |
+| "Dead man's switch": information damaging to me released if I defect | Mutually assured destruction |
+
+**Diana**: Who holds leverage over you?
+
+**Mr. X**: *(smiles)* There are... older arrangements. They will enforce.
+
+---
+
+**Structural isolation:**
+
+| Commitment | Effect |
+|------------|--------|
+| I never see the real office—only a perfect replica with decoy documents | Real information never exposed |
+| Different handlers each time who don't know each other | Can't build relationships to corrupt |
+| I'm never told the schedule—summoned with 5 minutes notice | Can't prepare external coordination |
+| Competitor surveillance: your rivals watch me during delivery | Adversarial monitoring |
+| Post-delivery amnesia protocol: I consent to memory-disrupting intervention | I won't remember what I saw |
+
+**Alice**: Memory disruption? Is that... legal?
+
+**Diana**: For entities like Mr. X, we've found it's the only way to truly close the information exposure. He's agreed to it.
+
+**Mr. X**: Information I cannot recall, I cannot exploit. It's elegant, really.
+
+---
+
+**Diana**: Let me calculate.
+
+**Carol**: This is beyond my models. What's the premium?
+
+**Diana**: The question isn't premium. It's whether we can bound exposure *at all*. Let me work through it.
+
+| Layer | What It Addresses | Residual Exposure |
+|-------|-------------------|-------------------|
+| Physical controls (scans, mitts, blindfold) | Taking physical items | Near zero |
+| Information controls (replica office, amnesia) | Learning secrets | Near zero |
+| Financial controls ($10M hostile bond) | Rational theft motive | Eliminated |
+| Structural controls (decoys, random timing) | Planning/coordination | Severely limited |
+| Adversarial monitoring (enemies, competitors) | Collusion with us | Covered |
+| Dead man's switch | His defection generally | Mutually assured destruction |
+
+**Diana**: The remaining exposure is: *what if Mr. X has goals so alien that none of these controls address them?*
+
+**Alice**: Like what?
+
+**Diana**: I don't know. That's the point. Maybe he wants to be in the room for reasons we can't fathom. Maybe the delivery itself serves some purpose we don't understand. Maybe he's testing something.
+
+---
+
+**Mr. X**: You're wise to wonder. Let me offer one more thing.
+
+| Commitment | Effect |
+|------------|--------|
+| I will explain my actual motivation to a sealed tribunal | Third party holds my true goal |
+| If my actions deviate from stated motivation, automatic maximum penalty | Binds me to declared intent |
+| The tribunal includes an entity adversarial to any goal I might have | Hostile verification of my claims |
+
+**Diana**: You'd reveal your true purpose to a hostile tribunal?
+
+**Mr. X**: I want this job. I'm willing to be... transparent.
+
+---
+
+**Diana** (to Alice): With the tribunal protocol, I can write this. The exposure is still non-zero—we're dealing with an agent who may be smarter than us. But we've created enough structural constraints that defection becomes costly across *any* goal we can imagine, and several we can't.
+
+| Agent | Premium |
+|-------|---------|
+| Dumb Bob | $600/year |
+| Xavier (self-constrained) | $350/year |
+| **Mr. X (extreme protocols)** | **$5,000/year** + tribunal costs |
+
+**Diana**: It's expensive. But if Mr. X is as capable as he appears, his value might justify it. He'll never lose a gem, never miss a delivery, and handle situations no other courier could. You're paying for *contained capability*.
+
+---
+
+**Alice**: Why do you want this job so badly?
+
+**Mr. X**: *(pauses)* Let's just say... I find constraints interesting. Most entities flee from limitation. I find there's something clarifying about operating within bounds that others design. It's a form of... discipline.
+
+**Alice**: That's not reassuring.
+
+**Mr. X**: It wasn't meant to be. But my reassurance is irrelevant. The *structure* is what protects you. That's rather the point, isn't it?
+
+:::note[Implication for AI]
+A superintelligent AI with unknown goals presents the Mr. X problem: standard controls assume you understand what the agent wants. When you don't, you need:
+- **Adversarial monitoring** (entities who benefit from catching defection)
+- **Capability annihilation** (make it physically impossible, not just irrational)
+- **Information isolation** (the agent never sees what could harm you)
+- **Hostile custodians** (bonds held by the agent's enemies)
+- **Goal transparency** (the agent reveals its purpose to a hostile tribunal)
+- **Structural closure** (controls that work even if the agent is smarter than you)
+
+The question isn't "is this AI aligned?" It's "have we bounded exposure even if it isn't?"
+:::
+
+---
+
 ## Insurance
 
 Alice can **externalize** her exposure by buying insurance from **Carol**.
