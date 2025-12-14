@@ -295,8 +295,101 @@ Alice calls Carol (her insurer) to add coverage for the new office access arrang
 
 Most people only think about the first one. The other two are often cheaper.
 
+---
+
+### The Capable Agent Who Wants the Job
+
+A week later, **Xavier** applies for the courier position. Xavier is clearly smart—MBA, ten years in the gem trade, knows everyone in the industry. Carol would charge Alice $5,000/year to insure Xavier with office access.
+
+But Xavier *really* wants this job. So Xavier comes prepared.
+
+---
+
+**Xavier**: I know my background makes me expensive to insure. I've put together a proposal to address that.
+
+**Alice**: I'm listening.
+
+**Xavier**: Here's what I'll commit to:
+
+---
+
+**Transparency measures:**
+
+| Commitment | Effect |
+|------------|--------|
+| Body camera filming entire visit | Full record of what I accessed |
+| Footage uploaded to third-party escrow in real-time | Can't delete evidence |
+| GPS tracking while on premises | Location verified |
+| Entry/exit log signed by witness | Timestamps confirmed |
+
+**Xavier**: If I steal something, you'll have video evidence. If I photograph documents, you'll see it. The escrow means I can't destroy the footage.
+
+---
+
+**Financial commitments:**
+
+| Commitment | Effect |
+|------------|--------|
+| Post $20,000 personal bond | More than I could profit from theft |
+| Sign non-compete: $100,000 penalty for any competitor contact | Selling information becomes extremely costly |
+| Agree to forensic audit of my finances on request | Can't hide sudden wealth |
+| Deferred compensation: 50% of pay held for 2 years | Lose $10K+ if caught within 2 years |
+
+**Xavier**: The bond alone makes stealing the gem irrational—I'd lose $20,000 to gain $1,000. The non-compete makes selling information irrational—I'd face $100,000 liability for a $15,000 sale.
+
+---
+
+**Capability restrictions:**
+
+| Commitment | Effect |
+|------------|--------|
+| Leave phone and all devices in locker | Can't photograph anything |
+| Wear company uniform with no pockets | Can't conceal documents |
+| Only enter during 9-10am with 24hr notice | Predictable, can prepare |
+| Never enter main office—delivery room only | Same as dumb courier |
+
+**Xavier**: I'm voluntarily making myself as limited as a "dumb" courier. My industry knowledge becomes irrelevant if I can't photograph or remove anything.
+
+---
+
+**Alice**: This is... a lot. Why would you do all this?
+
+**Xavier**: Because I'm worth more than a dumb courier. I can optimize your delivery routes, spot counterfeit gems, negotiate with difficult buyers. You *want* my capability for the job—you just don't want it used against you.
+
+**Alice calls Carol.**
+
+---
+
+**Carol**: Let me recalculate. With Xavier's proposal...
+
+| Control | Premium Impact |
+|---------|---------------|
+| Body camera + escrow | -40% (near-certain detection) |
+| $20,000 bond | -35% (eliminates rational theft) |
+| Non-compete with $100K penalty | -25% (eliminates rational info sale) |
+| No devices + no pockets | -30% (eliminates capability) |
+| Delivery room only | -70% (eliminates access) |
+
+**Carol**: Honestly? With all of this, Xavier is *lower* risk than a random "dumb" courier. The dumb courier might steal opportunistically. Xavier has made theft economically irrational and practically impossible.
+
+| Courier | Premium |
+|---------|---------|
+| Dumb Bob (baseline) | $600/year |
+| Smart Bob (no controls) | $5,000/year |
+| **Xavier (with commitments)** | **$350/year** |
+
+**Carol**: I'll write the policy at $350. Xavier has engineered away his own risk.
+
+---
+
+**Alice**: So I get a smart courier for *less* than a dumb one?
+
+**Carol**: Yes—if the controls are real. The body camera, the bond, the escrow—these aren't promises, they're structures. Xavier can't *choose* to defect rationally anymore. That's worth more than hoping a less capable person won't figure out how to steal.
+
 :::note[Implication for AI]
-When you give an AI system access to an environment, your exposure depends on the AI's capability to identify and exploit information—not just the obvious assets. A more capable AI creates more exposure from the same access. The same controls apply: limit access, limit capability, increase traceability.
+A capable AI system that wants to be deployed could offer similar self-constraints: comprehensive logging, capability restrictions, financial bonds (or computational escrow), third-party monitoring. The AI's capability becomes an asset rather than a liability if the controls make misuse structurally irrational.
+
+The key insight: **voluntary transparency + structural constraints can make high capability lower risk than low capability with no constraints.**
 :::
 
 ---
