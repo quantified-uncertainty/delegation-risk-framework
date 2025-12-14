@@ -6,7 +6,7 @@ sidebar:
 
 # The Oversight Dilemma: Who Watches the Watchmen?
 
-The U.S. President commands nuclear weapons, controls the world's largest military, directs $6 trillion in annual spending, and can issue executive orders affecting 330 million people. This concentration of power creates enormous Expected Trust Exposure.
+The U.S. President commands nuclear weapons, controls the world's largest military, directs $6 trillion in annual spending, and can issue executive orders affecting 330 million people. This concentration of power creates enormous Delegation Risk.
 
 The obvious solution: add oversight. But here's the problem—**any overseer powerful enough to check the President becomes a massive trust liability themselves**.
 
@@ -20,11 +20,11 @@ Oversight doesn't eliminate trust exposure—it redistributes it. The art is in 
 
 ## Part 1: The Baseline — Presidential Power Unmonitored
 
-### Estimating Presidential ETE
+### Estimating Presidential Delegation Risk
 
 Let's quantify the trust exposure of an unchecked President:
 
-| Authority Domain | P(catastrophic misuse/term) | Damage Potential | 4-Year ETE |
+| Authority Domain | P(catastrophic misuse/term) | Damage Potential | 4-Year Delegation Risk |
 |------------------|---------------------------|------------------|------------|
 | Nuclear launch authority | 0.0001 | $50 trillion (civilization) | $5B |
 | Military deployment | 0.01 | $500B (major war) | $5B |
@@ -33,10 +33,10 @@ Let's quantify the trust exposure of an unchecked President:
 | Foreign policy/treaties | 0.03 | $300B (alliance collapse) | $9B |
 | Pardon power | 0.05 | $10B (justice system) | $500M |
 | Emergency powers | 0.02 | $1T (constitutional crisis) | $20B |
-| **Total Presidential ETE** | | | **~$65B/term** |
+| **Total Presidential Delegation Risk** | | | **~$65B/term** |
 
 :::note[Calibration Note]
-These numbers are illustrative. The key point is that presidential ETE is *enormous*—likely among the highest for any individual on Earth. Even small probability catastrophic outcomes dominate the calculation.
+These numbers are illustrative. The key point is that presidential Delegation Risk is *enormous*—likely among the highest for any individual on Earth. Even small probability catastrophic outcomes dominate the calculation.
 :::
 
 ### The Trust Topology Without Oversight
@@ -52,7 +52,7 @@ flowchart TB
 
 **Current state:**
 - Trust granted: 0.52 (bare electoral majority)
-- ETE: $65B/term
+- Delegation Risk: $65B/term
 - Verification: Elections every 4 years (extremely slow feedback)
 - Revocation mechanism: Impeachment (requires 67 senators—very difficult)
 
@@ -81,9 +81,9 @@ flowchart TB
 - Cannot be fired by President
 - 6-year term, independently elected
 
-### Calculating the New ETE
+### Calculating the New Delegation Risk
 
-**Presidential ETE with Ombudsman:**
+**Presidential Delegation Risk with Ombudsman:**
 
 The Ombudsman reduces the probability of presidential misuse by catching violations:
 
@@ -93,7 +93,7 @@ P(misuse succeeds) = P(President misuses) × P(Ombudsman fails to catch)
 
 If Ombudsman catches 80% of violations:
 
-| Domain | Original P(misuse) | With Ombudsman | New ETE |
+| Domain | Original P(misuse) | With Ombudsman | New Delegation Risk |
 |--------|-------------------|----------------|---------|
 | Nuclear launch | 0.0001 | 0.0001 × 0.20 = 0.00002 | $1B |
 | Military deployment | 0.01 | 0.01 × 0.20 = 0.002 | $1B |
@@ -106,7 +106,7 @@ If Ombudsman catches 80% of violations:
 
 **Reduction: 80%** — looks great!
 
-### But Now Calculate Ombudsman ETE
+### But Now Calculate Ombudsman Delegation Risk
 
 The Ombudsman now has:
 - Access to all classified information
@@ -114,7 +114,7 @@ The Ombudsman now has:
 - Power to trigger constitutional crises
 - Near-zero accountability (6-year term, hard to remove)
 
-| Ombudsman Failure Mode | P(occurrence/term) | Damage | ETE |
+| Ombudsman Failure Mode | P(occurrence/term) | Damage | Delegation Risk |
 |------------------------|-------------------|--------|-----|
 | Corruption (bribed/compromised) | 0.05 | $100B (sells secrets, enables enemies) | $5B |
 | Partisan abuse (blocks legitimate actions) | 0.15 | $50B (governance paralysis) | $7.5B |
@@ -123,10 +123,10 @@ The Ombudsman now has:
 | Leaks classified information | 0.10 | $20B (intelligence damage) | $2B |
 | **Ombudsman subtotal** | | | **$22.9B** |
 
-### Total System ETE With Single Ombudsman
+### Total System Delegation Risk With Single Ombudsman
 
 ```
-Total ETE = Presidential ETE + Ombudsman ETE
+Total Delegation Risk = Presidential Delegation Risk + Ombudsman Delegation Risk
          = $12.9B + $22.9B
          = $35.8B
 ```
@@ -134,7 +134,7 @@ Total ETE = Presidential ETE + Ombudsman ETE
 **Compared to baseline ($65B)**: 45% reduction
 
 :::caution[The Oversight Paradox]
-Adding an Ombudsman reduced *Presidential* ETE by 80%, but the *Ombudsman* added $22.9B in new exposure. Net improvement: only 45%. The overseer became a major liability.
+Adding an Ombudsman reduced *Presidential* Delegation Risk by 80%, but the *Ombudsman* added $22.9B in new exposure. Net improvement: only 45%. The overseer became a major liability.
 :::
 
 ### Why This Happens
@@ -182,7 +182,7 @@ flowchart TB
 - Different appointing authorities (diverse principals)
 - Each member sees only partial information (need-to-know compartmentalization)
 
-### Calculating Committee ETE
+### Calculating Committee Delegation Risk
 
 **Key insight**: Corruption now requires corrupting 3+ members, not just 1.
 
@@ -202,11 +202,11 @@ P(≥3 corrupt) = C(5,3)×0.1³×0.9² + C(5,4)×0.1⁴×0.9¹ + C(5,5)×0.1⁵
 
 **Committee corruption is 11.6× less likely than single-overseer corruption.**
 
-### Updated ETE Calculation
+### Updated Delegation Risk Calculation
 
 **Committee failure modes:**
 
-| Failure Mode | Single Ombudsman P | Committee P | Damage | Committee ETE |
+| Failure Mode | Single Ombudsman P | Committee P | Damage | Committee Delegation Risk |
 |--------------|-------------------|-------------|--------|---------------|
 | Corruption | 0.05 | 0.0086 | $100B | $860M |
 | Partisan abuse | 0.15 | 0.03 | $50B | $1.5B |
@@ -218,11 +218,11 @@ P(≥3 corrupt) = C(5,3)×0.1³×0.9² + C(5,4)×0.1⁴×0.9¹ + C(5,5)×0.1⁵
 *Committees can be *more* prone to groupthink and diffused responsibility
 **More people = more leak surface
 
-**Presidential ETE with committee oversight:**
+**Presidential Delegation Risk with committee oversight:**
 
 Committee catches violations at 70% rate (lower than single expert, due to coordination costs):
 
-| Domain | Original ETE | With Committee (30% passthrough) | New ETE |
+| Domain | Original Delegation Risk | With Committee (30% passthrough) | New Delegation Risk |
 |--------|-------------|----------------------------------|---------|
 | Nuclear launch | $5B | × 0.30 | $1.5B |
 | Military deployment | $5B | × 0.30 | $1.5B |
@@ -233,15 +233,15 @@ Committee catches violations at 70% rate (lower than single expert, due to coord
 | Emergency powers | $20B | × 0.30 | $6B |
 | **Presidential subtotal** | **$65B** | | **$19.35B** |
 
-### Total System ETE With Committee
+### Total System Delegation Risk With Committee
 
 ```
-Total ETE = Presidential ETE + Committee ETE
+Total Delegation Risk = Presidential Delegation Risk + Committee Delegation Risk
          = $19.35B + $13.86B
          = $33.2B
 ```
 
-| Architecture | Total ETE | vs. Baseline |
+| Architecture | Total Delegation Risk | vs. Baseline |
 |--------------|-----------|--------------|
 | No oversight | $65B | — |
 | Single Ombudsman | $35.8B | -45% |
@@ -287,7 +287,7 @@ flowchart TB
 - Mutual blackmail creates unstable equilibrium
 - Defection (exposing) is dominant strategy in iterated game
 
-### Calculating Adversarial ETE
+### Calculating Adversarial Delegation Risk
 
 **Corruption probability:**
 
@@ -311,9 +311,9 @@ P(successful partisan abuse) = P(A abuses) × P(B fails to expose)
                              = 0.03
 ```
 
-**Adversarial system ETE:**
+**Adversarial system Delegation Risk:**
 
-| Failure Mode | P | Damage | ETE |
+| Failure Mode | P | Damage | Delegation Risk |
 |--------------|---|--------|-----|
 | Corruption (both collude) | 0.003 | $100B | $300M |
 | Partisan abuse (successful) | 0.03 | $50B | $1.5B |
@@ -324,23 +324,23 @@ P(successful partisan abuse) = P(A abuses) × P(B fails to expose)
 
 *Leak risk increases—two overseers means two potential leak sources
 
-**Presidential ETE with adversarial oversight:**
+**Presidential Delegation Risk with adversarial oversight:**
 
 Adversarial overseers catch ~85% of violations (high motivation to find problems):
 
 ```
-Presidential ETE = $65B × 0.15 = $9.75B
+Presidential Delegation Risk = $65B × 0.15 = $9.75B
 ```
 
-### Total System ETE With Adversarial Oversight
+### Total System Delegation Risk With Adversarial Oversight
 
 ```
-Total ETE = Presidential ETE + Adversarial Oversight ETE
+Total Delegation Risk = Presidential Delegation Risk + Adversarial Oversight Delegation Risk
          = $9.75B + $10.9B
          = $20.65B
 ```
 
-| Architecture | Total ETE | vs. Baseline |
+| Architecture | Total Delegation Risk | vs. Baseline |
 |--------------|-----------|--------------|
 | No oversight | $65B | — |
 | Single Ombudsman | $35.8B | -45% |
@@ -444,7 +444,7 @@ flowchart TB
 - Random citizens can't be pre-corrupted (unknown selection)
 - Combined: harder to corrupt than either alone
 
-### Calculating Randomized + Expert ETE
+### Calculating Randomized + Expert Delegation Risk
 
 **Oversight effectiveness:**
 - Expert staff catch 75% of violations in analysis
@@ -456,9 +456,9 @@ flowchart TB
 - Random citizens: 0.004 (per-action, due to rotation)
 - Both simultaneously corrupt: 0.08 × 0.004 = 0.00032
 
-**Randomized oversight ETE:**
+**Randomized oversight Delegation Risk:**
 
-| Failure Mode | P | Damage | ETE |
+| Failure Mode | P | Damage | Delegation Risk |
 |--------------|---|--------|-----|
 | Corruption (both levels) | 0.00032 | $100B | $32M |
 | Partisan abuse (random selection is neutral) | 0.01 | $50B | $500M |
@@ -467,21 +467,21 @@ flowchart TB
 | Gaming (President delays until favorable oversight) | 0.05 | $20B | $1B |
 | **Subtotal** | | | **$10.53B** |
 
-**Presidential ETE with randomized oversight:**
+**Presidential Delegation Risk with randomized oversight:**
 
 ```
-Presidential ETE = $65B × (1 - 0.675) = $65B × 0.325 = $21.1B
+Presidential Delegation Risk = $65B × (1 - 0.675) = $65B × 0.325 = $21.1B
 ```
 
-### Total System ETE With Randomized Oversight
+### Total System Delegation Risk With Randomized Oversight
 
 ```
-Total ETE = Presidential ETE + Randomized Oversight ETE
+Total Delegation Risk = Presidential Delegation Risk + Randomized Oversight Delegation Risk
          = $21.1B + $10.53B
          = $31.6B
 ```
 
-| Architecture | Total ETE | vs. Baseline |
+| Architecture | Total Delegation Risk | vs. Baseline |
 |--------------|-----------|--------------|
 | No oversight | $65B | — |
 | Single Ombudsman | $35.8B | -45% |
@@ -563,9 +563,9 @@ P(violation succeeds) = P(passes Layer 1) × P(passes Layer 2) × P(passes Layer
 | Pardon power | 0.15 | 0.85 | 1.0 | 0.128 |
 | Emergency powers | 0.15 | 0.85 | 0.40 | 0.051 |
 
-**Presidential ETE with combined oversight:**
+**Presidential Delegation Risk with combined oversight:**
 
-| Domain | Original ETE | × Pass Rate | New ETE |
+| Domain | Original Delegation Risk | × Pass Rate | New Delegation Risk |
 |--------|-------------|-------------|---------|
 | Nuclear | $5B | 0.013 | $65M |
 | Military | $5B | 0.038 | $190M |
@@ -576,11 +576,11 @@ P(violation succeeds) = P(passes Layer 1) × P(passes Layer 2) × P(passes Layer
 | Emergency powers | $20B | 0.051 | $1.02B |
 | **Presidential subtotal** | **$65B** | | **$5.12B** |
 
-**Oversight system ETE:**
+**Oversight system Delegation Risk:**
 
-Now we must sum ETE across all oversight components:
+Now we must sum Delegation Risk across all oversight components:
 
-| Oversight Component | ETE |
+| Oversight Component | Delegation Risk |
 |--------------------|-----|
 | Adversarial monitors (Layer 1) | $3B |
 | Random audit (Layer 2) | $2B |
@@ -590,15 +590,15 @@ Now we must sum ETE across all oversight components:
 | Coordination failures between layers | $1.5B |
 | **Oversight subtotal** | **$8.8B** |
 
-### Total System ETE With Combined Oversight
+### Total System Delegation Risk With Combined Oversight
 
 ```
-Total ETE = Presidential ETE + Oversight ETE
+Total Delegation Risk = Presidential Delegation Risk + Oversight Delegation Risk
          = $5.12B + $8.8B
          = $13.9B
 ```
 
-| Architecture | Total ETE | vs. Baseline | Reduction |
+| Architecture | Total Delegation Risk | vs. Baseline | Reduction |
 |--------------|-----------|--------------|-----------|
 | No oversight | $65B | — | 0% |
 | Single Ombudsman | $35.8B | -45% | 45% |
@@ -608,7 +608,7 @@ Total ETE = Presidential ETE + Oversight ETE
 | **Combined Layered** | **$13.9B** | **-79%** | **79%** |
 
 :::tip[The Power of Layered Defense]
-The combined system achieves 79% ETE reduction—not because any single layer is perfect, but because violations must evade *all* layers simultaneously. Defense in depth works.
+The combined system achieves 79% Delegation Risk reduction—not because any single layer is perfect, but because violations must evade *all* layers simultaneously. Defense in depth works.
 :::
 
 ---
@@ -662,7 +662,7 @@ Oversight mechanisms that rely on public exposure (adversarial monitors, random 
                      │
                      │              ╭─── Diminishing returns
     Total System     │            ╭─╯
-    ETE              │          ╭─╯
+    Delegation Risk              │          ╭─╯
                      │        ╭─╯
                      │      ╭─╯
                      │    ╭─╯
@@ -679,7 +679,7 @@ Oversight mechanisms that rely on public exposure (adversarial monitors, random 
 
 **At some point, adding more oversight creates more liability than it prevents.**
 
-Our combined system ($13.9B ETE) is likely near the optimal—additional layers would add complexity and new failure modes without proportional benefit.
+Our combined system ($13.9B Delegation Risk) is likely near the optimal—additional layers would add complexity and new failure modes without proportional benefit.
 
 ---
 
@@ -758,7 +758,7 @@ Minimal Trust Floor = P(all overseers collude) × P(public fails to respond)
 
 ## Summary: The Oversight Menu
 
-| Option | Mechanism | ETE Reduction | Key Benefit | Key Weakness |
+| Option | Mechanism | Delegation Risk Reduction | Key Benefit | Key Weakness |
 |--------|-----------|---------------|-------------|--------------|
 | Single Ombudsman | One powerful overseer | 45% | Simple | Overseer becomes liability |
 | Committee | Multiple appointed members | 49% | Harder to corrupt | Groupthink, leaks |
@@ -782,6 +782,6 @@ Minimal Trust Floor = P(all overseers collude) × P(public fails to respond)
 
 - [Trust Across Civilizations](/applications/trust-across-civilizations/) — Historical oversight architectures
 - [Organizational Trust](/applications/organizational-trust/) — Business applications
-- [Trust Propagation](/trust-calculus/trust-propagation/) — How trust flows through networks
+- [Risk Inheritance](/delegation-risk/trust-propagation/) — How trust flows through networks
 - [Mechanism Design](/risk-budgeting/mechanism-design/) — Incentive-compatible structures
 - [Anti-patterns](/overview/anti-patterns/) — What not to do

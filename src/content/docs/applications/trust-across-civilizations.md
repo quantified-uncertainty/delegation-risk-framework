@@ -8,10 +8,10 @@ sidebar:
 
 Long before AI agents, humans invented a technology for scaling trust: **bureaucracy**. Every organizational form—from pirate ships to the Papacy, from startups to the Soviet Politburo—is a solution to the same fundamental problem: how do you get things done when you can't do everything yourself and can't fully trust anyone else?
 
-This page applies trust calculus to human organizations. No AI, just the oldest delegation problem in existence.
+This page applies delegation risk framework to human organizations. No AI, just the oldest delegation problem in existence.
 
 :::tip[The Insight]
-Organizations aren't just structures for coordination—they're **trust architectures**. Every org chart is a risk budget. Every management layer is a trust propagation function. Every scandal is a trust violation that exceeded containment.
+Organizations aren't just structures for coordination—they're **trust architectures**. Every org chart is a risk budget. Every management layer is a risk inheritance function. Every scandal is a trust violation that exceeded containment.
 :::
 
 ---
@@ -40,23 +40,23 @@ flowchart TB
 **Trust innovations:**
 - **Elected leadership**: Captain could be voted out at any time, keeping trust accountable
 - **Separation of powers**: Captain for combat, Quartermaster for everything else
-- **Written contracts**: "Articles of Agreement" specified exact ETE bounds—loot distribution, injury compensation, punishment for violations
+- **Written contracts**: "Articles of Agreement" specified exact Delegation Risk bounds—loot distribution, injury compensation, punishment for violations
 - **Radical transparency**: All loot displayed publicly before division
 
-**ETE Analysis of a Pirate Captain:**
+**Delegation Risk Analysis of a Pirate Captain:**
 
-| Authority | P(abuse) | Damage | ETE |
+| Authority | P(abuse) | Damage | Delegation Risk |
 |-----------|----------|--------|-----|
 | Battle command | 0.05 | 50 lives × $50K = $2.5M | $125,000 |
 | Loot distribution | 0.01 (public, audited) | $100K | $1,000 |
 | Discipline | 0.03 | $20K (crew morale) | $600 |
 | Route decisions | 0.10 | $500K (bad hunt) | $50,000 |
-| **Total Captain ETE** | | | **$176,600/voyage** |
+| **Total Captain Delegation Risk** | | | **$176,600/voyage** |
 
-Compare to the Royal Navy captain of the same era: **~$2M ETE** (absolute authority, no accountability, press-ganged crews with no exit option).
+Compare to the Royal Navy captain of the same era: **~$2M Delegation Risk** (absolute authority, no accountability, press-ganged crews with no exit option).
 
 :::note[The Democracy Discount]
-Pirate ships achieved **10x lower ETE** than naval vessels through democratic accountability. The "lawless" pirates had better trust architecture than the "civilized" navy.
+Pirate ships achieved **10x lower Delegation Risk** than naval vessels through democratic accountability. The "lawless" pirates had better trust architecture than the "civilized" navy.
 :::
 
 ---
@@ -130,9 +130,9 @@ flowchart TB
 - **Internal security**: 500+ security officers, mail censorship, travel restrictions
 - **Misdirection**: Cover stories ("agricultural research") reduced even the motivation to inquire
 
-**ETE of the Manhattan Project:**
+**Delegation Risk of the Manhattan Project:**
 
-| Failure Mode | P(occurrence) | Damage | ETE |
+| Failure Mode | P(occurrence) | Damage | Delegation Risk |
 |--------------|---------------|--------|-----|
 | Leak to Germany | 0.001 | Nuclear arms race during WWII, $100B+ | $100M |
 | Leak to USSR | 0.01 | Earlier Soviet bomb (happened: Fuchs) | $50B? | $500M |
@@ -142,7 +142,7 @@ flowchart TB
 **Actual outcome**: The USSR got the bomb 2-4 years earlier due to Klaus Fuchs (British physicist) passing secrets. The trust architecture failed at a node that had atypically high context—Fuchs worked in the theoretical division and understood the full design.
 
 :::caution[The Fuchs Failure]
-Classic "trusted lieutenant" failure: background checks (British had cleared him) substituted for verification. His ETE was massive ($500M+) but treated as minimal because "our ally vouched for him."
+Classic "trusted lieutenant" failure: background checks (British had cleared him) substituted for verification. His Delegation Risk was massive ($500M+) but treated as minimal because "our ally vouched for him."
 :::
 
 ---
@@ -177,7 +177,7 @@ flowchart LR
 
 **The trust math changes:**
 
-| Phase | People | Trust per Person | Total System ETE | ETE per Person |
+| Phase | People | Trust per Person | Total System Delegation Risk | Delegation Risk per Person |
 |-------|--------|------------------|------------------|----------------|
 | Founding | 2 | 0.95 | $50K | $25K |
 | Early | 10 | 0.80 | $200K | $20K |
@@ -225,7 +225,7 @@ flowchart TB
 **Damage calculation:**
 - Market cap loss: $74 billion
 - P(fraud this scale given architecture): ~0.001/year
-- Implied ETE that should have been priced: **$74M/year**
+- Implied Delegation Risk that should have been priced: **$74M/year**
 - Actual risk premium demanded by investors: ~$0
 
 :::danger[Trust Laundering Pattern]
@@ -316,7 +316,7 @@ Nixon built his team on **loyalty as the primary trust metric**. This created a 
 | Dissent handling | Punished ("enemies list") | Encouraged |
 | Verification | None (trust = loyalty) | Independent checks |
 
-**ETE of the Nixon Trust Architecture:**
+**Delegation Risk of the Nixon Trust Architecture:**
 
 | Failure Mode | P(in accountable system) | P(in Nixon system) | Damage |
 |--------------|--------------------------|-------------------|--------|
@@ -324,7 +324,7 @@ Nixon built his team on **loyalty as the primary trust metric**. This created a 
 | Major scandal | 0.05 | 0.40 (grows until explosion) | $100M |
 | Constitutional crisis | 0.001 | 0.15 | $10B |
 
-**System ETE**: Nixon's architecture had **30x higher ETE** than a standard administration because it optimized for concealment, which meant problems grew rather than getting fixed.
+**System Delegation Risk**: Nixon's architecture had **30x higher Delegation Risk** than a standard administration because it optimized for concealment, which meant problems grew rather than getting fixed.
 
 :::note[The Concealment Premium]
 Organizations that punish whistleblowing don't eliminate violations—they ensure violations stay hidden until they're catastrophic. This is **paying for low variance with high tail risk**.
@@ -540,8 +540,8 @@ What if organizations explicitly traded trust?
 
 ```
 1 Trust Point = Capacity to delegate $X in expected damage
-At 95% reliability, 1 Trust Point ≈ $20 ETE capacity
-At 99% reliability, 1 Trust Point ≈ $100 ETE capacity
+At 95% reliability, 1 Trust Point ≈ $20 Delegation Risk capacity
+At 99% reliability, 1 Trust Point ≈ $100 Delegation Risk capacity
 ```
 
 **Trust Inflation**: When organizations grant trust faster than they verify it, trust becomes worthless (everyone is "trusted" but verification is zero).
@@ -617,9 +617,9 @@ flowchart TB
     end
 ```
 
-**ETE by Role:**
+**Delegation Risk by Role:**
 
-| Role | Key Trust Exposure | P(violation/year) | Damage | ETE |
+| Role | Key Trust Exposure | P(violation/year) | Damage | Delegation Risk |
 |------|-------------------|-------------------|--------|-----|
 | Equity Partner | Malpractice, client funds | 0.01 | $5M | $50K |
 | Senior Associate | Case errors, missed deadlines | 0.03 | $500K | $15K |
@@ -627,9 +627,9 @@ flowchart TB
 | Paralegal | Document handling | 0.02 | $50K | $1K |
 | CFO | Financial mismanagement | 0.005 | $3M | $15K |
 
-**Firm Total ETE**: ~$500K/year
+**Firm Total Delegation Risk**: ~$500K/year
 
-**Trust Insight**: Partners have high per-person ETE but strong alignment (they own the firm). Associates have lower ETE but weaker alignment (employees). The highest-risk role is actually CFO—single person with access to client trust accounts.
+**Trust Insight**: Partners have high per-person Delegation Risk but strong alignment (they own the firm). Associates have lower Delegation Risk but weaker alignment (employees). The highest-risk role is actually CFO—single person with access to client trust accounts.
 
 ---
 
@@ -662,23 +662,23 @@ Officers have two principals with conflicting interests:
 
 When an officer violates public trust, the union trust mechanism activates to protect them. This is **trust architecture conflict**.
 
-**ETE Analysis:**
+**Delegation Risk Analysis:**
 
-| Failure Mode | Officers Involved | P(year) | Damage per Incident | Annual ETE |
+| Failure Mode | Officers Involved | P(year) | Damage per Incident | Annual Delegation Risk |
 |--------------|-------------------|---------|---------------------|------------|
 | Excessive force (lawsuit) | 420 | 0.02 | $300K | $2.5M |
 | False arrest (lawsuit) | 420 | 0.01 | $150K | $630K |
 | Corruption (criminal) | 420 | 0.002 | $1M | $840K |
 | Fatal shooting (lawsuit + unrest) | 420 | 0.0005 | $10M | $2.1M |
-| **Total Department ETE** | | | | **$6.0M/year** |
+| **Total Department Delegation Risk** | | | | **$6.0M/year** |
 
-**Comparison**: The department budget is ~$100M. ETE is 6% of budget—but settlements often come from the city general fund, hiding the true cost.
+**Comparison**: The department budget is ~$100M. Delegation Risk is 6% of budget—but settlements often come from the city general fund, hiding the true cost.
 
 ---
 
 ### Example 3: A Presidential Administration
 
-**First-term Presidential Trust Budget:**
+**First-term Presidential Delegation Risk Budget:**
 
 ```mermaid
 flowchart TB
@@ -697,9 +697,9 @@ flowchart TB
     end
 ```
 
-**Trust ETE by Cabinet Position:**
+**Trust Delegation Risk by Cabinet Position:**
 
-| Secretary | Authority Domains | P(major failure/term) | Damage | 4-Year ETE |
+| Secretary | Authority Domains | P(major failure/term) | Damage | 4-Year Delegation Risk |
 |-----------|------------------|----------------------|--------|------------|
 | Defense | Military operations, $800B | 0.15 | $100B | $15B |
 | State | Foreign policy, alliances | 0.10 | $50B | $5B |
@@ -708,7 +708,7 @@ flowchart TB
 | HHS | Healthcare, pandemics | 0.10 | $200B | $20B |
 | Homeland Security | Borders, disasters | 0.15 | $30B | $4.5B |
 
-**Total Cabinet ETE**: ~$100B per 4-year term
+**Total Cabinet Delegation Risk**: ~$100B per 4-year term
 
 :::caution[Scale of Political Trust]
 A presidential administration places more expected trust exposure in 4 years than most corporations will in their entire existence. The stakes of political trust architecture are civilization-scale.
@@ -736,7 +736,7 @@ A presidential administration places more expected trust exposure in 4 years tha
 3. **Trust failures follow patterns**: Laundering, theater, dilution, loyalty-inversion
 4. **Crisis transforms trust**: Formal hierarchy matters less; competence and alignment matter more
 5. **Trust is implicitly traded**: Organizations have trust balance sheets even if they don't track them
-6. **Political trust is civilization-scale**: Presidential administrations have $100B+ ETE per term
+6. **Political trust is civilization-scale**: Presidential administrations have $100B+ Delegation Risk per term
 7. **Trust architecture predicts outcomes**: Nixon's loyalty-based architecture made Watergate almost inevitable
 :::
 
@@ -745,9 +745,9 @@ A presidential administration places more expected trust exposure in 4 years tha
 ## See Also
 
 - [Organizational Trust (Practical)](/applications/organizational-trust/) — Small business and political examples with ROI calculations
-- [Trust Calculus Overview](/trust-calculus/overview/) — The mathematical foundations
-- [Trust Propagation](/trust-calculus/trust-propagation/) — Algorithms for trust networks
+- [Delegation Risk Overview](/delegation-risk/overview/) — The mathematical foundations
+- [Risk Inheritance](/delegation-risk/trust-propagation/) — Algorithms for trust networks
 - [Historical Failures](/risk-budgeting/lessons-from-failures/) — Financial and technical failures
 - [Anti-patterns](/overview/anti-patterns/) — What not to do (AI version)
-- [Trust Economics](/trust-calculus/trust-economics/) — Markets and incentives
+- [Trust Economics](/delegation-risk/trust-economics/) — Markets and incentives
 - [Case Study: Sydney](/overview/case-study-sydney/) — Trust failure in AI (contrast with organizational failures)

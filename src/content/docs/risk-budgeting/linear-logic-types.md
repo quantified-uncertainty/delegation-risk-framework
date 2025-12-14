@@ -4,7 +4,7 @@ title: "Linear Logic & Type Systems"
 
 # Linear Logic & Type Systems for Trust
 
-Linear logic and affine type systems provide formal foundations for reasoning about resources that cannot be duplicated or discarded arbitrarily—exactly the properties we need for trust budgets.
+Linear logic and affine type systems provide formal foundations for reasoning about resources that cannot be duplicated or discarded arbitrarily—exactly the properties we need for delegation risk budgets.
 
 ## The Core Insight
 
@@ -12,7 +12,7 @@ In standard logic (and standard type systems), you can use a fact (or value) as 
 - `if A then A ∧ A` — Use A twice
 - `if A then True` — Discard A
 
-But trust budgets are **consumable resources**:
+But delegation risk budgets are **consumable resources**:
 - Trust spent cannot be re-spent
 - Trust must be tracked, not discarded
 - Total trust is conserved
@@ -55,7 +55,7 @@ The `!` (bang) connective marks resources that CAN be duplicated:
 - `!A` means "as many A's as you need"
 - `A` (without bang) means "exactly one A"
 
-For trust budgets, most trust is linear (consumed on use), but some permissions might be persistent (granted roles).
+For delegation risk budgets, most trust is linear (consumed on use), but some permissions might be persistent (granted roles).
 
 ## Applying Linear Logic to Trust
 
@@ -71,7 +71,7 @@ Reading: "Consuming a trust grant produces an execution permission"
 
 The grant is consumed—you can't use the same grant twice.
 
-### Trust Budget Accounting
+### Delegation Risk Budget Accounting
 
 ```
 SystemBudget(Total) ⊸ ComponentBudget(A, a) ⊗ ComponentBudget(B, b) ⊗ Remainder(Total - a - b)
@@ -134,12 +134,12 @@ type TrustSession =
     Send<Grant, Recv<Ack, Send<Delegate, Recv<Result, End>>>>
 ```
 
-### Rust Example: Linear Trust Budget
+### Rust Example: Linear Delegation Risk Budget
 
 ```rust
 use std::marker::PhantomData;
 
-/// A trust budget that must be fully consumed
+/// A delegation risk budget that must be fully consumed
 pub struct TrustBudget {
     remaining: u64,
 }
@@ -280,7 +280,7 @@ Linear types make budget violations compile errors:
 Every trust allocation is tracked:
 - Clear audit trail
 - Conservation guaranteed by type system
-- No "lost" trust budgets
+- No "lost" delegation risk budgets
 
 ### 3. Protocol Correctness
 
@@ -340,6 +340,6 @@ Real trust isn't perfectly linear:
 
 ## See Also
 
-- [Trust Accounting](/trust-calculus/trust-accounting/) — Runtime trust ledgers
-- [Trust Protocols](/trust-calculus/trust-protocols/) — Handshake and delegation protocols
+- [Trust Accounting](/delegation-risk/trust-accounting/) — Runtime trust ledgers
+- [Trust Protocols](/delegation-risk/trust-protocols/) — Handshake and delegation protocols
 - [Mechanism Design](/risk-budgeting/mechanism-design/) — Incentive-compatible reporting

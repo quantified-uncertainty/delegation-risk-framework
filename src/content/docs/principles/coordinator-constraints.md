@@ -6,6 +6,10 @@ title: "Coordinator Constraints"
 
 Coordinators are the highest-risk components in decomposed AI systems. They see more context, make more decisions, and have more influence than other components. This page applies the [general "Least X" principles](/principles/least-x-principles/) specifically to coordinators, with additional constraints unique to the coordination role.
 
+:::caution[Defection Risk Concentration]
+Coordinators typically have the highest [defection risk](/delegation-risk/risk-decomposition/) ratio of any component type—often 70-80% of their total risk. Their strategic position makes them the natural place for goal-directed misalignment to concentrate. Most constraints here target defection risk specifically.
+:::
+
 :::note[Relationship to General Principles]
 Many principles here specialize the general "Least X" principles:
 - **Episodic Operation** = Least Persistence applied to coordinators

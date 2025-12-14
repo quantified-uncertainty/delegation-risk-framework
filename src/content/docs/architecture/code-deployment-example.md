@@ -60,9 +60,9 @@ flowchart TB
     Canary --> Prod
 ```
 
-## Component Trust Budgets
+## Component Delegation Risk Budgets
 
-| Component | Implementation | ETE Budget | Rationale |
+| Component | Implementation | Delegation Risk Budget | Rationale |
 |-----------|---------------|------------|-----------|
 | Static Analysis | Verified code | $50/month | Deterministic, auditable |
 | Security Scanner | Fine-tuned 7B model | $200/month | Narrow task, well-tested |
@@ -133,7 +133,7 @@ Production Deploy = Code execution + Human approval + Time lock
 - **Human**: Must click "approve" after reviewing canary
 - **Time lock**: 15-minute wait between canary success and production
 
-## Trust Propagation
+## Risk Inheritance
 
 ```mermaid
 flowchart LR
@@ -187,10 +187,10 @@ The architecture ensures that even if the Code Reviewer is compromised:
 | LLM in coordinator | Yes (constrained) | No (verified code) |
 | Human in loop | Strategic decisions | Every production deploy |
 | Autonomy level | Medium (can run experiments) | Low (advisory only) |
-| Acceptable ETE | $2,000/month | $2,000/month |
+| Acceptable Delegation Risk | $2,000/month | $2,000/month |
 | Conservative factor | 1x | 2-3x |
 
-**Key insight**: Same ETE budget, but higher-stakes domain means:
+**Key insight**: Same Delegation Risk budget, but higher-stakes domain means:
 - More verification layers
 - Less LLM in critical path
 - More human involvement

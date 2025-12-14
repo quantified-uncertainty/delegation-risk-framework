@@ -12,7 +12,7 @@ Answers to frequently asked questions and responses to common skepticism.
 
 ### "Isn't this just defense in depth? That's not new."
 
-Yes, defense in depth is the core principle—but applied systematically to AI systems with quantified trust budgets. The novelty is:
+Yes, defense in depth is the core principle—but applied systematically to AI systems with quantified delegation risk budgets. The novelty is:
 
 1. **Trust as the primary resource**: Not just "add more checks" but "budget expected harm across components"
 2. **Formal propagation rules**: Mathematical framework for how trust compounds through delegation chains
@@ -20,24 +20,24 @@ Yes, defense in depth is the core principle—but applied systematically to AI s
 
 Defense in depth tells you *what* to do. This framework tells you *how much* and *where*.
 
-### "How is ETE different from regular risk assessment?"
+### "How is Delegation Risk different from regular risk assessment?"
 
-ETE (Expected Trust Exposure) is a specific instantiation of expected value calculation:
+Delegation Risk (Delegation Risk) is a specific instantiation of expected value calculation:
 
 ```
-ETE = Σ P(outcome) × Damage(outcome)
+Delegation Risk = Σ P(outcome) × Damage(outcome)
 ```
 
 The key differences from traditional risk assessment:
 
-| Traditional Risk | ETE Approach |
+| Traditional Risk | Delegation Risk Approach |
 |-----------------|--------------|
 | Often qualitative (High/Medium/Low) | Always quantified (dollars) |
 | Per-hazard analysis | Per-component allocation |
 | Static assessment | Dynamic budget tracking |
 | Compliance-focused | Optimization-focused |
 
-ETE lets you make tradeoffs: "Is adding verification worth $50/month in reduced ETE?"
+Delegation Risk lets you make tradeoffs: "Is adding verification worth $50/month in reduced Delegation Risk?"
 
 ### "Why decomposition instead of one aligned agent?"
 
@@ -124,7 +124,7 @@ Currently, implementing requires manual engineering. Useful building blocks:
 - **OpenTelemetry**: Monitoring and tracing
 - **Semgrep**: Static analysis for code components
 
-See the [Interactive Calculators](/implementation/ete-calculator/) for ETE computation.
+See the [Interactive Calculators](/implementation/delegation-risk-calculator/) for Delegation Risk computation.
 
 ### "How do I convince my team/manager to adopt this?"
 
@@ -134,7 +134,7 @@ Focus on risk reduction ROI:
 2. **Show mitigation cost**: "Adding verification reduces this to $Y for Z engineering effort"
 3. **Compare alternatives**: "Versus incident response, prevention is N times cheaper"
 
-The ETE framework gives you concrete numbers to make the business case.
+The Delegation Risk framework gives you concrete numbers to make the business case.
 
 ---
 
@@ -192,18 +192,18 @@ Security theater provides the *appearance* of security without substance. This f
 
 | Security Theater | This Framework |
 |-----------------|----------------|
-| Qualitative ("more secure") | Quantified (ETE in dollars) |
+| Qualitative ("more secure") | Quantified (Delegation Risk in dollars) |
 | Checkbox compliance | Budget allocation and monitoring |
 | Static assessment | Continuous measurement |
 | Unfalsifiable claims | Testable predictions |
 
-If your ETE estimates are wrong, production data will show it. That's not theater—it's engineering.
+If your Delegation Risk estimates are wrong, production data will show it. That's not theater—it's engineering.
 
 ---
 
 ## Technical Questions
 
-### "How does trust propagation handle cycles?"
+### "How does risk inheritance handle cycles?"
 
 For acyclic graphs: straightforward path calculation.
 

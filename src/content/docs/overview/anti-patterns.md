@@ -51,17 +51,17 @@ flowchart TB
 
 ### 3. Capability Creep
 
-**Mistake**: Gradually adding capabilities to a component without reassessing trust budget.
+**Mistake**: Gradually adding capabilities to a component without reassessing delegation risk budget.
 
 **Timeline**:
-1. Week 1: Component reads files → ETE: $100
-2. Week 4: Added write capability → ETE: $500 (not reassessed)
-3. Week 8: Added network access → ETE: $2,000 (not reassessed)
-4. Week 12: Added execution → ETE: $10,000 (still using Week 1 budget)
+1. Week 1: Component reads files → Delegation Risk: $100
+2. Week 4: Added write capability → Delegation Risk: $500 (not reassessed)
+3. Week 8: Added network access → Delegation Risk: $2,000 (not reassessed)
+4. Week 12: Added execution → Delegation Risk: $10,000 (still using Week 1 budget)
 
 **Why it's dangerous**: The component's actual risk has grown 100x but nobody updated the trust accounting.
 
-**Do instead**: Every capability change triggers mandatory ETE reassessment. Use expiring permissions that force periodic review.
+**Do instead**: Every capability change triggers mandatory Delegation Risk reassessment. Use expiring permissions that force periodic review.
 
 ---
 
@@ -115,7 +115,7 @@ flowchart LR
 - Look up values in a database (use SQL)
 
 **Why it's dangerous**:
-- Higher ETE (LLMs are less predictable)
+- Higher Delegation Risk (LLMs are less predictable)
 - More expensive
 - Slower
 - Introduces unnecessary attack surface
@@ -223,7 +223,7 @@ Strategy → Tactics: { task_ids: [1, 3, 5], priority: "high", deadline: "2h" }
 - Integration can introduce new failure modes
 - Incentives may not align with your safety needs
 
-**Do instead**: Verify independently. Apply same trust budget process regardless of source. "Trust but verify" applies to everyone.
+**Do instead**: Verify independently. Apply same delegation risk budget process regardless of source. "Trust but verify" applies to everyone.
 
 ---
 
@@ -235,7 +235,7 @@ Strategy → Tactics: { task_ids: [1, 3, 5], priority: "high", deadline: "2h" }
 - Bonus for shipping features, no penalty for safety incidents
 - "Move fast and break things" culture
 - Safety review seen as obstacle, not enabler
-- ETE budgets not tied to team accountability
+- Delegation Risk budgets not tied to team accountability
 
 **Why it's dangerous**: People optimize for what they're measured on. If safety isn't measured, it gets deprioritized.
 
@@ -263,7 +263,7 @@ Before deployment, verify you're NOT doing any of these:
 |--------------|-------|
 | God Coordinator | Is coordination decomposed into limited sub-tasks? |
 | Trust Without Verification | Is every invocation validated at runtime? |
-| Capability Creep | Has ETE been reassessed after every capability change? |
+| Capability Creep | Has Delegation Risk been reassessed after every capability change? |
 | Narrow Bottleneck | Are there multiple independent verification paths? |
 | Security Theater | Do safety mechanisms actually trigger? (show evidence) |
 | LLM for Everything | Could any LLM task be done with code/narrow model? |

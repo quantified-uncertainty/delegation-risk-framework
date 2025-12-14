@@ -44,7 +44,7 @@ AI-driven general intelligence need not take the form of unified, goal-directed 
 
 | CAIS Gap | This Framework's Solution |
 |----------|--------------------------|
-| No formal trust composition | Trust calculus with propagation rules |
+| No formal trust composition | Delegation risk framework with propagation rules |
 | No quantitative risk allocation | Euler allocation for risk budgets |
 | Underspecified coordination | Formal coordinator constraints |
 | Ignores foundation model reality | Accounts for shared base models |

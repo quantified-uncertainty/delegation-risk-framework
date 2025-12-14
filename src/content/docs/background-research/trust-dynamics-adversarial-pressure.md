@@ -721,7 +721,7 @@ This suggests that without decay mechanisms, the only equilibrium is no trust. D
 
 ### 9.2 Implications for AI Safety Frameworks
 
-**For Trust Calculus:**
+**For Delegation Risk:**
 
 - Trust should be modeled as a strategic game with adversarial equilibria
 - Trust levels must account for defection incentives and capability thresholds

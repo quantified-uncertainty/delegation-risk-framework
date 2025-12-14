@@ -43,7 +43,7 @@ flowchart TB
         TRADE[Trading System]
     end
 
-    subgraph TrustCalc["Trust Calculus"]
+    subgraph TrustCalc["Delegation Risk"]
         TCOV[Overview]
         PROP[Propagation]
         OPT[Optimization]
@@ -140,7 +140,7 @@ Research Assistant Example → Code Deployment Example → Safety Mechanisms
 Deep dive into the formal framework:
 
 ```
-Core Concepts → Trust Calculus Overview → Trust Propagation →
+Core Concepts → Delegation Risk Overview → Risk Inheritance →
 Trust Optimization → Coordinator Constraints → Empirical Tests
 ```
 
@@ -166,12 +166,12 @@ What you need to understand before each major concept:
 
 | Concept | Prerequisites | Recommended First |
 |---------|--------------|-------------------|
-| **ETE (Expected Trust Exposure)** | None | Core Concepts |
-| **Least X Principles** | ETE basics | Core Concepts |
+| **Delegation Risk (Delegation Risk)** | None | Core Concepts |
+| **Least X Principles** | Delegation Risk basics | Core Concepts |
 | **Coordinator Constraints** | Least X Principles | Least X Principles |
 | **Decomposed Coordination** | Least X, Coordinator | Both principle pages |
-| **Trust Propagation** | ETE, basic graph theory | Trust Calculus Overview |
-| **Trust Optimization** | Propagation, calculus | Trust Propagation |
+| **Risk Inheritance** | Delegation Risk, basic graph theory | Delegation Risk Overview |
+| **Trust Optimization** | Inheritance, calculus | Risk Inheritance |
 | **Euler Allocation** | Basic probability | Risk Budgeting Overview |
 | **Fault Trees** | Probability, AND/OR logic | Nuclear Safety PRA |
 | **Mechanism Design** | Game theory basics | Risk Budgeting Overview |
@@ -186,7 +186,7 @@ What you need to understand before each major concept:
 | **How do I apply it?** | Quick Start, Decision Guide, Principles to Practice |
 | **What are the principles?** | Least X Principles, Coordinator Constraints |
 | **Show me examples** | Research Assistant, Code Deployment, Case Studies (Sydney, Code Review Bot, Near-Miss, Drift) |
-| **What's the math?** | Trust Calculus Overview, Trust Propagation, Trust Optimization |
+| **What's the math?** | Delegation Risk Overview, Risk Inheritance, Trust Optimization |
 | **How does this relate to X?** | Related Approaches, Background Research |
 | **What could go wrong?** | Anti-patterns, Lessons from Failures |
 | **What's the evidence?** | Empirical Tests, Nuclear/Aerospace Deep Dive |
@@ -196,7 +196,7 @@ What you need to understand before each major concept:
 
 | Keyword | Primary Page | Related Pages |
 |---------|--------------|---------------|
-| **ETE** | Trust Calculus Overview | Core Concepts, Trust Accounting |
+| **Delegation Risk** | Delegation Risk Overview | Core Concepts, Trust Accounting |
 | **Decomposition** | Decomposed Coordination | Core Concepts, Least X Principles |
 | **Verification** | Safety Mechanisms | Trust Interfaces, Coordinator Constraints |
 | **Byzantine** | Safety Mechanisms | Decomposed Coordination |
@@ -212,7 +212,7 @@ What you need to understand before each major concept:
 | **Overview** | 13 | Complete |
 | **Principles** | 2 | Complete |
 | **Architecture** | 7 | Complete |
-| **Trust Calculus** | 10 | Most complete |
+| **Delegation Risk** | 10 | Most complete |
 | **Risk Budgeting** | 9 | Complete |
 | **Implementation** | 7 | Complete |
 | **Background Research** | 6 | Complete |
@@ -233,11 +233,11 @@ What you need to understand before each major concept:
 - [Decision Guide](/implementation/decision-guide/)
 
 **Deep dives**:
-- [Trust Calculus Overview](/trust-calculus/overview/)
+- [Delegation Risk Overview](/delegation-risk/overview/)
 - [Risk Budgeting Overview](/risk-budgeting/overview/)
 - [Safety Mechanisms](/architecture/safety-mechanisms/)
 
 **Interactive Tools**:
-- [ETE Calculator](/implementation/ete-calculator/)
-- [Trust Propagation](/implementation/trust-propagation/)
+- [Delegation Risk Calculator](/implementation/delegation-risk-calculator/)
+- [Risk Inheritance](/implementation/trust-propagation/)
 - [Tradeoff Frontier](/implementation/tradeoff-frontier/)

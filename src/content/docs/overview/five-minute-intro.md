@@ -41,15 +41,15 @@ Each component has:
 
 ## The Formula
 
-**Expected Trust Exposure (ETE)** = probability of bad outcome × damage
+**Delegation Risk** = probability of bad outcome × damage
 
 ```
-ETE = Σ P(failure) × Damage
+Delegation Risk = Σ P(failure) × Damage
 ```
 
-Example: Component has 1% chance of causing $10,000 damage → ETE = $100
+Example: Component has 1% chance of causing $10,000 damage → Delegation Risk = $100
 
-**Budget your ETE** across components. If total exceeds budget, add safeguards.
+**Budget your Delegation Risk** across components. If total exceeds budget, add safeguards.
 
 ---
 
@@ -83,7 +83,7 @@ Don't use GPT-4 for things a regex can do.
 
 **Task**: Slack bot answering questions from docs
 
-| Component | Implementation | ETE |
+| Component | Implementation | Delegation Risk |
 |-----------|---------------|-----|
 | Retriever | Code (vector search) | $5/mo |
 | Answerer | Fine-tuned 7B | $50/mo |
@@ -109,7 +109,7 @@ Budget: $500/mo → **Within budget. Ship it.**
 
 - **Want the full picture?** → [Core Concepts](/overview/core-concepts/)
 - **Ready to apply it?** → [Quick Start](/implementation/quick-start/)
-- **Want the math?** → [Trust Calculus](/trust-calculus/overview/)
+- **Want the math?** → [Delegation Risk](/delegation-risk/overview/)
 - **Have questions?** → [FAQ](/overview/faq/)
 
 ---

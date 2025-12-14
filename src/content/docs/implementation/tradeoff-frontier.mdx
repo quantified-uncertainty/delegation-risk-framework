@@ -364,15 +364,15 @@ The fundamental tradeoff in AI system design: more capable systems require more 
           ctx.stroke();
         }
 
-        // Draw budget line (iso-ETE curve approximation)
+        // Draw budget line (iso-Delegation Risk curve approximation)
         if (budgetLine > 0) {
           ctx.strokeStyle = '#f59e0b';
           ctx.lineWidth = 2;
           ctx.setLineDash([5, 5]);
           ctx.beginPath();
 
-          // ETE ≈ capability × (100 - trust) × factor
-          // Rearrange: trust = 100 - ETE / (capability × factor)
+          // Delegation Risk ≈ capability × (100 - trust) × factor
+          // Rearrange: trust = 100 - Delegation Risk / (capability × factor)
           const factor = 50; // Scaling factor
           let started = false;
 
@@ -583,7 +583,7 @@ This is why the frontier slopes downward: gaining capability typically costs tru
 Position: Upper-left of frontier
 Examples: Basic chatbots, constrained tools
 Tradeoff: Limited functionality, very safe
-Use when: Stakes are high, trust budget is small
+Use when: Stakes are high, delegation risk budget is small
 ```
 
 ### Aggressive (High Capability, Lower Trust)
@@ -592,7 +592,7 @@ Use when: Stakes are high, trust budget is small
 Position: Lower-right of frontier
 Examples: Autonomous agents, full-autonomy systems
 Tradeoff: Powerful but risky
-Use when: High potential value, substantial trust budget
+Use when: High potential value, substantial delegation risk budget
 ```
 
 ### Balanced (Middle of Frontier)
@@ -638,7 +638,7 @@ After:        ●───●───●  (shifted outward)
 
 ## Using the Budget Line
 
-The orange dashed line (when budget > 0) shows configurations with approximately equal Expected Trust Exposure. Points below this line exceed your risk budget.
+The orange dashed line (when budget > 0) shows configurations with approximately equal Delegation Risk. Points below this line exceed your risk budget.
 
 **Reading the chart:**
 - Configurations on the frontier AND below the budget line are optimal choices
@@ -651,7 +651,7 @@ The orange dashed line (when budget > 0) shows configurations with approximately
 
 1. **Map your systems**: Plot each AI system's capability and trust
 2. **Identify dominated systems**: Why do they exist? Legacy? Oversight gap?
-3. **Set budget line**: What ETE can you accept?
+3. **Set budget line**: What Delegation Risk can you accept?
 4. **Choose position**: Where on the frontier matches your needs?
 5. **Improve frontier**: Invest in verification/architecture to shift outward
 
@@ -659,6 +659,6 @@ The orange dashed line (when budget > 0) shows configurations with approximately
 
 ## Next Steps
 
-- [ETE Calculator](/implementation/ete-calculator/) — Quantify your risk exposure
-- [Trust Propagation](/implementation/trust-propagation/) — Model trust through delegation chains
+- [Delegation Risk Calculator](/implementation/delegation-risk-calculator/) — Quantify your risk exposure
+- [Risk Inheritance](/implementation/trust-propagation/) — Model trust through delegation chains
 - [Decision Guide](/implementation/decision-guide/) — Choose implementation approach

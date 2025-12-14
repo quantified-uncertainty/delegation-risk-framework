@@ -27,7 +27,7 @@ This page maps the framework's abstract principles to their concrete application
 ## Implementation Patterns by Risk Level
 
 <details>
-<summary>Low-Risk Components (ETE &lt; $200/month)</summary>
+<summary>Low-Risk Components (Delegation Risk &lt; $200/month)</summary>
 
 **Pattern**: Use narrow or verified implementations freely.
 
@@ -43,7 +43,7 @@ This page maps the framework's abstract principles to their concrete application
 </details>
 
 <details>
-<summary>Medium-Risk Components (ETE $200-$500/month)</summary>
+<summary>Medium-Risk Components (Delegation Risk $200-$500/month)</summary>
 
 **Pattern**: Fine-tuned narrow models with extensive testing.
 
@@ -59,7 +59,7 @@ This page maps the framework's abstract principles to their concrete application
 </details>
 
 <details>
-<summary>High-Risk Components (ETE &gt; $500/month)</summary>
+<summary>High-Risk Components (Delegation Risk &gt; $500/month)</summary>
 
 **Pattern**: Defense in depth — multiple constraints, redundancy, human oversight.
 
@@ -73,32 +73,32 @@ This page maps the framework's abstract principles to their concrete application
 
 </details>
 
-## Trust Calculus in Action
+## Delegation Risk in Action
 
 <details>
-<summary>Computing ETE — worked examples</summary>
+<summary>Computing Delegation Risk — worked examples</summary>
 
-### Computing ETE
+### Computing Delegation Risk
 
 **Research Assistant Summarizer**:
 ```
 P(misrepresent findings) × Damage = 0.02 × $5,000 = $100
 P(leak proprietary data) × Damage = 0.001 × $50,000 = $50
-Total ETE = $150/month
+Total Delegation Risk = $150/month
 ```
 
 **Code Deployment Canary**:
 ```
 P(approve bad deploy) × Damage = 0.01 × $30,000 = $300
-Total ETE = $300/month
+Total Delegation Risk = $300/month
 ```
 
 </details>
 
 <details>
-<summary>Trust Propagation — worked examples</summary>
+<summary>Risk Inheritance — worked examples</summary>
 
-### Trust Propagation
+### Risk Inheritance
 
 **Research Assistant** (multiplicative rule):
 ```
@@ -121,7 +121,7 @@ Why: Reviewer's output doesn't flow to production deploy
 
 ### Budget Allocation Decisions
 
-Both examples target ~$2,000/month total ETE but allocate differently:
+Both examples target ~$2,000/month total Delegation Risk but allocate differently:
 
 **Research Assistant** — more distributed risk:
 - Summarizer: 8%
@@ -187,7 +187,7 @@ flowchart LR
 When designing a new system:
 
 1. **Identify failure modes** — What can go wrong? What's the damage?
-2. **Compute component ETEs** — P(failure) × Damage for each
+2. **Compute component Delegation Risks** — P(failure) × Damage for each
 3. **Set system budget** — What total risk is acceptable?
 4. **Allocate budgets** — Which components get how much?
 5. **Choose implementations** — Verified code > narrow models > frontier LLMs
@@ -205,4 +205,4 @@ When designing a new system:
 - [Coordinator Constraints](/principles/coordinator-constraints/) — Coordinator-specific principles
 - [Research Assistant Example](/architecture/research-assistant-example/) — Full worked example
 - [Code Deployment Example](/architecture/code-deployment-example/) — Higher-stakes example
-- [Trust Calculus Overview](/trust-calculus/overview/) — ETE computation and propagation
+- [Delegation Risk Overview](/delegation-risk/overview/) — Delegation Risk computation and propagation

@@ -1,9 +1,9 @@
 ---
-title: AI Safety Framework
-description: A structured approach to AI safety through capability containment and trust calculus.
+title: Delegation Risk Framework
+description: A structured approach to managing risk in delegation relationships—with AI systems as the primary application.
 template: splash
 hero:
-  tagline: Structural constraints for safe AI systems
+  tagline: Quantifying and managing risk when you can't do everything yourself
   actions:
     - text: Get Started
       link: /overview/introduction/
@@ -18,32 +18,40 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## The Problem
 
-AI systems are becoming more capable, more autonomous, and more interconnected. We're moving from AI as a tool to AI as an agent—systems that plan, execute, and delegate to other AI systems.
+Every delegation involves risk. When you delegate a task—to an employee, a contractor, a software system, or an AI agent—you're accepting potential downside in exchange for capability you don't have or can't apply yourself.
 
-This creates fundamental safety challenges:
+This creates fundamental challenges:
 
-- **Capability without containment**: The same capabilities that make AI useful make failures potentially catastrophic
-- **Delegation without verification**: When agents delegate to other agents, trust relationships multiply without principled bounds
-- **Autonomy without accountability**: Less human oversight requires structural guarantees, not just hopes
+- **Capability without containment**: The same capabilities that make a delegate useful make failures potentially serious
+- **Delegation without verification**: When delegates delegate to other delegates, risk relationships multiply without principled bounds
+- **Autonomy without accountability**: Less oversight requires structural guarantees, not just hopes
+
+These challenges appear across domains: organizational management, software systems, supply chains, and increasingly, AI agents that plan, execute, and delegate to other AI systems.
 
 ---
 
 ## The Approach
 
-This framework proposes **structural constraints** as the foundation for AI safety. Rather than relying solely on training, oversight, or detection, we focus on **architectural properties** that make dangerous behavior difficult regardless of what an AI "wants."
+This framework proposes **structural constraints** as the foundation for managing delegation risk. Rather than relying solely on:
+
+- Selecting trustworthy delegates (which may not scale)
+- Oversight of every action (which doesn't scale)
+- Post-hoc detection of problems (which may be too late)
+
+We focus on **architectural properties** that bound potential harm regardless of delegate behavior.
 
 <CardGrid>
-  <Card title="Trust as a Resource" icon="seti:notebook">
-    Every delegation involves trust. We can measure it, budget it, and optimize it—just like compute or money. [Expected Trust Exposure](/trust-calculus/overview/) quantifies how much we're betting on each component.
+  <Card title="Risk as a Resource" icon="seti:notebook">
+    Every delegation involves risk. We can measure it, budget it, and optimize it—just like compute or money. [Delegation Risk](/delegation-risk/overview/) quantifies what you're betting on each delegate.
   </Card>
   <Card title="Containment via Decomposition" icon="puzzle">
-    Instead of one powerful AI, decompose tasks across many limited components. No single component has enough capability, context, or connectivity to cause catastrophic harm.
+    Instead of one powerful delegate, decompose tasks across many limited components. No single component has enough capability, context, or connectivity to cause catastrophic harm.
   </Card>
   <Card title="Principles that Bound Behavior" icon="list-format">
-    The ["Least X" principles](/principles/least-x-principles/)—least privilege, least intelligence, least context—systematically limit what each component can do.
+    The ["Least X" principles](/principles/least-x-principles/)—least privilege, least capability, least context—systematically limit what each component can do.
   </Card>
   <Card title="Cross-Domain Wisdom" icon="open-book">
-    Nuclear safety, financial risk, and security engineering have decades of experience. We adapt their [proven methods](/risk-budgeting/overview/) for AI systems.
+    Nuclear safety, financial risk, and mechanism design have decades of experience. We adapt their [proven methods](/risk-budgeting/overview/) to delegation problems.
   </Card>
 </CardGrid>
 
@@ -53,33 +61,49 @@ This framework proposes **structural constraints** as the foundation for AI safe
 
 **Safety can be architectural, not just behavioral.**
 
-We don't need perfect alignment if we build systems where:
-- No component has enough power to cause catastrophic harm
-- Components can't coordinate to amplify their power
-- Trust relationships are explicit and bounded
+We don't need perfect trust if we build systems where:
+- No delegate has enough power to cause catastrophic harm
+- Delegates can't coordinate to amplify their power
+- Risk relationships are explicit and bounded
 - Failures are contained and recoverable
 
-This complements alignment research with defense in depth.
+This provides defense in depth regardless of delegate reliability.
+
+---
+
+## Primary Application: AI Systems
+
+While the framework applies generally, **AI systems are our primary focus**. AI agents present delegation challenges at unprecedented scale:
+
+- Capabilities expanding faster than our ability to verify them
+- Agents delegating to other agents in complex networks
+- Reduced human oversight as systems become more autonomous
+- Unknown failure modes in systems we don't fully understand
+
+The framework provides infrastructure for deploying AI safely—not by solving alignment, but by bounding the damage from any single component.
 
 ---
 
 ## Documentation Structure
 
 <CardGrid stagger>
-  <Card title="Principles" icon="approve-check">
-    Start here. The "Least X" principles provide foundational constraints you can apply immediately.
+  <Card title="Delegation Risk Theory" icon="document">
+    The mathematical foundation: Delegation Risk = Σ P(harm) × Damage. Quantification, composition, optimization.
   </Card>
-  <Card title="Architecture" icon="setting">
-    How to structure AI systems: decomposed coordination, forecasting-based navigation, worked examples.
+  <Card title="Cross-Domain Methods" icon="random">
+    Proven approaches from finance (Euler allocation), nuclear safety (fault trees), and mechanism design (incentive compatibility).
   </Card>
-  <Card title="Trust Calculus" icon="document">
-    The math: Expected Trust Exposure, propagation algorithms, optimization methods.
+  <Card title="Design Principles" icon="approve-check">
+    The "Least X" principles: least privilege, least capability, least context, least autonomy. Actionable constraints.
   </Card>
-  <Card title="Risk Budgeting" icon="random">
-    Cross-domain approaches from finance, nuclear safety, and mechanism design.
+  <Card title="Applications" icon="open-book">
+    How the framework applies: organizational trust, criminal justice, open source, and more.
+  </Card>
+  <Card title="AI Systems" icon="setting">
+    Specific guidance for AI: decomposed coordination, safety mechanisms, worked examples.
   </Card>
   <Card title="Implementation" icon="rocket">
-    Practical guidance: empirical validation, relationship to existing work, adoption roadmap.
+    Practical guidance: empirical validation, cost-benefit analysis, adoption roadmap.
   </Card>
 </CardGrid>
 
@@ -87,7 +111,8 @@ This complements alignment research with defense in depth.
 
 ## Who This Is For
 
-- **AI safety researchers** thinking about scalable alignment
+- **Risk managers** thinking about delegation in any domain
+- **AI safety researchers** working on scalable containment approaches
 - **ML engineers** building agentic systems with principled constraints
 - **Organizations** deploying AI that need risk management frameworks
 - **Policy makers** looking for concrete technical approaches
@@ -127,7 +152,7 @@ Learn from real-world examples:
 ## Start Reading
 
 1. **[Introduction](/overview/introduction/)** — The full problem statement and approach
-2. **[Least X Principles](/principles/least-x-principles/)** — Foundational design constraints
-3. **[Decomposed Coordination](/architecture/decomposed-coordination/)** — Safe agentic architectures
+2. **[Delegation Risk Overview](/delegation-risk/overview/)** — The mathematical foundation
+3. **[Design Principles](/principles/least-x-principles/)** — Actionable constraints
 
-**Interactive Tools**: [ETE Calculator](/implementation/ete-calculator/) · [Trust Propagation](/implementation/trust-propagation/) · [Tradeoff Frontier](/implementation/tradeoff-frontier/)
+**Interactive Tools**: [Delegation Risk Calculator](/implementation/delegation-risk-calculator/) · [Risk Inheritance](/implementation/trust-propagation/) · [Tradeoff Frontier](/implementation/tradeoff-frontier/)

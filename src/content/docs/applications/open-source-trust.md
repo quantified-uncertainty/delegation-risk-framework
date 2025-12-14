@@ -178,7 +178,7 @@ flowchart TB
 - Security audits
 - Reproducible builds (not widely deployed)
 
-### ETE Calculation: If xz Hadn't Been Caught
+### Delegation Risk Calculation: If xz Hadn't Been Caught
 
 **Scope of compromise:**
 - Every Linux system with affected xz version
@@ -187,10 +187,10 @@ flowchart TB
 
 **Potential damage:**
 ```
-ETE = P(exploitation) × Number of systems × Damage per system
+Delegation Risk = P(exploitation) × Number of systems × Damage per system
 ```
 
-| Scenario | P(exploitation) | Systems | Damage/System | Total ETE |
+| Scenario | P(exploitation) | Systems | Damage/System | Total Delegation Risk |
 |----------|----------------|---------|---------------|-----------|
 | Targeted espionage | 0.001 | 100M | $1,000 | $100B |
 | Widespread ransomware | 0.01 | 100M | $10,000 | $10T |
@@ -314,44 +314,44 @@ flowchart TB
 
 ---
 
-## Part 6: ETE Analysis of the Open Source Ecosystem
+## Part 6: Delegation Risk Analysis of the Open Source Ecosystem
 
-### Package-Level ETE
+### Package-Level Delegation Risk
 
 **For a typical npm package:**
 
-| Risk | P(occurrence/year) | Impact | ETE |
+| Risk | P(occurrence/year) | Impact | Delegation Risk |
 |------|-------------------|--------|-----|
 | Maintainer account compromised | 0.01 | All users | Depends on users |
 | Malicious dependency added | 0.005 | All users | Depends on users |
 | Vulnerability introduced | 0.05 | All users | Moderate |
 | Package unpublished | 0.001 | Build breakage | Low |
 
-**ETE scales with popularity:**
+**Delegation Risk scales with popularity:**
 ```
-Package ETE = Base_risk × Number_of_dependents × Impact_per_dependent
+Package Delegation Risk = Base_risk × Number_of_dependents × Impact_per_dependent
 ```
 
-| Package | Dependents | Base Risk | Impact | Annual ETE |
+| Package | Dependents | Base Risk | Impact | Annual Delegation Risk |
 |---------|------------|-----------|--------|------------|
 | lodash | 150,000+ packages | 0.001 | $100K avg | $15M |
 | express | 80,000+ packages | 0.001 | $200K avg | $16M |
 | core-js | 50,000+ packages | 0.002 (single maintainer) | $100K avg | $10M |
 
-### Ecosystem-Level ETE
+### Ecosystem-Level Delegation Risk
 
 **For the entire npm ecosystem:**
 
 ```
-Ecosystem ETE = Σ(Package ETE) + P(registry compromise) × Total impact
+Ecosystem Delegation Risk = Σ(Package Delegation Risk) + P(registry compromise) × Total impact
 ```
 
-| Component | Annual ETE |
+| Component | Annual Delegation Risk |
 |-----------|------------|
 | Sum of top 1000 packages | ~$500M |
 | Long tail (2M other packages) | ~$200M |
 | Registry-level risk | ~$10B (low P, catastrophic impact) |
-| **Total npm Ecosystem ETE** | **~$10B/year** |
+| **Total npm Ecosystem Delegation Risk** | **~$10B/year** |
 
 :::note[Underestimation]
 This is almost certainly an underestimate. The xz backdoor alone could have caused $100B+ in damage, and it targeted a relatively obscure package. A successful attack on a more popular package could be far worse.
@@ -379,10 +379,10 @@ flowchart TB
 | Innovation | - | Gatekeeping stifles innovation |
 | Cost | - | Who pays for reviewers? |
 
-**ETE impact:**
+**Delegation Risk impact:**
 ```
 Verification catch rate: 80%
-New ecosystem ETE = 0.20 × Original ETE = $2B/year
+New ecosystem Delegation Risk = 0.20 × Original Delegation Risk = $2B/year
 Cost of verification: $500M+/year
 Net: Maybe positive ROI, but changes ecosystem nature
 ```
@@ -410,10 +410,10 @@ flowchart TB
 | Scales | Verification distributed | Trust decay problems |
 | Community-driven | Leverages existing relationships | Cliques, politics |
 
-**ETE impact:**
+**Delegation Risk impact:**
 ```
 Effective trust verification: 50%
-New ecosystem ETE = 0.50 × Original ETE = $5B/year
+New ecosystem Delegation Risk = 0.50 × Original Delegation Risk = $5B/year
 Cost: Low (community-based)
 Net: Moderate improvement, culturally difficult
 ```
@@ -436,13 +436,13 @@ flowchart TB
 | Scalable | Market sets prices | May not cover long-term attacks |
 | Insurance | Risk transferred to those who can assess it | Expensive |
 
-**ETE impact:**
+**Delegation Risk impact:**
 ```
 With $100K average bond per popular package (top 10K):
-- Direct ETE reduction from bonds: $1B/year
+- Direct Delegation Risk reduction from bonds: $1B/year
 - Indirect effect (better practices): 2-3×
 
-New ecosystem ETE = $3B/year
+New ecosystem Delegation Risk = $3B/year
 Cost: Passed to ecosystem (higher package costs)
 ```
 
@@ -468,13 +468,13 @@ flowchart TB
 | Tamper-evident | Log shows all changes | Complex infrastructure |
 | Community verification | Anyone can verify | Few actually do |
 
-**ETE impact:**
+**Delegation Risk impact:**
 ```
 Catches: Build tampering, CI poisoning, some account compromises
 Doesn't catch: Malicious source commits, social engineering
-ETE reduction: ~30% (significant portion of attacks)
+Delegation Risk reduction: ~30% (significant portion of attacks)
 
-New ecosystem ETE = $7B/year
+New ecosystem Delegation Risk = $7B/year
 Cost: Infrastructure + ecosystem adoption
 ```
 
@@ -509,15 +509,15 @@ flowchart TB
     BOND --> AUDIT
 ```
 
-**Combined ETE:**
+**Combined Delegation Risk:**
 ```
-Layer 1 (identity): -20% ETE
-Layer 2 (builds): -30% ETE (of remaining)
-Layer 3 (economics): -40% ETE (of remaining)
-Layer 4 (community): -20% ETE (of remaining)
+Layer 1 (identity): -20% Delegation Risk
+Layer 2 (builds): -30% Delegation Risk (of remaining)
+Layer 3 (economics): -40% Delegation Risk (of remaining)
+Layer 4 (community): -20% Delegation Risk (of remaining)
 
 Combined: 0.80 × 0.70 × 0.60 × 0.80 = 0.27
-New ecosystem ETE = $2.7B/year (73% reduction)
+New ecosystem Delegation Risk = $2.7B/year (73% reduction)
 ```
 
 ---
@@ -585,7 +585,7 @@ Examples:
 - Google's OSS-Fuzz
 - Various corporate-funded audits
 
-### ETE of Maintainer Support
+### Delegation Risk of Maintainer Support
 
 **If top 1000 critical packages had:**
 - Full-time paid maintainer
@@ -596,7 +596,7 @@ Examples:
 Risk reduction per package: ~80%
 Coverage: Top 1000 packages = 90% of ecosystem impact
 Cost: ~$100M/year (1000 × $100K average)
-ETE reduction: 0.80 × 0.90 × $10B = $7.2B/year
+Delegation Risk reduction: 0.80 × 0.90 × $10B = $7.2B/year
 
 ROI: 72× ($7.2B saved for $100M spent)
 ```
@@ -658,7 +658,7 @@ AI systems have similar dependency structures:
 3. **The xz attack showed the system's fragility**—years of social engineering, caught by luck
 4. **Single-maintainer packages are critical vulnerabilities**—core-js, left-pad, etc.
 5. **The verification gap is 1000:1**—publishing is trivial, verification is nearly impossible
-6. **Combined trust architectures can reduce ETE by 70%+**—signing, reproducible builds, economics, community
+6. **Combined trust architectures can reduce Delegation Risk by 70%+**—signing, reproducible builds, economics, community
 7. **Funding maintainers has 72× ROI**—the highest-leverage security investment available
 8. **These problems are directly analogous to AI trust**—model hubs, training data, dependencies
 :::
@@ -670,5 +670,5 @@ AI systems have similar dependency structures:
 - [Nuclear Launch Authority](/applications/nuclear-launch-authority/) — High-stakes trust under uncertainty
 - [Criminal Organizations](/applications/criminal-trust/) — Trust without external enforcement
 - [The Oversight Dilemma](/applications/oversight-dilemma/) — Structuring verification
-- [Trust Propagation](/trust-calculus/trust-propagation/) — How trust flows through networks
+- [Risk Inheritance](/delegation-risk/trust-propagation/) — How trust flows through networks
 - [Lessons from Historical Failures](/risk-budgeting/lessons-from-failures/) — When trust systems break

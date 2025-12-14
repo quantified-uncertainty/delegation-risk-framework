@@ -11,7 +11,7 @@ Before AI systems introduced novel trust challenges, human organizations have gr
 Analyzing organizational trust using the same calculus we apply to AI systems reveals surprisingly quantifiable patterns and offers practical tools for organizational design.
 
 :::tip[Key Insight]
-Organizations are trust networks where every delegation creates risk. The same ETE framework that quantifies AI safety applies directly to bureaucratic structures—and reveals why certain organizational designs persistently fail or succeed.
+Organizations are trust networks where every delegation creates risk. The same Delegation Risk framework that quantifies AI safety applies directly to bureaucratic structures—and reveals why certain organizational designs persistently fail or succeed.
 :::
 
 ## The Fundamental Problem: Scaling Trust
@@ -60,42 +60,42 @@ flowchart TB
     M -->|"0.70"| V[Vendors]
 ```
 
-### Failure Modes and ETE Analysis
+### Failure Modes and Delegation Risk Analysis
 
 #### Cash Handling Trust
 
-| Role | Access Level | P(theft/month) | Max Exposure | ETE |
+| Role | Access Level | P(theft/month) | Max Exposure | Delegation Risk |
 |------|-------------|----------------|--------------|-----|
 | GM (Jake) | Safe combination, bank deposits, vendor payments | 0.002 | $50,000 | $100/mo |
 | Shift Supervisors | Daily deposits up to $2,000 | 0.008 | $2,000 | $16/mo |
 | Baristas | Cash register, tips | 0.015 | $500 | $7.50/mo × 8 = $60/mo |
-| **Total Cash ETE** | | | | **$176/mo** |
+| **Total Cash Delegation Risk** | | | | **$176/mo** |
 
 **Insight**: The GM represents 57% of cash-related trust exposure despite being one person. This is typical—trusted positions concentrate risk.
 
 #### Quality Control Trust
 
-| Failure Mode | P(occurrence/month) | Damage | ETE |
+| Failure Mode | P(occurrence/month) | Damage | Delegation Risk |
 |--------------|--------------------| -------|-----|
 | Food safety violation (kitchen) | 0.003 | $30,000 (fines, closure) | $90/mo |
 | Barista serves allergen without disclosure | 0.001 | $100,000 (lawsuit) | $100/mo |
 | Supervisor approves expired ingredients | 0.002 | $15,000 (health incident) | $30/mo |
 | GM ignores health inspection issues | 0.0005 | $200,000 (business closure) | $100/mo |
-| **Total Quality ETE** | | | **$320/mo** |
+| **Total Quality Delegation Risk** | | | **$320/mo** |
 
 #### Customer Relationship Trust
 
-| Failure Mode | P(occurrence/month) | Damage | ETE |
+| Failure Mode | P(occurrence/month) | Damage | Delegation Risk |
 |--------------|--------------------| -------|-----|
 | Barista rude to customer (viral incident) | 0.01 | $5,000 (reputation) | $50/mo |
 | Supervisor handles complaint poorly | 0.005 | $3,000 | $15/mo |
 | GM makes discriminatory policy | 0.0005 | $80,000 | $40/mo |
 | Employee posts damaging social media | 0.003 | $20,000 | $60/mo |
-| **Total Customer Relationship ETE** | | | **$165/mo** |
+| **Total Customer Relationship Delegation Risk** | | | **$165/mo** |
 
 ### Total Business Trust Exposure
 
-| Category | Monthly ETE |
+| Category | Monthly Delegation Risk |
 |----------|-------------|
 | Cash Handling | $176 |
 | Quality Control | $320 |
@@ -103,7 +103,7 @@ flowchart TB
 | Inventory/Supplies | $85 |
 | Equipment/Property | $45 |
 | Legal/Compliance | $120 |
-| **Total System ETE** | **$911/month** |
+| **Total System Delegation Risk** | **$911/month** |
 
 **Annualized**: ~$10,932/year of expected trust-related losses.
 
@@ -124,10 +124,10 @@ Maria is considering several changes. Let's analyze each:
 | Trust(Maria→Jake) | 0.92 | 0.97 | +5% |
 | P(theft by Jake) | 0.002 | 0.0005 | -75% |
 | P(negligent decisions) | 0.01 | 0.004 | -60% |
-| GM-related ETE | $250/mo | $85/mo | -66% |
+| GM-related Delegation Risk | $250/mo | $85/mo | -66% |
 | Cost | $0 | $4,800/yr (equity value) | — |
 
-**Net benefit**: $1,980/year in reduced ETE minus $4,800 in equity dilution = **-$2,820**
+**Net benefit**: $1,980/year in reduced Delegation Risk minus $4,800 in equity dilution = **-$2,820**
 
 **Verdict**: Not financially optimal, but may be worthwhile for retention and long-term alignment.
 
@@ -139,7 +139,7 @@ Maria is considering several changes. Let's analyze each:
 |--------|--------|-------|--------|
 | P(employee theft) | 0.015 | 0.004 | -73% |
 | P(detected if theft occurs) | 0.30 | 0.85 | +183% |
-| Cash handling ETE | $176/mo | $52/mo | -70% |
+| Cash handling Delegation Risk | $176/mo | $52/mo | -70% |
 | Trust needed in each employee | 0.75 | 0.85 | +13% (less trust required) |
 
 **Net benefit**: $124/month savings - $200/month cost = **-$76/month**
@@ -164,16 +164,16 @@ flowchart TB
 | Metric | Before (1 GM) | After (2 Managers) | Change |
 |--------|---------------|-------------------|--------|
 | Max single-person exposure | $50,000 | $25,000 | -50% |
-| Total management ETE | $250/mo | $180/mo | -28% |
+| Total management Delegation Risk | $250/mo | $180/mo | -28% |
 | Salary cost | $55,000/yr | $90,000/yr | +$35,000 |
 | Coordination overhead | 0 | ~$5,000/yr | +$5,000 |
 
-**Net cost**: $40,000/year additional expense for $840/year ETE reduction = **-$39,160**
+**Net cost**: $40,000/year additional expense for $840/year Delegation Risk reduction = **-$39,160**
 
 **Verdict**: Poor ROI unless Maria has specific concerns about Jake or the business scales significantly.
 
 :::note[The Verification Insight]
-Option C reveals a key principle: **splitting authority is expensive**. The trust calculus shows when concentration is acceptable (small exposure) vs. when decomposition is essential (catastrophic potential).
+Option C reveals a key principle: **splitting authority is expensive**. The delegation risk framework shows when concentration is acceptable (small exposure) vs. when decomposition is essential (catastrophic potential).
 :::
 
 ---
@@ -193,7 +193,7 @@ flowchart TB
     GMn -->|"0.80"| Sn[Staff n]
 ```
 
-#### Trust Propagation Through Hierarchy
+#### Risk Inheritance Through Hierarchy
 
 **Effective trust from Maria to any barista:**
 ```
@@ -204,13 +204,13 @@ Trust(Maria → Barista) = 0.95 × 0.88 × 0.80 = 0.67
 
 #### Comparing Organizational Structures
 
-| Structure | Layers | Trust per Layer | Effective Trust at Base | System ETE |
+| Structure | Layers | Trust per Layer | Effective Trust at Base | System Delegation Risk |
 |-----------|--------|-----------------|------------------------|------------|
 | Flat (Maria → all GMs) | 2 | 0.88 | 0.88 | $8,200/mo |
 | Regional (current) | 3 | 0.88 | 0.77 | $5,900/mo |
 | Divisional (add VP) | 4 | 0.88 | 0.68 | $4,100/mo |
 
-**Why more layers can reduce ETE**: Each layer adds verification and filtering. The Regional Manager catches GM mistakes before they reach Maria. The mathematical trade-off: each layer multiplies delay but divides unfiltered risk.
+**Why more layers can reduce Delegation Risk**: Each layer adds verification and filtering. The Regional Manager catches GM mistakes before they reach Maria. The mathematical trade-off: each layer multiplies delay but divides unfiltered risk.
 
 ---
 
@@ -230,7 +230,7 @@ flowchart TB
     MGR -->|"0.65"| STAFF[Staff<br/>~2M]
 ```
 
-#### Trust Propagation in Government
+#### Risk Inheritance in Government
 
 **Effective trust from Voters to a Federal Employee:**
 ```
@@ -245,17 +245,17 @@ Let's analyze the Treasury Secretary position:
 
 #### Authority and Exposure
 
-| Domain | Authority Granted | P(misuse/year) | Damage Potential | ETE |
+| Domain | Authority Granted | P(misuse/year) | Damage Potential | Delegation Risk |
 |--------|------------------|----------------|------------------|-----|
 | Financial regulations | Issue binding rules | 0.05 | $50B (market impact) | $2.5B |
 | Tax policy guidance | Interpret tax law | 0.03 | $20B (revenue/compliance) | $600M |
 | Sanctions enforcement | Designate entities | 0.02 | $10B (diplomatic, economic) | $200M |
 | Debt management | Issue treasury bonds | 0.001 | $500B (market confidence) | $500M |
 | Banking oversight | Approve/deny mergers | 0.02 | $30B (systemic risk) | $600M |
-| **Total Secretary ETE** | | | | **$4.4B/year** |
+| **Total Secretary Delegation Risk** | | | | **$4.4B/year** |
 
 :::caution[Scale of Political Trust]
-A single Cabinet Secretary has more expected trust exposure than most corporations' entire existence. The Treasury Secretary's $4.4B/year ETE exceeds the market cap of most public companies.
+A single Cabinet Secretary has more expected trust exposure than most corporations' entire existence. The Treasury Secretary's $4.4B/year Delegation Risk exceeds the market cap of most public companies.
 :::
 
 ### The Verification Problem
@@ -290,11 +290,11 @@ flowchart TB
     SGT -->|"0.65"| OFC[Officers<br/>80]
 ```
 
-#### City Budget as Trust Budget
+#### City Budget as Delegation Risk Budget
 
 Annual budget: $150M
 
-| Department | Budget | Authority | P(misuse) | ETE |
+| Department | Budget | Authority | P(misuse) | Delegation Risk |
 |------------|--------|-----------|-----------|-----|
 | Police ($40M) | Arrests, force, investigations | 0.03 | $3M (lawsuits, settlements) | $90K |
 | Public Works ($35M) | Contracts, infrastructure | 0.05 | $5M (waste, corruption) | $250K |
@@ -302,7 +302,7 @@ Annual budget: $150M
 | Parks ($15M) | Programs, facilities | 0.02 | $1M (accidents, waste) | $20K |
 | Fire ($25M) | Emergency response | 0.01 | $2M (response failures) | $20K |
 | Administration ($25M) | HR, legal, IT | 0.03 | $4M (liability, breaches) | $120K |
-| **Total City ETE** | | | | **$700K/year** |
+| **Total City Delegation Risk** | | | | **$700K/year** |
 
 **As percentage of budget**: 0.47% — much lower than the small business because government has monopoly power (can't lose "customers" to competitor cities easily).
 
@@ -319,9 +319,9 @@ Police departments have unique trust challenges:
 
 **The trust asymmetry**: Officers have high authority (arrest, force) with relatively low trust levels and extremely limited verification (body cameras only recently).
 
-**ETE for a single officer:**
+**Delegation Risk for a single officer:**
 
-| Failure Mode | P(occurrence/year) | Damage | ETE |
+| Failure Mode | P(occurrence/year) | Damage | Delegation Risk |
 |--------------|-------------------|--------|-----|
 | Excessive force incident | 0.02 | $500,000 (settlement) | $10,000 |
 | False arrest | 0.05 | $50,000 (lawsuit) | $2,500 |
@@ -329,7 +329,7 @@ Police departments have unique trust challenges:
 | Off-duty misconduct | 0.01 | $100,000 (reputation, firing) | $1,000 |
 | **Total per Officer** | | | **$19,500/year** |
 
-With 80 officers: **$1.56M/year** total police ETE, but budget only shows $90K?
+With 80 officers: **$1.56M/year** total police Delegation Risk, but budget only shows $90K?
 
 The discrepancy: settlements and lawsuits are often paid from general fund, not police budget—a form of **hidden trust externality**.
 
@@ -343,16 +343,16 @@ Departments often externalize their trust failures to other budgets. Police misc
 
 Based on this analysis, several principles emerge:
 
-### 1. Trust Budgeting
+### 1. Delegation Risk Budgeting
 
 Every organization should calculate:
-- **Total System ETE**: Sum of all expected trust exposures
-- **ETE Concentration**: Herfindahl index of per-person ETEs
+- **Total System Delegation Risk**: Sum of all expected trust exposures
+- **Delegation Risk Concentration**: Herfindahl index of per-person Delegation Risks
 - **Trust Efficiency**: (Value created) / (Trust granted)
 
 Target ratios by organization type:
 
-| Type | Acceptable ETE as % of Revenue | Max Single-Person ETE |
+| Type | Acceptable Delegation Risk as % of Revenue | Max Single-Person Delegation Risk |
 |------|-------------------------------|----------------------|
 | Retail | 0.5-1% | 5% of annual revenue |
 | Professional Services | 1-3% | 10% of annual revenue |
@@ -365,10 +365,10 @@ Target ratios by organization type:
 
 | Trust Level | Verification Requirements |
 |-------------|--------------------------|
-| ETE < $10K | Self-reporting, spot checks |
-| ETE $10K-$100K | Regular audits, dual control |
-| ETE $100K-$1M | Continuous monitoring, segregation of duties |
-| ETE > $1M | Independent board oversight, external audit |
+| Delegation Risk < $10K | Self-reporting, spot checks |
+| Delegation Risk $10K-$100K | Regular audits, dual control |
+| Delegation Risk $100K-$1M | Continuous monitoring, segregation of duties |
+| Delegation Risk > $1M | Independent board oversight, external audit |
 
 ### 3. Trust Decay and Renewal
 
@@ -405,25 +405,25 @@ For high-damage potential, require multiple parties:
 
 You're starting a nonprofit with a $2M annual budget. Design the trust architecture.
 
-### Step 1: Define Trust Budget
+### Step 1: Define Delegation Risk Budget
 
-- Acceptable ETE: 1.5% of budget = **$30,000/year**
-- Maximum single-person ETE: 0.3% = **$6,000/year**
+- Acceptable Delegation Risk: 1.5% of budget = **$30,000/year**
+- Maximum single-person Delegation Risk: 0.3% = **$6,000/year**
 
 ### Step 2: Identify High-Trust Functions
 
-| Function | Required Authority | Potential Damage | Raw ETE |
+| Function | Required Authority | Potential Damage | Raw Delegation Risk |
 |----------|-------------------|------------------|---------|
 | Executive Director | Strategic decisions, hiring, external representation | $500K (reputation, direction) | $15,000 |
 | CFO/Finance Manager | All payments, banking, reporting | $300K (fraud, misreporting) | $12,000 |
 | Program Director | Program spending, partner relationships | $200K (waste, failed programs) | $8,000 |
 | Development Director | Donor relationships, campaigns | $150K (reputation, lost donations) | $4,500 |
 
-**Total raw ETE: $39,500** — exceeds budget by 32%
+**Total raw Delegation Risk: $39,500** — exceeds budget by 32%
 
 ### Step 3: Implement Trust Mitigations
 
-| Mitigation | Cost | ETE Reduction | Net |
+| Mitigation | Cost | Delegation Risk Reduction | Net |
 |------------|------|---------------|-----|
 | Board approval > $25K | $0 | -$5,000 | +$5,000 |
 | External accountant review | $8,000/yr | -$4,000 | -$4,000 |
@@ -431,7 +431,7 @@ You're starting a nonprofit with a $2M annual budget. Design the trust architect
 | Program outcome metrics | $2,000/yr | -$2,500 | +$500 |
 | Reference checks for all hires | $500/yr | -$1,000 | +$500 |
 
-**New total ETE: $24,000** — within budget at $5,000 margin
+**New total Delegation Risk: $24,000** — within budget at $5,000 margin
 
 ### Step 4: Define Verification Schedule
 
@@ -476,7 +476,7 @@ flowchart TB
 ## See Also
 
 - [Trust Across Civilizations](/applications/trust-across-civilizations/) — Historical and creative perspectives on organizational trust
-- [Trust Calculus Overview](/trust-calculus/overview/) — The mathematical foundations
-- [Trust Propagation](/trust-calculus/trust-propagation/) — How trust flows through networks
-- [Trust Accounting](/trust-calculus/trust-accounting/) — Ledgers and auditing for trust
+- [Delegation Risk Overview](/delegation-risk/overview/) — The mathematical foundations
+- [Risk Inheritance](/delegation-risk/trust-propagation/) — How trust flows through networks
+- [Trust Accounting](/delegation-risk/trust-accounting/) — Ledgers and auditing for trust
 - [Mechanism Design for Truthful Reporting](/risk-budgeting/mechanism-design/) — Incentive-compatible trust verification

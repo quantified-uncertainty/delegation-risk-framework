@@ -682,7 +682,7 @@ To claim safety benefits from decomposition, minimum requirements:
 
 ---
 
-## Key Takeaways for Trust Calculus and Risk Budgeting
+## Key Takeaways for Delegation Risk and Risk Budgeting
 
 ### What We Know (High Confidence)
 

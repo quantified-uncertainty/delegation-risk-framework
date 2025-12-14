@@ -35,7 +35,7 @@ This forces extremely conservative trust allocations.
 | Harmful advice | $500K+ | Malpractice, FDA action |
 | Bias in recommendations | $200K+ | Discrimination lawsuit, regulatory |
 
-**Target ETE**: $5,000/month (very conservative for healthcare)
+**Target Delegation Risk**: $5,000/month (very conservative for healthcare)
 
 ## Component Architecture
 
@@ -90,8 +90,8 @@ Questionnaire Flow:
 ```
 
 **Trust allocation**:
-- Questionnaire code: ETE $50 (deterministic, audited)
-- Clarification LLM: ETE $200 (narrow, can't give advice)
+- Questionnaire code: Delegation Risk $50 (deterministic, audited)
+- Clarification LLM: Delegation Risk $200 (narrow, can't give advice)
 
 **Constraints applied**:
 - LLM can ONLY ask questions, never give recommendations
@@ -120,7 +120,7 @@ def check_red_flags(symptoms: SymptomSet) -> Optional[Emergency]:
     return None
 ```
 
-**Trust allocation**: ETE $100 (verified code, clinical validation)
+**Trust allocation**: Delegation Risk $100 (verified code, clinical validation)
 
 **Why code, not ML**:
 - Red flags are well-defined in clinical literature
@@ -137,7 +137,7 @@ def check_red_flags(symptoms: SymptomSet) -> Optional[Emergency]:
 - Calibrated: "70% urgent" means 70% actually needed urgent care
 - Regular recalibration against outcomes
 
-**Trust allocation**: ETE $500 (validated model, highest non-code risk)
+**Trust allocation**: Delegation Risk $500 (validated model, highest non-code risk)
 
 **Constraints**:
 - Model is narrow (triage scoring only)
@@ -154,7 +154,7 @@ Purpose: Extract relevant context that structured questions miss
 - "Patient seems confused about timeline"
 - "Patient describes symptoms inconsistent with chief complaint"
 
-**Trust allocation**: ETE $300 (narrow model, advisory only)
+**Trust allocation**: Delegation Risk $300 (narrow model, advisory only)
 
 **Constraints**:
 - Cannot make triage decisions
@@ -188,7 +188,7 @@ def route_patient(red_flags, risk_score, context_flags) -> CareLevel:
     return CareLevel.SELF_CARE
 ```
 
-**Trust allocation**: ETE $100 (verified code)
+**Trust allocation**: Delegation Risk $100 (verified code)
 
 **Key property**: Rules are interpretable and auditable. Every decision can be explained: "Recommended emergency because chest pain with shortness of breath triggered red flag rule."
 
@@ -203,7 +203,7 @@ Any of these triggers immediate nurse hotline transfer:
 - System uncertainty > threshold
 - 3+ clarifying questions without resolution
 
-**Trust allocation**: ETE $50 (fail-safe design)
+**Trust allocation**: Delegation Risk $50 (fail-safe design)
 
 ### Recommendation Output
 
@@ -224,7 +224,7 @@ Templates:
   [Specific guidance]. Seek care if [warning signs]."
 ```
 
-**Trust allocation**: ETE $50 (templated, reviewed by clinical team)
+**Trust allocation**: Delegation Risk $50 (templated, reviewed by clinical team)
 
 **Why templates, not LLM**:
 - Consistent, auditable advice
@@ -232,9 +232,9 @@ Templates:
 - No hallucination risk
 - Easy to update through change control
 
-## Trust Budget Summary
+## Delegation Risk Budget Summary
 
-| Component | Implementation | ETE | % of Budget |
+| Component | Implementation | Delegation Risk | % of Budget |
 |-----------|---------------|-----|-------------|
 | Questionnaire (code) | Verified code | $50 | 1% |
 | Questionnaire (LLM) | Narrow LLM | $200 | 4% |
@@ -305,7 +305,7 @@ Every interaction logged:
 
 ## Failure Mode Analysis
 
-| Failure Mode | Mitigation | Residual ETE |
+| Failure Mode | Mitigation | Residual Delegation Risk |
 |--------------|------------|--------------|
 | Miss emergency (under-triage) | Red flag rules, conservative thresholds, escalation | $200 |
 | Unnecessary escalation (over-triage) | Validated risk model, calibration | $100 |

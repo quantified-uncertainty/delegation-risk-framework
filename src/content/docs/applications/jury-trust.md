@@ -236,11 +236,11 @@ Jury = People neither side could eliminate
 
 **This is adversarial trust filtering**—like the adversarial oversight model in the [Oversight Dilemma](/applications/oversight-dilemma/).
 
-### ETE of Jury Selection
+### Delegation Risk of Jury Selection
 
 **Failure modes in selection:**
 
-| Failure Mode | P(occurrence) | Impact on Verdict | ETE |
+| Failure Mode | P(occurrence) | Impact on Verdict | Delegation Risk |
 |--------------|---------------|-------------------|-----|
 | Biased juror not detected | 0.10 | Could swing verdict | Significant |
 | Stealth juror (lies in voir dire) | 0.02 | High impact | High |
@@ -299,7 +299,7 @@ flowchart TB
 - Single point of failure (judge corruption)
 - Less democratic legitimacy
 
-### ETE Comparison Across Systems
+### Delegation Risk Comparison Across Systems
 
 | System | P(Wrongful Conviction) | P(Wrongful Acquittal) | Trust Architecture |
 |--------|----------------------|----------------------|-------------------|
@@ -408,7 +408,7 @@ Juries can acquit **even when evidence clearly establishes guilt** if they belie
 | Vietnam draft (1960s) | Draft evasion | Some juries acquitted | Selective enforcement |
 | Drug cases (modern) | Possession | Occasional nullification | Varies |
 
-### The Trust Calculus of Nullification
+### The Delegation Risk of Nullification
 
 **From the system's perspective:**
 
@@ -492,17 +492,17 @@ flowchart TB
 | Judge oversight | Legal accuracy | Jury legal errors |
 | Appeals | Error correction | Procedural mistakes |
 
-### System-Wide ETE
+### System-Wide Delegation Risk
 
 **For the US criminal justice system:**
 
-| Outcome | Estimated Rate | Damage per Incident | Annual ETE |
+| Outcome | Estimated Rate | Damage per Incident | Annual Delegation Risk |
 |---------|---------------|---------------------|------------|
 | Wrongful conviction | 1-6% of convictions | $1M-$10M (lost years, trauma) | $10B+ |
 | Wrongful acquittal | Unknown (probably 20-40%?) | $100K-$10M (recidivism) | $10B+ |
 | Hung jury (delay justice) | ~10% of trials | $50K per case | $500M |
 | Trial cost | 100% of trials | $25K-$500K per case | $10B |
-| **System ETE** | | | **$30B+/year** |
+| **System Delegation Risk** | | | **$30B+/year** |
 
 ---
 
@@ -570,4 +570,4 @@ Juries can refuse to apply laws they consider unjust.
 - [The Oversight Dilemma](/applications/oversight-dilemma/) — Adversarial oversight structures
 - [Nuclear Launch Authority](/applications/nuclear-launch-authority/) — Another asymmetric error system
 - [Criminal Organizations](/applications/criminal-trust/) — Trust without legal enforcement
-- [Trust Propagation](/trust-calculus/trust-propagation/) — How trust flows through networks
+- [Risk Inheritance](/delegation-risk/trust-propagation/) — How trust flows through networks

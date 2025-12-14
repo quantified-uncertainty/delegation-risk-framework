@@ -8,7 +8,7 @@ export default defineConfig({
 	integrations: [
 		mermaid(),
 		starlight({
-			title: 'AI Safety Framework',
+			title: 'Delegation Risk Framework',
 			components: {
 				Footer: './src/components/Footer.astro',
 			},
@@ -23,39 +23,53 @@ export default defineConfig({
 						{ label: 'Home', slug: 'index' },
 						{ label: 'Introduction', slug: 'overview/introduction' },
 						{ label: 'Core Concepts', slug: 'overview/core-concepts' },
-						{ label: 'Principles to Practice', slug: 'overview/principles-to-practice' },
 						{ label: 'Glossary', slug: 'overview/glossary' },
 					],
 				},
 				{
-					label: 'Principles',
+					label: 'Delegation Risk Theory',
 					collapsed: true,
-					autogenerate: { directory: 'principles' },
+					autogenerate: { directory: 'delegation-risk' },
 				},
 				{
-					label: 'Architecture',
-					collapsed: true,
-					autogenerate: { directory: 'architecture' },
-				},
-				{
-					label: 'Trust Calculus',
-					collapsed: true,
-					autogenerate: { directory: 'trust-calculus' },
-				},
-				{
-					label: 'Risk Budgeting',
+					label: 'Cross-Domain Methods',
 					collapsed: true,
 					autogenerate: { directory: 'risk-budgeting' },
 				},
 				{
-					label: 'Implementation',
+					label: 'Design Principles',
 					collapsed: true,
-					autogenerate: { directory: 'implementation' },
+					autogenerate: { directory: 'principles' },
 				},
 				{
 					label: 'Applications',
 					collapsed: true,
 					autogenerate: { directory: 'applications' },
+				},
+				{
+					label: 'AI Systems',
+					collapsed: true,
+					items: [
+						{ label: 'Principles to Practice', slug: 'overview/principles-to-practice' },
+						{ label: 'Architecture Overview', slug: 'architecture/decomposed-coordination' },
+						{ label: 'Safety Mechanisms', slug: 'architecture/safety-mechanisms' },
+						{ label: 'Forecasting Navigation', slug: 'architecture/forecasting-navigation' },
+						{
+							label: 'Worked Examples',
+							collapsed: true,
+							items: [
+								{ label: 'Research Assistant', slug: 'architecture/research-assistant-example' },
+								{ label: 'Code Deployment', slug: 'architecture/code-deployment-example' },
+								{ label: 'Healthcare Bot', slug: 'architecture/healthcare-bot-example' },
+								{ label: 'Trading System', slug: 'architecture/trading-system-example' },
+							],
+						},
+					],
+				},
+				{
+					label: 'Implementation',
+					collapsed: true,
+					autogenerate: { directory: 'implementation' },
 				},
 				{
 					label: 'Background Research',

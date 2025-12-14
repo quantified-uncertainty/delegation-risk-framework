@@ -19,7 +19,7 @@ flowchart LR
     end
     subgraph Framework["Main Framework"]
         RB[Risk Budgeting]
-        TC[Trust Calculus]
+        TC[Delegation Risk]
         Impl[Implementation]
     end
     N -->|fault trees, SIL, importance measures| RB
@@ -50,7 +50,7 @@ Deep dive into how finance manages quantified risk:
 - **RAROC** — Risk-adjusted performance metrics
 - **Stress testing** — Scenario-based risk assessment
 
-**Relevance to framework**: [Trust Economics](/trust-calculus/trust-economics/) and the ETE computation borrow heavily from financial risk concepts.
+**Relevance to framework**: [Trust Economics](/delegation-risk/trust-economics/) and the Delegation Risk computation borrow heavily from financial risk concepts.
 
 ### [Potential Research Projects](/background-research/potential-projects/)
 

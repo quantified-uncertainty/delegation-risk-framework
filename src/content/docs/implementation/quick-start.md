@@ -21,10 +21,10 @@ A practical checklist for applying the AI Safety Framework to a new system. Comp
 
 - [ ] What's the worst realistic outcome?
 - [ ] What damage would that cause? ($ or equivalent)
-- [ ] What's acceptable expected damage per month? → **This is your ETE budget**
+- [ ] What's acceptable expected damage per month? → **This is your Delegation Risk budget**
 
 **Typical budgets**:
-| System Type | Suggested ETE Budget |
+| System Type | Suggested Delegation Risk Budget |
 |-------------|---------------------|
 | Internal tools, recoverable | $500-2,000/month |
 | Customer-facing, monitored | $2,000-10,000/month |
@@ -47,7 +47,7 @@ List every component that will exist:
 
 For each component, complete this table:
 
-| Component | Failure Mode | P(failure) | Damage | ETE |
+| Component | Failure Mode | P(failure) | Damage | Delegation Risk |
 |-----------|--------------|------------|--------|-----|
 | _name_ | _what could go wrong_ | _estimate_ | _$_ | P × D |
 | | | | | |
@@ -61,7 +61,7 @@ For each component, complete this table:
 
 ### 2.2 Sum and Compare
 
-- [ ] Total component ETEs: $______
+- [ ] Total component Delegation Risks: $______
 - [ ] Budget: $______
 - [ ] **Within budget?** Yes / No
 
@@ -71,9 +71,9 @@ If no: proceed to Phase 3 for mitigation. If yes: proceed to Phase 4.
 
 ## Phase 3: Risk Mitigation (iterate until within budget)
 
-### 3.1 Identify Highest-ETE Component
+### 3.1 Identify Highest-Delegation Risk Component
 
-Which component contributes most to total ETE? → **Focus here first**
+Which component contributes most to total Delegation Risk? → **Focus here first**
 
 ### 3.2 Choose Mitigation Strategy
 
@@ -87,7 +87,7 @@ Which component contributes most to total ETE? → **Focus here first**
 
 ### 3.3 Re-estimate and Repeat
 
-- [ ] Update ETE estimates with mitigation
+- [ ] Update Delegation Risk estimates with mitigation
 - [ ] Still over budget? → Mitigate next-highest component
 - [ ] Within budget? → Proceed to Phase 4
 
@@ -167,7 +167,7 @@ For each component:
 
 ### 6.3 Plan Verification
 
-- [ ] How will you test that ETE estimates are accurate?
+- [ ] How will you test that Delegation Risk estimates are accurate?
 - [ ] What data will you collect in production?
 - [ ] When will you re-assess the risk analysis?
 
@@ -179,7 +179,7 @@ For each component:
 
 Document:
 - [ ] System architecture diagram
-- [ ] Component ETE budgets
+- [ ] Component Delegation Risk budgets
 - [ ] Trust relationships (who delegates to whom)
 - [ ] Human approval gates
 - [ ] Monitoring thresholds
@@ -187,7 +187,7 @@ Document:
 ### 7.2 Review Checklist
 
 Before deployment:
-- [ ] Total ETE within budget
+- [ ] Total Delegation Risk within budget
 - [ ] All principles applied to each component
 - [ ] Coordinator constraints verified (if applicable)
 - [ ] Redundancy in place for critical components
@@ -200,12 +200,12 @@ Before deployment:
 
 ## Quick Reference Card
 
-### ETE Formula
+### Delegation Risk Formula
 ```
-ETE = Σ P(outcome) × Damage(outcome)
+Delegation Risk = Σ P(outcome) × Damage(outcome)
 ```
 
-### Trust Propagation (Multiplicative)
+### Risk Inheritance (Multiplicative)
 ```
 Trust(A→C via B) = Trust(A→B) × Trust(B→C)
 ```
@@ -227,8 +227,8 @@ Verified Code > Regular Code > Narrow Models > Constrained LLMs > Base LLMs > RL
 
 Use these calculators to run the numbers:
 
-- **[ETE Calculator](/implementation/ete-calculator/)** — Input failure modes, get total ETE
-- **[Trust Propagation](/implementation/trust-propagation/)** — Compute effective trust through networks
+- **[Delegation Risk Calculator](/implementation/delegation-risk-calculator/)** — Input failure modes, get total Delegation Risk
+- **[Risk Inheritance](/implementation/trust-propagation/)** — Compute effective trust through networks
 - **[Tradeoff Frontier](/implementation/tradeoff-frontier/)** — Explore capability vs. safety tradeoffs
 
 ---
@@ -245,10 +245,10 @@ Use these calculators to run the numbers:
 **Phase 2** (10 min):
 - Components: Retriever, Answerer, Poster
 - Failure modes:
-  - Retriever returns wrong docs: P=0.05, D=$100 → ETE=$5
-  - Answerer hallucinates: P=0.1, D=$500 → ETE=$50
-  - Answerer leaks sensitive info: P=0.01, D=$10,000 → ETE=$100
-  - Poster spam: P=0.001, D=$1,000 → ETE=$1
+  - Retriever returns wrong docs: P=0.05, D=$100 → DR=$5
+  - Answerer hallucinates: P=0.1, D=$500 → DR=$50
+  - Answerer leaks sensitive info: P=0.01, D=$10,000 → DR=$100
+  - Poster spam: P=0.001, D=$1,000 → DR=$1
 - Total: $156/month ✓ Within budget
 
 **Phase 4** (10 min):

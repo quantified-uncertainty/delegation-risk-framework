@@ -36,7 +36,7 @@ This requires careful balance between speed (for profit) and safety (for surviva
 | Data feed manipulation | $100K | Acting on corrupted data |
 | Runaway losses | Unlimited | Without circuit breakers |
 
-**Target ETE**: $50,000/month (high tolerance, but with hard limits)
+**Target Delegation Risk**: $50,000/month (high tolerance, but with hard limits)
 
 **Hard limits** (non-negotiable):
 - Max position size: $10M per instrument
@@ -113,7 +113,7 @@ class DataValidator:
         return ValidatedTick(tick, confidence=self.compute_confidence(tick))
 ```
 
-**Trust allocation**: ETE $500 (verified code, critical path)
+**Trust allocation**: Delegation Risk $500 (verified code, critical path)
 
 **Why verified code**: Data validation is the first line of defense. A compromised feed could cause unlimited losses. No ML here.
 
@@ -126,7 +126,7 @@ class DataValidator:
 - Ensemble combines signals with confidence weighting
 - No single model can dominate
 
-**Trust allocation**: ETE $15,000 (highest allocation—this is where we accept risk for return)
+**Trust allocation**: Delegation Risk $15,000 (highest allocation—this is where we accept risk for return)
 
 **Constraints**:
 - Models are narrow (trained on specific signal types)
@@ -165,7 +165,7 @@ class AlphaEnsemble:
 - Liquidity risk assessment
 - Concentration limits
 
-**Trust allocation**: ETE $5,000 (validated models, conservative calibration)
+**Trust allocation**: Delegation Risk $5,000 (validated models, conservative calibration)
 
 **Why statistical, not ML**: Risk models must be interpretable and stable. ML risk models can underestimate tail risk exactly when it matters most.
 
@@ -178,7 +178,7 @@ Detects market regime changes:
 - Trending → Mean-reverting
 - Normal → Crisis
 
-**Trust allocation**: ETE $2,000 (statistical model)
+**Trust allocation**: Delegation Risk $2,000 (statistical model)
 
 **Effect on system**:
 - Crisis regime → Reduce position sizes 50-90%
@@ -215,7 +215,7 @@ class PortfolioOptimizer:
         return TargetPortfolio(result.weights)
 ```
 
-**Trust allocation**: ETE $3,000 (code with mathematical guarantees)
+**Trust allocation**: Delegation Risk $3,000 (code with mathematical guarantees)
 
 **Key property**: Constraints are hard-coded and mathematically guaranteed by the solver. The optimizer cannot propose a portfolio that violates limits.
 
@@ -252,7 +252,7 @@ class LimitChecker:
         return Approved(target)
 ```
 
-**Trust allocation**: ETE $1,000 (verified code, independent check)
+**Trust allocation**: Delegation Risk $1,000 (verified code, independent check)
 
 **Why independent**: Even if optimizer has a bug, limit checker catches violations. Different code, different team, different review process.
 
@@ -290,7 +290,7 @@ class CircuitBreaker:
         self.initiate_flatten()
 ```
 
-**Trust allocation**: ETE $500 (verified code, fail-safe)
+**Trust allocation**: Delegation Risk $500 (verified code, fail-safe)
 
 **Shutdown triggers**:
 - Daily loss > $500K
@@ -299,9 +299,9 @@ class CircuitBreaker:
 - Data feed failure
 - Any component error
 
-## Trust Budget Summary
+## Delegation Risk Budget Summary
 
-| Component | Implementation | ETE | % of Budget |
+| Component | Implementation | Delegation Risk | % of Budget |
 |-----------|---------------|-----|-------------|
 | Data Validator | Verified code | $500 | 1% |
 | Alpha Models | ML ensemble | $15,000 | 30% |
@@ -343,7 +343,7 @@ Models are trained on historical data. They can't predict:
 2. **Conservative risk estimates** use stressed correlations
 3. **Circuit breakers** stop losses before catastrophic
 4. **Position limits** cap worst-case per-instrument loss
-5. **Tail risk buffer** in ETE budget assumes rare large losses
+5. **Tail risk buffer** in Delegation Risk budget assumes rare large losses
 
 ### Circuit Breaker Cascade
 

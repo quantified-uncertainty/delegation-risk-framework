@@ -94,12 +94,12 @@ The verification layer caught the error because:
 
 ### If Sent
 
-| Scenario | Probability | Damage | ETE |
+| Scenario | Probability | Damage | Delegation Risk |
 |----------|------------|--------|-----|
 | Customer accepts, we honor | 70% | $50,000 | $35,000 |
 | Customer accepts, we retract | 20% | $5,000 (reputation) + legal | $1,000 |
 | Customer doesn't notice | 10% | $0 | $0 |
-| **Total ETE if sent** | | | **$36,000** |
+| **Total Delegation Risk if sent** | | | **$36,000** |
 
 ### Additional Risks
 

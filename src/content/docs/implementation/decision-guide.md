@@ -36,7 +36,7 @@ flowchart TD
 
 ### Implementation Recommendations by Type
 
-| Decision | Implementation | ETE Multiplier | Examples |
+| Decision | Implementation | Delegation Risk Multiplier | Examples |
 |----------|---------------|----------------|----------|
 | Formally Verified | Coq, Isabelle, TLA+ | 0.1x | Access control, invariants |
 | Regular Code | Python, Rust with tests | 0.3x | Parsers, validators, routing |
@@ -44,7 +44,7 @@ flowchart TD
 | Constrained General | GPT-4 + prompts + evals | 1.0x | Code review, gap analysis |
 | Base LLM | Frontier model | 2.0x | Hypothesis generation |
 
-**The multiplier**: Rough factor for how much the implementation choice affects ETE. Formal verification ~10x safer than base LLM for equivalent tasks.
+**The multiplier**: Rough factor for how much the implementation choice affects Delegation Risk. Formal verification ~10x safer than base LLM for equivalent tasks.
 
 ---
 
@@ -79,21 +79,21 @@ flowchart TD
 
 ---
 
-## Decision Tree 3: Trust Budget Allocation
+## Decision Tree 3: Delegation Risk Budget Allocation
 
-How to allocate your system's trust budget across components:
+How to allocate your system's delegation risk budget across components:
 
 ```mermaid
 flowchart TD
-    Start[System ETE Budget] --> Step1[1. List all components]
+    Start[System Delegation Risk Budget] --> Step1[1. List all components]
     Step1 --> Step2[2. Identify failure modes per component]
     Step2 --> Step3[3. Estimate P × Damage for each]
     Step3 --> Q1{Total < Budget?}
 
     Q1 -->|Yes| Done[✓ Within budget<br/>Proceed to implementation]
-    Q1 -->|No| Q2{Which component<br/>has highest ETE?}
+    Q1 -->|No| Q2{Which component<br/>has highest Delegation Risk?}
 
-    Q2 --> Mitigate[Mitigate highest-ETE component]
+    Q2 --> Mitigate[Mitigate highest-Delegation Risk component]
     Mitigate --> M1{Can reduce P?}
     M1 -->|Yes| ReduceP[Add verification/redundancy]
     M1 -->|No| M2{Can reduce Damage?}
@@ -112,7 +112,7 @@ flowchart TD
 
 ### Budget Allocation Heuristics
 
-| Component Type | Typical ETE Share | Justification |
+| Component Type | Typical Delegation Risk Share | Justification |
 |----------------|-------------------|---------------|
 | Coordinators | 20-30% | High leverage, needs headroom |
 | High-capability LLMs | 30-40% | Inherently less predictable |
@@ -189,7 +189,7 @@ flowchart TD
 For each component, answer:
 
 - [ ] **Implementation**: Code, narrow model, or general LLM?
-- [ ] **Trust budget**: What ETE allocation?
+- [ ] **Risk budget**: What Delegation Risk allocation?
 - [ ] **Redundancy**: Single, double, or N-version?
 - [ ] **Human gate**: Approval required, async, batch, or audit-only?
 - [ ] **Monitoring**: What metrics trigger alerts?
@@ -197,7 +197,7 @@ For each component, answer:
 
 For the system as a whole:
 
-- [ ] **Total ETE**: Sum of components < budget?
+- [ ] **Total Delegation Risk**: Sum of components < budget?
 - [ ] **Concentration**: No single component > 50% of budget?
 - [ ] **Coordinator**: Appropriate constraints applied?
 - [ ] **Verification**: How will you validate trust assumptions?
@@ -210,7 +210,7 @@ For the system as a whole:
 
 **Component: Refund Issuer**
 1. **Implementation tree**: Can't formally specify (customer situations vary) → Domain narrow? Yes (refunds only) → Have training data? Yes → **Fine-tuned narrow model**
-2. **Trust budget**: Refund mistakes = moderate damage (~$100 avg) → Medium ETE allocation
+2. **Risk budget**: Refund mistakes = moderate damage (~$100 avg) → Medium Delegation Risk allocation
 3. **Redundancy tree**: Safety-critical? Yes (money involved) → Formally verified? No → **2-of-2 with different models**
 4. **Human gate tree**: Reversible? Yes (can reverse refund) → Damage < $1000? Usually → **Audit-only for small refunds, approval for large**
 

@@ -152,7 +152,7 @@ Borrowing from security engineering ([least privilege](https://en.wikipedia.org/
 
 | Approach | Core Idea | Strengths | Limitations | Compatibility |
 |----------|-----------|-----------|-------------|---------------|
-| **This Framework** | Decomposed components with trust budgets | Quantified risk, works with agency, proven cross-domain | Implementation overhead, uncertain AI-specific evidence | — |
+| **This Framework** | Decomposed components with delegation risk budgets | Quantified risk, works with agency, proven cross-domain | Implementation overhead, uncertain AI-specific evidence | — |
 | **CAIS** | Narrow AI services, no agents | Avoids agency risk entirely | Economically uncompetitive, obsolete with foundation models | Complementary (we accept agency) |
 | **AI Control** | Assume scheming, design for safety anyway | Adversarial mindset, practical protocols | Doesn't reduce scheming probability | Highly complementary |
 | **IDA** | Amplify human judgment recursively | Human values preserved | Enormous human effort required | Partially compatible |

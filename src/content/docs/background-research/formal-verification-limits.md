@@ -991,9 +991,9 @@ Component A (verified) ↔ Component B (unverified)
 4. **World model dependency**: GS AI guarantees are relative to world model; if model is wrong, guarantees may not hold in reality
 5. **Scale limits**: Verification tools struggle beyond ~1M neurons; LLMs with billions of parameters are currently out of reach for formal methods
 
-### 7.3 Recommended Approach for Trust Calculus
+### 7.3 Recommended Approach for Delegation Risk
 
-**For AI safety frameworks focused on trust calculus and risk budgeting**:
+**For AI safety frameworks focused on delegation risk framework and risk budgeting**:
 
 1. **Stratify system components by criticality**:
    - **Critical path** (safety-critical): Formally verify or use verified fallbacks
@@ -1128,4 +1128,4 @@ Verification is a powerful tool in the AI safety toolkit, but not a panacea. Eff
 ---
 
 *Document prepared for trust-website AI safety framework (December 2025)*
-*Focus: Realistic assessment of formal verification capabilities and limits for risk budgeting and trust calculus*
+*Focus: Realistic assessment of formal verification capabilities and limits for risk budgeting and delegation risk framework*

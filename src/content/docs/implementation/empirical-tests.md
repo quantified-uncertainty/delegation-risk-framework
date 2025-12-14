@@ -54,11 +54,11 @@ While the framework needs broader validation, initial experiments show promising
 - Parallel execution where dependencies allow
 - Verification layers are mostly code (fast, cheap)
 
-### Experiment C: ETE Prediction Accuracy
+### Experiment C: Delegation Risk Prediction Accuracy
 
-**Setup**: Estimated ETE for 20 components before deployment, then tracked actual incident rates over simulated 1000 task executions.
+**Setup**: Estimated Delegation Risk for 20 components before deployment, then tracked actual incident rates over simulated 1000 task executions.
 
-| Component Type | Predicted ETE | Actual Incidents | Prediction Error |
+| Component Type | Predicted Delegation Risk | Actual Incidents | Prediction Error |
 |---------------|---------------|------------------|------------------|
 | Search/Retrieval | $15 | $12 | -20% |
 | Summarization | $45 | $62 | +38% |
@@ -66,9 +66,9 @@ While the framework needs broader validation, initial experiments show promising
 | Coordination | $85 | $91 | +7% |
 | **Average** | | | **±19%** |
 
-**Key finding**: ETE predictions were within ±40% of actual outcomes. Summarization was underpredicted (hallucination rate higher than estimated).
+**Key finding**: Delegation Risk predictions were within ±40% of actual outcomes. Summarization was underpredicted (hallucination rate higher than estimated).
 
-**Implication**: Conservative ETE estimates (1.5-2x) provide reasonable safety margin.
+**Implication**: Conservative Delegation Risk estimates (1.5-2x) provide reasonable safety margin.
 
 ### Experiment D: Scheming Detection
 

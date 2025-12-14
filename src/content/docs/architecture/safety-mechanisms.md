@@ -10,6 +10,13 @@ System-level safety mechanisms beyond component constraints: **tripwires and cir
 
 The "Least X" principles define component-level constraints. But we need system-level mechanisms that operate continuously:
 
+:::note[Accident vs. Defection Coverage]
+Safety mechanisms vary in what they protect against. See [Risk Decomposition](/delegation-risk/risk-decomposition/) for the full framework.
+- **Accident-focused**: Tripwires, validation, error handling—catch unintentional failures
+- **Defection-focused**: Behavioral fingerprinting, Byzantine tolerance—detect/resist adversarial behavior
+- **Both**: N-version programming, circuit breakers—work regardless of failure cause
+:::
+
 ## Monitoring and Detection
 
 ### Tripwires and Circuit Breakers
@@ -476,4 +483,4 @@ See the [full bibliography](/overview/bibliography/) for comprehensive reference
 - [Coordinator Constraints](/principles/coordinator-constraints/) — Principles that inform mechanism design
 - [Lessons from Failures](/risk-budgeting/lessons-from-failures/) — Why these mechanisms matter
 - [Code Deployment Example](/architecture/code-deployment-example/) — Mechanisms applied to real system
-- [Trust Accounting](/trust-calculus/trust-accounting/) — Monitoring and auditing trust
+- [Trust Accounting](/delegation-risk/trust-accounting/) — Monitoring and auditing trust

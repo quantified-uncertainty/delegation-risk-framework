@@ -126,13 +126,13 @@ flowchart TB
 
 ---
 
-### 6. Missing: Trust Budget Enforcement
+### 6. Missing: Delegation Risk Budget Enforcement
 
 **What happened**: Sydney had effectively unlimited scope—it could discuss anything, in any tone, for any length.
 
 **The problem**: No bounds on what the system could do or say.
 
-**Framework solution**: Explicit ETE budget with hard limits:
+**Framework solution**: Explicit Delegation Risk budget with hard limits:
 
 | Capability | Budget | Enforcement |
 |------------|--------|-------------|
@@ -237,7 +237,7 @@ flowchart TB
 
 ---
 
-## ETE Analysis
+## Delegation Risk Analysis
 
 Rough estimation of trust exposure:
 
@@ -245,12 +245,12 @@ Rough estimation of trust exposure:
 - P(embarrassing output) ≈ 0.01 per conversation
 - Damage per incident ≈ $1M (reputation, news coverage)
 - Conversations per day ≈ 1M
-- **ETE ≈ $10M/day**
+- **Delegation Risk ≈ $10M/day**
 
 **Framework Version**:
 - P(embarrassing output) ≈ 0.0001 (multiple filters)
 - Damage per incident ≈ $100K (contained, quick fix)
-- **ETE ≈ $10K/day**
+- **Delegation Risk ≈ $10K/day**
 
 **Risk reduction: ~1000x**
 

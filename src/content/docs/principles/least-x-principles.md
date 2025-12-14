@@ -773,7 +773,7 @@ Now that you understand the principles, here's where to go:
 - [Coordinator-Specific Principles](/principles/coordinator-constraints/) — Additional constraints for coordinators
 
 **To learn the math behind trust**:
-- [Trust Calculus Overview](/trust-calculus/overview/) — ETE computation and trust propagation
+- [Delegation Risk Overview](/delegation-risk/overview/) — Delegation Risk computation and risk inheritance
 
 **To start implementing**:
 - [Quick Start](/implementation/quick-start/) — Step-by-step checklist

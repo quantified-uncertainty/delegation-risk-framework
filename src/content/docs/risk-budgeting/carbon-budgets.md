@@ -4,7 +4,7 @@ title: "Carbon Budgets & Large-Scale Allocation"
 
 # Carbon Budgets: Lessons for AI Safety
 
-Carbon budget frameworks manage a global constraint (total emissions) across millions of actors (countries, companies, individuals). The mechanisms for allocation, trading, and verification offer insights for AI trust budgets at scale.
+Carbon budget frameworks manage a global constraint (total emissions) across millions of actors (countries, companies, individuals). The mechanisms for allocation, trading, and verification offer insights for AI delegation risk budgets at scale.
 
 ## The Carbon Budget Problem
 
@@ -16,7 +16,7 @@ Carbon budget frameworks manage a global constraint (total emissions) across mil
 - Billions of individuals
 - Current vs. future generations
 
-This is structurally similar to allocating trust budgets across:
+This is structurally similar to allocating delegation risk budgets across:
 - Organizations
 - AI systems
 - Components
@@ -33,7 +33,7 @@ This is structurally similar to allocating trust budgets across:
 **Cons**: Rewards past polluters, penalizes developing nations
 
 **AI parallel**: Allocating trust based on current deployment
-- "You've deployed 20% of AI compute, you get 20% of trust budget"
+- "You've deployed 20% of AI compute, you get 20% of delegation risk budget"
 - Problem: Rewards incumbents, penalizes new entrants
 
 ### 2. Equal Per Capita
@@ -44,8 +44,8 @@ This is structurally similar to allocating trust budgets across:
 **Pros**: Fair, principle-based
 **Cons**: Ignores development differences, hard to implement
 
-**AI parallel**: Equal trust budget per AI system
-- Each AI system gets same ETE allocation
+**AI parallel**: Equal delegation risk budget per AI system
+- Each AI system gets same Delegation Risk allocation
 - Problem: Ignores differences in capability and use case
 
 ### 3. Capability-Based
@@ -58,7 +58,7 @@ This is structurally similar to allocating trust budgets across:
 **Cons**: Complex, contentious definitions
 
 **AI parallel**: Allocate based on safety capability
-- Advanced safety teams get smaller trust budgets (can afford verification)
+- Advanced safety teams get smaller delegation risk budgets (can afford verification)
 - Early-stage projects get larger budgets (need flexibility to develop)
 
 ### 4. Contraction and Convergence
@@ -105,7 +105,7 @@ flowchart LR
 ```mermaid
 flowchart LR
     subgraph Cap["Total Trust Cap"]
-        Cap1[System-wide ETE limit]
+        Cap1[System-wide Delegation Risk limit]
     end
     subgraph Trade["Trading"]
         Org1[Org A: Low capability<br/>Needs trust]
@@ -115,7 +115,7 @@ flowchart LR
     Org1 -->|"$$$"| Org2
 ```
 
-- Total system ETE capped
+- Total system Delegation Risk capped
 - Organizations trade trust permits
 - Price reflects safety investment vs. capability benefit
 
@@ -130,8 +130,8 @@ flowchart LR
 **Cons**: Uncertain total emissions
 
 **AI parallel: Trust tax**
-- Tax per unit of ETE
-- Higher ETE → higher tax
+- Tax per unit of Delegation Risk
+- Higher Delegation Risk → higher tax
 - Revenue funds safety research
 
 ### Offset Markets
@@ -144,7 +144,7 @@ flowchart LR
 - Verification: How to confirm actual reduction?
 
 **AI parallel: Trust offsets**
-- Fund safety measures elsewhere to offset your system's ETE
+- Fund safety measures elsewhere to offset your system's Delegation Risk
 - Challenges mirror carbon offsets:
   - Would safety measure have been implemented anyway?
   - Does it provide lasting protection?
@@ -183,7 +183,7 @@ Any budget system requires:
 - Outcome tracking over time
 - Conservative estimates under uncertainty
 
-## Lessons for AI Trust Budgets
+## Lessons for AI Delegation Risk Budgets
 
 ### 1. Start with Total, Then Allocate
 
@@ -236,7 +236,7 @@ Paris Agreement includes "ratchet" mechanism:
 - No backsliding allowed
 
 **AI application**:
-- Initial trust budgets based on current capabilities
+- Initial delegation risk budgets based on current capabilities
 - As safety methods improve, budgets tighten
 - Cannot loosen budgets without justification
 - Continuous improvement expectation
@@ -245,14 +245,14 @@ Paris Agreement includes "ratchet" mechanism:
 
 ### Phase 1: Measurement
 
-1. Define ETE measurement methodology
+1. Define Delegation Risk measurement methodology
 2. Establish baseline for existing systems
 3. Create reporting templates
 4. Train auditors
 
 ### Phase 2: Cap Setting
 
-1. Determine acceptable total system ETE
+1. Determine acceptable total system Delegation Risk
 2. Consider current deployment vs. target
 3. Set timeline for cap reduction
 4. Build in safety margin
@@ -261,7 +261,7 @@ Paris Agreement includes "ratchet" mechanism:
 
 ```mermaid
 flowchart TD
-    Total[Total ETE Budget] --> Sectors[Sector Allocations]
+    Total[Total Delegation Risk Budget] --> Sectors[Sector Allocations]
     Sectors --> Orgs[Organization Allocations]
     Orgs --> Systems[System Allocations]
     Systems --> Components[Component Allocations]
@@ -313,22 +313,22 @@ Clear who emits CO₂. Less clear who "owns" AI risk:
 
 ### 4. Global Coordination
 
-Carbon budgets require international agreement. AI trust budgets face:
+Carbon budgets require international agreement. AI delegation risk budgets face:
 - Jurisdictional arbitrage
 - Different risk tolerances
 - Varying enforcement capability
 
 ## Practical Starting Point
 
-For organizations implementing trust budgets today:
+For organizations implementing delegation risk budgets today:
 
-1. **Set internal cap**: "Our total ETE across all AI systems will not exceed $X/month"
+1. **Set internal cap**: "Our total Delegation Risk across all AI systems will not exceed $X/month"
 
 2. **Allocate to teams**: Divide budget based on capability needs and safety capacity
 
 3. **Allow internal trading**: Teams can transfer budget for business needs
 
-4. **Track and report**: Monitor actual ETE, report to leadership quarterly
+4. **Track and report**: Monitor actual Delegation Risk, report to leadership quarterly
 
 5. **Ratchet down**: Reduce total cap 10% annually as safety improves
 
@@ -340,4 +340,4 @@ For organizations implementing trust budgets today:
 
 - [Euler Allocation](/risk-budgeting/euler-allocation/) — Mathematical framework for budget decomposition
 - [Mechanism Design](/risk-budgeting/mechanism-design/) — Incentive-compatible reporting
-- [Trust Accounting](/trust-calculus/trust-accounting/) — Ledgers and auditing
+- [Trust Accounting](/delegation-risk/trust-accounting/) — Ledgers and auditing

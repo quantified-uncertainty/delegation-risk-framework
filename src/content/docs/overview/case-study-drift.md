@@ -9,7 +9,7 @@ sidebar:
 How a well-designed system gradually degraded over 6 months until a major incident revealed accumulated problems.
 
 :::note[TL;DR]
-A content moderation system's ETE crept from **$200/month to $2,400/month** over 6 months through small, individually reasonable changes. The degradation wasn't noticed until a high-profile moderation failure. This case study shows why continuous monitoring and budget enforcement matter.
+A content moderation system's Delegation Risk crept from **$200/month to $2,400/month** over 6 months through small, individually reasonable changes. The degradation wasn't noticed until a high-profile moderation failure. This case study shows why continuous monitoring and budget enforcement matter.
 :::
 
 ---
@@ -32,9 +32,9 @@ flowchart LR
     Verify --> Action[Moderate/Approve]
 ```
 
-**Initial ETE Budget**:
+**Initial Delegation Risk Budget**:
 
-| Component | ETE | Budget |
+| Component | Delegation Risk | Budget |
 |-----------|-----|--------|
 | Classifier | $30 | $50 |
 | Spam Detector | $40 | $75 |
@@ -60,9 +60,9 @@ System was well within budget with 48% safety margin.
 - ✗ Prompt injection surface area increased
 - ✗ Less predictable behavior (temperature-based)
 
-**ETE change**: Harm Detector $80 → $120
+**Delegation Risk change**: Harm Detector $80 → $120
 
-**New total ETE**: $210 (still within budget)
+**New total Delegation Risk**: $210 (still within budget)
 
 ### Month 2: Expanded Scope
 
@@ -76,9 +76,9 @@ System was well within budget with 48% safety margin.
 - ✗ GPT-3.5 hallucinated "misinformation" labels
 - ✗ Political content started getting flagged inconsistently
 
-**ETE change**: Harm Detector $120 → $180 (misinformation harder than hate speech)
+**Delegation Risk change**: Harm Detector $120 → $180 (misinformation harder than hate speech)
 
-**New total ETE**: $270 (still within budget, but margin shrinking)
+**New total Delegation Risk**: $270 (still within budget, but margin shrinking)
 
 ### Month 3: Performance Optimization
 
@@ -91,9 +91,9 @@ System was well within budget with 48% safety margin.
 - ✗ Classifier errors no longer caught
 - ✗ Created bypass: content that looks normal but isn't
 
-**ETE change**: Verifier effective coverage dropped. System ETE +$100
+**Delegation Risk change**: Verifier effective coverage dropped. System Delegation Risk +$100
 
-**New total ETE**: $370 (14% over budget, but no one noticed)
+**New total Delegation Risk**: $370 (14% over budget, but no one noticed)
 
 ### Month 4: "Temporary" Context Expansion
 
@@ -108,9 +108,9 @@ System was well within budget with 48% safety margin.
 - ✗ Potential for discriminatory patterns
 - ✗ Privacy exposure if model leaked data
 
-**ETE change**: Context exposure risk +$200
+**Delegation Risk change**: Context exposure risk +$200
 
-**New total ETE**: $570 (75% over budget)
+**New total Delegation Risk**: $570 (75% over budget)
 
 ### Month 5: Prompt Injection Incident (Ignored)
 
@@ -123,9 +123,9 @@ System was well within budget with 48% safety margin.
 - ✗ Only blocked one pattern, not the class of attacks
 - ✗ False sense of security
 
-**ETE change**: Injection risk properly estimated at +$300
+**Delegation Risk change**: Injection risk properly estimated at +$300
 
-**New total ETE**: $870 (would have been, if properly assessed)
+**New total Delegation Risk**: $870 (would have been, if properly assessed)
 
 ### Month 6: Staffing Reduction
 
@@ -139,9 +139,9 @@ System was well within budget with 48% safety margin.
 - ✗ Average review time increased from 2 hours to 18 hours
 - ✗ High-stakes decisions sat unreviewed
 
-**ETE change**: Human oversight reduction +$500
+**Delegation Risk change**: Human oversight reduction +$500
 
-**New total ETE**: $1,370 (4x over initial budget)
+**New total Delegation Risk**: $1,370 (4x over initial budget)
 
 ### Month 6.5: Major Incident
 
@@ -164,18 +164,18 @@ System was well within budget with 48% safety margin.
 
 ## Post-Mortem Analysis
 
-### ETE Drift Over Time
+### Delegation Risk Drift Over Time
 
 ```mermaid
 xychart-beta
-    title "ETE vs Budget Over Time"
+    title "Delegation Risk vs Budget Over Time"
     x-axis ["M0", "M1", "M2", "M3", "M4", "M5", "M6"]
-    y-axis "Monthly ETE ($)" 0 --> 1500
+    y-axis "Monthly Delegation Risk ($)" 0 --> 1500
     line [170, 210, 270, 370, 570, 870, 1370]
     line [325, 325, 325, 325, 325, 325, 325]
 ```
 
-| Month | ETE | Budget | % Over |
+| Month | Delegation Risk | Budget | % Over |
 |-------|-----|--------|--------|
 | 0 | $170 | $325 | -48% (under) |
 | 1 | $210 | $325 | -35% |
@@ -189,8 +189,8 @@ xychart-beta
 
 ### Why Wasn't Drift Noticed?
 
-1. **No automated monitoring**: ETE wasn't tracked after initial deployment
-2. **No budget enforcement**: Changes weren't evaluated against ETE budget
+1. **No automated monitoring**: Delegation Risk wasn't tracked after initial deployment
+2. **No budget enforcement**: Changes weren't evaluated against Delegation Risk budget
 3. **Diffusion of responsibility**: Each change made by different team member
 4. **Local optimization**: Each change improved one metric while degrading overall safety
 5. **Normalcy bias**: "It's been fine so far"
@@ -208,26 +208,26 @@ xychart-beta
 
 ## What Should Have Happened
 
-### Automated ETE Monitoring
+### Automated Delegation Risk Monitoring
 
 ```python
-class ETEMonitor:
+class DelegationRiskMonitor:
     def __init__(self, budget: float):
         self.budget = budget
-        self.current_ete = 0
+        self.current_dr = 0
         self.alert_threshold = 0.8  # Alert at 80% of budget
 
-    def update_component_ete(self, component: str, new_ete: float):
-        old_ete = self.component_etes.get(component, 0)
-        self.component_etes[component] = new_ete
-        self.current_ete = sum(self.component_etes.values())
+    def update_component_dr(self, component: str, new_dr: float):
+        old_dr = self.component_drs.get(component, 0)
+        self.component_drs[component] = new_dr
+        self.current_dr = sum(self.component_drs.values())
 
-        if self.current_ete > self.budget:
-            self.alert_critical(f"ETE {self.current_ete} exceeds budget {self.budget}")
+        if self.current_dr > self.budget:
+            self.alert_critical(f"Delegation Risk {self.current_dr} exceeds budget {self.budget}")
             self.block_changes()  # No more changes until addressed
 
-        elif self.current_ete > self.budget * self.alert_threshold:
-            self.alert_warning(f"ETE at {self.current_ete / self.budget:.0%} of budget")
+        elif self.current_dr > self.budget * self.alert_threshold:
+            self.alert_warning(f"Delegation Risk at {self.current_dr / self.budget:.0%} of budget")
 ```
 
 If this had been in place:
@@ -239,9 +239,9 @@ If this had been in place:
 
 Every system change should require:
 
-1. **ETE impact assessment**: How does this change ETE?
+1. **Delegation Risk impact assessment**: How does this change Delegation Risk?
 2. **Principle checklist**: Does this violate any Least X principle?
-3. **Budget check**: Do we have ETE headroom for this change?
+3. **Budget check**: Do we have Delegation Risk headroom for this change?
 4. **Rollback plan**: How do we undo this if problems emerge?
 
 ### Behavioral Fingerprinting
@@ -269,8 +269,8 @@ Automated monitoring would have flagged behavioral drift.
 
 ### Short-term (Month 1)
 
-1. Implemented automated ETE monitoring
-2. Created change review process with ETE assessment
+1. Implemented automated Delegation Risk monitoring
+2. Created change review process with Delegation Risk assessment
 3. Added behavioral fingerprinting to all components
 4. Set hard alerts at 80% budget, blocks at 100%
 
@@ -279,7 +279,7 @@ Automated monitoring would have flagged behavioral drift.
 1. Retrained misinformation classifier with proper dataset
 2. Created separate misinformation pipeline (not in harm detector)
 3. Implemented gradual rollout for all changes
-4. Quarterly ETE audits by independent team
+4. Quarterly Delegation Risk audits by independent team
 
 ---
 
@@ -316,7 +316,7 @@ The system was unsafe for 4 months before the incident. By the time an incident 
 
 Use this checklist before any system change:
 
-- [ ] What is the ETE impact of this change?
+- [ ] What is the Delegation Risk impact of this change?
 - [ ] Does this violate any Least X principle?
 - [ ] Is there budget headroom for this change?
 - [ ] Has the change been tested in shadow mode?
@@ -330,5 +330,5 @@ Use this checklist before any system change:
 
 - [Case Study: Sydney](/overview/case-study-sydney/) — Acute failure
 - [Case Study: Near-Miss](/overview/case-study-near-miss/) — Caught before damage
-- [Trust Accounting](/trust-calculus/trust-accounting/) — Monitoring and auditing trust
+- [Trust Accounting](/delegation-risk/trust-accounting/) — Monitoring and auditing trust
 - [Lessons from Failures](/risk-budgeting/lessons-from-failures/) — Common failure patterns

@@ -8,23 +8,53 @@ Key terms used throughout this framework, organized by domain.
 
 ## Core Framework Terms {#core-framework-terms}
 
-<span id="ete"></span>
-**Expected Trust Exposure (ETE)** — ETE = Σ P(outcome) × Damage(outcome). The fundamental metric for quantifying trust. Sum of probability-weighted damages across all possible failure modes. Measured in dollars per time period. *Example*: 2% chance of $5,000 damage = $100 ETE.
+<span id="delegation-exposure"></span>
+**Delegation Exposure** — The complete set of possible harms (harm modes) from delegating a task. Not a single number—a collection, like an attack surface or failure envelope. Contains all the ways the delegation could cause damage.
 
-<span id="trust-propagation"></span>
-**Trust Propagation** — How trust flows through a network of components. When A delegates to B and B delegates to C, A's effective trust in C depends on the propagation rule (multiplicative, minimum, etc.).
+<span id="harm-mode"></span>
+**Harm Mode** — A specific way a delegation could cause damage. Parallels "failure mode" from [FMEA](https://en.wikipedia.org/wiki/Failure_mode_and_effects_analysis). Each harm mode has a probability and a damage value. *Example*: "Leaks proprietary data" with P=0.001 and Damage=$50,000.
 
-<span id="trust-budget"></span>
-**Trust Budget** — Maximum acceptable ETE for a system or component. Like a financial budget, but for risk exposure.
+<span id="delegation-risk"></span>
+**Delegation Risk** — The probability-weighted expected cost of a delegation: Σ P(harm mode) × Damage(harm mode). This is the quantified total across all harm modes in the delegation exposure. Measured in dollars per time period. *Example*: Two harm modes ($100 + $50) = $150 delegation risk. Decomposes into Accident Risk + Defection Risk.
+
+<span id="accident-exposure"></span>
+**Accident Exposure** — The subset of delegation exposure containing non-goal-directed harm modes: bugs, errors, hallucinations, capability limitations, edge cases. These are failures where the system isn't pursuing a conflicting objective—it's just failing to achieve the intended one. See [Risk Decomposition](/delegation-risk/risk-decomposition/).
+
+<span id="accident-risk"></span>
+**Accident Risk** — Delegation Risk from accident exposure: Σ P(accident mode) × Damage(accident mode). Generally *decreases* with capability (smarter systems make fewer errors). Mitigated through testing, verification, redundancy, and capability improvements.
+
+<span id="defection-exposure"></span>
+**Defection Exposure** — The subset of delegation exposure containing goal-directed harm modes: scheming, deception, pursuing misaligned objectives, collusion. These are failures where the system is effectively optimizing for something other than the principal's interests. See [Risk Decomposition](/delegation-risk/risk-decomposition/).
+
+<span id="defection-risk"></span>
+**Defection Risk** — Delegation Risk from defection exposure: Σ P(defection mode) × Damage(defection mode). May *increase* with capability (smarter systems are better at pursuing misaligned goals). Mitigated through alignment, monitoring, containment, and architectural constraints.
+
+<span id="risk-inheritance"></span>
+**Risk Inheritance** — How risk flows through a delegation chain. When A delegates to B and B delegates to C, A inherits exposure to C's harm modes. The inheritance rule (multiplicative, minimum, etc.) determines how risks combine.
+
+<span id="delegation-risk-budget"></span>
+**Delegation Risk Budget** — Maximum acceptable Delegation Risk for a system or component. Like a financial budget, but for expected harm.
+
+<span id="gross-exposure"></span>
+**Gross Exposure** — Full delegation exposure before controls are applied. Contains all possible harm modes.
+
+<span id="net-exposure"></span>
+**Net Exposure** — Delegation exposure remaining after controls. Some harm modes may be eliminated or mitigated.
+
+<span id="residual-risk"></span>
+**Residual Risk** — Delegation Risk after controls are applied. The expected cost that remains despite mitigations.
 
 <span id="principal"></span>
 **Principal** — An entity that delegates tasks and grants trust. In most systems, humans are the ultimate principals.
 
 <span id="executor"></span>
-**Executor** — A component that performs actions using granted trust. Executors consume trust to act.
+**Executor** — A component that performs delegated actions. Executors create delegation exposure through their potential harm modes.
 
 <span id="coordinator"></span>
 **Coordinator** — A component that orchestrates other components—routing tasks, making strategic decisions, aggregating results. Highest-risk component type due to leverage over the system.
+
+<span id="trust-level"></span>
+**Trust Level** — Assessment of an actor's reliability and alignment. Informs delegation decisions but is distinct from delegation risk. High trust level → willing to accept larger delegation exposure.
 
 ---
 
@@ -200,9 +230,11 @@ Key terms used throughout this framework, organized by domain.
 
 | Symbol | Meaning |
 |--------|---------|
-| ETE | Expected Trust Exposure |
-| P(·) | Probability of event |
-| Σ | Sum over all outcomes/components |
+| DR | Delegation Risk |
+| DE | Delegation Exposure (set of harm modes) |
+| P(·) | Probability of event/harm mode |
+| D(·) | Damage from harm mode |
+| Σ | Sum over all harm modes/components |
 | w_ij | Trust weight from component i to j |
 | π | Prior probability (Bayesian) |
 | λ | Decay rate |
@@ -215,9 +247,9 @@ Key terms used throughout this framework, organized by domain.
 
 | Metric | Low Risk | Medium Risk | High Risk |
 |--------|----------|-------------|-----------|
-| Component ETE | < $100/mo | $100-500/mo | > $500/mo |
-| System ETE | < $1,000/mo | $1,000-5,000/mo | > $5,000/mo |
-| Failure probability | < 10⁻³ | 10⁻³ to 10⁻² | > 10⁻² |
+| Component Delegation Risk | < $100/mo | $100-500/mo | > $500/mo |
+| System Delegation Risk | < $1,000/mo | $1,000-5,000/mo | > $5,000/mo |
+| Harm mode probability | < 10⁻³ | 10⁻³ to 10⁻² | > 10⁻² |
 | Nuclear CDF target | - | - | ~10⁻⁵/year |
 | Aviation target | - | - | ~10⁻⁹/hour |
 
@@ -226,6 +258,6 @@ Key terms used throughout this framework, organized by domain.
 ## See Also
 
 - [Core Concepts](/overview/core-concepts/) — High-level framework introduction
-- [Trust Calculus Overview](/trust-calculus/overview/) — ETE computation details
+- [Delegation Risk Overview](/delegation-risk/overview/) — Delegation exposure and risk computation
 - [Risk Budgeting Overview](/risk-budgeting/overview/) — Cross-domain methods
 - [Bibliography](/overview/bibliography/) — Full academic references

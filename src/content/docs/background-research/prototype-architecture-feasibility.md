@@ -4,11 +4,11 @@ description: "Implementation feasibility of decomposed AI systems with trust pro
 date: 2025-12-13
 ---
 
-# Prototype Architecture Feasibility: Decomposed AI Systems for Trust Calculus
+# Prototype Architecture Feasibility: Decomposed AI Systems for Delegation Risk
 
 ## Executive Summary
 
-This research examines the feasibility of implementing decomposed AI architectures for safety-critical applications requiring trust calculus and risk budgeting frameworks. Key findings indicate that decomposed systems can reduce costs by 80% while improving reliability, but introduce complexity in orchestration, latency management, and safety verification. The viability of Byzantine fault-tolerant coordinators, multi-agent frameworks, and specialist model pipelines is assessed based on current production deployments and research.
+This research examines the feasibility of implementing decomposed AI architectures for safety-critical applications requiring delegation risk framework and risk budgeting frameworks. Key findings indicate that decomposed systems can reduce costs by 80% while improving reliability, but introduce complexity in orchestration, latency management, and safety verification. The viability of Byzantine fault-tolerant coordinators, multi-agent frameworks, and specialist model pipelines is assessed based on current production deployments and research.
 
 **Key Takeaways:**
 - Decomposed architectures show 40-100% accuracy improvements on specialized tasks with 10-100x lower inference costs
@@ -913,7 +913,7 @@ Traditional PBFT suffers from **O(N²) communication complexity**:
    - Real-time requirements incompatible with consensus latency
    - Use single authoritative model with robust testing
 
-**Recommendation for Trust Calculus Framework:**
+**Recommendation for Delegation Risk Framework:**
 
 - **Tier 1 (Critical)**: Full 3f+1 BFT for high-stakes decisions (f=2, N=7)
 - **Tier 2 (Important)**: Simple majority voting (f=1, N=3) for medium-stakes
@@ -1908,7 +1908,7 @@ Phase 1: Monolithic          Phase 2: Hybrid               Phase 3: Decomposed
 
 ### 7.2 Recommendations by Use Case
 
-#### For Trust Calculus / Risk Budgeting Framework
+#### For Delegation Risk / Risk Budgeting Framework
 
 **Tiered Architecture Based on Risk:**
 

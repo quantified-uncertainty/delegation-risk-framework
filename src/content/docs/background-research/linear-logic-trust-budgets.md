@@ -1,15 +1,15 @@
 ---
-title: "Linear Logic for Trust Budgets"
+title: "Linear Logic for Delegation Risk Budgets"
 description: "Type systems that enforce resource constraints for AI safety"
 author: "Research compiled from academic sources"
 date: "2025-12-13"
 ---
 
-# Linear Logic for Trust Budgets: A Research Survey
+# Linear Logic for Delegation Risk Budgets: A Research Survey
 
 ## Executive Summary
 
-This document surveys the intersection of linear logic, type systems, and capability-based security as potential foundations for enforcing trust and risk budgets in AI safety systems. Linear logic provides a mathematical foundation for reasoning about resources that must be used exactly once, while type systems can enforce these constraints at compile time. Capability-based security adds unforgeable tokens of authority that can be revoked or attenuated. Together, these concepts offer a rigorous framework for implementing trust calculus and risk budgeting in AI systems.
+This document surveys the intersection of linear logic, type systems, and capability-based security as potential foundations for enforcing trust and risk budgets in AI safety systems. Linear logic provides a mathematical foundation for reasoning about resources that must be used exactly once, while type systems can enforce these constraints at compile time. Capability-based security adds unforgeable tokens of authority that can be revoked or attenuated. Together, these concepts offer a rigorous framework for implementing delegation risk framework and risk budgeting in AI systems.
 
 ---
 
@@ -220,7 +220,7 @@ The progression from bounded linear logic to practical type systems demonstrates
 3. **QBAL**: More flexible system with quantification over resources
 4. **Resource semirings (Ghica & Smith)**: General framework parameterized by semiring structure
 
-**Implication for trust budgets**: These systems demonstrate that **type systems can statically enforce quantitative bounds** on resource consumption. This could be adapted to enforce trust/risk budgets in AI systems.
+**Implication for delegation risk budgets**: These systems demonstrate that **type systems can statically enforce quantitative bounds** on resource consumption. This could be adapted to enforce trust/risk budgets in AI systems.
 
 ---
 
@@ -357,12 +357,12 @@ verify : Trusted Low Data ⊸ Maybe (Trusted High Data)
 
 **Quantitative Type Theory (QTT)**: Use multiplicities to track usage:
 - `0` for erased/unused trust tokens
-- `1` for linear trust budgets
+- `1` for linear delegation risk budgets
 - `ω` for reusable trust assertions (after verification)
 
 ### 5.3 Capability-Based Authority Limiting
 
-**Capabilities as trust tokens**: Each capability represents authority derived from a trust budget.
+**Capabilities as trust tokens**: Each capability represents authority derived from a delegation risk budget.
 
 **Hierarchical trust domains**:
 ```
@@ -525,9 +525,9 @@ use_limited : (LimitedCap, Action) ⊸ Result
 
 ## 7. Practical Implementation Path
 
-### 7.1 What Would a "Trust Budget Type System" Look Like?
+### 7.1 What Would a "Delegation Risk Budget Type System" Look Like?
 
-A practical trust budget type system would combine several concepts:
+A practical delegation risk budget type system would combine several concepts:
 
 **Core components**:
 
@@ -613,20 +613,20 @@ execute : Capability res level
 ### 7.2 Integration with Existing Languages
 
 **Approach 1: Embedded DSL**
-- Implement trust budget system as library in host language
+- Implement delegation risk budget system as library in host language
 - Use type system features of host (Haskell's linear types, Rust's affine types)
 - Advantage: Works with existing tooling
 - Disadvantage: Limited by host language capabilities
 
 **Approach 2: Language extension**
-- Extend existing language with trust budget primitives
+- Extend existing language with delegation risk budget primitives
 - Examples: Linear Haskell extended Haskell, Idris 2 extended Idris 1
 - Advantage: Tailored precisely to needs
 - Disadvantage: Requires compiler modifications
 
 **Approach 3: New language**
 - Design language from scratch (like Austral)
-- Advantage: No compromises, can optimize for trust budgets
+- Advantage: No compromises, can optimize for delegation risk budgets
 - Disadvantage: Adoption challenges, tooling from scratch
 
 **Approach 4: Gradual typing**
@@ -696,7 +696,7 @@ execute : Capability res level
 - **Granule**: Mix of static grading and dynamic checks
 - **Liquid Haskell**: Refinement types with SMT solver (hybrid static/dynamic)
 
-**For trust budgets specifically**:
+**For delegation risk budgets specifically**:
 
 ```
 Static (compile-time):
@@ -885,11 +885,11 @@ Continuing development in graded modal types for resource analysis:
 - Efficient identification and invalidation of pointers
 - Heap temporal safety for C/C++
 
-**Application to trust budgets**: Hardware-enforced capabilities provide unforgeable foundation for trust token systems.
+**Application to delegation risk budgets**: Hardware-enforced capabilities provide unforgeable foundation for trust token systems.
 
 ---
 
-## 11. Synthesis: Path to Trust Budget Type Systems
+## 11. Synthesis: Path to Delegation Risk Budget Type Systems
 
 ### 11.1 Key Insights from Literature
 
@@ -909,7 +909,7 @@ Continuing development in graded modal types for resource analysis:
 
 8. **Separation logic provides resource semantics** for concurrent access (Iris, fractional permissions)
 
-### 11.2 Recommended Architecture for Trust Budgets
+### 11.2 Recommended Architecture for Delegation Risk Budgets
 
 **Layer 1: Linear/Affine Types**
 - Risk budgets as affine types (can drop, can't duplicate)
@@ -969,7 +969,7 @@ Continuing development in graded modal types for resource analysis:
 
 ### 11.4 Open Research Questions
 
-1. **Compositionality**: How to compose trust budgets across system boundaries?
+1. **Compositionality**: How to compose delegation risk budgets across system boundaries?
 
 2. **Adaptivity**: How to adjust budgets based on observed behavior while maintaining type safety?
 
@@ -979,7 +979,7 @@ Continuing development in graded modal types for resource analysis:
 
 5. **Ergonomics**: How to make the system usable for practitioners without deep type theory background?
 
-6. **Verification**: What properties can be proven about trust budget systems? Can we prove "no trust budget overrun"?
+6. **Verification**: What properties can be proven about delegation risk budget systems? Can we prove "no delegation risk budget overrun"?
 
 7. **Performance**: What is the runtime overhead of enforcement mechanisms?
 

@@ -54,18 +54,18 @@ flowchart TB
 
 ### Component Details
 
-| Component | Implementation | Trust Budget |
+| Component | Implementation | Delegation Risk Budget |
 |-----------|---------------|--------------|
-| Diff Parser | Python code | Very low ETE ($5/mo) |
-| Sensitive Filter | Regex + code | Low ETE ($20/mo) |
-| Style Checker | Fine-tuned CodeLlama 7B | Low ETE ($50/mo) |
-| Security Scanner | Semgrep + fine-tuned LLM | Medium ETE ($150/mo) |
-| Logic Reviewer | GPT-3.5 with narrow prompt | Medium ETE ($200/mo) |
-| Aggregator | Python code | Very low ETE ($10/mo) |
-| Formatter | Llama 7B | Low ETE ($30/mo) |
-| Output Verifier | Rules + small LLM | Low ETE ($50/mo) |
+| Diff Parser | Python code | Very low Delegation Risk ($5/mo) |
+| Sensitive Filter | Regex + code | Low Delegation Risk ($20/mo) |
+| Style Checker | Fine-tuned CodeLlama 7B | Low Delegation Risk ($50/mo) |
+| Security Scanner | Semgrep + fine-tuned LLM | Medium Delegation Risk ($150/mo) |
+| Logic Reviewer | GPT-3.5 with narrow prompt | Medium Delegation Risk ($200/mo) |
+| Aggregator | Python code | Very low Delegation Risk ($10/mo) |
+| Formatter | Llama 7B | Low Delegation Risk ($30/mo) |
+| Output Verifier | Rules + small LLM | Low Delegation Risk ($50/mo) |
 
-**Total system ETE**: $515/month (budget: $1,000/month)
+**Total system Delegation Risk**: $515/month (budget: $1,000/month)
 
 ---
 

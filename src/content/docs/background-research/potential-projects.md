@@ -1,6 +1,6 @@
 ---
 title: "Potential Research Projects"
-description: "Research projects derived from the capability containment, coordinator constraints, risk budgeting, and trust calculus frameworks"
+description: "Research projects derived from the capability containment, coordinator constraints, risk budgeting, and delegation risk framework frameworks"
 ---
 
 Research projects to validate, extend, and implement the AI safety framework. Projects are organized into ten categories:
@@ -84,7 +84,7 @@ Mathematical foundations for AI risk budgeting:
 - When do safety properties compose vs not compose?
 - Conditions for additive, multiplicative, sub-additive composition
 
-### 9. Linear Logic for Trust Budgets
+### 9. Linear Logic for Delegation Risk Budgets
 Type systems that enforce resource constraints:
 - Bounded Linear Types (Ghica and Smith 2014) for risk tracking
 - Light Linear Logic (LLL) for polynomial-time guarantees
@@ -166,12 +166,12 @@ Fault tolerance in AI coordination:
 - Cryptographic commitment schemes for coordination decisions
 - Empirical testing of voting-based coordination
 
-### 19. Trust Propagation Algorithms
+### 19. Risk Inheritance Algorithms
 Mathematical properties of trust flow:
 - Compare multiplicative, minimum, harmonic, PageRank propagation
 - Multi-path trust combination (max, independence, Dempster-Shafer)
 - Trust conductance (electrical analogy) for complex topologies
-- Adversarial trust propagation with Byzantine components
+- Adversarial risk inheritance with Byzantine components
 
 ---
 
@@ -197,14 +197,14 @@ Human-AI task transitions:
 
 ### 22. Trust Labeling and Certification
 Standards development:
-- ETE estimation methodologies
+- Delegation Risk estimation methodologies
 - Verification coverage requirements
 - Trust concentration limits
 - Third-party certification processes
 
 ### 23. Regulatory Framework Analysis
 Policy implications:
-- Maximum allowed ETE for application categories
+- Maximum allowed Delegation Risk for application categories
 - Required verification for high-stakes tasks
 - Disclosure requirements for trust relationships
 - Liability frameworks for trust violations
@@ -229,7 +229,7 @@ Software for trust dynamics:
 
 ### 26. Trust Dashboard and Monitoring
 Operational tooling:
-- Real-time ETE tracking
+- Real-time Delegation Risk tracking
 - Trust concentration heat maps
 - Verification coverage metrics
 - Alert systems for trust violations
@@ -256,7 +256,7 @@ Learning from past risk management failures:
 Distributions over trust levels:
 - Beta distributions for trust estimates
 - Uncertainty propagation through trust calculations
-- Confidence intervals for ETE
+- Confidence intervals for Delegation Risk
 - Robust optimization under trust uncertainty
 
 ### 30. Emergent Capability Trust

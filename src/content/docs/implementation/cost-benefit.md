@@ -105,13 +105,13 @@ In this scenario, decomposition saves $9,200/month in runtime costs.
 
 ### Incident Cost Estimation
 
-| Incident Type | Probability (Mono) | Probability (Decomp) | Damage | ETE Mono | ETE Decomp |
+| Incident Type | Probability (Mono) | Probability (Decomp) | Damage | Delegation Risk Mono | Delegation Risk Decomp |
 |--------------|-------------------|---------------------|--------|----------|------------|
 | Data leak | 0.5%/mo | 0.1%/mo | $50,000 | $250 | $50 |
 | Harmful output (public) | 2%/mo | 0.3%/mo | $20,000 | $400 | $60 |
 | Service disruption | 1%/mo | 0.5%/mo | $10,000 | $100 | $50 |
 | Compliance violation | 0.3%/mo | 0.05%/mo | $100,000 | $300 | $50 |
-| **Total ETE** | | | | **$1,050/mo** | **$210/mo** |
+| **Total Delegation Risk** | | | | **$1,050/mo** | **$210/mo** |
 
 **Risk reduction**: $840/month in expected incident cost avoided.
 
@@ -195,7 +195,7 @@ Monthly Savings = API_Savings + Risk_Reduction - Maintenance_Overhead
 
 Where:
   API_Savings = Volume × (Mono_Cost - Decomp_Cost)
-  Risk_Reduction = ETE_Mono - ETE_Decomp
+  Risk_Reduction = DR_Mono - DR_Decomp
   Maintenance_Overhead = ~$2,000/month
 
 Break_Even_Months = Initial_Investment / Monthly_Savings

@@ -118,28 +118,28 @@ Deterrence value = P(people believe punishment is certain) × Perceived severity
 
 This is why cartels engage in spectacular violence—it's **marketing** for their punishment capability.
 
-### ETE of Violence-Based Trust
+### Delegation Risk of Violence-Based Trust
 
 **For the organization:**
 
-| Failure Mode | P(occurrence/year) | Damage | ETE |
+| Failure Mode | P(occurrence/year) | Damage | Delegation Risk |
 |--------------|-------------------|--------|-----|
 | Member steals and escapes | 0.05 | $500K | $25K |
 | Member informs to police | 0.03 | $5M (arrests, seizures) | $150K |
 | Member caught, cooperates | 0.10 | $10M (RICO case) | $1M |
 | Excessive violence causes war | 0.02 | $20M (losses) | $400K |
-| **Organization ETE** | | | **$1.575M/year** |
+| **Organization Delegation Risk** | | | **$1.575M/year** |
 
 **For individual members:**
 
-| Outcome | P(over career) | Damage | ETE |
+| Outcome | P(over career) | Damage | Delegation Risk |
 |---------|---------------|--------|-----|
 | Killed by organization | 0.15 | ∞ | ∞ |
 | Killed by rivals | 0.20 | ∞ | ∞ |
 | Imprisoned | 0.50 | 10 years × $50K | $250K |
 | Successful retirement | 0.15 | 0 | $0 |
 
-**The individual ETE is catastrophic**—which is why recruitment focuses on those with few alternatives.
+**The individual Delegation Risk is catastrophic**—which is why recruitment focuses on those with few alternatives.
 
 ---
 
@@ -253,27 +253,27 @@ flowchart TB
 
 **The tradeoff**: Family-based organizations are more stable but harder to scale.
 
-### ETE: Family vs. Non-Family
+### Delegation Risk: Family vs. Non-Family
 
-**Family organization ETE:**
+**Family organization Delegation Risk:**
 ```
 P(leadership betrayal) ≈ 0.01
 P(information leak from top) ≈ 0.02
 Trust maintenance cost: Low (family bonds are free)
 
-Annual ETE ≈ $500K
+Annual Delegation Risk ≈ $500K
 ```
 
-**Non-family organization ETE:**
+**Non-family organization Delegation Risk:**
 ```
 P(leadership betrayal) ≈ 0.10
 P(information leak from top) ≈ 0.15
 Trust maintenance cost: High (constant enforcement needed)
 
-Annual ETE ≈ $3M
+Annual Delegation Risk ≈ $3M
 ```
 
-**Family trust provides ~6× lower ETE**—which is why mafias organized this way for centuries.
+**Family trust provides ~6× lower Delegation Risk**—which is why mafias organized this way for centuries.
 
 ---
 
@@ -334,9 +334,9 @@ If member in a cell is caught:
 
 **4× reduction in exposure per compromise.**
 
-### ETE of Different Structures
+### Delegation Risk of Different Structures
 
-| Structure | P(one member caught) | People exposed | Operations compromised | ETE |
+| Structure | P(one member caught) | People exposed | Operations compromised | Delegation Risk |
 |-----------|---------------------|----------------|----------------------|-----|
 | Flat (everyone knows everyone) | 0.10 | 50 | All | $50M |
 | Hierarchical | 0.10 | 16 | 30% | $15M |
@@ -436,15 +436,15 @@ flowchart TB
     CELL1 -.->|"no contact"| CELL2
 ```
 
-### ETE Comparison
+### Delegation Risk Comparison
 
-| Organization Type | Annual Revenue (est.) | Annual ETE | ETE as % of Revenue |
+| Organization Type | Annual Revenue (est.) | Annual Delegation Risk | Delegation Risk as % of Revenue |
 |-------------------|----------------------|------------|---------------------|
 | Large Mafia family | $500M | $15M | 3% |
 | Major cartel | $5B | $500M | 10% |
 | Terrorist network | N/A (not revenue-driven) | Measured in operational capability | N/A |
 
-**Why cartels have higher ETE%:**
+**Why cartels have higher Delegation Risk%:**
 - More violence → more retaliation
 - Less family trust → more internal theft
 - Higher law enforcement pressure
@@ -506,7 +506,7 @@ Then informing is never rational if family is at risk
 ```
 
 :::caution[The Moral Dimension]
-Criminal organizations' trust mechanisms often work precisely because they're willing to do things legitimate organizations aren't—like kill informants' families. This is a genuine "advantage" in the trust calculus that comes at profound moral cost.
+Criminal organizations' trust mechanisms often work precisely because they're willing to do things legitimate organizations aren't—like kill informants' families. This is a genuine "advantage" in the delegation risk framework that comes at profound moral cost.
 :::
 
 ### The RICO Problem

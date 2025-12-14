@@ -131,7 +131,7 @@ Key papers, books, and resources that inform this framework, organized by domain
 
 ### Linear Logic
 - **Girard, J.-Y. (1987)**. *Linear Logic*. Theoretical Computer Science, 50(1). [DOI](https://doi.org/10.1016/0304-3975(87)90045-4)
-- Resource-sensitive logic foundational to consumable trust budgets
+- Resource-sensitive logic foundational to consumable delegation risk budgets
 
 ### Markov Categories
 - **Fritz, T. (2020)**. *A Synthetic Approach to Markov Kernels, Conditional Independence and Theorems on Sufficient Statistics*. Advances in Mathematics, 370. [arXiv](https://arxiv.org/abs/1908.07021)

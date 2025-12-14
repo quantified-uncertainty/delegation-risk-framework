@@ -11,7 +11,7 @@ No trust problem in human history has higher stakes than nuclear launch authorit
 Different nuclear powers have made radically different choices, each representing a distinct answer to the fundamental question: **What's worse—unauthorized launch or failure to retaliate?**
 
 :::danger[The Stakes]
-Global nuclear arsenal: ~12,500 warheads. A full exchange would kill hundreds of millions immediately and potentially billions from nuclear winter. The ETE of getting this wrong is measured in human civilization.
+Global nuclear arsenal: ~12,500 warheads. A full exchange would kill hundreds of millions immediately and potentially billions from nuclear winter. The Delegation Risk of getting this wrong is measured in human civilization.
 :::
 
 ---
@@ -147,7 +147,7 @@ flowchart TB
 - Submarine: Captain and XO must both authenticate
 - Bombers: Two crew members required
 
-### ETE Calculation: US System
+### Delegation Risk Calculation: US System
 
 **False Positive (Unauthorized Launch):**
 
@@ -172,9 +172,9 @@ P(unauthorized) = 0.01 × 0.10 × 0.70 × 0.01 × 0.30 = 0.0000021/year
 
 **Over 50 years**: 1 - (1 - 2.1×10⁻⁶)⁵⁰ ≈ 0.01% cumulative probability
 
-**ETE of False Positive:**
+**Delegation Risk of False Positive:**
 ```
-ETE = P(unauthorized) × Damage
+Delegation Risk = P(unauthorized) × Damage
     = 2.1 × 10⁻⁶ × $50T
     = $105M/year
 ```
@@ -204,12 +204,12 @@ P(failure given attack) = 1 - (1-0.30) × (1-0.20) × (1-0.05) × (1-0.05)
 But what's P(nuclear attack per year)? During Cold War peak, perhaps 0.001/year. Today, perhaps 0.0001/year.
 
 ```
-ETE = 0.0001 × 0.495 × $10T = $495M/year
+Delegation Risk = 0.0001 × 0.495 × $10T = $495M/year
 ```
 
-**Total US System ETE:**
+**Total US System Delegation Risk:**
 ```
-Total ETE = False Positive ETE + False Negative ETE
+Total Delegation Risk = False Positive Delegation Risk + False Negative Delegation Risk
          = $105M + $495M
          = $600M/year
 ```
@@ -260,7 +260,7 @@ flowchart TB
 - Regular chain requires multiple authorizations
 - Dead Hand is backup ensuring retaliation even if chain destroyed
 
-### ETE Calculation: Soviet/Russian System
+### Delegation Risk Calculation: Soviet/Russian System
 
 **False Positive:**
 
@@ -304,7 +304,7 @@ P(failure given attack) = 0.50 × 0.10 = 0.05
 
 **Only 5% failure rate vs 50% for US**—the Dead Hand works as designed.
 
-### ETE Comparison
+### Delegation Risk Comparison
 
 | System | P(False Positive)/year | P(False Negative given attack) | Balance |
 |--------|----------------------|-------------------------------|---------|
@@ -314,11 +314,11 @@ P(failure given attack) = 0.50 × 0.10 = 0.05
 **The Soviets accepted 2× higher accident risk to achieve 10× better retaliation guarantee.**
 
 ```
-US ETE = $105M (FP) + $495M (FN) = $600M/year
-USSR ETE = $225M (FP) + $50M (FN) = $275M/year
+US Delegation Risk = $105M (FP) + $495M (FN) = $600M/year
+USSR Delegation Risk = $225M (FP) + $50M (FN) = $275M/year
 ```
 
-Wait—the Soviet system has *lower* total ETE?
+Wait—the Soviet system has *lower* total Delegation Risk?
 
 :::caution[The Counterintuitive Result]
 If you take the math seriously, the Soviet system with its "doomsday device" properties has lower expected damage than the American system. This is because the massive reduction in false negative risk (retaliation failure) outweighs the modest increase in false positive risk (accidental launch).
@@ -366,7 +366,7 @@ flowchart TB
 - Different PMs may have written different orders
 - Adversary cannot know if retaliation is guaranteed
 
-### ETE Calculation: British System
+### Delegation Risk Calculation: British System
 
 **False Positive:**
 
@@ -462,7 +462,7 @@ flowchart TB
 
 **Trust architecture purpose**: Ambiguity itself is the strategy. Adversaries must assume worst case, but Israel avoids NPT obligations and regional arms race pressure.
 
-**ETE is literally incalculable**—which may be the point.
+**Delegation Risk is literally incalculable**—which may be the point.
 
 ---
 
@@ -478,9 +478,9 @@ flowchart TB
 | **France** | President (tradition: PM consult) | Military chain | None | Theoretical | Moderate |
 | **Israel** | Unknown | Unknown | Unknown | Unknown | Maximum |
 
-### ETE Comparison
+### Delegation Risk Comparison
 
-| System | False Positive ETE | False Negative ETE | Total ETE | Philosophy |
+| System | False Positive Delegation Risk | False Negative Delegation Risk | Total Delegation Risk | Philosophy |
 |--------|-------------------|-------------------|-----------|------------|
 | US | $105M | $495M | $600M | "Never accidentally" |
 | Russia | $225M | $50M | $275M | "Always retaliate" |
@@ -495,7 +495,7 @@ There is no "correct" nuclear launch architecture. Each represents a different j
 3. Value of ambiguity vs clarity
 4. Role of morality at the moment of decision
 
-The "safest" system (lowest total ETE) may be the one that seems scariest (Russia's Dead Hand), because deterrence effectiveness matters enormously.
+The "safest" system (lowest total Delegation Risk) may be the one that seems scariest (Russia's Dead Hand), because deterrence effectiveness matters enormously.
 :::
 
 ---
@@ -521,7 +521,7 @@ September 26, 1983: Soviet satellite system shows 5 US ICBMs launching toward US
 - Andropov (dying, suspicious) might have ordered retaliation
 - ~45% chance of escalation to full exchange per expert estimates
 
-**Trust calculus implication:**
+**Delegation risk framework implication:**
 
 Petrov was a **human circuit breaker**—he had neither the authority nor the protocol to make that decision, but he did anyway.
 
@@ -624,9 +624,9 @@ Neither is obviously correct. The choice depends on which error is costlier.
 ## Key Takeaways
 
 :::tip[Key Takeaways]
-1. **Nuclear launch authority is the highest-stakes trust problem ever designed**—ETE measured in civilization
+1. **Nuclear launch authority is the highest-stakes trust problem ever designed**—Delegation Risk measured in civilization
 2. **Different nations made different tradeoffs**—US prioritizes safety, Russia prioritizes deterrence, UK prioritizes flexibility
-3. **The "scariest" system may be safest**—Dead Hand's guaranteed retaliation may reduce total ETE by improving deterrence
+3. **The "scariest" system may be safest**—Dead Hand's guaranteed retaliation may reduce total Delegation Risk by improving deterrence
 4. **Human judgment has saved us repeatedly**—Petrov, Arkhipov, and others who violated protocol
 5. **Systems have never been fully tested**—we don't know if they actually work
 6. **Ambiguity can be a feature**—the UK system deliberately preserves moral choice
@@ -640,4 +640,4 @@ Neither is obviously correct. The choice depends on which error is costlier.
 - [The Oversight Dilemma](/applications/oversight-dilemma/) — Who watches the watchmen?
 - [Trust Across Civilizations](/applications/trust-across-civilizations/) — Historical trust architectures
 - [Anti-patterns](/overview/anti-patterns/) — Trust architecture mistakes
-- [Trust Propagation](/trust-calculus/trust-propagation/) — How trust flows through chains
+- [Risk Inheritance](/delegation-risk/trust-propagation/) — How trust flows through chains
