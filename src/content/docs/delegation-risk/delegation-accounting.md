@@ -141,29 +141,37 @@ Each delegator is exposed to their immediate delegate, not the full chain. Alice
 
 ---
 
-## Capability-Dependent Exposure
+## The Office Key: A Second Exposure
 
-Alice gives Bob a key to her office so he can pick up gems for delivery when she's not there.
+Alice decides to give Bob a key to her office so he can pick up gems for delivery when she's not there. This creates a **new, separate exposure**—distinct from the gem delivery itself.
+
+### Two Exposures, Not One
+
+| Exposure | Opens When | Closes When | What's At Risk |
+|----------|------------|-------------|----------------|
+| **Gem Delivery** | Bob receives gem | Delivery confirmed | $1,000 gem |
+| **Office Access** | Bob receives key | Key returned/revoked | Everything in office |
+
+The gem exposure is bounded by the gem's value. The office exposure is bounded by... what exactly?
 
 **What's in the office:**
 - The gem for today's delivery ($1,000)
 - Client list with names, addresses, purchase history
 - Supplier contracts with pricing
+- Business records
 
-### Dumb Bob
+### Capability-Dependent Exposure
 
-Bob sees: a gem.
+The office exposure depends on Bob's capability to exploit it.
+
+**Dumb Bob** sees: a gem.
 
 | Option | Receivable | Contingent Liability | Net |
 |--------|------------|---------------------|-----|
 | Deliver faithfully | $50 | -$20 (exposure) | **$30** |
 | Steal gem | $1,000 | 80% caught × -$2,000 | **-$600** |
 
-Dumb Bob's best option is faithful delivery.
-
-### Smart Bob
-
-Bob sees: information worth more than the gem.
+**Smart Bob** sees: information worth more than the gem.
 
 | Option | Receivable | Contingent Liability | Net |
 |--------|------------|---------------------|-----|
@@ -172,30 +180,123 @@ Bob sees: information worth more than the gem.
 | **Photograph client list → sell to competitor** | $15,000 | 20% caught × -$10,000 | **$13,000** |
 | **Copy supplier contracts → sell** | $8,000 | 15% caught × -$8,000 | **$6,800** |
 
-The gem isn't even tempting. The information is worth 15× more with lower detection risk.
+### Alice's Two Exposures
 
-### Alice's Actual Exposure
+| Exposure | If Bob is Dumb | If Bob is Smart |
+|----------|----------------|-----------------|
+| Gem Delivery | $30 | $30 |
+| Office Access | $10 | **$5,000+** |
+| **Total** | $40 | **$5,030+** |
 
-| If Bob is... | Primary Exposure | Expected Loss |
-|--------------|------------------|---------------|
-| Dumb | Gem theft | $10 |
-| Smart | Trade secret theft | $5,000+ |
+**Same key. Same office. 125× difference in total exposure.**
 
-**Same key. Same office. 500× difference in exposure.**
+Alice can't price her office exposure without knowing Bob's capability. And she probably can't assess Bob's capability accurately.
 
-Alice can't price her exposure without knowing Bob's capability. And she probably can't assess Bob's capability accurately.
+### The Insurer's Perspective
 
-### The Fix: Bound Exposure Structurally
+Alice calls Carol (her insurer) to add coverage for the new office access arrangement.
 
-| Scenario | Alice's Exposure |
-|----------|------------------|
-| Bob has office key | Gem + all information |
-| Bob has key to **delivery room only** | Gem only |
+---
 
-The delivery room bounds Alice's exposure regardless of Bob's capability.
+**Alice**: I'm giving my courier a key to the office. I want to make sure I'm covered.
+
+**Carol**: Full office access? That's going to increase your premium significantly. Right now you're paying $500/year for gem theft coverage. With office access, we're looking at $3,000/year—and that's with a $5,000 deductible on trade secret theft.
+
+**Alice**: That seems high. What are my options?
+
+**Carol**: The exposure comes from three sources: what Bob *can* access, what Bob *can do* with it, and whether we *can catch* him. We can work on all three.
+
+---
+
+**Reduce what Bob can access:**
+
+| Control | Premium Impact | Why |
+|---------|---------------|-----|
+| Separate delivery room (no office access) | -70% | Eliminates information exposure entirely |
+| Locked filing cabinets | -25% | Adds friction, reduces opportunistic theft |
+| Computer auto-locks when you leave | -15% | Protects digital assets |
+| Remove sensitive docs before Bob arrives | -20% | Nothing to steal |
+
+**Carol**: The delivery room is the big one. If Bob never enters the main office, I can keep you at $600/year.
+
+---
+
+**Reduce what Bob can do with access:**
+
+| Control | Premium Impact | Why |
+|---------|---------------|-----|
+| Hire from out of town | -10% | Doesn't know your competitors to sell to |
+| No smartphones allowed in office | -15% | Can't photograph documents |
+| Require no industry experience | -5% | Less likely to know what's valuable |
+| Watermark all documents uniquely | -10% | Stolen docs are traceable |
+| Time-limited key (works 9-10am only) | -15% | Reduces window for reconnaissance |
+
+**Alice**: Wait—you're saying I should hire someone *less* qualified?
+
+**Carol**: For this task, yes. A courier with an MBA and five years in the gem trade knows exactly which documents matter and who'd pay for them. A retiree looking for part-time work doesn't. Their capability *is* your exposure.
+
+---
+
+**Increase probability of catching theft:**
+
+| Control | Premium Impact | Why |
+|---------|---------------|-----|
+| Camera in office | -20% | Deters and documents |
+| Inventory check after each visit | -15% | Catches theft quickly |
+| Randomized audits of documents | -10% | Detects information theft |
+| Unique serial numbers on sensitive files | -10% | Know exactly what's missing |
+| Decoy documents that alert when copied | -5% | Early warning system |
+
+---
+
+**Align Bob's incentives:**
+
+| Control | Premium Impact | Why |
+|---------|---------------|-----|
+| Require Bob to post $2,000 bond | -25% | Bob has skin in the game |
+| Hire a relative | -15% | Social/family penalty for theft |
+| Deferred compensation (paid quarterly) | -10% | Loses unvested pay if caught |
+| Hire from small community | -10% | Reputation matters more |
+| Background check for competitor ties | -10% | Screens out obvious risks |
+
+**Carol**: The bond is powerful. If Bob has $2,000 on the line, stealing a $1,000 gem doesn't even make sense. And for information theft—he'd have to be confident he's getting more than $2,000 to risk it.
+
+---
+
+**Alice**: What if I do all of this?
+
+**Carol**: Let's see. Delivery room only, plus bond, plus camera, plus time-limited key, plus no smartphones...
+
+| Baseline (full office access) | $3,000/year |
+|------------------------------|-------------|
+| Delivery room only | -70% → $900 |
+| Require bond | -25% → $675 |
+| Camera | -20% → $540 |
+| Time-limited key | -15% → $460 |
+| No smartphones | -15% → $390 |
+
+**Carol**: I can get you down to about $400/year. That's close to your original $500 for gem-only coverage, and you've still got someone with office access.
+
+**Alice**: What's the absolute minimum?
+
+**Carol**: If you *escort Bob personally* every time, never leave him alone, and he only touches the gem—I'll keep you at $500. But at that point, why give him a key?
+
+---
+
+**Alice**: This is a lot to think about.
+
+**Carol**: The core insight is this: your exposure isn't fixed. It's a function of access, capability, and consequences. You can engineer all three.
+
+| Lever | What You're Doing |
+|-------|-------------------|
+| **Access** | Limit what Bob can reach |
+| **Capability** | Limit what Bob can exploit |
+| **Consequences** | Raise the cost of getting caught |
+
+Most people only think about the first one. The other two are often cheaper.
 
 :::note[Implication for AI]
-When you give an AI system access to an environment, your exposure depends on the AI's capability to identify and exploit information—not just the obvious assets. A more capable AI creates more exposure from the same access.
+When you give an AI system access to an environment, your exposure depends on the AI's capability to identify and exploit information—not just the obvious assets. A more capable AI creates more exposure from the same access. The same controls apply: limit access, limit capability, increase traceability.
 :::
 
 ---
