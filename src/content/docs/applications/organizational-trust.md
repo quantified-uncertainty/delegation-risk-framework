@@ -475,6 +475,7 @@ flowchart TB
 
 ## See Also
 
+- [Exposure Cascade](/delegation-risk/exposure-cascade/) — How exposure budgets flow down through organizational hierarchies
 - [Trust Across Civilizations](/applications/trust-across-civilizations/) — Historical and creative perspectives on organizational trust
 - [Delegation Risk Overview](/delegation-risk/overview/) — The mathematical foundations
 - [Risk Inheritance](/delegation-risk/trust-propagation/) — How trust flows through networks

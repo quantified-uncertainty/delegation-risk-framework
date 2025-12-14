@@ -141,6 +141,65 @@ Each delegator is exposed to their immediate delegate, not the full chain. Alice
 
 ---
 
+## Capability-Dependent Exposure
+
+Alice gives Bob a key to her office so he can pick up gems for delivery when she's not there.
+
+**What's in the office:**
+- The gem for today's delivery ($1,000)
+- Client list with names, addresses, purchase history
+- Supplier contracts with pricing
+
+### Dumb Bob
+
+Bob sees: a gem.
+
+| Option | Receivable | Contingent Liability | Net |
+|--------|------------|---------------------|-----|
+| Deliver faithfully | $50 | -$20 (exposure) | **$30** |
+| Steal gem | $1,000 | 80% caught × -$2,000 | **-$600** |
+
+Dumb Bob's best option is faithful delivery.
+
+### Smart Bob
+
+Bob sees: information worth more than the gem.
+
+| Option | Receivable | Contingent Liability | Net |
+|--------|------------|---------------------|-----|
+| Deliver faithfully | $50 | -$20 | $30 |
+| Steal gem | $1,000 | 80% caught × -$2,000 | -$600 |
+| **Photograph client list → sell to competitor** | $15,000 | 20% caught × -$10,000 | **$13,000** |
+| **Copy supplier contracts → sell** | $8,000 | 15% caught × -$8,000 | **$6,800** |
+
+The gem isn't even tempting. The information is worth 15× more with lower detection risk.
+
+### Alice's Actual Exposure
+
+| If Bob is... | Primary Exposure | Expected Loss |
+|--------------|------------------|---------------|
+| Dumb | Gem theft | $10 |
+| Smart | Trade secret theft | $5,000+ |
+
+**Same key. Same office. 500× difference in exposure.**
+
+Alice can't price her exposure without knowing Bob's capability. And she probably can't assess Bob's capability accurately.
+
+### The Fix: Bound Exposure Structurally
+
+| Scenario | Alice's Exposure |
+|----------|------------------|
+| Bob has office key | Gem + all information |
+| Bob has key to **delivery room only** | Gem only |
+
+The delivery room bounds Alice's exposure regardless of Bob's capability.
+
+:::note[Implication for AI]
+When you give an AI system access to an environment, your exposure depends on the AI's capability to identify and exploit information—not just the obvious assets. A more capable AI creates more exposure from the same access.
+:::
+
+---
+
 ## Insurance
 
 Alice can **externalize** her exposure by buying insurance from **Carol**.
@@ -181,6 +240,6 @@ Net Delegation Value = Receivable - Exposure - Costs
 
 ## Next Steps
 
-- [Power Struggles](/delegation-risk/power-struggles/) — Apply delegation accounting to corporate governance, dictatorships, and political systems
+- [Managing Exposure in Power Delegation](/delegation-risk/power-struggles/) — Apply delegation accounting to corporate governance, dictatorships, and political systems
 - [Fidelity Insurance](/background-research/fidelity-insurance/) — How insurance markets price defection risk
 - [A Walk-Through: The $1,000 Delivery](/delegation-risk/walkthrough/) — Progressive complexity with risk reduction measures
