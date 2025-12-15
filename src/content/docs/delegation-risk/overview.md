@@ -184,7 +184,7 @@ This kind of cross-domain comparison helps calibrate whether AI safety investmen
 - [Human-AI Delegation](/delegation-risk/human-ai-trust/) - Team dynamics and calibration
 
 ### Applications
-- [Power Struggles](/delegation-risk/power-struggles/) - Board vs CEO, dictator vs military, regulatory capture
+- [Power Struggles](/delegation-risk/anomaly-chronicles/power-struggles/) - Board vs CEO, dictator vs military, regulatory capture
 - [Delegation Accounting](/delegation-risk/delegation-accounting/) - Balance sheet view of delegation
 
 ## The Goal

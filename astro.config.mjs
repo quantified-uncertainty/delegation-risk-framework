@@ -29,7 +29,29 @@ export default defineConfig({
 				{
 					label: 'Delegation Risk Theory',
 					collapsed: true,
-					autogenerate: { directory: 'delegation-risk' },
+					items: [
+						{ label: 'Overview', slug: 'delegation-risk/overview' },
+						{ label: 'Walkthrough: The $1,000 Delivery', slug: 'delegation-risk/walkthrough' },
+						{ label: 'Delegation Accounting', slug: 'delegation-risk/delegation-accounting' },
+						{ label: 'Risk Decomposition', slug: 'delegation-risk/risk-decomposition' },
+						{ label: 'Exposure Cascade', slug: 'delegation-risk/exposure-cascade' },
+						{ label: "The Insurer's Dilemma", slug: 'delegation-risk/insurers-dilemma' },
+						{
+							label: 'The Anomaly Chronicles',
+							collapsed: true,
+							autogenerate: { directory: 'delegation-risk/anomaly-chronicles' },
+						},
+						{
+							label: 'Technical Reference',
+							collapsed: true,
+							autogenerate: { directory: 'delegation-risk/reference' },
+						},
+						{
+							label: 'Theoretical Foundations',
+							collapsed: true,
+							autogenerate: { directory: 'delegation-risk/theory' },
+						},
+					],
 				},
 				{
 					label: 'Cross-Domain Methods',

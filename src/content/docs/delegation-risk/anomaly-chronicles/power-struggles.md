@@ -1,7 +1,7 @@
 ---
 title: "Managing Exposure in Power Delegation"
 sidebar:
-  order: 3
+  order: 1
 ---
 
 # Managing Exposure in Power Delegation
