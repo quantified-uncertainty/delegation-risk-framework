@@ -13,7 +13,8 @@ export default defineConfig({
 				Footer: './src/components/Footer.astro',
 			},
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/ozziegooen/trust-website' },
+				{ icon: 'document', label: 'Download PDF', href: 'https://github.com/quantified-uncertainty/delegation-risk-framework/releases/latest/download/delegation-risk-framework-book.pdf' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/quantified-uncertainty/delegation-risk-framework' },
 			],
 			sidebar: [
 				{
