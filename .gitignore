@@ -19,3 +19,11 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# PDF/EPUB generation
+*.pdf
+*.epub
+.mermaid-cache/
+debug-combined.md
+pandoc-sample.html
+pdf-styles.css
