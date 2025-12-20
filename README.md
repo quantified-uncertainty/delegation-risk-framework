@@ -79,6 +79,19 @@ Features:
 - Colored headers, running page headers
 - Custom EPUB styling
 
+## LLM Accessibility
+
+The site provides [llms.txt](https://llmstxt.org/) files for LLM consumption:
+
+- **[/llms.txt](https://delegation-risk.org/llms.txt)** — Structured overview with key links
+- **[/llms-full.txt](https://delegation-risk.org/llms-full.txt)** — Complete documentation as plain text (~1.4 MB)
+
+To regenerate `llms-full.txt` after content changes:
+
+```bash
+python3 scripts/build-llms-txt.py
+```
+
 ## Project Structure
 
 ```
