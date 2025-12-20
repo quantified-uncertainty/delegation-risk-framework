@@ -1,8 +1,11 @@
-# Delegation Risk Framework
+# Delegation Risk
 
-> A structured approach to managing risk in delegation relationships, with AI systems as the primary application. The framework proposes structural constraints (decomposition, least-X principles, risk budgeting) to bound potential harm regardless of delegate behavior.
+<!-- Version should match version.json. Update when content changes significantly. -->
+> Version: 1.0.1 | See version.json for authoritative version
+>
+> A structured approach to managing risk in delegation relationships, with applications to AI safety. The framework proposes structural constraints (decomposition, least-X principles, risk budgeting) to bound potential harm regardless of delegate behavior.
 
-The core insight: **Safety can be architectural, not just behavioral.** Instead of one powerful delegate, decompose tasks across many limited components. Budget delegation risk like money: Delegation Risk = P(harm) x Damage.
+The core idea: **Safety can be architectural, not just behavioral.** Instead of one powerful delegate, decompose tasks across many limited components. Budget delegation risk like money: Delegation Risk = Σ P(harm) × Damage. Whether this works in practice depends on implementation details, but the underlying principle has proven useful across domains.
 
 ## Docs
 
@@ -50,7 +53,11 @@ The core insight: **Safety can be architectural, not just behavioral.** Instead 
 
 - [PDF Book](https://github.com/quantified-uncertainty/delegation-risk-framework/releases/latest/download/delegation-risk-framework-book.pdf): Complete documentation (~9 MB)
 - [EPUB](https://github.com/quantified-uncertainty/delegation-risk-framework/releases/latest/download/delegation-risk-framework-book.epub): For e-readers (~9 MB)
-- [Full Text (llms-full.txt)](https://delegation-risk.org/llms-full.txt): All documentation as plain text for LLM context
+
+## LLM Context Files
+
+- [Core Documentation (llms-core.txt)](https://delegation-risk.org/llms-core.txt): Essential pages (~27K tokens) - fits in chat context
+- [Full Documentation (llms-full.txt)](https://delegation-risk.org/llms-full.txt): Complete docs (~400K tokens) - for embeddings/RAG
 
 ## Optional
 

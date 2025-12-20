@@ -7,27 +7,29 @@ sidebar:
 # Theoretical Foundations
 
 :::note[Theoretical Content]
-These documents explore the mathematical and economic foundations of trust and delegation. They provide formal frameworks that underpin the practical applications in other sections.
+These documents explore the mathematical and economic foundations of delegation risk. They provide formal frameworks that underpin the practical applications in other sections.
+
+**Note on terminology**: These pages use "risk" (as in Delegation Risk) and "trust" somewhat interchangeably. Higher trust in a delegate means lower risk from that delegation. The framework is fundamentally about managing risk, but trust is a useful complementary concept.
 :::
 
 ---
 
 ## Documents
 
-### Trust Mechanics
-- [Trust Dynamics and Learning](./trust-dynamics/) — Bayesian updating, trust building rates
-- [Trust Accounting and Auditing](./trust-accounting/) — Trust ledgers, balance sheets
-- [Trust Economics](./trust-economics/) — Production functions, depreciation models
+### Risk Mechanics
+- [Risk Dynamics](./trust-dynamics/) — Bayesian updating, how risk estimates evolve over time
+- [Risk Accounting](./trust-accounting/) — Risk ledgers, balance sheets, auditing
+- [Delegation Economics](./trust-economics/) — Production functions, depreciation models
 
-### Trust at Scale
-- [Trust in Human-AI Teams](./human-ai-trust/) — Calibration, handoffs, hybrid systems
-- [Trust at Scale](./trust-at-scale/) — Statistical trust, organizational trust
-- [Trust Interfaces](./trust-interfaces/) — Trust boundaries, APIs, contracts
+### Delegation at Scale
+- [Human-AI Delegation](./human-ai-trust/) — Calibration, handoffs, hybrid systems
+- [Risk at Scale](./trust-at-scale/) — Statistical properties, organizational challenges
+- [Delegation Interfaces](./trust-interfaces/) — Boundaries, APIs, contracts
 
-### Trust Systems
-- [Trust Optimization](./trust-optimization/) — Portfolio allocation, efficiency frontiers
-- [Trust Protocols](./trust-protocols/) — Handshakes, verification, revocation
-- [Trust Propagation](./trust-propagation/) — Delegation chains, trust transitivity
+### Risk Systems
+- [Risk Optimization](./trust-optimization/) — Portfolio allocation, efficiency frontiers
+- [Delegation Protocols](./trust-protocols/) — Handshakes, verification, revocation
+- [Risk Inheritance](./trust-propagation/) — Delegation chains, transitivity
 
 ---
 
@@ -35,6 +37,6 @@ These documents explore the mathematical and economic foundations of trust and d
 
 These theoretical foundations inform:
 
-- **Protocol multipliers** in the [Protocol Catalog](/reference/protocol-catalog/)
-- **Track record calculations** in the [Insurance Bot](/reference/insurance-bot-spec/)
+- **Protocol multipliers** in the [Protocol Catalog](/case-studies/anomaly-chronicles/protocol-catalog/)
+- **Track record calculations** in the [Insurance Bot](/case-studies/anomaly-chronicles/insurance-bot-spec/)
 - **Exposure modeling** in [Delegation Accounting](/framework/delegation-accounting/)

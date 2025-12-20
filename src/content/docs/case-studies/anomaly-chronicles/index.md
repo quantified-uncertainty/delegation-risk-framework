@@ -46,5 +46,5 @@ The narrative follows chronologically:
 
 ## Related Reference
 
-- [Protocol Catalog](/reference/protocol-catalog/) — All containment protocols
-- [Insurance Bot Specification](/reference/insurance-bot-spec/) — Technical pricing system
+- [Protocol Catalog](./protocol-catalog/) — All containment protocols
+- [Insurance Bot Specification](./insurance-bot-spec/) — Technical pricing system

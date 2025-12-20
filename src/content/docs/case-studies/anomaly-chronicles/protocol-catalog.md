@@ -487,6 +487,6 @@ Applied after protocol multipliers:
 
 ## Further Reading
 
-- [Insurance Bot Specification](/reference/insurance-bot-spec/) — How protocols are applied in pricing
-- [Five Years Later](/case-studies/anomaly-chronicles/five-years-later/) — Protocol development history
-- [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — Original protocol design case study
+- [Insurance Bot Specification](./insurance-bot-spec/) — How protocols are applied in pricing
+- [Five Years Later](./five-years-later/) — Protocol development history
+- [Containing Mr. X](./containing-mr-x/) — Original protocol design case study

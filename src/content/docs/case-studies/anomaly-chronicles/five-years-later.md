@@ -1875,6 +1875,6 @@ But it's what we have.
 - [Year Ten: The New Equilibrium](/case-studies/anomaly-chronicles/year-ten/) — The system at decade mark
 - [Mr. X: A Perspective](/case-studies/anomaly-chronicles/mr-x-perspective/) — The view from the other side
 - [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — The original containment engagement
-- [Protocol Catalog](/reference/protocol-catalog/) — Complete reference of containment measures
-- [Insurance Bot Specification](/reference/insurance-bot-spec/) — Technical documentation
+- [Protocol Catalog](./protocol-catalog/) — Complete reference of containment measures
+- [Insurance Bot Specification](./insurance-bot-spec/) — Technical documentation
 - [Delegation Accounting](/framework/delegation-accounting/) — Balance sheet view of delegation risk

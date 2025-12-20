@@ -7,47 +7,25 @@ sidebar:
 # Technical Reference
 
 :::note[Reference Documentation]
-Technical specifications and catalogs for the delegation risk framework. These documents provide precise definitions, formulas, and implementation details.
+Supporting documentation for the delegation risk framework.
 :::
 
 ---
 
-## Documents
+## Meta
 
-### [Protocol Catalog](./protocol-catalog/)
+### [About This Site](./about-this-site/)
 
-Complete catalog of containment protocols with:
-- Exposure multipliers (empirically calibrated)
-- Implementation requirements
-- Verification methods
-- Protocol combinations
-
-### [Insurance Bot Specification](./insurance-bot-spec/)
-
-Technical specification for the automated pricing engine:
-- Calculation pipeline
-- Database schemas
-- API specification
-- Calibration process
-- Failure modes
-
----
-
-## Quick Reference
-
-**Exposure Formula:**
-```
-FinalExposure = BaseExposure × Π(protocol_multipliers) × TrackRecordModifier
-```
-
-**Risk-Adjusted Cost:**
-```
-RiskAdjustedCost = Price + (ExposureScore × PrincipalRiskPremium)
-```
+How this documentation was created:
+- LLM-assisted writing process
+- Epistemic status and limitations
+- How to contribute corrections
 
 ---
 
 ## Related
 
 - [Delegation Accounting](/framework/delegation-accounting/) — Core framework
-- [The Anomaly Chronicles](/case-studies/anomaly-chronicles/) — System in practice
+- [The Anomaly Chronicles](/case-studies/anomaly-chronicles/) — Fictional case study with technical specifications:
+  - [Protocol Catalog](/case-studies/anomaly-chronicles/protocol-catalog/) — Containment protocols
+  - [Insurance Bot Specification](/case-studies/anomaly-chronicles/insurance-bot-spec/) — Automated pricing engine

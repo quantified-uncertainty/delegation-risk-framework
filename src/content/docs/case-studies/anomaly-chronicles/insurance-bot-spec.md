@@ -162,7 +162,7 @@ Protocols reduce base exposure multiplicatively:
 ProtocolExposure = BaseExposure × Π(protocol_multipliers)
 ```
 
-Protocol multipliers are retrieved from the Protocol Database. See [Protocol Catalog](/reference/protocol-catalog/) for complete values.
+Protocol multipliers are retrieved from the Protocol Database. See [Protocol Catalog](./protocol-catalog/) for complete values.
 
 **Example:**
 ```
@@ -503,6 +503,6 @@ Response:
 
 ## Further Reading
 
-- [Protocol Catalog](/reference/protocol-catalog/) — Complete protocol reference
-- [Five Years Later](/case-studies/anomaly-chronicles/five-years-later/) — Dynamic bidding system overview
-- [Year Ten](/case-studies/anomaly-chronicles/year-ten/) — Current system state
+- [Protocol Catalog](./protocol-catalog/) — Complete protocol reference
+- [Five Years Later](./five-years-later/) — Dynamic bidding system overview
+- [Year Ten](./year-ten/) — Current system state

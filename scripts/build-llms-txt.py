@@ -1,128 +1,133 @@
 #!/usr/bin/env python3
 """
-Generate llms-full.txt - complete documentation as plain text for LLM context.
+Generate llms txt files - documentation as plain text for LLM context.
+
+Outputs:
+- llms-core.txt: Essential pages (~50-100K chars) - fits in chat context
+- llms-full.txt: Complete documentation - for embeddings/fine-tuning
 """
 
 import re
+import json
 from pathlib import Path
+from datetime import datetime
 
 # Project root
 ROOT = Path(__file__).parent.parent
 DOCS_DIR = ROOT / "src" / "content" / "docs"
-OUTPUT_FILE = ROOT / "public" / "llms-full.txt"
+OUTPUT_FULL = ROOT / "public" / "llms-full.txt"
+OUTPUT_CORE = ROOT / "public" / "llms-core.txt"
+VERSION_FILE = ROOT / "version.json"
 
-# Sidebar order matching astro.config.mjs (same as build-pdf.py)
-SIDEBAR_ORDER = [
-    ("Getting Started", [
-        "getting-started/index.md",
-        "getting-started/five-minute-intro.md",
-        "getting-started/core-concepts.md",
-        "getting-started/introduction.md",
-        "getting-started/faq.md",
-        "getting-started/glossary.md",
-    ]),
-    ("The Framework", [
-        "framework/overview.md",
-        "framework/walkthrough.md",
-        "framework/delegation-accounting.md",
-        "framework/risk-decomposition.md",
-        "framework/exposure-cascade.md",
-        "framework/insurers-dilemma.md",
-    ]),
-    ("Applying the Framework", [
-        "applying/index.md",
-        "applying/principles-to-practice.md",
-        "applying/decomposed-coordination.md",
-        "applying/safety-mechanisms.md",
-        "applying/forecasting-navigation.md",
-        "applying/least-x-principles.md",
-        "applying/coordinator-constraints.md",
-        "applying/examples/research-assistant-example.md",
-        "applying/examples/code-deployment-example.md",
-        "applying/examples/trading-system-example.md",
-        "applying/examples/healthcare-bot-example.md",
-        "applying/tools/quick-start.md",
-        "applying/tools/decision-guide.md",
-        "applying/tools/delegation-risk-calculator.mdx",
-        "applying/tools/trust-propagation.mdx",
-        "applying/tools/tradeoff-frontier.mdx",
-        "applying/tools/cost-benefit.md",
-        "applying/tools/empirical-tests.md",
-    ]),
-    ("Cross-Domain Methods", [
-        "cross-domain-methods/overview.md",
-        "cross-domain-methods/euler-allocation.md",
-        "cross-domain-methods/nuclear-safety-pra.md",
-        "cross-domain-methods/mechanism-design.md",
-        "cross-domain-methods/asil-decomposition.md",
-        "cross-domain-methods/carbon-budgets.md",
-        "cross-domain-methods/attack-surface-metrics.md",
-        "cross-domain-methods/linear-logic-types.md",
-        "cross-domain-methods/lessons-from-failures.md",
-    ]),
-    ("Case Studies", [
-        "case-studies/index.md",
-        "case-studies/ai-systems/case-study-sydney.md",
-        "case-studies/ai-systems/case-study-success.md",
-        "case-studies/ai-systems/case-study-near-miss.md",
-        "case-studies/ai-systems/case-study-drift.md",
-        "case-studies/ai-systems/anti-patterns.md",
-        "case-studies/human-systems/organizational-trust.md",
-        "case-studies/human-systems/nuclear-launch-authority.md",
-        "case-studies/human-systems/criminal-trust.md",
-        "case-studies/human-systems/jury-trust.md",
-        "case-studies/human-systems/open-source-trust.md",
-        "case-studies/human-systems/oversight-dilemma.md",
-        "case-studies/human-systems/trust-across-civilizations.md",
-        "case-studies/anomaly-chronicles/index.md",
-        "case-studies/anomaly-chronicles/power-struggles.md",
-        "case-studies/anomaly-chronicles/containing-mr-x.md",
-        "case-studies/anomaly-chronicles/five-years-later.md",
-        "case-studies/anomaly-chronicles/task-architecture.md",
-        "case-studies/anomaly-chronicles/year-ten.md",
-        "case-studies/anomaly-chronicles/mr-x-perspective.md",
-    ]),
-    ("Deep Dives", [
-        "deep-dives/index.md",
-        "deep-dives/theory/index.md",
-        "deep-dives/theory/trust-accounting.md",
-        "deep-dives/theory/trust-propagation.md",
-        "deep-dives/theory/trust-dynamics.md",
-        "deep-dives/theory/trust-optimization.md",
-        "deep-dives/theory/trust-economics.md",
-        "deep-dives/theory/trust-interfaces.md",
-        "deep-dives/theory/trust-protocols.md",
-        "deep-dives/theory/trust-at-scale.md",
-        "deep-dives/theory/human-ai-trust.md",
-        "deep-dives/research/index.md",
-        "deep-dives/research/ai-safety-frameworks.md",
-        "deep-dives/research/mechanism-design.md",
-        "deep-dives/research/nuclear-aerospace-deep-dive.md",
-        "deep-dives/research/financial-risk-budgeting.md",
-        "deep-dives/research/fidelity-insurance.md",
-        "deep-dives/research/compositional-risk-measures.md",
-        "deep-dives/research/correlated-failure-modeling.md",
-        "deep-dives/research/linear-logic-trust-budgets.md",
-        "deep-dives/research/formal-verification-limits.md",
-        "deep-dives/research/runtime-monitoring-architectures.md",
-        "deep-dives/research/capability-elicitation-sandbagging.md",
-        "deep-dives/research/steganography-detection-prevention.md",
-        "deep-dives/research/empirical-scheming-reduction.md",
-        "deep-dives/research/human-trust-calibration.md",
-        "deep-dives/research/trust-dynamics-adversarial-pressure.md",
-        "deep-dives/research/alignment-tax-quantification.md",
-        "deep-dives/research/byzantine-coordinator-voting.md",
-        "deep-dives/research/prototype-architecture-feasibility.md",
-        "deep-dives/research/potential-projects.md",
-    ]),
-    ("Reference", [
-        "reference/index.md",
-        "reference/bibliography.md",
-        "reference/related-approaches.md",
-        "reference/protocol-catalog.md",
-        "reference/roadmap.md",
-    ]),
+# Top-level sections in display order
+SECTION_ORDER = [
+    "getting-started",
+    "framework",
+    "applying",
+    "cross-domain-methods",
+    "case-studies",
+    "deep-dives",
+    "reference",
 ]
+
+# Core pages for llms-core.txt - essential content that fits in chat context
+CORE_PAGES = [
+    "getting-started/index.md",
+    "getting-started/five-minute-intro.md",
+    "getting-started/core-concepts.md",
+    "getting-started/introduction.md",
+    "getting-started/faq.md",
+    "framework/overview.md",
+    "framework/delegation-accounting.md",
+    "framework/risk-decomposition.md",
+    "applying/index.md",
+    "applying/least-x-principles.md",
+]
+
+
+def get_version_string():
+    """Get version string from version.json."""
+    if VERSION_FILE.exists():
+        try:
+            version = json.loads(VERSION_FILE.read_text())
+            return f"{version['major']}.{version['minor']}.{version['patch']}"
+        except Exception:
+            pass
+    return "0.0.0"
+
+
+def get_sidebar_order(content):
+    """Extract sidebar order from frontmatter, default to 999."""
+    match = re.search(r'sidebar:\s*\n\s*order:\s*(\d+)', content)
+    if match:
+        return int(match.group(1))
+    return 999
+
+
+def discover_docs():
+    """Auto-discover all markdown files, grouped by top-level section."""
+    sections = {}
+
+    for file_path in DOCS_DIR.rglob("*.md"):
+        rel_path = file_path.relative_to(DOCS_DIR)
+        parts = rel_path.parts
+
+        # Get top-level section
+        section = parts[0] if len(parts) > 1 else "root"
+
+        if section not in sections:
+            sections[section] = []
+
+        # Read file to get sidebar order
+        content = file_path.read_text(encoding='utf-8')
+        order = get_sidebar_order(content)
+
+        sections[section].append((order, str(rel_path), file_path))
+
+    # Also check .mdx files
+    for file_path in DOCS_DIR.rglob("*.mdx"):
+        rel_path = file_path.relative_to(DOCS_DIR)
+        parts = rel_path.parts
+        section = parts[0] if len(parts) > 1 else "root"
+
+        if section not in sections:
+            sections[section] = []
+
+        content = file_path.read_text(encoding='utf-8')
+        order = get_sidebar_order(content)
+
+        sections[section].append((order, str(rel_path), file_path))
+
+    # Sort files within each section by sidebar order, then by path
+    for section in sections:
+        sections[section].sort(key=lambda x: (x[0], x[1]))
+
+    # Build ordered list of (section_name, files) tuples
+    result = []
+
+    # First, add sections in preferred order
+    for section in SECTION_ORDER:
+        if section in sections:
+            # Convert section slug to display name
+            display_name = section.replace("-", " ").title()
+            files = [f[1] for f in sections[section]]
+            result.append((display_name, files))
+            del sections[section]
+
+    # Then add any remaining sections alphabetically
+    for section in sorted(sections.keys()):
+        if section != "root":
+            display_name = section.replace("-", " ").title()
+            files = [f[1] for f in sections[section]]
+            result.append((display_name, files))
+
+    # Handle root-level files last
+    if "root" in sections:
+        files = [f[1] for f in sections["root"]]
+        if files:
+            result.append(("Other", files))
+
+    return result
 
 
 def extract_title(content):
@@ -229,9 +234,15 @@ def build_llms_full():
     """Build the complete llms-full.txt file."""
     output_parts = []
 
+    # Get version info
+    version = get_version_string()
+    date = datetime.now().strftime("%Y-%m-%d")
+
     # Header
     output_parts.append("# Delegation Risk Framework - Complete Documentation")
     output_parts.append("")
+    output_parts.append(f"> Version: {version} | Generated: {date}")
+    output_parts.append(">")
     output_parts.append("> A structured approach to managing risk in delegation relationships,")
     output_parts.append("> with AI systems as the primary application.")
     output_parts.append("")
@@ -241,25 +252,20 @@ def build_llms_full():
     output_parts.append("=" * 80)
     output_parts.append("")
 
+    # Auto-discover all docs
+    sections = discover_docs()
+
     # Process each section
-    for section_name, files in SIDEBAR_ORDER:
-        print(f"Processing: {section_name}")
+    for section_name, files in sections:
+        print(f"Processing: {section_name} ({len(files)} files)")
         output_parts.append(f"\n{'=' * 80}")
         output_parts.append(f"PART: {section_name.upper()}")
         output_parts.append(f"{'=' * 80}\n")
 
         for file_path in files:
             full_path = DOCS_DIR / file_path
-            if not full_path.exists():
-                # Try .mdx extension
-                mdx_path = full_path.with_suffix('.mdx')
-                if mdx_path.exists():
-                    full_path = mdx_path
-                else:
-                    print(f"  Warning: {file_path} not found")
-                    continue
 
-            content = full_path.read_text()
+            content = full_path.read_text(encoding='utf-8')
             title = extract_title(content)
             processed = process_markdown(content)
 
@@ -272,19 +278,78 @@ def build_llms_full():
 
     # Write output
     output_content = '\n'.join(output_parts)
-    OUTPUT_FILE.write_text(output_content)
+    OUTPUT_FULL.write_text(output_content)
 
     # Stats
     word_count = len(output_content.split())
     line_count = output_content.count('\n')
-    file_count = sum(len(files) for _, files in SIDEBAR_ORDER)
+    file_count = sum(len(files) for _, files in sections)
 
-    print(f"\nGenerated: {OUTPUT_FILE}")
+    print(f"\nGenerated: {OUTPUT_FULL}")
     print(f"  {word_count:,} words")
     print(f"  {line_count:,} lines")
     print(f"  {file_count} source files")
     print(f"  {len(output_content):,} characters")
 
 
+def build_llms_core():
+    """Build llms-core.txt with just essential pages for chat context."""
+    output_parts = []
+
+    # Get version info
+    version = get_version_string()
+    date = datetime.now().strftime("%Y-%m-%d")
+
+    # Header
+    output_parts.append("# Delegation Risk Framework - Core Documentation")
+    output_parts.append("")
+    output_parts.append(f"> Version: {version} | Generated: {date}")
+    output_parts.append(">")
+    output_parts.append("> Essential pages for understanding the framework.")
+    output_parts.append("> For complete documentation, see: https://delegation-risk.org")
+    output_parts.append("")
+    output_parts.append("=" * 80)
+    output_parts.append("")
+
+    # Process core pages
+    processed_count = 0
+    for file_path in CORE_PAGES:
+        full_path = DOCS_DIR / file_path
+
+        if not full_path.exists():
+            print(f"  Warning: {file_path} not found")
+            continue
+
+        content = full_path.read_text(encoding='utf-8')
+        title = extract_title(content)
+        processed = process_markdown(content)
+
+        output_parts.append(f"\n{'-' * 60}")
+        output_parts.append(f"## {title}")
+        output_parts.append(f"Source: {file_path}")
+        output_parts.append(f"{'-' * 60}\n")
+        output_parts.append(processed)
+        output_parts.append("")
+        processed_count += 1
+
+    # Write output
+    output_content = '\n'.join(output_parts)
+    OUTPUT_CORE.write_text(output_content)
+
+    # Stats
+    word_count = len(output_content.split())
+    char_count = len(output_content)
+    approx_tokens = char_count // 4  # rough estimate
+
+    print(f"\nGenerated: {OUTPUT_CORE}")
+    print(f"  {word_count:,} words")
+    print(f"  {char_count:,} characters (~{approx_tokens:,} tokens)")
+    print(f"  {processed_count} source files")
+
+
 if __name__ == "__main__":
+    print("Building llms-core.txt (essential pages)...")
+    build_llms_core()
+    print()
+    print("Building llms-full.txt (complete documentation)...")
     build_llms_full()

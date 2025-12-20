@@ -9,7 +9,9 @@ import re
 import subprocess
 import tempfile
 import hashlib
+import json
 from pathlib import Path
+from datetime import datetime
 
 # Directory for rendered mermaid diagrams
 MERMAID_CACHE_DIR = Path(__file__).parent.parent / ".mermaid-cache"
@@ -17,6 +19,87 @@ MERMAID_CACHE_DIR = Path(__file__).parent.parent / ".mermaid-cache"
 # Project root
 ROOT = Path(__file__).parent.parent
 DOCS_DIR = ROOT / "src" / "content" / "docs"
+VERSION_FILE = ROOT / "version.json"
+
+
+def get_git_short_hash():
+    """Get the short git commit hash."""
+    try:
+        result = subprocess.run(
+            ['git', 'rev-parse', '--short', 'HEAD'],
+            capture_output=True,
+            text=True,
+            cwd=ROOT
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+    except Exception:
+        pass
+    return "unknown"
+
+
+def compute_docs_hash():
+    """Compute a hash of all documentation content."""
+    hasher = hashlib.sha256()
+
+    # Get all markdown files in docs directory
+    md_files = sorted(DOCS_DIR.rglob("*.md")) + sorted(DOCS_DIR.rglob("*.mdx"))
+
+    for file_path in md_files:
+        try:
+            content = file_path.read_text(encoding='utf-8')
+            hasher.update(content.encode('utf-8'))
+        except Exception:
+            pass
+
+    return hasher.hexdigest()[:12]
+
+
+def load_version():
+    """Load version info from version.json."""
+    if VERSION_FILE.exists():
+        try:
+            return json.loads(VERSION_FILE.read_text(encoding='utf-8'))
+        except Exception:
+            pass
+    return {"major": 1, "minor": 0, "patch": 0, "contentHash": "", "lastBuildDate": ""}
+
+
+def save_version(version_info):
+    """Save version info to version.json."""
+    VERSION_FILE.write_text(json.dumps(version_info, indent=2) + "\n", encoding='utf-8')
+
+
+def get_version_string():
+    """
+    Get the full version string, auto-incrementing patch if content changed.
+    Returns tuple of (version_string, version_info).
+    """
+    version = load_version()
+    current_hash = compute_docs_hash()
+    git_hash = get_git_short_hash()
+
+    # Check if content has changed
+    if version.get("contentHash") and version["contentHash"] != current_hash:
+        version["patch"] = version.get("patch", 0) + 1
+        print(f"  Content changed (was {version['contentHash'][:8]}..., now {current_hash[:8]}...) - bumping to patch {version['patch']}")
+    elif not version.get("contentHash"):
+        print(f"  First build - initializing content hash")
+    else:
+        print(f"  Content unchanged - keeping patch {version.get('patch', 0)}")
+
+    # Update version info
+    version["contentHash"] = current_hash
+    version["lastBuildDate"] = datetime.now().isoformat()
+    version["gitHash"] = git_hash
+
+    # Save updated version
+    save_version(version)
+
+    # Build version string: 1.0.3+abc1234
+    version_str = f"{version['major']}.{version['minor']}.{version['patch']}+{git_hash}"
+
+    return version_str, version
 
 # Sidebar order matching astro.config.mjs
 SIDEBAR_ORDER = [
@@ -98,6 +181,8 @@ SIDEBAR_ORDER = [
         "case-studies/anomaly-chronicles/task-architecture.md",
         "case-studies/anomaly-chronicles/year-ten.md",
         "case-studies/anomaly-chronicles/mr-x-perspective.md",
+        "case-studies/anomaly-chronicles/protocol-catalog.md",
+        "case-studies/anomaly-chronicles/insurance-bot-spec.md",
     ]),
     # Deep Dives
     ("Deep Dives", [
@@ -140,10 +225,8 @@ SIDEBAR_ORDER = [
         "reference/index.md",
         "reference/bibliography.md",
         "reference/related-approaches.md",
-        "reference/protocol-catalog.md",
         "reference/roadmap.md",
         "reference/site-map.md",
-        "reference/insurance-bot-spec.md",
         "reference/coordinator-constraints-brainstorm.md",
         "reference/potential-examples.md",
     ]),
@@ -558,8 +641,9 @@ LATEX_HEADER_PDFLATEX = r'''
 \clubpenalty=10000
 '''
 
-# Cover page content
-COVER_PAGE = r'''
+def get_cover_page(version_str):
+    """Generate cover page LaTeX with version."""
+    return r'''
 \begin{titlepage}
 \centering
 \vspace*{2in}
@@ -576,7 +660,7 @@ COVER_PAGE = r'''
 
 \vspace{\fill}
 
-{\small Generated \today}
+{\small Version ''' + version_str + r''' \\ Generated \today}
 
 \end{titlepage}
 \newpage
@@ -585,6 +669,12 @@ COVER_PAGE = r'''
 def main():
     global CHAPTERS
     print("Building Delegation Risk Framework PDF & EPUB...")
+    print()
+
+    # Get version (auto-increments patch if content changed)
+    print("Checking version:")
+    version_str, version_info = get_version_string()
+    print(f"  Version: {version_str}")
     print()
 
     # Reset global counters
@@ -629,8 +719,8 @@ def main():
     for engine, header in [('xelatex', LATEX_HEADER_XELATEX), ('pdflatex', LATEX_HEADER_PDFLATEX)]:
         print(f"\nGenerating PDF with Pandoc + {engine}...")
 
-        # Write LaTeX header with cover page
-        full_header = header + "\n\\AtBeginDocument{" + COVER_PAGE + "}"
+        # Write LaTeX header with cover page (includes version)
+        full_header = header + "\n\\AtBeginDocument{" + get_cover_page(version_str) + "}"
         with tempfile.NamedTemporaryFile(mode='w', suffix='.tex', delete=False, encoding='utf-8') as f:
             f.write(full_header)
             temp_header = f.name
@@ -847,7 +937,7 @@ h1:first-of-type {
         '--toc',
         '--toc-depth=2',
         '--highlight-style=tango',
-        '--metadata', 'title=Delegation Risk Framework',
+        '--metadata', f'title=Delegation Risk Framework (v{version_str})',
         '--metadata', 'subtitle=A structured approach to managing risk in delegation relationships',
         '--metadata', 'author=',
         '--epub-chapter-level=1',  # Only h1 (Parts) create page breaks, not h2 (chapters)

@@ -484,5 +484,5 @@ There's a question no one wants to ask directly. Diana asks it in the Year 10 re
 - [Five Years Later](/case-studies/anomaly-chronicles/five-years-later/) — The early development of the system
 - [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — The original containment engagement
 - [Mr. X: A Perspective](/case-studies/anomaly-chronicles/mr-x-perspective/) — The view from the other side
-- [Protocol Catalog](/reference/protocol-catalog/) — Complete reference of containment measures
-- [Insurance Bot Specification](/reference/insurance-bot-spec/) — Technical documentation
+- [Protocol Catalog](./protocol-catalog/) — Complete reference of containment measures
+- [Insurance Bot Specification](./insurance-bot-spec/) — Technical documentation

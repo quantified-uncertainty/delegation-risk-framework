@@ -616,6 +616,6 @@ This is still experimental. The governance implications are... complex.
 ## Further Reading
 
 - [Five Years Later](./five-years-later/) — The marketplace that enables this
-- [Protocol Catalog](/reference/protocol-catalog/) — Information containment protocols
-- [Insurance Bot Specification](/reference/insurance-bot-spec/) — How exposure is priced
+- [Protocol Catalog](./protocol-catalog/) — Information containment protocols
+- [Insurance Bot Specification](./insurance-bot-spec/) — How exposure is priced
 - [Year Ten](./year-ten/) — Where this architecture leads
