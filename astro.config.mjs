@@ -41,6 +41,11 @@ export default defineConfig({
 						{ label: 'Least-X Principles', slug: 'applying/least-x-principles' },
 						{ label: 'Coordinator Constraints', slug: 'applying/coordinator-constraints' },
 						{
+							label: 'Design Patterns',
+							collapsed: true,
+							autogenerate: { directory: 'applying/patterns' },
+						},
+						{
 							label: 'Worked Examples',
 							collapsed: true,
 							autogenerate: { directory: 'applying/examples' },
