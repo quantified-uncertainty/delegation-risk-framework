@@ -1,8 +1,8 @@
 ---
-title: "Trust Protocols"
+title: "Delegation Protocols"
 ---
 
-# Trust Protocols
+# Delegation Protocols
 
 ## Trust Handshake Protocol
 

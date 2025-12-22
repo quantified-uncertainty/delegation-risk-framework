@@ -6,6 +6,10 @@ sidebar:
 
 # The Oversight Dilemma: Who Watches the Watchmen?
 
+:::note[Framework Interpretation]
+This case study analyzes oversight mechanisms through the lens of our delegation risk framework. The examples are based on real governmental structures, but the mathematical framing is our own interpretation.
+:::
+
 The U.S. President commands nuclear weapons, controls the world's largest military, directs $6 trillion in annual spending, and can issue executive orders affecting 330 million people. This concentration of power creates enormous Delegation Risk.
 
 The obvious solution: add oversight. But here's the problem—**any overseer powerful enough to check the President becomes a massive trust liability themselves**.

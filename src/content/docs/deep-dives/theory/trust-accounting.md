@@ -1,8 +1,8 @@
 ---
-title: "Trust Accounting and Auditing"
+title: "Risk Accounting"
 ---
 
-# Trust Accounting and Auditing
+# Risk Accounting
 
 ## Trust Ledger
 

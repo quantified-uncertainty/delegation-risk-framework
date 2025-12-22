@@ -1,9 +1,9 @@
 ---
 title: Getting Started
-description: Choose your path into the Delegation Risk Framework based on your goals and available time.
+description: Choose your path into Delegation Risk based on your goals and available time.
 ---
 
-This section helps you understand the Delegation Risk Framework at whatever depth you need.
+This section helps you understand Delegation Risk at whatever depth you need.
 
 ## Choose Your Path
 

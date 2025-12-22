@@ -1,10 +1,14 @@
 ---
 title: "Glossary"
 sidebar:
-  order: 10
+  order: 5
 ---
 
 Key terms used throughout this framework, organized by domain.
+
+:::note[Framework-Specific Definitions]
+These definitions reflect how terms are used **within this framework**. Other sources (academic literature, industry standards, other AI safety work) may define some of these terms differently. When reading external sources, be aware of potential definitional differences.
+:::
 
 ## Core Framework Terms {#core-framework-terms}
 

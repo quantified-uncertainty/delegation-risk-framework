@@ -6,6 +6,10 @@ sidebar:
 
 # Open Source Supply Chain: Trust at Internet Scale
 
+:::note[Framework Interpretation]
+This case study analyzes open source ecosystems through the lens of our delegation risk framework. The facts about package managers and incidents are documented, but the framing and parallels to AI systems are our own interpretation.
+:::
+
 Every day, millions of developers run `npm install` or `pip install`, downloading code written by strangers and executing it on their machines, their servers, their production systems. They do this without reading the code, without verifying the authors, without understanding the dependencies.
 
 We have accidentally built the largest trust network in human history—and it's terrifyingly fragile.

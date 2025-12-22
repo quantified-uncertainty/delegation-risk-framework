@@ -6,6 +6,10 @@ sidebar:
 
 # Nuclear Launch Authority: Trust at Civilization Scale
 
+:::note[Framework Interpretation]
+This case study analyzes real nuclear command-and-control systems through the lens of our delegation risk framework. The historical facts are drawn from declassified sources and academic research, but the interpretation and parallels to AI systems are our own framing.
+:::
+
 No trust problem in human history has higher stakes than nuclear launch authority. A single decision by a small number of people could end civilization. How do you design a trust architecture for that?
 
 Different nuclear powers have made radically different choices, each representing a distinct answer to the fundamental question: **What's worse—unauthorized launch or failure to retaliate?**

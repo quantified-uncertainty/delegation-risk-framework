@@ -6,6 +6,10 @@ sidebar:
 
 # Criminal Organizations: Trust Without Courts
 
+:::note[Framework Interpretation]
+This case study analyzes real phenomena through the lens of our delegation risk framework. The facts about criminal organizations are drawn from criminology research, but the interpretation and parallels to AI systems are our own framing.
+:::
+
 Criminal organizations face a fascinating problem: how do you enforce trust when you can't sue for breach of contract, can't call the police if someone cheats you, and your "employees" could destroy your enterprise by talking to the wrong people?
 
 The solutions they've developed—violence as commitment device, initiation rituals as costly signaling, family-based trust, and extreme compartmentalization—anticipate many of the structural trust mechanisms we recommend for AI systems.

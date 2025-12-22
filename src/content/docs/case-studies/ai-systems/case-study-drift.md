@@ -6,6 +6,10 @@ sidebar:
 
 # Case Study: Content Moderator (Gradual Drift)
 
+:::caution[Illustrative Example]
+This case study is a **hypothetical scenario** designed to illustrate how systems can drift over time. It's based on realistic patterns but is not a documented real incident.
+:::
+
 How a well-designed system gradually degraded over 6 months until a major incident revealed accumulated problems.
 
 :::note[TL;DR]

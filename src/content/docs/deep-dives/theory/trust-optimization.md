@@ -1,8 +1,8 @@
 ---
-title: "Trust Gradients and Optimization"
+title: "Risk Optimization"
 ---
 
-# Trust Gradients and Optimization
+# Risk Optimization
 
 ## Trust as Objective Function
 

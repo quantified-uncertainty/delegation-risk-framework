@@ -6,6 +6,10 @@ sidebar:
 
 # Trust Calculations in Organizations
 
+:::note[Framework Interpretation]
+This case study analyzes organizational dynamics through the lens of our delegation risk framework. The patterns described are based on organizational research, but the specific framing and parallels to AI systems are our own interpretation.
+:::
+
 Before AI systems introduced novel trust challenges, human organizations have grappled with delegation, accountability, and risk for millennia. Bureaucracies are, fundamentally, **trust management systems**—structures designed to extend the reach of principals (owners, executives, voters) through chains of trusted agents (employees, managers, officials).
 
 Analyzing organizational trust using the same calculus we apply to AI systems reveals surprisingly quantifiable patterns and offers practical tools for organizational design.

@@ -1,5 +1,7 @@
 ---
 title: "Core Concepts"
+sidebar:
+  order: 3
 ---
 
 # Core Concepts
@@ -21,7 +23,7 @@ flowchart TB
         COMP["Composition<br/>How component risks combine"]
     end
 
-    subgraph Methods["Methods: Proven Approaches"]
+    subgraph Methods["Methods: Established Approaches"]
         BUDGET["Risk Budgeting<br/>Allocate, monitor, enforce"]
         MECH["Mechanism Design<br/>Incentive-compatible reporting"]
     end
@@ -47,7 +49,7 @@ flowchart TB
     ARCH --> SAFETY
 ```
 
-**Reading the diagram**: Delegation Risk is the foundation. Theory explains how it behaves. Methods provide proven approaches. Principles give actionable constraints. Application shows how to build systems (with AI as primary focus).
+**Reading the diagram**: Delegation Risk is the foundation. Theory explains how it behaves. Methods provide established approaches from other fields. Principles give actionable constraints. Application shows how to build systems (with AI as primary focus).
 
 ## Delegation Risk
 
@@ -257,17 +259,19 @@ graph TB
 
 </details>
 
-### Before and After: Monolithic vs Decomposed AI
+### Architectural Spectrum: Monolithic vs Decomposed
+
+Real systems exist on a spectrum. This diagram shows two stylized endpoints:
 
 ```mermaid
 flowchart TB
-    subgraph Before["❌ BEFORE: Monolithic Agent"]
+    subgraph Before["Monolithic Agent"]
         direction TB
-        M["GPT-4 Agent<br/>────────────<br/>• Full context access<br/>• All capabilities<br/>• Unbounded autonomy<br/>• Single point of failure"]
+        M["Single Agent<br/>────────────<br/>• Full context access<br/>• All capabilities<br/>• High autonomy<br/>• Single point of failure"]
         M --> OUT1[Any Output]
     end
 
-    subgraph After["✅ AFTER: Decomposed System"]
+    subgraph After["Decomposed System"]
         direction TB
         subgraph Coord["Coordination (Code)"]
             R[Router]
@@ -302,7 +306,7 @@ flowchart TB
 
 1. **Vocabulary**: Precise terms for discussing risk, delegation, and containment
 2. **Theory**: Mathematics for risk propagation and optimization
-3. **Methods**: Proven approaches from finance, nuclear safety, mechanism design
+3. **Methods**: Established approaches adapted from finance, nuclear safety, mechanism design
 4. **Principles**: Actionable design constraints (the "Least X" family)
 5. **Patterns**: Decomposed coordination, verification layers, safety mechanisms
 

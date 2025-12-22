@@ -1,8 +1,8 @@
 ---
-title: "Trust Dynamics and Learning"
+title: "Risk Dynamics"
 ---
 
-# Trust Dynamics and Learning
+# Risk Dynamics
 
 ## Bayesian Trust Updating
 

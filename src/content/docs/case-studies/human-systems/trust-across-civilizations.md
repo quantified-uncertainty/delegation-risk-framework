@@ -6,6 +6,10 @@ sidebar:
 
 # Trust Across Civilizations
 
+:::note[Framework Interpretation]
+This case study analyzes historical organizational forms through the lens of our delegation risk framework. The historical examples are drawn from organizational history, but the specific framing as "trust architectures" is our own interpretation.
+:::
+
 Long before AI agents, humans invented a technology for scaling trust: **bureaucracy**. Every organizational form—from pirate ships to the Papacy, from startups to the Soviet Politburo—is a solution to the same fundamental problem: how do you get things done when you can't do everything yourself and can't fully trust anyone else?
 
 This page applies delegation risk framework to human organizations. No AI, just the oldest delegation problem in existence.

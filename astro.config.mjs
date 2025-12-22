@@ -8,7 +8,7 @@ export default defineConfig({
 	integrations: [
 		mermaid(),
 		starlight({
-			title: 'Delegation Risk Framework',
+			title: 'Delegation Risk',
 			components: {
 				Footer: './src/components/Footer.astro',
 			},
@@ -90,7 +90,31 @@ export default defineConfig({
 						{
 							label: 'Background Research',
 							collapsed: true,
-							autogenerate: { directory: 'deep-dives/research' },
+							items: [
+								{ label: 'Overview', slug: 'deep-dives/research' },
+								{
+									label: 'Risk & Financial Methods',
+									collapsed: true,
+									autogenerate: { directory: 'deep-dives/research/risk-methods' },
+								},
+								{
+									label: 'Technical Safety',
+									collapsed: true,
+									autogenerate: { directory: 'deep-dives/research/technical-safety' },
+								},
+								{
+									label: 'System Design',
+									collapsed: true,
+									autogenerate: { directory: 'deep-dives/research/system-design' },
+								},
+								{
+									label: 'Trust & Behavior',
+									collapsed: true,
+									autogenerate: { directory: 'deep-dives/research/trust-behavior' },
+								},
+								{ label: 'Hierarchy Visualization', slug: 'deep-dives/research/hierarchy-visualization' },
+								{ label: 'Potential Projects', slug: 'deep-dives/research/potential-projects' },
+							],
 						},
 					],
 				},

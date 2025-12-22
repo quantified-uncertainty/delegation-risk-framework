@@ -33,6 +33,10 @@ Delegation risk principles aren't new—human organizations have developed sophi
 
 ## The Anomaly Chronicles
 
+:::note[Fiction]
+The Anomaly Chronicles is **speculative fiction**, not a case study of real events. It explores how delegation principles might apply to hypothetical extreme scenarios.
+:::
+
 A narrative exploration of delegation risk principles scaled to extreme scenarios:
 
 | Chapter | Focus |
@@ -54,7 +58,7 @@ Start with the AI system cases—they're most directly applicable:
 3. [Anti-Patterns](/case-studies/ai-systems/anti-patterns/) — Learn what to avoid
 
 ### Looking for Inspiration
-The human systems cases show proven approaches:
+The human systems cases show established approaches (with varying track records):
 1. [Nuclear Launch Authority](/case-studies/human-systems/nuclear-launch-authority/) — Extreme stakes
 2. [Criminal Organizations](/case-studies/human-systems/criminal-trust/) — Trust without enforcement
 3. [Open Source Communities](/case-studies/human-systems/open-source-trust/) — Distributed trust

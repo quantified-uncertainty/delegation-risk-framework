@@ -15,6 +15,7 @@ flowchart LR
     subgraph Background["Background Research"]
         N[Nuclear/Aerospace PRA]
         F[Financial Risk]
+        V[Visualization]
         P[Research Projects]
     end
     subgraph Framework["Main Framework"]
@@ -25,12 +26,13 @@ flowchart LR
     N -->|fault trees, SIL, importance measures| RB
     F -->|Euler allocation, VaR, stress testing| RB
     F -->|trust depreciation, arbitrage| TC
+    V -->|diagrams, dashboards| Impl
     P -->|validation experiments| Impl
 ```
 
 ## Contents
 
-### [Nuclear & Aerospace PRA: Deep Dive](/deep-dives/research/nuclear-aerospace-deep-dive/)
+### [Nuclear & Aerospace PRA: Deep Dive](/deep-dives/research/system-design/nuclear-aerospace-deep-dive/)
 
 Comprehensive research on how safety-critical industries achieve 10⁻⁹ failure rates:
 
@@ -41,7 +43,7 @@ Comprehensive research on how safety-critical industries achieve 10⁻⁹ failur
 
 **Relevance to framework**: The [Risk Budgeting](/cross-domain-methods/overview/) section adapts these methods for AI systems. Understanding the original domain helps you apply them correctly.
 
-### [Financial Risk Budgeting](/deep-dives/research/financial-risk-budgeting/)
+### [Financial Risk Budgeting](/deep-dives/research/risk-methods/financial-risk-budgeting/)
 
 Deep dive into how finance manages quantified risk:
 
@@ -52,7 +54,7 @@ Deep dive into how finance manages quantified risk:
 
 **Relevance to framework**: [Trust Economics](/deep-dives/theory/trust-economics/) and the Delegation Risk computation borrow heavily from financial risk concepts.
 
-### [Fidelity Insurance: Pricing Defection Risk](/deep-dives/research/fidelity-insurance/)
+### [Fidelity Insurance: Pricing Defection Risk](/deep-dives/research/risk-methods/fidelity-insurance/)
 
 How the insurance industry prices "bad actor" risk:
 
@@ -62,6 +64,17 @@ How the insurance industry prices "bad actor" risk:
 - **Novel structures** — Parametric triggers, prediction market hybrids, dynamic pricing
 
 **Relevance to framework**: Insurance premiums provide **market prices** for defection risk, making delegation balance sheets more concrete. The control-premium relationship directly maps to exposure reduction.
+
+### [Visualizing Delegation Hierarchies](/deep-dives/research/hierarchy-visualization/)
+
+Survey of techniques for visualizing hierarchical task structures:
+
+- **Node-link trees** — Traditional approach, intuitive but space-inefficient
+- **Space-filling methods** — Treemaps, icicle plots, circle packing
+- **Radial approaches** — Sunbursts, chord diagrams for cross-connections
+- **Encoding risk** — Color, size, borders, badges for multi-dimensional data
+
+**Relevance to framework**: Documentation and dashboards need effective ways to show delegation structure, risk levels, and permission boundaries simultaneously.
 
 ### [Potential Research Projects](/deep-dives/research/potential-projects/)
 
@@ -82,7 +95,7 @@ Research agenda for validating and extending the framework:
 
 **If you're validating the framework**: The [Potential Research Projects](/deep-dives/research/potential-projects/) page lists specific experiments that would strengthen or challenge the framework's assumptions.
 
-**If you're skeptical**: The deep dives show the empirical track record of these methods in other domains (nuclear, aerospace, finance), which grounds the framework in proven practice rather than pure theory.
+**If you're skeptical**: The deep dives show the track record of these methods in other domains (nuclear, aerospace, finance). Nuclear/aerospace have strong records; financial risk management has a more mixed history (notably 2008). This grounds the framework in established practice rather than pure theory—though the AI-specific application is novel.
 
 ## Key Takeaways from Background Research
 
@@ -106,6 +119,13 @@ Research agenda for validating and extending the framework:
 2. **AI failures are systematic, not random** — Independence assumptions need extra scrutiny
 3. **Human oversight remains critical** — Even mature industries rely on human judgment
 4. **Start conservative, loosen with evidence** — Uncertainty factors should be large initially
+
+### From Visualization Research
+
+1. **Node-link trees are most intuitive** — But sacrifice space efficiency
+2. **Icicle plots outperform treemaps** — For hierarchy understanding tasks
+3. **Limit to 3 levels of any encoding** — Too many colors/sizes causes confusion
+4. **Position for structure, color for risk** — Use the most salient variable for the most important dimension
 
 ---
 

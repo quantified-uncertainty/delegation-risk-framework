@@ -8,12 +8,12 @@ title: "Relationship to Existing Approaches"
 
 **[CAIS](https://www.fhi.ox.ac.uk/wp-content/uploads/Reframing_Superintelligence.pdf) proposed**: Build superintelligence as ecosystem of narrow services, avoid monolithic agents
 
-**Key limitation**: Foundation model era made "train from scratch for each task" obsolete. Also, pure tool AI faces economic pressure to add agency.
+**Challenge**: The foundation model era changed the landscape—"train from scratch for each task" is less practical now. Also, pure tool AI faces economic pressure to add agency ([Gwern, 2016](https://gwern.net/tool-ai)).
 
-**This proposal**: Embrace agency, but structure it through modularity. Agentic coordinators over narrow components, not passive services waiting for calls.
+**This proposal**: Accept agency, but try to structure it through modularity. Agentic coordinators over narrow components, not passive services waiting for calls.
 
-:::tip[Key Difference]
-We're not trying to avoid agency—we're trying to make agency safe through architecture.
+:::note[Key Difference]
+We're not trying to avoid agency—we're trying to make agency *safer* through architecture. Whether this actually works is an empirical question.
 :::
 
 ## [AI Control](https://arxiv.org/abs/2312.06942) ([Redwood Research](https://www.redwoodresearch.org/), 2024)
@@ -71,16 +71,16 @@ We're not trying to avoid agency—we're trying to make agency safe through arch
 ```mermaid
 flowchart TB
     subgraph "Defense in Depth"
-        Arch[Modular Architecture<br/>Reduces scheming] --> Control[AI Control<br/>Catches if happens]
+        Arch[Modular Architecture<br/>May reduce scheming] --> Control[AI Control<br/>Catches if happens]
         Control --> Budget[Limited Budgets<br/>Bounds damage]
         Budget --> Forecast[Forecasting<br/>Predicts problems]
         Forecast --> Human[Human Review<br/>Final check]
     end
 ```
 
-**Modular architecture alone**: Might prevent scheming, but not proven
-**AI Control alone**: Handles scheming but doesn't reduce it
-**Combined**: Architecture reduces scheming probability + Control catches it if it happens
+**Modular architecture alone**: Might limit scheming opportunities, but not proven
+**AI Control alone**: Handles scheming but doesn't reduce its probability
+**Combined**: Architecture may reduce scheming probability + Control catches it if it happens
 
 **Concrete example - Research Assistant**:
 
@@ -143,8 +143,8 @@ Not claiming this solves superintelligence alignment. Claiming it might keep hum
 **4. Defense in depth**
 Not relying on single mechanism—combining 10+ principles, multiple safety layers, continuous monitoring, diverse redundancy. Many points of failure before catastrophe.
 
-**5. Builds on proven techniques**
-Borrowing from security engineering ([least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), [defense in depth](https://en.wikipedia.org/wiki/Defense_in_depth_(computing))), software engineering (modularity, testing), distributed systems ([Byzantine fault tolerance](https://en.wikipedia.org/wiki/Byzantine_fault)), formal methods (verification). Not inventing from scratch.
+**5. Builds on established techniques**
+Borrowing from security engineering ([least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), [defense in depth](https://en.wikipedia.org/wiki/Defense_in_depth_(computing))), software engineering (modularity, testing), distributed systems ([Byzantine fault tolerance](https://en.wikipedia.org/wiki/Byzantine_fault)), formal methods (verification). Not inventing from scratch—though the AI-specific application is novel.
 
 ---
 
@@ -152,7 +152,7 @@ Borrowing from security engineering ([least privilege](https://en.wikipedia.org/
 
 | Approach | Core Idea | Strengths | Limitations | Compatibility |
 |----------|-----------|-----------|-------------|---------------|
-| **This Framework** | Decomposed components with delegation risk budgets | Quantified risk, works with agency, proven cross-domain | Implementation overhead, uncertain AI-specific evidence | — |
+| **This Framework** | Decomposed components with delegation risk budgets | Quantified risk, works with agency, adapts established cross-domain methods | Implementation overhead, uncertain AI-specific evidence, untested at scale | — |
 | **CAIS** | Narrow AI services, no agents | Avoids agency risk entirely | Economically uncompetitive, obsolete with foundation models | Complementary (we accept agency) |
 | **AI Control** | Assume scheming, design for safety anyway | Adversarial mindset, practical protocols | Doesn't reduce scheming probability | Highly complementary |
 | **IDA** | Amplify human judgment recursively | Human values preserved | Enormous human effort required | Partially compatible |

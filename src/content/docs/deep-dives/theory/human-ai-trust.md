@@ -1,8 +1,8 @@
 ---
-title: "Trust in Human-AI Teams"
+title: "Human-AI Delegation"
 ---
 
-# Trust in Human-AI Teams
+# Human-AI Delegation
 
 ## Human Trust in AI
 

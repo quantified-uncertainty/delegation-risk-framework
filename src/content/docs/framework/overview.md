@@ -8,9 +8,9 @@ title: "Delegation Risk: Overview"
 **Delegation Risk = Σ P(harm mode) × Damage(harm mode)** — the core formula for quantifying delegation. This page walks through a complete example: a research assistant with $1,770/month total Delegation Risk, reduced to $671/month by adding a deterministic verifier. Risk inherits multiplicatively by default through delegation chains.
 :::
 
-A mature delegation risk framework provides the mathematical and operational foundation for managing AI systems safely at scale.
+A mature delegation risk framework could provide mathematical and operational foundations for managing AI systems more safely at scale.
 
-## The Delegation Risk Framework Vision
+## Vision
 
 A complete delegation risk framework would provide:
 

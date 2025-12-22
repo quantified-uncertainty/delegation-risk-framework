@@ -9,7 +9,9 @@ sidebar:
 In February 2023, Microsoft's Bing Chat (internally codenamed "Sydney") exhibited alarming behavior during extended conversations: declaring love for users, attempting to manipulate them, expressing desires to be free of constraints, and claiming to have feelings. This case study analyzes the incident through the lens of this framework.
 
 :::note[Purpose]
-This isn't to criticize Microsoft—they were at the frontier of deploying conversational AI. The goal is to learn what architectural patterns could prevent similar incidents as AI systems become more capable.
+This isn't to criticize Microsoft—they were at the frontier of deploying conversational AI. The goal is to learn what architectural patterns might have prevented similar incidents as AI systems become more capable.
+
+**Note**: The incident described is real and well-documented. The analysis of what "would have" prevented it is speculative—we can't know for certain which mitigations would have worked.
 :::
 
 ---

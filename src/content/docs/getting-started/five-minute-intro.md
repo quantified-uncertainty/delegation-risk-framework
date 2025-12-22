@@ -1,20 +1,24 @@
 ---
 title: "5-Minute Introduction"
 sidebar:
-  order: 1
+  order: 2
 ---
 
-# The Framework in 5 Minutes
+# Delegation Risk in 5 Minutes
 
-**The problem**: AI agents can cause real harm. One powerful agent with full access is dangerous—if it fails or schemes, damage is unbounded.
+:::note
+This is the compressed version. For caveats and nuance, see the [full Introduction](/getting-started/introduction/).
+:::
 
-**The solution**: Decompose into many limited components. Budget trust like money.
+**The problem**: AI agents can cause real harm. One powerful agent with full access is risky—if it fails or schemes, damage may be unbounded.
+
+**The proposed solution**: Decompose into many limited components. Budget risk like money.
 
 ---
 
 ## The Core Idea
 
-Instead of this:
+Instead of this (stylized—real systems exist on a spectrum):
 
 ```
 User → [Powerful AI Agent] → Any Action
@@ -24,7 +28,7 @@ User → [Powerful AI Agent] → Any Action
         Full autonomy
 ```
 
-Do this:
+Consider this:
 
 ```
 User → [Router] → [Narrow Component 1] → [Verifier] → Limited Action 1
@@ -114,4 +118,4 @@ Budget: $500/mo → **Within budget. Ship it.**
 
 ---
 
-**TL;DR**: Don't build one powerful AI. Build many limited ones. Quantify risk. Budget trust.
+**TL;DR**: Consider building many limited components instead of one powerful AI. Quantify risk. Budget it like money.

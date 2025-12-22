@@ -1,7 +1,7 @@
 ---
 title: "FAQ & Common Objections"
 sidebar:
-  order: 8
+  order: 4
 ---
 
 # FAQ & Common Objections
@@ -18,7 +18,7 @@ Yes, defense in depth is the core principle—but applied systematically to AI s
 2. **Formal propagation rules**: Mathematical framework for how trust compounds through delegation chains
 3. **AI-specific constraints**: The "Least X" principles address AI-unique risks like context accumulation and optimization pressure
 
-Defense in depth tells you *what* to do. This framework tells you *how much* and *where*.
+Defense in depth tells you *what* to do. This framework attempts to provide structure for reasoning about *how much* and *where*—though the estimates are often uncertain.
 
 ### "How is Delegation Risk different from regular risk assessment?"
 
@@ -71,7 +71,7 @@ Yes, deliberately. The question is: **limited compared to what?**
 | Decomposed system | High (but slower) | Bounded |
 | Tool AI only | Limited | Higher |
 
-Decomposed systems can accomplish most tasks—they just do it through many narrow components rather than one powerful agent. The tradeoff is latency and complexity, not fundamental capability.
+Decomposed systems may be able to accomplish many tasks—they do it through many narrow components rather than one powerful agent. The tradeoff is latency and complexity; how much capability is lost depends on the specific task and implementation.
 
 ---
 
@@ -197,7 +197,7 @@ Security theater provides the *appearance* of security without substance. This f
 | Static assessment | Continuous measurement |
 | Unfalsifiable claims | Testable predictions |
 
-If your Delegation Risk estimates are wrong, production data will show it. That's not theater—it's engineering.
+If your Delegation Risk estimates are wrong, production data should eventually show it. That's the intent, at least—whether it works in practice for AI systems specifically is still being validated.
 
 ---
 

@@ -6,6 +6,10 @@ sidebar:
 
 # Case Study: Code Review Bot (Success)
 
+:::caution[Illustrative Example]
+This case study is a **hypothetical scenario** designed to illustrate how decomposed architecture might work in practice. It's based on realistic parameters but is not a documented real deployment.
+:::
+
 A decomposed AI code review system that successfully prevented multiple potential incidents through architectural safety.
 
 :::note[TL;DR]

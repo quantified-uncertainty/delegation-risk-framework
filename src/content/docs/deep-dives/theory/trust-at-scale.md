@@ -1,8 +1,8 @@
 ---
-title: "Trust at Scale"
+title: "Risk at Scale"
 ---
 
-# Trust at Scale
+# Risk at Scale
 
 ## Trust and System Size
 

@@ -4,6 +4,10 @@ title: "Nuclear Safety: Probabilistic Risk Assessment"
 
 # Nuclear Safety: Probabilistic Risk Assessment
 
+:::note[Transferability]
+Nuclear PRA works well for physical systems with well-characterized failure modes. AI systems are less predictable—failure modes may be unknown or change with capability improvements. The methods here are *potentially* useful but their application to AI is novel and untested.
+:::
+
 Probabilistic Risk Assessment (PRA), developed after Three Mile Island and codified in NRC regulations, demonstrates how a single system-level risk target can be decomposed across thousands of components. U.S. nuclear plants operate to quantified safety goals: **Core Damage Frequency below 10⁻⁴ per reactor-year** and **Large Early Release Frequency below 10⁻⁵ per reactor-year**. Actual performance achieves an order of magnitude better—CDF around **10⁻⁵** and LERF around **10⁻⁶**—demonstrating that aggressive targets coupled with defense-in-depth create substantial safety margins.
 
 :::note

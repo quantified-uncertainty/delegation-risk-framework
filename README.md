@@ -1,6 +1,6 @@
-# Delegation Risk Framework
+# Delegation Risk
 
-A structured approach to managing risk in delegation relationships—with AI systems as the primary application.
+A structured approach to managing risk in delegation relationships—with applications to AI safety.
 
 **[Read Online](https://delegation-risk.org)** | **[Download PDF](https://github.com/quantified-uncertainty/delegation-risk-framework/releases/latest/download/delegation-risk-framework-book.pdf)** | **[Download EPUB](https://github.com/quantified-uncertainty/delegation-risk-framework/releases/latest/download/delegation-risk-framework-book.epub)**
 
@@ -78,6 +78,43 @@ Features:
 - External links as footnotes (print-friendly)
 - Colored headers, running page headers
 - Custom EPUB styling
+
+## Versioning
+
+The documentation uses an auto-incrementing version system that keeps PDF/EPUB and website in sync.
+
+**Version format:** `1.0.3+abc1234`
+- `1.0` — Major.minor version (manually controlled)
+- `.3` — Patch version (auto-increments when content changes)
+- `+abc1234` — Git commit hash (for traceability)
+
+### How it works
+
+1. When you run `python3 scripts/build-pdf.py`, it:
+   - Hashes all documentation content
+   - Compares with the stored hash in `version.json`
+   - If content changed → auto-increments patch version
+   - Stores the git commit hash for traceability
+   - Embeds the version in PDF/EPUB title page
+
+2. The website reads `version.json` and displays the version in the footer
+
+3. Both PDF/EPUB and website show the same version
+
+### Manual version bumps
+
+For significant changes, manually edit `version.json`:
+
+```json
+{
+  "major": 1,
+  "minor": 1,
+  "patch": 0,
+  ...
+}
+```
+
+The patch will continue auto-incrementing from there.
 
 ## LLM Accessibility
 

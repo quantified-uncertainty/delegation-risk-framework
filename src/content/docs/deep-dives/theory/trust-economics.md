@@ -1,8 +1,8 @@
 ---
-title: "Trust Economics"
+title: "Delegation Economics"
 ---
 
-# Trust Economics
+# Delegation Economics
 
 ## Trust Production Function
 

@@ -6,6 +6,10 @@ sidebar:
 
 # Jury Systems: Twelve Strangers Decide Your Fate
 
+:::note[Framework Interpretation]
+This case study analyzes jury systems through the lens of our delegation risk framework. The historical and legal facts are drawn from legal scholarship, but the mathematical framing and parallels to AI systems are our own interpretation.
+:::
+
 In a criminal trial, twelve strangers—who have never met you, know nothing about law, and were selected partly because they knew nothing about your case—will decide whether you go free or spend decades in prison. Why do we trust this system?
 
 The jury system is a remarkable piece of trust architecture that has evolved over 800 years. Its peculiar features—twelve people, unanimous verdicts, random selection—turn out to have deep mathematical justifications.

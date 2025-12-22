@@ -1,8 +1,8 @@
 ---
-title: "Trust Interfaces and Contracts"
+title: "Delegation Interfaces"
 ---
 
-# Trust Interfaces and Contracts
+# Delegation Interfaces
 
 When component A delegates to component B, there's an implicit interface:
 

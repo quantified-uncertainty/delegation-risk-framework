@@ -5,7 +5,11 @@ title: "Quantified Risk Budgeting: A Cross-Domain Framework for AI Safety"
 # Quantified Risk Budgeting: A Cross-Domain Framework for AI Safety
 
 :::note[TL;DR]
-Combine three proven approaches: **Euler allocation** (finance) for decomposing risk to components, **fault trees** (nuclear) for flowing targets down hierarchically, and **mechanism design** (economics) for incentive-compatible reporting. Key insight: nuclear plants achieve **10⁻⁹ failure rates** using these methods—we can adapt them for AI.
+Combine three established approaches: **Euler allocation** (finance) for decomposing risk to components, **fault trees** (nuclear) for flowing targets down hierarchically, and **mechanism design** (economics) for incentive-compatible reporting. Key insight: nuclear plants achieve **10⁻⁹ failure rates** using these methods—we may be able to adapt them for AI, though the application is novel.
+:::
+
+:::caution[Transferability Warning]
+These methods were developed for their original domains (finance, nuclear, aerospace) and have varying track records there. **Whether they transfer well to AI systems is an open question.** Nuclear safety deals with well-characterized physical systems; AI systems are less predictable. Financial risk management had notable failures in 2008. We present these methods as *potentially useful starting points*, not as validated solutions for AI safety.
 :::
 
 The most promising path toward a risk budgeting framework for AI safety lies in combining **[Euler allocation](https://en.wikipedia.org/wiki/Euler%27s_homogeneous_function_theorem)** from finance, **[Safety Integrity Levels](https://en.wikipedia.org/wiki/Safety_integrity_level)** from nuclear/aerospace, and **[mechanism design](https://en.wikipedia.org/wiki/Mechanism_design)** from economics—three domains with decades of operational experience managing quantified risk hierarchically.
@@ -14,7 +18,7 @@ The most promising path toward a risk budgeting framework for AI safety lies in 
 Successful risk budgeting requires not just quantification, but compositional guarantees that component risks aggregate predictably and incentive structures that make honest reporting optimal.
 :::
 
-Finance has proven that risks can be decomposed additively across portfolios using the formula RC_i = x_i · ∂R/∂x_i; nuclear safety has demonstrated that system-level failure probability targets like **10⁻⁹ per flight hour** can flow down to components through [fault trees](https://en.wikipedia.org/wiki/Fault_tree_analysis); and mechanism design has established that truthful risk reporting can be made incentive-compatible through [VCG-style payments](https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_mechanism).
+Finance uses risk decomposition across portfolios with the formula RC_i = x_i · ∂R/∂x_i (though this approach had notable failures in 2008); nuclear safety has demonstrated that system-level failure probability targets like **10⁻⁹ per flight hour** can flow down to components through [fault trees](https://en.wikipedia.org/wiki/Fault_tree_analysis); and mechanism design has established conditions under which truthful risk reporting can be made incentive-compatible through [VCG-style payments](https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_mechanism).
 
 ## Five Essential Characteristics
 

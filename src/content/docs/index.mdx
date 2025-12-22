@@ -1,9 +1,9 @@
 ---
-title: Delegation Risk Framework
-description: A structured approach to managing risk in delegation relationships—with AI systems as the primary application.
+title: Delegation Risk
+description: A structured approach to managing risk in delegation relationships—with applications to AI safety.
 template: splash
 hero:
-  tagline: Quantifying and managing risk when you can't do everything yourself
+  tagline: Quantifying and managing risk when you can't do everything yourself—with applications to AI safety
   actions:
     - text: Get Started
       link: /getting-started/introduction/
@@ -19,6 +19,10 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+
+:::note[About This Documentation]
+This is early-stage, exploratory work—created rapidly with LLM assistance. The core ideas seem promising, but the framework is largely untested for AI systems specifically. See [About This Site](/reference/about-this-site/) for epistemic status and limitations.
+:::
 
 ## The Problem
 
@@ -65,26 +69,26 @@ We focus on **architectural properties** that bound potential harm regardless of
 
 **Safety can be architectural, not just behavioral.**
 
-We don't need perfect trust if we build systems where:
+We may not need perfect trust if we can build systems where:
 - No delegate has enough power to cause catastrophic harm
-- Delegates can't coordinate to amplify their power
+- Delegates can't easily coordinate to amplify their power
 - Risk relationships are explicit and bounded
 - Failures are contained and recoverable
 
-This provides defense in depth regardless of delegate reliability.
+This could provide defense in depth regardless of delegate reliability—though whether it works in practice depends on implementation details.
 
 ---
 
 ## Primary Application: AI Systems
 
-While the framework applies generally, **AI systems are our primary focus**. AI agents present delegation challenges at unprecedented scale:
+While the framework applies generally, **AI systems are our primary focus**. AI systems may present delegation challenges at unusual scale:
 
-- Capabilities expanding faster than our ability to verify them
+- Capabilities expanding rapidly—whether verification is keeping pace is unclear
 - Agents delegating to other agents in complex networks
-- Reduced human oversight as systems become more autonomous
-- Unknown failure modes in systems we don't fully understand
+- Potentially reduced human oversight as systems become more autonomous
+- Possible unknown failure modes in systems we don't fully understand
 
-The framework provides infrastructure for deploying AI safely—not by solving alignment, but by bounding the damage from any single component.
+None of these claims are certain, but if even some hold, having infrastructure for managing Delegation Risk seems valuable. The framework aims to help deploy AI more safely—not by solving alignment, but by bounding the damage from any single component.
 
 ---
 

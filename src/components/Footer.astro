@@ -3,9 +3,13 @@ import EditLink from 'virtual:starlight/components/EditLink';
 import LastUpdated from 'virtual:starlight/components/LastUpdated';
 import Pagination from 'virtual:starlight/components/Pagination';
 import config from 'virtual:starlight/user-config';
+import versionInfo from '../../version.json';
 
 const pageTitle = Astro.props.entry?.data?.title || 'Untitled';
 const pageUrl = Astro.url.href;
+
+// Build version string: 1.0.3+abc1234
+const version = `${versionInfo.major}.${versionInfo.minor}.${versionInfo.patch}${versionInfo.gitHash ? '+' + versionInfo.gitHash : ''}`;
 ---
 
 <footer class="sl-flex">
@@ -33,13 +37,16 @@ const pageUrl = Astro.url.href;
 
 	<Pagination />
 
-	{
-		config.credits && (
-			<a class="kudos sl-flex" href="https://starlight.astro.build">
-				{Astro.locals.t('builtWithStarlight.label')}
-			</a>
-		)
-	}
+	<div class="footer-info sl-flex">
+		<span class="version">v{version}</span>
+		{
+			config.credits && (
+				<a class="kudos sl-flex" href="https://starlight.astro.build">
+					{Astro.locals.t('builtWithStarlight.label')}
+				</a>
+			)
+		}
+	</div>
 </footer>
 
 <style>
@@ -59,10 +66,22 @@ const pageUrl = Astro.url.href;
 		margin-inline-start: auto;
 	}
 
+	.footer-info {
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		margin: 1.5rem auto;
+	}
+
+	.version {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-4);
+		font-family: var(--sl-font-mono);
+	}
+
 	.kudos {
 		align-items: center;
 		gap: 0.5em;
-		margin: 1.5rem auto;
 		font-size: var(--sl-text-xs);
 		text-decoration: none;
 		color: var(--sl-color-gray-3);
