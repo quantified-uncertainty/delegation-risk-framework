@@ -121,6 +121,30 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Experimental',
+					collapsed: true,
+					items: [
+						{ label: 'Overview', slug: 'experimental' },
+						{
+							label: 'Probabilistic Estimation',
+							collapsed: true,
+							items: [
+								{ label: 'Overview', slug: 'experimental/probabilistic-estimation' },
+								{
+									label: 'Interactive Tools',
+									collapsed: true,
+									autogenerate: { directory: 'experimental/probabilistic-estimation/tools' },
+								},
+								{
+									label: 'Estimates Registry',
+									collapsed: true,
+									autogenerate: { directory: 'experimental/probabilistic-estimation/estimates' },
+								},
+							],
+						},
+					],
+				},
+				{
 					label: 'Reference',
 					collapsed: true,
 					autogenerate: { directory: 'reference' },

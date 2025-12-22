@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/starlight": "^0.37.1",
+    "@quri/squiggle-components": "^0.10.0",
+    "@quri/squiggle-lang": "^0.10.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@xyflow/react": "^12.10.0",
