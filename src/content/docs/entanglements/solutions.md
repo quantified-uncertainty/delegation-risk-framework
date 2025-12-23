@@ -1,13 +1,13 @@
 ---
 title: "Solutions & Mitigations"
-description: "Seven approaches to reducing correlated failures"
+description: "Nine approaches to reducing correlated failures and managing entanglement"
 sidebar:
   order: 5
 ---
 
 # Solutions & Mitigations
 
-This page presents seven approaches to reducing pattern interconnection, from architectural changes to ongoing monitoring.
+This page presents nine approaches to reducing pattern interconnection, from architectural changes to software engineering patterns.
 
 ---
 
@@ -675,6 +675,87 @@ flowchart TB
 
 ---
 
+## 9. Software Engineering Dependency Patterns
+
+**Principle**: Software engineering has developed 50 years of patterns for managing dependencies. These translate directly to entanglement management.
+
+### Core Patterns
+
+| Software Pattern | Entanglement Application |
+|------------------|-------------------------|
+| **Dependency Injection** | Components receive dependencies from above, don't choose their own |
+| **Interface Segregation** | Small, focused trust interfaces instead of broad capability grants |
+| **Inversion of Control** | Principal defines trust contracts; agents conform |
+| **Acyclic Dependencies** | No circular trust relationships; detect and break cycles |
+| **Stable Dependencies** | High-stakes delegations route through stable infrastructure |
+
+### Dependency Injection for Delegation
+
+Don't let agents choose their sub-agents. Inject dependencies from the coordinator:
+
+```python
+# BAD: Agent chooses its own dependencies
+class ResearchAgent:
+    def __init__(self):
+        self.search = SomeSearchProvider()  # Hidden choice!
+        self.verifier = SomeVerifier()       # Hidden choice!
+
+# GOOD: Dependencies injected from above
+class ResearchAgent:
+    def __init__(self, search_provider, verifier):
+        self.search = search_provider  # Principal controls
+        self.verifier = verifier       # Principal controls
+```
+
+**Benefit**: The principal sees and controls all relationships. No hidden entanglements.
+
+### Circular Dependency Prevention
+
+Just as software tools detect circular imports, detect circular trust:
+
+```
+BAD:  Principal → Agent → Verifier → Agent  (circular!)
+
+GOOD: Principal → Agent
+      Principal → Verifier
+      Agent → Verifier (outputs only)
+      Verifier → Principal (reports only)
+```
+
+**Implementation**: Build a dependency graph checker that fails if cycles exist.
+
+### Interface Segregation = Least Capability
+
+Instead of granting broad capabilities, define narrow trust interfaces:
+
+```python
+# Fat interface (risky)
+class GeneralAgent:
+    def read_files(self): ...
+    def write_files(self): ...
+    def execute_code(self): ...
+    def access_network(self): ...
+
+# Segregated interfaces (safer)
+class FileReader:
+    def read_file(self, path): ...
+
+class SafeExecutor:
+    def execute_sandboxed(self, code): ...
+```
+
+Each task uses only the narrow interface it needs.
+
+### For Full Details
+
+See [Software Dependency Patterns](/entanglements/software-dependency-patterns/) for comprehensive coverage of:
+- The DI container as trust broker
+- Package management lessons for delegation
+- Microservices patterns for decomposed coordination
+- Practical implementation code
+
+---
+
 See also:
 - [Types of Entanglement](/entanglements/types/) - Understanding passive, active, and adversarial entanglements
 - [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting active entanglements
@@ -682,3 +763,6 @@ See also:
 - [Decision Framework](/entanglements/decision-framework/) - When to invest in mitigation
 - [Worked Examples](/entanglements/examples/) - Mitigations in practice
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) - Preventing boundary violations
+- [Software Dependency Patterns](/entanglements/software-dependency-patterns/) - Lessons from software engineering
+- [Organizational Isolation](/entanglements/organizational-isolation/) - Isolation as organizational strategy
+- [Legibility and Control](/entanglements/legibility-and-control/) - When explicit interfaces help vs. hurt

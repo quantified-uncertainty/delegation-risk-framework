@@ -669,6 +669,75 @@ Make channel violations costly:
 
 ---
 
+## Hidden Networks as Adversarial Advantage
+
+The discussion above focuses on **preventing** channel violations. But adversaries view hidden networks as **weapons**. Understanding this perspective improves both detection and defense.
+
+### The Attacker's View
+
+From an adversary's perspective, hidden channels provide:
+
+| Advantage | Mechanism |
+|-----------|-----------|
+| **Information asymmetry** | Know relationships the principal doesn't |
+| **Surprise coordination** | Reveal alliances at critical moments |
+| **Deniability** | Hidden links can be denied or severed |
+| **Detection evasion** | Unmonitored channels are undetectable |
+
+**Strategic insight:** The power of a hidden network comes from the *gap* between the principal's model and reality. The principal's security calculations are wrong because they don't include the hidden edges.
+
+### Lessons from Political Intrigue
+
+Fiction and history provide case studies in adversarial hidden networks:
+
+**Littlefinger (Game of Thrones):**
+- Maintained relationships across faction lines
+- Revealed alliances only when strategically advantageous
+- Power derived from knowing connections others didn't see
+- "Chaos is a ladder" — hidden networks let you navigate chaos others can't
+
+**Intelligence Moles:**
+- Handler maintains hidden links to multiple agents
+- Information flows through channels the target organization doesn't monitor
+- Multiple "independent" sources may trace back to single adversary
+
+**Corporate Collusion:**
+- Competitors communicate through unofficial channels
+- Coordinate pricing, market division, or information sharing
+- Appear independent to regulators
+
+### Detection: Inferring Hidden Networks
+
+To detect hidden channels, map what relationships *should* exist vs. what *does* exist:
+
+**Behavioral inference:**
+1. Observe component behaviors over time
+2. Calculate expected correlation under independence
+3. If actual correlation >> expected → investigate hidden link
+
+**Counterfactual testing:**
+1. Give Component A unique information
+2. Observe if Component B's behavior reflects that information
+3. If yes → hidden channel A→B exists
+
+**Timing analysis:**
+1. Look for suspicious temporal patterns
+2. A acts, then B acts similarly shortly after
+3. Correlation in timing suggests coordination
+
+For detailed methods, see [Hidden Coordination](/entanglements/hidden-coordination/).
+
+### Defense: Make Hidden Networks Less Valuable
+
+Since some hidden channels are undetectable, also focus on reducing their value:
+
+1. **Limit what coordination achieves:** Even coordinating agents can't exceed their capability bounds
+2. **Reduce information asymmetry:** Minimize what hidden networks could learn that the principal doesn't know
+3. **Create detection incentives:** Reward agents for revealing coordination attempts
+4. **Increase churn:** Rotation makes stable hidden relationships harder to maintain
+
+---
+
 ## Related Patterns
 
 **Structural Patterns:**
@@ -691,6 +760,7 @@ Make channel violations costly:
 **Entanglements:**
 - [Entanglements Overview](/entanglements/) - Understanding all types of entanglement
 - [Types of Entanglement](/entanglements/types/) - Passive, active, and adversarial entanglements
+- [Hidden Coordination](/entanglements/hidden-coordination/) - Adversarial use of hidden networks
 - [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting influence channels
 - [Temporal Dynamics](/entanglements/solutions/#8-temporal-dynamics-management) - How entanglements evolve over time
 

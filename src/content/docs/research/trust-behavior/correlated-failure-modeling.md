@@ -326,6 +326,43 @@ The 2008 crisis demonstrated catastrophic failure of independence assumptions un
 
 **Key insight for AI:** Correlations are **not stationary**—they spike during crises. Historical correlation underestimates tail correlation.
 
+### Lessons from WW1: Hidden Alliance Cascades
+
+The 2008 crisis shows correlation *increasing* under stress. WW1 demonstrates a different failure mode: **hidden correlations** that were always present but not mapped.
+
+**Pre-war assumptions:**
+- Each country understood its own bilateral treaties
+- Risk assessed per treaty, not per network
+- Conflicts could be localized
+- Decision-makers had time to de-escalate
+
+**Reality:**
+- Treaties formed a fully-connected network
+- Activation of one edge cascaded through all edges
+- Mobilization schedules created automatic triggers
+- Cascade speed exceeded decision-making capacity
+
+**The entanglement structure:**
+
+```
+Austria-Hungary ↔ Germany ↔ Ottoman Empire
+       ↓              ↓
+    Serbia        France ↔ Russia
+       ↓              ↓
+    Russia  ←───→  Britain
+```
+
+**Critical hidden coupling:** The Schlieffen Plan required Germany to attack France *before* Russia could mobilize. Once Russia mobilized, Germany had to attack immediately—through Belgium—triggering British entry.
+
+**Correlation tax:**
+- Perceived risk: "Balkan incident stays in Balkans" (~5% world war probability)
+- Actual risk: "Balkan incident triggers world war" (~95% given alliance structure)
+- **Tax ratio: ~20×**
+
+**Key insight for AI:** Unlike 2008 where correlations *spiked* during crisis, WW1's correlations were *always* present but unmapped. Each actor's local model was correct; the *system* model was missing entirely.
+
+For full analysis, see [Alliance Cascades](/case-studies/human-systems/alliance-cascades/).
+
 ### Tail Dependence
 
 **Tail dependence:** Probability of joint extreme events.

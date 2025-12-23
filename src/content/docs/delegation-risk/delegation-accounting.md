@@ -141,6 +141,161 @@ Each delegator is exposed to their immediate delegate, not the full chain. Alice
 
 ---
 
+## The Complexity Tax
+
+As delegation structures grow more complex, something happens to our ability to estimate exposure: **uncertainty compounds**.
+
+### The Problem
+
+In the simple Alice → Bob case, we estimated exposure at $30. But how confident are we in that number?
+
+With a single delegation:
+- We know the failure modes (loss, theft)
+- We can estimate probabilities from Bob's track record
+- The exposure is bounded by the asset value
+
+Add Xavier as a middle layer, and complexity increases:
+- Xavier might hire someone other than Bob
+- Xavier's incentives may not perfectly align with Alice's
+- Communication errors between layers
+- Coordination failures we haven't anticipated
+
+Add a third layer, shared infrastructure, multiple parallel delegates, and informal reporting relationships? Now we're guessing.
+
+### Complexity Score
+
+We can formalize this with a **complexity score** that captures structural uncertainty:
+
+| Factor | Contribution |
+|--------|--------------|
+| Each delegation layer | +2 |
+| Each parallel delegate at same level | +1 |
+| Shared resources between delegates | +2 |
+| Informal/undocumented relationships | +3 |
+| Cross-layer dependencies | +2 |
+| Ambiguous authority boundaries | +3 |
+
+**Examples:**
+
+| Structure | Complexity Score |
+|-----------|-----------------|
+| Alice → Bob | 2 |
+| Alice → Xavier → Bob | 4 |
+| Alice → Xavier → {Bob, Carol} (parallel) | 5 |
+| Alice → Xavier → {Bob, Carol} with shared vehicle | 7 |
+| 4-level org with shared infrastructure | 12 |
+| Complex org with hidden entanglements | 20+ |
+
+### Uncertainty Multiplier
+
+Complexity doesn't change expected exposure—it changes our **confidence in that estimate**.
+
+| Complexity Score | Uncertainty Multiplier | Confidence Interval |
+|-----------------|----------------------|---------------------|
+| 2 (simple) | ±20% | Narrow |
+| 5 | ±65% | Moderate |
+| 10 | ±180% | Wide |
+| 15 | ±400% | Very wide |
+| 20+ | ±640%+ | Essentially unknown |
+
+**Applied to our $30 exposure estimate:**
+
+| Structure | Complexity | Uncertainty | Confidence Interval |
+|-----------|-----------|-------------|---------------------|
+| Alice → Bob | 2 | ±20% | $24 - $36 |
+| Alice → Xavier → Bob | 4 | ±50% | $15 - $45 |
+| 4-level hierarchy | 12 | ±230% | $0 - $99 |
+| Complex org, hidden entanglements | 20 | ±640% | $0 - $222 |
+
+The point estimate is still $30. But our confidence in that estimate degrades rapidly with complexity.
+
+### The Insurer's Dilemma
+
+Carol (the insurer) doesn't just care about expected loss—she cares about **variance**. An exposure she can't bound is an exposure she can't price.
+
+---
+
+**Alice** comes to Carol with a new proposal. She's expanded her business: three layers of management, shared delivery vehicles, some contractors who also work for her competitors.
+
+**Carol**: Let me see your org chart.
+
+*Alice shows a diagram with crossing lines, dotted relationships, and a footnote that says "informal coordination as needed."*
+
+**Carol**: What's your complexity score?
+
+**Alice**: I don't know. Maybe 15?
+
+**Carol**: Let me calculate... You've got three layers, that's 6. Four parallel couriers, that's 4. Shared vehicles, that's 2. These dotted lines—are those reporting relationships?
+
+**Alice**: Sort of. They coordinate when needed.
+
+**Carol**: That's undocumented informal relationships. Add 3. And this contractor who also works for your competitor?
+
+**Alice**: He's very trustworthy.
+
+**Carol**: That's a cross-layer dependency with unclear authority. Add 5. Your complexity score is 20.
+
+---
+
+**Carol**: Here's the problem. Your exposure estimate is $5,000/year. But your complexity score is 20, which means my confidence interval is ±640%.
+
+Your actual exposure could be anywhere from \$0 to \$37,000. That's a lot of uncertainty.
+
+**Alice**: So what's my premium?
+
+**Carol**: I have to price for the upper end of that range. Your premium would be $45,000/year.
+
+**Alice**: That's nine times my expected exposure!
+
+**Carol**: That's the complexity tax. I'm not charging you for what I *think* will happen—I'm charging you for what *might* happen, given how little I can predict about your organization.
+
+**Alice**: What if I simplified things?
+
+**Carol**: Then your premium drops dramatically. Complexity doesn't just increase cost—it multiplies it.
+
+---
+
+### Reducing Complexity
+
+**Alice**: What would it take to get insured?
+
+**Carol**: Reduce your complexity score to under 10. Here's how:
+
+| Change | Complexity Reduction |
+|--------|---------------------|
+| Document all reporting relationships | -3 |
+| Eliminate shared vehicles (each courier has own) | -2 |
+| Remove contractors with competitor ties | -5 |
+| Flatten to 2 layers | -2 |
+| Assign clear authority boundaries | -3 |
+
+**Carol**: That would bring you from 20 to around 5. At complexity 5, your uncertainty is ±65%. On a \$5,000 expected exposure, that's a confidence interval of \$1,750 to \$8,250.
+
+I can price that. Your premium would be around $8,000/year—covering the upper bound of my confidence interval plus margin.
+
+**Alice**: So I pay for the uncertainty I create.
+
+**Carol**: Exactly. Complexity isn't free. Every undocumented relationship, every ambiguous authority, every hidden entanglement—you're not paying for it in premiums because I refuse to insure it. But someone's bearing that risk. Right now, it's you.
+
+---
+
+### The Complexity Tax Principle
+
+:::note[The Complexity Tax]
+Structural complexity doesn't change expected exposure—it changes **uncertainty about exposure**. This uncertainty gets priced in: premiums scale with the upper bound of the confidence interval, not the expected value.
+
+The result: high-complexity organizations pay multiples of their expected exposure. Simplification—fewer layers, clearer boundaries, documented relationships—reduces premiums faster than reducing actual risk.
+:::
+
+This has implications beyond insurance:
+- Complex organizations can't accurately estimate their own risk
+- Hidden dependencies become visible only during failures
+- The cost of complexity is paid in unpriced, unmanaged exposure
+
+**For AI systems**: Highly complex AI deployments—multi-agent systems with emergent coordination, unclear capability boundaries, and undocumented information flows—will face steep complexity taxes. Simpler, more legible architectures may be cheaper to insure than technically safer but opaque alternatives.
+
+---
+
 ## The Office Key: A Second Exposure
 
 Alice decides to give Bob a key to her office so he can pick up gems for delivery when she's not there. This creates a **new, separate exposure**—distinct from the gem delivery itself.

@@ -23,6 +23,7 @@ Delegation risk principles aren't new—human organizations have developed sophi
 
 | Case | Domain | Key Insight |
 |------|--------|-------------|
+| [Alliance Cascades](/case-studies/human-systems/alliance-cascades/) | Geopolitics | Hidden alliances create systemic risk (WW1) |
 | [Criminal Organizations](/case-studies/human-systems/criminal-trust/) | Illegal enterprises | Trust without legal enforcement |
 | [Organizational Trust](/case-studies/human-systems/organizational-trust/) | Corporate hierarchies | Formal delegation structures |
 | [Jury Systems](/case-studies/human-systems/jury-trust/) | Legal system | Adversarial trust filtering |

@@ -177,7 +177,7 @@ Step-by-step analysis of real architectures:
 - Customer support escalation (active influence + capture)
 
 ### [Solutions & Mitigations](/entanglements/solutions/)
-Seven approaches to reducing entanglement:
+Nine approaches to reducing entanglement:
 1. Architectural diversity requirements
 2. Explicit entanglement audits
 3. Stress testing for coupling
@@ -185,6 +185,8 @@ Seven approaches to reducing entanglement:
 5. Entanglement-aware risk budgeting
 6. Circuit breakers
 7. Regular independence verification
+8. Temporal dynamics management
+9. Software engineering dependency patterns
 
 ### [Decision Framework](/entanglements/decision-framework/)
 When is independence worth the cost?
@@ -291,6 +293,34 @@ Step-by-step assessment process:
 - Passive and active assessment
 - Adversarial testing
 - Quantification and remediation
+
+### [Hidden Coordination](/entanglements/hidden-coordination/)
+When agents have "secret friends"—adversarial use of hidden networks:
+- Game of Thrones as case study
+- The power of non-obvious alliances
+- Detection strategies
+- The limits of detection
+
+### [Software Dependency Patterns](/entanglements/software-dependency-patterns/)
+Lessons from 50 years of software engineering:
+- Dependency injection and inversion of control
+- Acyclic dependencies principle
+- Interface segregation
+- Package management lessons
+
+### [Organizational Isolation](/entanglements/organizational-isolation/)
+How organizations deliberately create isolation:
+- Hub-and-spoke communication
+- Rotation policies
+- Competitive dynamics
+- Information compartmentalization
+
+### [Legibility and Control](/entanglements/legibility-and-control/)
+When making entanglements explicit helps vs. hurts:
+- James C. Scott's "Seeing Like a State"
+- High modernism and its failures
+- Métis: knowledge that can't be formalized
+- The standardization paradox
 
 ---
 
