@@ -94,5 +94,5 @@ AI safety must:
 
 - **Learn from AI failures** → [Sydney Case Study](/case-studies/ai-systems/case-study-sydney/) shows what happens when constraints fail
 - **See drift in action** → [Drift Case Study](/case-studies/ai-systems/case-study-drift/) demonstrates gradual degradation
-- **Build better systems** → [Safety Mechanisms](/applying/safety-mechanisms/) for defense in depth
+- **Build better systems** → [Safety Mechanisms](/design-patterns/safety-mechanisms/) for defense in depth
 - **Avoid common mistakes** → [Anti-Patterns](/case-studies/ai-systems/anti-patterns/) catalogs what not to do

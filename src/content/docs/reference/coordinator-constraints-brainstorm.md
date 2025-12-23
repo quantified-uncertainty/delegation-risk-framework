@@ -5,10 +5,10 @@ title: "Coordinator Constraints - Brainstorming"
 # Brainstorming: Improving the Coordinator Constraints Framework
 
 :::note[Internal Working Document]
-This is a brainstorming document for improving the [Coordinator Constraints](/applying/coordinator-constraints/) page. It contains analysis, critiques, and potential improvements—not finalized content.
+This is a brainstorming document for improving the [Coordinator Constraints](/design-patterns/coordinator-constraints/) page. It contains analysis, critiques, and potential improvements—not finalized content.
 :::
 
-This document analyzes the current [Coordinator Constraints](/applying/coordinator-constraints/) framework and brainstorms potential improvements across several dimensions.
+This document analyzes the current [Coordinator Constraints](/design-patterns/coordinator-constraints/) framework and brainstorms potential improvements across several dimensions.
 
 ## 1. Taxonomy/Categorization Analysis
 

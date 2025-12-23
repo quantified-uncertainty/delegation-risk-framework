@@ -21,8 +21,8 @@ If you're evaluating whether this framework is useful:
 If you want to use this framework on a real system:
 1. **[Introduction](/getting-started/introduction/)** — Problem context
 2. **[Core Concepts](/getting-started/core-concepts/)** — The conceptual foundation
-3. **[The Framework](/framework/)** — Quantitative details
-4. **[Quick Start](/applying/tools/quick-start/)** — Step-by-step application checklist
+3. **[Delegation Risk](/delegation-risk/)** — Quantitative details
+4. **[Quick Start](/design-patterns/tools/quick-start/)** — Step-by-step application checklist
 
 ## Section Contents
 
@@ -36,22 +36,24 @@ If you want to use this framework on a real system:
 
 ## How This Section Connects
 
-```
-Getting Started
-      ↓
-   [Introduction] ← Start here for context
-      ↓
-   [Core Concepts] ← Understand the framework
-      ↓
-   ┌─────────────────────┐
-   ↓                     ↓
-[The Framework]    [Quick Start]
-(quantitative)     (practical)
+```mermaid
+flowchart TB
+    GS[Getting Started]
+    GS --> I[Introduction<br/>Start here for context]
+    I --> CC[Core Concepts<br/>Understand the framework]
+    CC --> F[The Framework<br/>quantitative]
+    CC --> QS[Quick Start<br/>practical]
+
+    style GS fill:#f0f0f0
+    style I fill:#e6f3ff
+    style CC fill:#e6f3ff
+    style F fill:#fff3e6
+    style QS fill:#e6ffe6
 ```
 
 ## Next Steps
 
 Once you understand the basics:
-- **Want the math?** → [The Framework](/framework/) for quantitative foundations
-- **Want to apply it?** → [Applying the Framework](/applying/) for practical guidance
+- **Want the math?** → [Delegation Risk](/delegation-risk/) for quantitative foundations
+- **Want to apply it?** → [Applying the Framework](/design-patterns/) for practical guidance
 - **Want examples?** → [Case Studies](/case-studies/) for real-world applications

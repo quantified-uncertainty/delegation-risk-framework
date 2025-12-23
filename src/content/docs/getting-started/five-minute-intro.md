@@ -112,8 +112,8 @@ Budget: $500/mo → **Within budget. Ship it.**
 ## Next Steps
 
 - **Want the full picture?** → [Core Concepts](/getting-started/core-concepts/)
-- **Ready to apply it?** → [Quick Start](/applying/tools/quick-start/)
-- **Want the math?** → [Delegation Risk](/framework/risk/overview/)
+- **Ready to apply it?** → [Quick Start](/design-patterns/tools/quick-start/)
+- **Want the math?** → [Delegation Risk](/delegation-risk/overview/)
 - **Have questions?** → [FAQ](/getting-started/faq/)
 
 ---

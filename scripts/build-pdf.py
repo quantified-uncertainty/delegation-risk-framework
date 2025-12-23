@@ -114,12 +114,20 @@ SIDEBAR_ORDER = [
     ]),
     # The Framework
     ("The Framework", [
-        "framework/overview.md",
-        "framework/walkthrough.md",
-        "framework/delegation-accounting.md",
-        "framework/risk-decomposition.md",
-        "framework/exposure-cascade.md",
-        "framework/insurers-dilemma.md",
+        "framework/index.md",
+        # Capability Formalization
+        "framework/capability/index.md",
+        "framework/capability/agent-power-formalization.md",
+        "framework/capability/agency-power-examples.md",
+        "framework/capability/strong-tools-hypothesis.md",
+        # Risk Formalization
+        "framework/risk/index.md",
+        "framework/risk/overview.md",
+        "framework/risk/walkthrough.md",
+        "framework/risk/delegation-accounting.md",
+        "framework/risk/risk-decomposition.md",
+        "framework/risk/exposure-cascade.md",
+        "framework/risk/insurers-dilemma.md",
     ]),
     # Applying the Framework
     ("Applying the Framework", [
@@ -130,6 +138,25 @@ SIDEBAR_ORDER = [
         "applying/forecasting-navigation.md",
         "applying/least-x-principles.md",
         "applying/coordinator-constraints.md",
+        # Design Patterns
+        "applying/patterns/index.md",
+        "applying/patterns/structural.md",
+        "applying/patterns/verification.md",
+        "applying/patterns/information.md",
+        "applying/patterns/temporal.md",
+        "applying/patterns/monitoring.md",
+        "applying/patterns/multi-agent.md",
+        "applying/patterns/incentive.md",
+        "applying/patterns/recovery.md",
+        "applying/patterns/channel-integrity.md",
+        # Entanglements
+        "applying/interconnection/index.md",
+        "applying/interconnection/types.md",
+        "applying/interconnection/challenges.md",
+        "applying/interconnection/modeling.md",
+        "applying/interconnection/examples.md",
+        "applying/interconnection/solutions.md",
+        "applying/interconnection/decision-framework.md",
         # Worked Examples
         "applying/examples/research-assistant-example.md",
         "applying/examples/code-deployment-example.md",
@@ -155,6 +182,7 @@ SIDEBAR_ORDER = [
         "cross-domain-methods/attack-surface-metrics.md",
         "cross-domain-methods/linear-logic-types.md",
         "cross-domain-methods/lessons-from-failures.md",
+        "cross-domain-methods/access-control-systems.md",
     ]),
     # Case Studies
     ("Case Studies", [

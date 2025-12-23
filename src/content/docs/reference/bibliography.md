@@ -205,5 +205,5 @@ https://[domain]/
 ## See Also
 
 - [Related Approaches](/reference/related-approaches/) — How this framework compares to alternatives
-- [Background Research](/deep-dives/research/) — Deep dives into specific domains
+- [Background Research](/research/) — Deep dives into specific domains
 - [Glossary](/getting-started/glossary/) — Terminology definitions

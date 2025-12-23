@@ -14,7 +14,7 @@ This section tells the story of the Anomaly Unit—a fictional case study explor
 
 ## Prerequisites
 
-Before diving in, read [The Insurer's Dilemma](/framework/risk/insurers-dilemma/) — it establishes Diana's insurance framework and moral hazard concepts that underpin the anomaly engagement system.
+Before diving in, read [The Insurer's Dilemma](/delegation-risk/insurers-dilemma/) — it establishes Diana's insurance framework and moral hazard concepts that underpin the anomaly engagement system.
 
 ---
 

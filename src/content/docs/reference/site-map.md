@@ -223,21 +223,21 @@ What you need to understand before each major concept:
 - [5-Minute Introduction](/getting-started/five-minute-intro/)
 - [Introduction](/getting-started/introduction/)
 - [Core Concepts](/getting-started/core-concepts/)
-- [Quick Start](/applying/tools/quick-start/)
+- [Quick Start](/design-patterns/tools/quick-start/)
 
 **Reference**:
 - [Glossary](/getting-started/glossary/)
 - [FAQ & Objections](/getting-started/faq/)
 - [Anti-patterns](/case-studies/ai-systems/anti-patterns/)
 - [Bibliography](/reference/bibliography/)
-- [Decision Guide](/applying/tools/decision-guide/)
+- [Decision Guide](/design-patterns/tools/decision-guide/)
 
 **Deep dives**:
-- [Delegation Risk Overview](/framework/risk/overview/)
+- [Delegation Risk Overview](/delegation-risk/overview/)
 - [Risk Budgeting Overview](/cross-domain-methods/overview/)
-- [Safety Mechanisms](/applying/safety-mechanisms/)
+- [Safety Mechanisms](/design-patterns/safety-mechanisms/)
 
 **Interactive Tools**:
-- [Delegation Risk Calculator](/applying/tools/delegation-risk-calculator/)
-- [Risk Inheritance](/applying/tools/trust-propagation/)
-- [Tradeoff Frontier](/applying/tools/tradeoff-frontier/)
+- [Delegation Risk Calculator](/design-patterns/tools/delegation-risk-calculator/)
+- [Risk Inheritance](/design-patterns/tools/trust-propagation/)
+- [Tradeoff Frontier](/design-patterns/tools/tradeoff-frontier/)

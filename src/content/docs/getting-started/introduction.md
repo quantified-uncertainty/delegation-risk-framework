@@ -125,7 +125,7 @@ The documentation is organized from foundations to applications:
 
 **Deep Dives** goes further into theory and background research for readers who want more depth.
 
-You don't need to read linearly. If you want the core ideas fast, start with the [Five-Minute Intro](/getting-started/five-minute-intro/). If you want to apply the framework immediately, try the [Quick Start](/applying/tools/quick-start/). If you want the full picture, the [Core Concepts](/getting-started/core-concepts/) page provides a visual overview of how everything connects.
+You don't need to read linearly. If you want the core ideas fast, start with the [Five-Minute Intro](/getting-started/five-minute-intro/). If you want to apply the framework immediately, try the [Quick Start](/design-patterns/tools/quick-start/). If you want the full picture, the [Core Concepts](/getting-started/core-concepts/) page provides a visual overview of how everything connects.
 
 ---
 
@@ -159,5 +159,5 @@ See the [full bibliography](/reference/bibliography/) for comprehensive referenc
 ## See Also
 
 - [Core Concepts](/getting-started/core-concepts/) — Key ideas without mathematical formalism
-- [Quick Start](/applying/tools/quick-start/) — Step-by-step application checklist
+- [Quick Start](/design-patterns/tools/quick-start/) — Step-by-step application checklist
 - [Glossary](/getting-started/glossary/) — Terminology reference

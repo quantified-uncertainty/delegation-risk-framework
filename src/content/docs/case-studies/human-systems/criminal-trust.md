@@ -630,4 +630,4 @@ Each layer reinforces the others. Remove any one, and the system weakens but sur
 - [The Oversight Dilemma](/case-studies/human-systems/oversight-dilemma/) — Trust in monitoring systems
 - [Mechanism Design](/cross-domain-methods/mechanism-design/) — Incentive-compatible structures
 - [Trust Across Civilizations](/case-studies/human-systems/trust-across-civilizations/) — Historical trust architectures
-- [Least X Principles](/applying/least-x-principles/) — Principles for limiting exposure
+- [Least X Principles](/design-patterns/least-x-principles/) — Principles for limiting exposure

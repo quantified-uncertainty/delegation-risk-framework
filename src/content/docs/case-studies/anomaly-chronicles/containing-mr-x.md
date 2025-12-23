@@ -437,6 +437,6 @@ That's the lesson.
 ## Further Reading
 
 - [Five Years Later: The Anomaly Unit](/case-studies/anomaly-chronicles/five-years-later/) — How an industry emerged to contain a new class of beings
-- [Delegation Accounting](/framework/risk/delegation-accounting/) — Balance sheet framework for delegation
+- [Delegation Accounting](/delegation-risk/delegation-accounting/) — Balance sheet framework for delegation
 - [Managing Exposure in Power Delegation](/case-studies/anomaly-chronicles/power-struggles/) — How overseers bound exposure to delegates
-- [Fidelity Insurance](/deep-dives/research/fidelity-insurance/) — How insurance markets price defection risk
+- [Fidelity Insurance](/research/fidelity-insurance/) — How insurance markets price defection risk

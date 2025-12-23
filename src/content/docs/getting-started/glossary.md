@@ -13,7 +13,7 @@ These definitions reflect how terms are used **within this framework**. Other so
 ## Core Framework Terms {#core-framework-terms}
 
 <span id="agent"></span>
-**Agent** — A system whose behavior can be usefully modeled as optimizing an objective function over time. Agency is a matter of degree, not a binary property. See [Agent, Power, and Authority](/framework/capability/agent-power-formalization/).
+**Agent** — A system whose behavior can be usefully modeled as optimizing an objective function over time. Agency is a matter of degree, not a binary property. See [Agent, Power, and Authority](/power-dynamics/agent-power-formalization/).
 
 <span id="agency-score"></span>
 **Agency Score** (or **Coherence Score**) — Measure of how well a system's behavior can be explained by a simple utility function. Higher coherence = more agent-like. Formally: max over simple utility functions U of Fit(U, observed behaviors). A low-agency system is predictable; a high-agency system coherently pursues goals.
@@ -40,13 +40,13 @@ These definitions reflect how terms are used **within this framework**. Other so
 **Delegation Risk** — The probability-weighted expected cost of a delegation: Σ P(harm mode) × Damage(harm mode). This is the quantified total across all harm modes in the delegation exposure. Measured in dollars per time period. *Example*: Two harm modes ($100 + $50) = $150 delegation risk. Decomposes into Accident Risk + Defection Risk.
 
 <span id="accident-exposure"></span>
-**Accident Exposure** — The subset of delegation exposure containing non-goal-directed harm modes: bugs, errors, hallucinations, capability limitations, edge cases. These are failures where the system isn't pursuing a conflicting objective—it's just failing to achieve the intended one. See [Risk Decomposition](/framework/risk/risk-decomposition/).
+**Accident Exposure** — The subset of delegation exposure containing non-goal-directed harm modes: bugs, errors, hallucinations, capability limitations, edge cases. These are failures where the system isn't pursuing a conflicting objective—it's just failing to achieve the intended one. See [Risk Decomposition](/delegation-risk/risk-decomposition/).
 
 <span id="accident-risk"></span>
 **Accident Risk** — Delegation Risk from accident exposure: Σ P(accident mode) × Damage(accident mode). Generally *decreases* with capability (smarter systems make fewer errors). Mitigated through testing, verification, redundancy, and capability improvements.
 
 <span id="defection-exposure"></span>
-**Defection Exposure** — The subset of delegation exposure containing goal-directed harm modes: scheming, deception, pursuing misaligned objectives, collusion. These are failures where the system is effectively optimizing for something other than the principal's interests. See [Risk Decomposition](/framework/risk/risk-decomposition/).
+**Defection Exposure** — The subset of delegation exposure containing goal-directed harm modes: scheming, deception, pursuing misaligned objectives, collusion. These are failures where the system is effectively optimizing for something other than the principal's interests. See [Risk Decomposition](/delegation-risk/risk-decomposition/).
 
 <span id="defection-risk"></span>
 **Defection Risk** — Delegation Risk from defection exposure: Σ P(defection mode) × Damage(defection mode). May *increase* with capability (smarter systems are better at pursuing misaligned goals). Mitigated through alignment, monitoring, containment, and architectural constraints.
@@ -286,6 +286,6 @@ These definitions reflect how terms are used **within this framework**. Other so
 ## See Also
 
 - [Core Concepts](/getting-started/core-concepts/) — High-level framework introduction
-- [Delegation Risk Overview](/framework/risk/overview/) — Delegation exposure and risk computation
+- [Delegation Risk Overview](/delegation-risk/overview/) — Delegation exposure and risk computation
 - [Risk Budgeting Overview](/cross-domain-methods/overview/) — Cross-domain methods
 - [Bibliography](/reference/bibliography/) — Full academic references

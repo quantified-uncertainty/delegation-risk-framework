@@ -574,4 +574,4 @@ Juries can refuse to apply laws they consider unjust.
 - [The Oversight Dilemma](/case-studies/human-systems/oversight-dilemma/) — Adversarial oversight structures
 - [Nuclear Launch Authority](/case-studies/human-systems/nuclear-launch-authority/) — Another asymmetric error system
 - [Criminal Organizations](/case-studies/human-systems/criminal-trust/) — Trust without legal enforcement
-- [Risk Inheritance](/deep-dives/theory/trust-propagation/) — How trust flows through networks
+- [Risk Inheritance](/research/theory/trust-propagation/) — How trust flows through networks

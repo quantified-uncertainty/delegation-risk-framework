@@ -102,7 +102,7 @@ For low-risk internal tools:
 3. **Apply basic Least X checklist** (15 min)
 4. **Add monitoring** (varies)
 
-See the [Quick Start](/applying/tools/quick-start/) for the full process, but you can start with just steps 1-3.
+See the [Quick Start](/design-patterns/tools/quick-start/) for the full process, but you can start with just steps 1-3.
 
 ### "How does this work with existing ML infrastructure?"
 
@@ -124,7 +124,7 @@ Currently, implementing requires manual engineering. Useful building blocks:
 - **OpenTelemetry**: Monitoring and tracing
 - **Semgrep**: Static analysis for code components
 
-See the [Interactive Calculators](/applying/tools/delegation-risk-calculator/) for Delegation Risk computation.
+See the [Interactive Calculators](/design-patterns/tools/delegation-risk-calculator/) for Delegation Risk computation.
 
 ### "How do I convince my team/manager to adopt this?"
 
@@ -161,7 +161,7 @@ Sometimes, yes. For example:
 
 The resolution: **apply constraints proportionate to risk**. A public FAQ bot needs less constraint than a code deployment system.
 
-Use the [Decision Guide](/applying/tools/decision-guide/) to navigate tradeoffs.
+Use the [Decision Guide](/design-patterns/tools/decision-guide/) to navigate tradeoffs.
 
 ### "Why trust old/dumb models for coordination when they make more mistakes?"
 
@@ -184,7 +184,7 @@ Honestly: **we don't have proof for AI systems specifically**. The evidence is:
 2. **Logical argument**: Limiting capability, context, and connectivity necessarily limits attack surface
 3. **Red team results**: Systems designed with these constraints are harder to exploit
 
-The [Empirical Tests](/applying/tools/empirical-tests/) page outlines how to gather evidence for your specific deployment.
+The [Empirical Tests](/design-patterns/tools/empirical-tests/) page outlines how to gather evidence for your specific deployment.
 
 ### "Isn't this just security theater?"
 
@@ -237,7 +237,7 @@ The framework handles both AI-origin and human-origin threats.
 
 ## See Also
 
-- [Quick Start](/applying/tools/quick-start/) — Practical application checklist
-- [Decision Guide](/applying/tools/decision-guide/) — Navigating tradeoffs
+- [Quick Start](/design-patterns/tools/quick-start/) — Practical application checklist
+- [Decision Guide](/design-patterns/tools/decision-guide/) — Navigating tradeoffs
 - [Related Approaches](/reference/related-approaches/) — How this compares to alternatives
-- [Empirical Tests](/applying/tools/empirical-tests/) — Validation methodology
+- [Empirical Tests](/design-patterns/tools/empirical-tests/) — Validation methodology

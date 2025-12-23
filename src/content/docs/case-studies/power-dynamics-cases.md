@@ -8,7 +8,7 @@ sidebar:
 # Case Studies: Power, Agency, and Authority
 
 :::note[Purpose]
-These case studies apply the [Agency/Power formalization](/framework/capability/agent-power-formalization/) to real systems—both AI and human institutions. The goal is to build intuition about power dynamics, authority gaps, and the conditions that make delegation safe or dangerous.
+These case studies apply the [Agency/Power formalization](/power-dynamics/agent-power-formalization/) to real systems—both AI and human institutions. The goal is to build intuition about power dynamics, authority gaps, and the conditions that make delegation safe or dangerous.
 :::
 
 ---
@@ -331,28 +331,17 @@ Autonomous vehicles illustrate the challenge of bounded agency in the physical w
 
 Self-driving cars attempt **bounded agency**: enough goal-pursuit to navigate, but constrained to prevent dangerous optimization.
 
-```
-Bounded Agency Design:
-┌─────────────────────────────────────┐
-│  Objectives (externally set)        │
-│  - Get to destination               │
-│  - Don't hit anything               │
-│  - Follow traffic laws              │
-└─────────────────────────────────────┘
-                 ↓
-┌─────────────────────────────────────┐
-│  Planning (agency component)        │
-│  - Route selection                  │
-│  - Behavior prediction              │
-│  - Trajectory optimization          │
-└─────────────────────────────────────┘
-                 ↓
-┌─────────────────────────────────────┐
-│  Hard constraints (override agency) │
-│  - Speed limits                     │
-│  - Minimum following distance       │
-│  - Emergency stop capability        │
-└─────────────────────────────────────┘
+```mermaid
+flowchart TB
+    OBJ["**Objectives (externally set)**<br/>• Get to destination<br/>• Don't hit anything<br/>• Follow traffic laws"]
+    PLAN["**Planning (agency component)**<br/>• Route selection<br/>• Behavior prediction<br/>• Trajectory optimization"]
+    HARD["**Hard constraints (override agency)**<br/>• Speed limits<br/>• Minimum following distance<br/>• Emergency stop capability"]
+
+    OBJ --> PLAN --> HARD
+
+    style OBJ fill:#cce6ff
+    style PLAN fill:#ffffcc
+    style HARD fill:#ffcccc
 ```
 
 ### Safety Envelope Approach
@@ -385,28 +374,21 @@ Self-driving cars offer lessons for bounded agency:
 
 ### Agency-Power Map
 
-```
-        High Agency
-             ↑
-             │    ● Autonomous agents
-             │         (hypothetical)
-             │
-             │    ● Recommendation algorithms
-             │         (emergent agency)
-             │
-      0.5 ───┼──────────● Corporate boards
-             │               (constrained)
-             │    ● Self-driving cars
-             │         (bounded)
-             │
-             │    ● Central banks
-             │         (mandated)
-             │
-      0.2 ───┼─────────────────● AlphaFold
-             │                     (tool)
-             │
-             └────────────────────────────→ High Power
-                      50          75     100
+```mermaid
+quadrantChart
+    title Agency vs Power
+    x-axis Low Power --> High Power
+    y-axis Low Agency --> High Agency
+    quadrant-1 High risk zone
+    quadrant-2 Dangerous if empowered
+    quadrant-3 Safe tools
+    quadrant-4 Controllable power
+    AlphaFold: [0.45, 0.15]
+    Central Banks: [0.85, 0.35]
+    Self-Driving Cars: [0.25, 0.4]
+    Corporate Boards: [0.7, 0.5]
+    Recommendation Algos: [0.6, 0.55]
+    Autonomous Agents?: [0.9, 0.85]
 ```
 
 ### RACAP Comparison
@@ -473,7 +455,7 @@ Self-driving cars offer lessons for bounded agency:
 
 ## See Also
 
-- [Agent, Power, Authority Formalization](/framework/capability/agent-power-formalization/) — Theoretical foundations
-- [Strong Tools Hypothesis](/framework/capability/strong-tools-hypothesis/) — Can we achieve capability without agency?
-- [Worked Examples](/framework/capability/agency-power-examples/) — Numerical calculations
+- [Agent, Power, Authority Formalization](/power-dynamics/agent-power-formalization/) — Theoretical foundations
+- [Strong Tools Hypothesis](/power-dynamics/strong-tools-hypothesis/) — Can we achieve capability without agency?
+- [Worked Examples](/power-dynamics/agency-power-examples/) — Numerical calculations
 - [Power Struggles](/case-studies/anomaly-chronicles/power-struggles/) — More on authority dynamics

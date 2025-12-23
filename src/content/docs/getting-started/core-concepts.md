@@ -6,7 +6,7 @@ sidebar:
 
 # Core Concepts
 
-This page introduces the key ideas without mathematical formalism. For quantitative details, see [Delegation Risk](/framework/risk/overview/).
+This page introduces the key ideas without mathematical formalism. For quantitative details, see [Delegation Risk](/delegation-risk/overview/).
 
 ## Framework Overview
 
@@ -322,7 +322,7 @@ Where **Capability = Power × Agency**:
 - **Power**: Ability to achieve diverse goals (what can the system accomplish?)
 - **Agency**: Coherence of goal-pursuit (how optimizer-like is the system?)
 
-See [Agent, Power, and Authority](/framework/capability/agent-power-formalization/) for full formalization.
+See [Agent, Power, and Authority](/power-dynamics/agent-power-formalization/) for full formalization.
 
 ---
 
@@ -341,6 +341,6 @@ See [Agent, Power, and Authority](/framework/capability/agent-power-formalizatio
 ## See Also
 
 - [Introduction](/getting-started/introduction/) — The full problem statement and approach
-- [Delegation Risk Overview](/framework/risk/overview/) — The quantitative foundation
-- [Least X Principles](/applying/least-x-principles/) — Deep dive into each principle
-- [Quick Start](/applying/tools/quick-start/) — Apply these concepts step-by-step
+- [Delegation Risk Overview](/delegation-risk/overview/) — The quantitative foundation
+- [Least X Principles](/design-patterns/least-x-principles/) — Deep dive into each principle
+- [Quick Start](/design-patterns/tools/quick-start/) — Apply these concepts step-by-step

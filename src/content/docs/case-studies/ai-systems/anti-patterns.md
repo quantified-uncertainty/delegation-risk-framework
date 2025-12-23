@@ -120,7 +120,7 @@ flowchart LR
 - Slower
 - Introduces unnecessary attack surface
 
-**Do instead**: Apply Principle of Least Intelligence. Use the [Implementation Decision Tree](/applying/least-x-principles/#implementation-decision-tree). Default to code; only use LLMs when judgment/creativity required.
+**Do instead**: Apply Principle of Least Intelligence. Use the [Implementation Decision Tree](/design-patterns/least-x-principles/#implementation-decision-tree). Default to code; only use LLMs when judgment/creativity required.
 
 ---
 
@@ -280,7 +280,7 @@ Before deployment, verify you're NOT doing any of these:
 
 ## See Also
 
-- [Least X Principles](/applying/least-x-principles/) — The positive counterpart to these anti-patterns
-- [Safety Mechanisms](/applying/safety-mechanisms/) — How to implement proper defenses
-- [Quick Start](/applying/tools/quick-start/) — Checklist for doing it right
+- [Least X Principles](/design-patterns/least-x-principles/) — The positive counterpart to these anti-patterns
+- [Safety Mechanisms](/design-patterns/safety-mechanisms/) — How to implement proper defenses
+- [Quick Start](/design-patterns/tools/quick-start/) — Checklist for doing it right
 - [Lessons from Failures](/cross-domain-methods/lessons-from-failures/) — Historical examples of anti-patterns causing harm

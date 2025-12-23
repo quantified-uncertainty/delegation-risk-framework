@@ -340,4 +340,4 @@ For organizations implementing delegation risk budgets today:
 
 - [Euler Allocation](/cross-domain-methods/euler-allocation/) — Mathematical framework for budget decomposition
 - [Mechanism Design](/cross-domain-methods/mechanism-design/) — Incentive-compatible reporting
-- [Trust Accounting](/deep-dives/theory/trust-accounting/) — Ledgers and auditing
+- [Trust Accounting](/research/theory/trust-accounting/) — Ledgers and auditing

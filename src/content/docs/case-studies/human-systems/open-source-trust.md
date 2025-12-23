@@ -674,5 +674,5 @@ AI systems have similar dependency structures:
 - [Nuclear Launch Authority](/case-studies/human-systems/nuclear-launch-authority/) — High-stakes trust under uncertainty
 - [Criminal Organizations](/case-studies/human-systems/criminal-trust/) — Trust without external enforcement
 - [The Oversight Dilemma](/case-studies/human-systems/oversight-dilemma/) — Structuring verification
-- [Risk Inheritance](/deep-dives/theory/trust-propagation/) — How trust flows through networks
+- [Risk Inheritance](/research/theory/trust-propagation/) — How trust flows through networks
 - [Lessons from Historical Failures](/cross-domain-methods/lessons-from-failures/) — When trust systems break

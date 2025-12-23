@@ -340,6 +340,6 @@ Real trust isn't perfectly linear:
 
 ## See Also
 
-- [Trust Accounting](/deep-dives/theory/trust-accounting/) — Runtime trust ledgers
-- [Trust Protocols](/deep-dives/theory/trust-protocols/) — Handshake and delegation protocols
+- [Trust Accounting](/research/theory/trust-accounting/) — Runtime trust ledgers
+- [Trust Protocols](/research/theory/trust-protocols/) — Handshake and delegation protocols
 - [Mechanism Design](/cross-domain-methods/mechanism-design/) — Incentive-compatible reporting

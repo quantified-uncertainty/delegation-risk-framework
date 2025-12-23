@@ -81,7 +81,7 @@ This has been applied to VaR and Expected Shortfall attribution in finance, natu
 
 ## Next Steps
 
-- **Apply to AI systems** → [The Insurer's Dilemma](/framework/risk/insurers-dilemma/) shows these principles in action
-- **See worked examples** → [Delegation Accounting](/framework/risk/delegation-accounting/) uses similar incentive structures
-- **Deeper theory** → [Trust Economics](/deep-dives/theory/trust-economics/) covers the economic foundations
-- **Implementation** → [Quick Start](/applying/tools/quick-start/) for practical application
+- **Apply to AI systems** → [The Insurer's Dilemma](/delegation-risk/insurers-dilemma/) shows these principles in action
+- **See worked examples** → [Delegation Accounting](/delegation-risk/delegation-accounting/) uses similar incentive structures
+- **Deeper theory** → [Trust Economics](/research/theory/trust-economics/) covers the economic foundations
+- **Implementation** → [Quick Start](/design-patterns/tools/quick-start/) for practical application

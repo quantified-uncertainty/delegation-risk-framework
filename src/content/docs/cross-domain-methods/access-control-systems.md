@@ -582,11 +582,11 @@ Third-party integrations outlive their purpose:
 
 ## See Also
 
-- [Least X Principles](/applying/least-x-principles/) — Minimizing capability and context
-- [Capability Airlock](/applying/patterns/structural/#capability-airlock) — Isolating dangerous capabilities
-- [Need-to-Know Compartments](/applying/patterns/information/) — Information access patterns
-- [Trust Dynamics](/deep-dives/theory/trust-dynamics/) — How trust evolves over time
-- [Separation of Powers](/applying/patterns/structural/#separation-of-powers) — Multi-party control
+- [Least X Principles](/design-patterns/least-x-principles/) — Minimizing capability and context
+- [Capability Airlock](/design-patterns/structural/#capability-airlock) — Isolating dangerous capabilities
+- [Need-to-Know Compartments](/design-patterns/information/) — Information access patterns
+- [Trust Dynamics](/research/theory/trust-dynamics/) — How trust evolves over time
+- [Separation of Powers](/design-patterns/structural/#separation-of-powers) — Multi-party control
 
 ## Further Reading
 

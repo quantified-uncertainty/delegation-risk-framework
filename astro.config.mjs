@@ -61,6 +61,11 @@ export default defineConfig({
 							autogenerate: { directory: 'applying/patterns' },
 						},
 						{
+							label: 'Entanglements',
+							collapsed: true,
+							autogenerate: { directory: 'applying/interconnection' },
+						},
+						{
 							label: 'Worked Examples',
 							collapsed: true,
 							autogenerate: { directory: 'applying/examples' },

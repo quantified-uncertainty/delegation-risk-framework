@@ -254,5 +254,5 @@ The team initially prototyped a monolithic GPT-4 code reviewer. Results:
 
 - [Case Study: Sydney](/case-studies/ai-systems/case-study-sydney/) — Failure case analysis
 - [Case Study: Near-Miss](/case-studies/ai-systems/case-study-near-miss/) — Incident caught before damage
-- [Research Assistant Example](/applying/examples/research-assistant-example/) — Full architecture walkthrough
-- [Safety Mechanisms](/applying/safety-mechanisms/) — Detailed safety patterns
+- [Research Assistant Example](/design-patterns/examples/research-assistant-example/) — Full architecture walkthrough
+- [Safety Mechanisms](/design-patterns/safety-mechanisms/) — Detailed safety patterns

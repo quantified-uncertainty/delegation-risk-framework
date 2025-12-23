@@ -300,5 +300,5 @@ This incident, because it was caught, became a case study rather than a disaster
 
 - [Case Study: Sydney](/case-studies/ai-systems/case-study-sydney/) — What happens when verification fails
 - [Case Study: Code Review Bot](/case-studies/ai-systems/case-study-success/) — Sustained success over time
-- [Safety Mechanisms](/applying/safety-mechanisms/) — Verification layer patterns
+- [Safety Mechanisms](/design-patterns/safety-mechanisms/) — Verification layer patterns
 - [Lessons from Failures](/cross-domain-methods/lessons-from-failures/) — Pattern analysis

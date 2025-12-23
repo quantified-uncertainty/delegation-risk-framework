@@ -176,4 +176,4 @@ Borrowing from security engineering ([least privilege](https://en.wikipedia.org/
 
 - [Core Concepts](/getting-started/core-concepts/) — Framework fundamentals
 - [FAQ](/getting-started/faq/) — Common objections addressed
-- [Empirical Tests](/applying/tools/empirical-tests/) — Validating the approach
+- [Empirical Tests](/design-patterns/tools/empirical-tests/) — Validating the approach

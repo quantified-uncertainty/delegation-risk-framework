@@ -334,5 +334,5 @@ Use this checklist before any system change:
 
 - [Case Study: Sydney](/case-studies/ai-systems/case-study-sydney/) — Acute failure
 - [Case Study: Near-Miss](/case-studies/ai-systems/case-study-near-miss/) — Caught before damage
-- [Trust Accounting](/deep-dives/theory/trust-accounting/) — Monitoring and auditing trust
+- [Trust Accounting](/research/theory/trust-accounting/) — Monitoring and auditing trust
 - [Lessons from Failures](/cross-domain-methods/lessons-from-failures/) — Common failure patterns

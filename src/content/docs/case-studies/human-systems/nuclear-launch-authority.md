@@ -644,4 +644,4 @@ Neither is obviously correct. The choice depends on which error is costlier.
 - [The Oversight Dilemma](/case-studies/human-systems/oversight-dilemma/) — Who watches the watchmen?
 - [Trust Across Civilizations](/case-studies/human-systems/trust-across-civilizations/) — Historical trust architectures
 - [Anti-patterns](/case-studies/ai-systems/anti-patterns/) — Trust architecture mistakes
-- [Risk Inheritance](/deep-dives/theory/trust-propagation/) — How trust flows through chains
+- [Risk Inheritance](/research/theory/trust-propagation/) — How trust flows through chains

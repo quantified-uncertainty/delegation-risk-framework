@@ -786,6 +786,6 @@ Minimal Trust Floor = P(all overseers collude) × P(public fails to respond)
 
 - [Trust Across Civilizations](/case-studies/human-systems/trust-across-civilizations/) — Historical oversight architectures
 - [Organizational Trust](/case-studies/human-systems/organizational-trust/) — Business applications
-- [Risk Inheritance](/deep-dives/theory/trust-propagation/) — How trust flows through networks
+- [Risk Inheritance](/research/theory/trust-propagation/) — How trust flows through networks
 - [Mechanism Design](/cross-domain-methods/mechanism-design/) — Incentive-compatible structures
 - [Anti-patterns](/case-studies/ai-systems/anti-patterns/) — What not to do

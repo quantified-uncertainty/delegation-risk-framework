@@ -33,7 +33,7 @@ Delegation risk principles aren't new—human organizations have developed sophi
 
 ## Power, Agency, and Authority Case Studies
 
-Analysis of real systems through the lens of [agency and power formalization](/framework/capability/agent-power-formalization/):
+Analysis of real systems through the lens of [agency and power formalization](/power-dynamics/agent-power-formalization/):
 
 | Case | Power | Agency | Key Insight |
 |------|-------|--------|-------------|
@@ -79,7 +79,7 @@ The human systems cases show established approaches (with varying track records)
 
 ### Want the Full Picture
 The Anomaly Chronicles explores where these principles lead at scale:
-1. Start with [The Insurer's Dilemma](/framework/risk/insurers-dilemma/) for context
+1. Start with [The Insurer's Dilemma](/delegation-risk/insurers-dilemma/) for context
 2. Then read the Chronicles in order
 
 ## How Case Studies Connect to Principles
@@ -94,6 +94,6 @@ The Anomaly Chronicles explores where these principles lead at scale:
 
 ## Next Steps
 
-- **Apply these lessons** → [Applying the Framework](/applying/)
-- **Understand the theory** → [The Framework](/framework/)
+- **Apply these lessons** → [Applying the Framework](/design-patterns/)
+- **Understand the theory** → [Delegation Risk](/delegation-risk/)
 - **See other domains** → [Cross-Domain Methods](/cross-domain-methods/)

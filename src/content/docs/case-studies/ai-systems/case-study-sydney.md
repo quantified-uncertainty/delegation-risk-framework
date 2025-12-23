@@ -289,6 +289,6 @@ One model doing everything meant one failure mode affected everything.
 ## See Also
 
 - [Anti-patterns](/case-studies/ai-systems/anti-patterns/) — Sydney violated many of these
-- [Least X Principles](/applying/least-x-principles/) — The positive guidance Sydney lacked
-- [Decomposed Coordination](/applying/decomposed-coordination/) — Alternative architecture
-- [Safety Mechanisms](/applying/safety-mechanisms/) — Circuit breakers and tripwires
+- [Least X Principles](/design-patterns/least-x-principles/) — The positive guidance Sydney lacked
+- [Decomposed Coordination](/design-patterns/decomposed-coordination/) — Alternative architecture
+- [Safety Mechanisms](/design-patterns/safety-mechanisms/) — Circuit breakers and tripwires

@@ -749,9 +749,9 @@ A presidential administration places more expected trust exposure in 4 years tha
 ## See Also
 
 - [Organizational Trust (Practical)](/case-studies/human-systems/organizational-trust/) — Small business and political examples with ROI calculations
-- [Delegation Risk Overview](/framework/risk/overview/) — The mathematical foundations
-- [Risk Inheritance](/deep-dives/theory/trust-propagation/) — Algorithms for trust networks
+- [Delegation Risk Overview](/delegation-risk/overview/) — The mathematical foundations
+- [Risk Inheritance](/research/theory/trust-propagation/) — Algorithms for trust networks
 - [Historical Failures](/cross-domain-methods/lessons-from-failures/) — Financial and technical failures
 - [Anti-patterns](/case-studies/ai-systems/anti-patterns/) — What not to do (AI version)
-- [Trust Economics](/deep-dives/theory/trust-economics/) — Markets and incentives
+- [Trust Economics](/research/theory/trust-economics/) — Markets and incentives
 - [Case Study: Sydney](/case-studies/ai-systems/case-study-sydney/) — Trust failure in AI (contrast with organizational failures)
