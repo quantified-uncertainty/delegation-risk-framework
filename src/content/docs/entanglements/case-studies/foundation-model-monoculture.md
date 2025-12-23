@@ -206,33 +206,16 @@ When a foundation model is updated:
 
 ## Measuring Monoculture Exposure
 
-### Provider Concentration Metrics
+### Provider Concentration
 
-```python
-def provider_concentration(system_components):
-    """
-    Calculate Herfindahl-Hirschman Index (HHI) for provider concentration.
-    HHI = Σ(market_share_i)²
+Use the Herfindahl-Hirschman Index (HHI) to measure provider concentration:
+- **HHI < 0.15**: Unconcentrated (healthy)
+- **HHI 0.15-0.25**: Moderate concentration
+- **HHI > 0.25**: High concentration (risky)
 
-    HHI < 0.15: Unconcentrated
-    HHI 0.15-0.25: Moderate concentration
-    HHI > 0.25: High concentration
-    """
-    provider_counts = Counter(c.provider for c in system_components)
-    total = sum(provider_counts.values())
-
-    hhi = sum((count/total)**2 for count in provider_counts.values())
-    return hhi
-
-# Example
-components = [
-    Component(provider="OpenAI"),
-    Component(provider="OpenAI"),
-    Component(provider="Anthropic"),
-    Component(provider="OpenAI"),
-]
-# HHI = (0.75)² + (0.25)² = 0.625 → Highly concentrated
-```
+**Example**: If your system has 4 components—3 use OpenAI, 1 uses Anthropic:
+- OpenAI share: 75%, Anthropic share: 25%
+- HHI = 0.75² + 0.25² = 0.625 → Highly concentrated
 
 ### Architecture Diversity Score
 

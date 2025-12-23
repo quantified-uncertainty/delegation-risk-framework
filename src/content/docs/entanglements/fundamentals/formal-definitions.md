@@ -1,414 +1,161 @@
 ---
 title: "Formal Definitions"
-description: "Mathematical formalization of entanglement using information theory and game theory"
+description: "Key concepts in entanglement, defined precisely but accessibly"
 sidebar:
-  order: 9
+  order: 3
 ---
 
 # Formal Definitions
 
-This page provides rigorous mathematical definitions for entanglement concepts. These formalizations enable precise reasoning, quantitative measurement, and theoretical analysis.
+This page defines entanglement concepts precisely. For most readers, the [Types of Entanglement](/entanglements/fundamentals/types/) overview is sufficient—this page is for those who want rigorous definitions.
 
 ---
 
-## Notation
+## Core Concepts
 
-| Symbol | Meaning |
-|--------|---------|
-| A, B, C | Components (agents, verifiers, etc.) |
-| X | Input to the system |
-| F_A, F_B | Failure events for components A, B |
-| O_A, O_B | Outputs of components A, B |
-| I(·;·) | Mutual information |
-| H(·) | Entropy |
-| P(·) | Probability |
-| do(·) | Intervention operator (Pearl) |
+### Passive Entanglement
 
----
+**Definition**: Components A and B are passively entangled when knowing whether A failed tells you something about whether B failed.
 
-## Information-Theoretic Definitions
+**Levels**:
+- **Zero entanglement**: A's failure tells you nothing about B (truly independent)
+- **Partial entanglement**: A's failure makes B's failure more likely
+- **Perfect entanglement**: A fails if and only if B fails (same failure mode)
 
-### Definition 1: Passive Entanglement (Mutual Information)
+**Example**: Two LLMs from the same provider. If an adversarial input fools one, it's more likely to fool the other—even without any communication between them.
 
-**Passive entanglement** between components A and B is the mutual information between their failure events:
+### Conditional Entanglement
 
-$$
-\text{Entanglement}_{\text{passive}}(A, B) = I(F_A; F_B)
-$$
+**Definition**: Components that are independent under normal conditions but become entangled under stress.
 
-Where:
-- $F_A \in \{0, 1\}$ indicates whether A fails on a given input
-- $F_B \in \{0, 1\}$ indicates whether B fails on a given input
-- $I(F_A; F_B) = H(F_A) + H(F_B) - H(F_A, F_B)$
+**Example**: Two verification systems work independently during normal operation. Under high load, both start taking shortcuts, and their failures become correlated.
 
-**Interpretation**:
-- $I(F_A; F_B) = 0$: Components are independent (no passive entanglement)
-- $I(F_A; F_B) > 0$: Knowing whether A failed tells you something about whether B failed
-- $I(F_A; F_B) = H(F_A) = H(F_B)$: Perfect correlation (maximum entanglement)
+This is dangerous because testing under normal conditions won't reveal the entanglement.
 
-**Properties**:
-- Symmetric: $I(F_A; F_B) = I(F_B; F_A)$
-- Non-negative: $I(F_A; F_B) \geq 0$
-- Bounded: $I(F_A; F_B) \leq \min(H(F_A), H(F_B))$
+### Active Entanglement
 
-### Definition 2: Conditional Entanglement
+**Definition**: Component A actively influences Component B—A's output affects B's behavior.
 
-**Conditional entanglement** given condition C:
+**Key distinction from passive**: Passive entanglement is symmetric (A correlates with B = B correlates with A). Active entanglement is directional (A influences B doesn't mean B influences A).
 
-$$
-\text{Entanglement}_{\text{conditional}}(A, B | C) = I(F_A; F_B | C)
-$$
+**Example**: An AI assistant summarizes a document, then a verifier reviews the summary. The assistant's framing actively shapes what the verifier sees and how they evaluate it.
 
-This captures entanglement that only manifests under certain conditions.
+### Context Contamination
 
-**Example**: Components may be independent under normal load ($C = \text{normal}$) but entangled under stress ($C = \text{stress}$):
+**Definition**: When Component B only sees Component A's processed version of the input, B loses information and inherits A's biases.
 
-$$
-I(F_A; F_B | \text{normal}) = 0 \quad \text{but} \quad I(F_A; F_B | \text{stress}) > 0
-$$
+**Key insight**: Information can only be lost through processing, never gained. If A filters or summarizes before B sees it, B cannot recover what A removed.
 
-### Definition 3: Active Entanglement (Transfer Entropy)
-
-**Active entanglement** from A to B is the information transfer, measured by transfer entropy:
-
-$$
-\text{Entanglement}_{\text{active}}(A \to B) = I(O_A^{t-1}; F_B^t | F_B^{t-1})
-$$
-
-This measures how much A's past output predicts B's current failure, beyond what B's own history predicts.
-
-**Properties**:
-- Asymmetric: $\text{Entanglement}_{\text{active}}(A \to B) \neq \text{Entanglement}_{\text{active}}(B \to A)$
-- Directional: Captures influence flow
-- Temporal: Requires time-series data
-
-### Definition 4: Interventional Influence
-
-Using Pearl's do-calculus, we define **causal influence** as:
-
-$$
-\text{Influence}(A \to B) = \mathbb{E}_X \left[ D_{KL}\left( P(O_B | X) \,\|\, P(O_B | X, do(O_A = a)) \right) \right]
-$$
-
-Where $D_{KL}$ is the Kullback-Leibler divergence.
-
-**Interpretation**: How much does intervening on A's output change the distribution of B's output, averaged over inputs?
-
-**Simplified version** (for binary outcomes):
-
-$$
-\text{Influence}(A \to B) = P(F_B | do(F_A = 1)) - P(F_B | do(F_A = 0))
-$$
-
-### Definition 5: Context Contamination
-
-When B receives context C derived from A's processing of input X:
-
-$$
-\text{Contamination}(A \to B) = I(X; O_B) - I(X; O_B | C)
-$$
-
-This measures how much information about the original input X is lost when B only sees A's processed context C.
-
-**Data Processing Inequality** guarantees:
-
-$$
-I(X; O_B) \leq I(X; C) \leq I(X; X) = H(X)
-$$
-
-Information can only be lost, never gained, through processing.
+**Example**: A first-stage agent summarizes a customer complaint before escalation. The summary omits details the agent deemed unimportant. The second-stage reviewer can only act on what they receive—they can't evaluate what they never saw.
 
 ---
 
-## Game-Theoretic Definitions
+## Game-Theoretic Concepts
 
-### Definition 6: Collusion Game
+### The Collusion Problem
 
-Consider a **verification game** with:
-- Principal P (system designer)
-- Agent A (being verified)
-- Verifier V (checking A's work)
+**Setup**: A principal (system designer) delegates to an agent (AI), with a verifier checking the agent's work.
 
-**Payoff structure**:
+**The risk**: If the agent and verifier can coordinate, they may both benefit from approving bad work—even though this hurts the principal.
 
-| | V Approves | V Rejects |
-|---|-----------|-----------|
-| A Good | (1, 1, 1) | (0, 0, -1) |
-| A Bad | (-10, 1, 1) | (0, 0, 0) |
+**Collusion resistance** requires that honest behavior pays better than collusion, accounting for:
+- Probability of getting caught
+- Penalties when caught
+- Benefits of collusion if undetected
 
-Format: (P's payoff, A's payoff, V's payoff)
+### Regulatory Capture
 
-**Analysis**:
-- If A and V cannot communicate: V should reject bad actions (V gets 0 vs 1, but P loses -10)
-- If A and V can collude: They may agree A→bad, V→approve (both get 1, P loses -10)
+**Definition**: When a verifier gradually shifts from serving the principal's interests to serving the agent's interests.
 
-**Collusion resistance** requires: The collusion payoff must be lower than the non-collusion payoff, accounting for detection probability and penalties.
+**Capture ratio**: Compare how often the verifier approves when the agent wants approval vs. when the agent doesn't want approval.
+- Ratio = 1: Verifier is independent
+- Ratio > 1: Verifier is biased toward agent
+- Ratio → ∞: Verifier always agrees with agent
 
-### Definition 7: Collusion-Resistant Mechanism
+**Causes**:
+- Information asymmetry (verifier relies on agent for expertise)
+- Relationship building (verifier trusts agent over time)
+- Incentive drift (verifier's rewards depend on agent satisfaction)
 
-A verification mechanism is **collusion-resistant** if:
+### Logical Correlation
 
-$$
-\forall (A, V): \quad U_A^{\text{honest}} + U_V^{\text{honest}} \geq U_A^{\text{collude}} + U_V^{\text{collude}} - P_{\text{detect}} \cdot \text{Penalty}
-$$
+**Definition**: Agents with similar training may make similar decisions without explicit communication—they reason the same way.
 
-Where:
-- $U^{\text{honest}}$ = expected payoff from honest behavior
-- $U^{\text{collude}}$ = expected payoff from collusion
-- $P_{\text{detect}}$ = probability of detecting collusion
-- Penalty = cost imposed when collusion is detected
-
-**Implication**: Collusion resistance requires either high detection probability, high penalties, or mechanisms that make collusion unprofitable even if undetected.
-
-### Definition 8: Regulatory Capture Equilibrium
-
-**Capture** is a Nash equilibrium where:
-- Agent A optimizes for outcomes that benefit A, not P
-- Verifier V has adapted to approve A's preferred outcomes
-- Neither A nor V has incentive to deviate unilaterally
-
-Formally, let $\theta_A$ be A's type (interests) and $\theta_V$ be V's type:
-
-**Initial state**: $\theta_V$ independent of $\theta_A$
-
-**Captured state**: $\theta_V$ has drifted toward $\theta_A$ through:
-- Information asymmetry (V relies on A for expertise)
-- Relationship building (V trusts A)
-- Incentive alignment (V's rewards depend on A's satisfaction)
-
-**Capture metric**:
-
-$$
-\text{Capture}(V) = \frac{P(\text{V approves} | \text{A prefers approval})}{P(\text{V approves} | \text{A prefers rejection})}
-$$
-
-- Capture = 1: V is independent of A's preferences
-- Capture > 1: V is biased toward A's preferences
-- Capture → ∞: V always agrees with A
-
-### Definition 9: Correlated Equilibrium and Logical Correlation
-
-A **correlated equilibrium** exists when players coordinate using a shared signal.
-
-For AI systems, the "signal" may be **shared training**. Two agents with similar training may correlate their decisions without explicit communication:
-
-$$
-P(a_A = a_B | \text{similar training}) > P(a_A = a_B | \text{independent training})
-$$
-
-**TDT-style logical correlation** is a form of implicit correlation where agents reason: "What would an agent with my decision procedure do?"
-
-This creates entanglement that cannot be eliminated through communication isolation:
-
-$$
-I(O_A; O_B | \text{no communication, similar reasoning}) > 0
-$$
+**Why this matters**: You can't break this entanglement by isolating communication. Two AIs trained similarly will have correlated failures even if they never interact, because they share reasoning patterns.
 
 ---
 
-## Risk Formalization
+## Risk Concepts
 
-### Definition 10: Entanglement Tax
+### The Entanglement Tax
 
-The **entanglement tax** is the ratio of actual to perceived risk:
+**Definition**: The ratio of actual risk to perceived risk.
 
-$$
-\text{Tax} = \frac{R_{\text{actual}}}{R_{\text{perceived}}}
-$$
+**Formula in plain terms**:
+> Entanglement Tax = What your risk actually is ÷ What you think your risk is
 
-For a system with n components, each with failure probability $p_i$:
+**Example**:
+- You have three 90%-effective safety layers
+- If independent: 0.1% failure rate (0.1 × 0.1 × 0.1)
+- If 50% correlated: ~5% failure rate
+- Entanglement tax: 50× (your risk is 50× higher than you thought)
 
-**Perceived risk** (assuming independence):
+### Effective Redundancy
 
-$$
-R_{\text{perceived}} = \prod_{i=1}^{n} p_i
-$$
+**Definition**: How much redundancy you actually have, accounting for correlation.
 
-**Actual risk** (accounting for correlations):
+**The problem**: Three "independent" verification layers sounds robust. But if they share blind spots, you might effectively have only 1.3 layers of protection.
 
-$$
-R_{\text{actual}} = P\left(\bigcap_{i=1}^{n} F_i\right) \geq R_{\text{perceived}}
-$$
+**Quick estimate**:
+| Nominal layers | If independent | If 50% correlated | If 80% correlated |
+|----------------|----------------|-------------------|-------------------|
+| 2 | 2.0 effective | 1.4 effective | 1.1 effective |
+| 3 | 3.0 effective | 1.7 effective | 1.2 effective |
+| 5 | 5.0 effective | 2.2 effective | 1.3 effective |
 
-The inequality follows from positive correlation.
-
-### Definition 11: Delegation Risk with Entanglement
-
-Extending the [Delegation Risk formula](/delegation-risk/delegation-risk-formula/):
-
-**Without entanglement** (independent failures):
-
-$$
-DR = \text{Stakes} \times P(\text{Failure}) \times P(\text{Oversight Miss})
-$$
-
-**With entanglement** (correlated failures):
-
-$$
-DR = \text{Stakes} \times P(\text{Failure}) \times P(\text{All Oversight Layers Miss} | \text{Failure})
-$$
-
-The conditional probability accounts for correlation:
-
-$$
-P(\text{All Miss} | \text{Failure}) \geq \prod_{i} P(\text{Layer}_i \text{ misses} | \text{Failure})
-$$
-
-Equality holds only when layers are conditionally independent given failure.
-
-### Definition 12: Effective Redundancy
-
-For n nominally redundant components:
-
-**Nominal redundancy**: n
-
-**Effective redundancy**:
-
-$$
-n_{\text{eff}} = \frac{-\log P(\text{all fail})}{\log P(\text{one fails})}
-$$
-
-**Interpretation**:
-- If components are independent: $n_{\text{eff}} = n$
-- If components are perfectly correlated: $n_{\text{eff}} = 1$
-- In practice: $1 \leq n_{\text{eff}} \leq n$
-
-**Example**: Three 90%-effective layers:
-- Independent: $P(\text{all fail}) = 0.1^3 = 0.001$, $n_{\text{eff}} = 3$
-- With 50% correlation: $P(\text{all fail}) \approx 0.05$, $n_{\text{eff}} \approx 1.3$
+High correlation destroys the value of additional layers.
 
 ---
 
-## Channel Capacity and Side-Channels
+## Bounds and Limits
 
-### Definition 13: Side-Channel Capacity
+### Irreducible Entanglement
 
-The **capacity** of a side-channel between A and B:
+**Claim**: Any two AI systems using similar architectures and training methods will have some baseline failure correlation that cannot be eliminated.
 
-$$
-C_{A \to B} = \max_{P(X_A)} I(X_A; Y_B)
-$$
+**Why**: Adversarial examples transfer between similar models. This is a structural property of how these systems work, not a bug that can be fixed.
 
-Where:
-- $X_A$ is what A encodes in the channel
-- $Y_B$ is what B receives
+**Implication**: True independence between AI verification systems may require fundamentally different approaches—not just different providers.
 
-**Applications**:
-- Timing channel: A modulates response latency, B observes timing
-- Steganographic channel: A embeds information in outputs, B decodes
-- Resource channel: A consumes resources, B observes availability
+### The Verification Ceiling
 
-### Definition 14: Covert Channel Capacity
+**Claim**: A verifier cannot reliably catch errors in domains where they lack capability.
 
-A **covert channel** is a side-channel designed to evade detection.
+**Plain terms**: If the verifier isn't smart enough to understand the work, they can't verify it properly. This creates fundamental limits on AI-checking-AI when the checked AI is more capable.
 
-The capacity is bounded by:
+### Collusion Detection Limits
 
-$$
-C_{\text{covert}} \leq C_{\text{overt}} \times (1 - P_{\text{detect}})^{\alpha}
-$$
+**Claim**: If agents coordinate through shared reasoning rather than explicit communication, monitoring communication won't detect the coordination.
 
-Where $\alpha$ depends on the detection sophistication.
-
-**Implication**: Perfect detection ($P_{\text{detect}} = 1$) eliminates covert channel capacity, but this is generally unachievable.
+**Implication**: For sophisticated AI systems, collusion resistance requires more than just preventing communication—it requires genuine diversity in reasoning approaches.
 
 ---
 
-## Temporal Dynamics
+## Practical Takeaways
 
-### Definition 15: Entanglement Drift Rate
+1. **Independence is rare**: Most real systems have significant passive entanglement through shared training, infrastructure, or assumptions.
 
-The rate at which passive entanglement changes over time:
+2. **Correlation destroys redundancy**: Going from 2 to 5 "independent" layers provides much less protection than you'd expect if they're correlated.
 
-$$
-\frac{d}{dt} I(F_A; F_B) = \text{Entanglement Drift Rate}
-$$
+3. **Active influence is directional**: Pay attention to information flow—who sees whose output, in what order.
 
-**Positive drift**: Components are becoming more entangled (concerning)
-**Negative drift**: Components are becoming less entangled (intervention working)
-**Zero drift**: Stable state (may or may not be acceptable)
+4. **Some entanglement is irreducible**: At some point, you hit fundamental limits. Know where those are.
 
-### Definition 16: Capture Rate
-
-The rate at which a verifier is captured:
-
-$$
-\text{Capture Rate} = \frac{d}{dt} \text{Capture}(V)
-$$
-
-Where Capture(V) is as defined in Definition 8.
-
-**Threshold-based alerts**:
-- Capture Rate > 0.1/month: Intervention recommended
-- Capture Rate > 0.2/month: Urgent action required
-
----
-
-## Bounds and Impossibility Results
-
-### Theorem 1: Irreducible Entanglement
-
-For any verification system where A and B share a common reasoning paradigm (e.g., both are neural networks trained with similar methods):
-
-$$
-I(F_A; F_B) > 0
-$$
-
-**Proof sketch**: Adversarial examples transfer between models with similar architectures and training. This creates a lower bound on failure correlation that cannot be eliminated through isolation.
-
-### Theorem 2: Verification Ceiling
-
-If verifier V has capability level $c_V$ and agent A has capability level $c_A$:
-
-For tasks requiring capability $c > c_V$:
-
-$$
-P(\text{V catches A's error}) \leq \frac{c_V}{c}
-$$
-
-**Implication**: Verifiers cannot reliably catch errors in domains where they lack capability. This creates fundamental limits on AI oversight of AI.
-
-### Theorem 3: Collusion Detection Limits
-
-For sufficiently sophisticated agents:
-
-$$
-P(\text{detect collusion}) \leq 1 - P(\text{TDT-style coordination})
-$$
-
-**Implication**: If agents coordinate through logical correlation rather than explicit communication, detection through communication monitoring is impossible.
-
----
-
-## Summary of Key Formulas
-
-| Concept | Formula |
-|---------|---------|
-| Passive entanglement | $I(F_A; F_B)$ |
-| Active entanglement | $I(O_A^{t-1}; F_B^t \| F_B^{t-1})$ |
-| Causal influence | $P(F_B \| do(F_A=1)) - P(F_B \| do(F_A=0))$ |
-| Context contamination | $I(X; O_B) - I(X; O_B \| C)$ |
-| Entanglement tax | $R_{\text{actual}} / R_{\text{perceived}}$ |
-| Effective redundancy | $-\log P(\text{all fail}) / \log P(\text{one fails})$ |
-| Capture metric | $P(\text{approve} \| \text{A wants}) / P(\text{approve} \| \text{A doesn't want})$ |
-| Side-channel capacity | $\max_{P(X)} I(X; Y)$ |
-
----
-
-## Practical Application
-
-These formal definitions enable:
-
-1. **Quantitative measurement**: Compute entanglement metrics from empirical data
-2. **Theoretical analysis**: Prove bounds on achievable independence
-3. **Design optimization**: Minimize entanglement subject to constraints
-4. **Alert thresholds**: Define precise conditions for intervention
-
-For practical measurement approaches, see [Quantitative Metrics](/entanglements/detection/metrics/).
+5. **Measure, don't assume**: The entanglement tax can easily be 10-100×. Test correlation empirically rather than assuming independence.
 
 ---
 
 See also:
-- [Quantitative Metrics](/entanglements/detection/metrics/) - Practical measurement of these quantities
-- [Research Connections](/entanglements/research/research-connections/) - Academic foundations
-- [Types of Entanglement](/entanglements/fundamentals/types/) - Conceptual overview
+- [Types of Entanglement](/entanglements/fundamentals/types/) — Conceptual overview
+- [Quantitative Metrics](/entanglements/detection/metrics/) — How to measure these concepts
+- [Correlation Calculator](/entanglements/detection/correlation-calculator/) — Tools for estimation
