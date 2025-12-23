@@ -7,7 +7,7 @@ sidebar:
 
 # Channel Integrity Patterns
 
-Channel integrity patterns address a distinct class of problems from [correlated failures](/applying/patterns/interconnection/): **active boundary violations** where components influence each other outside sanctioned channels.
+Channel integrity patterns address a distinct class of problems from [correlated failures](/applying/entanglements/): **active boundary violations** where components influence each other outside sanctioned channels.
 
 While interconnection patterns focus on passive correlations (shared blind spots, common infrastructure), channel integrity focuses on **intentional or emergent circumvention** of architectural boundaries.
 
@@ -312,7 +312,7 @@ If B's failure is correlated with A's (through a side-channel), **P(B fails | A 
 
 ### The Correlation Tax
 
-Following [Pattern Interconnection](/applying/patterns/interconnection/), we define the **Correlation Tax**:
+Following [Entanglements](/applying/entanglements/), we define the **Correlation Tax**:
 
 **Correlation Tax = Actual Risk / Perceived Risk (assuming independence)**
 
@@ -430,20 +430,21 @@ Human      |  0.9   |  0.9   |   0.9    |   -   |
 
 ### Boundary Diagrams with Leakage Indicators
 
-```
-┌─────────────────────────────────────────────────┐
-│                OVERSIGHT LAYER                   │
-│  ┌──────────────────────────────────────────┐   │
-│  │            EXECUTION LAYER                │   │
-│  │  ┌────────────┐    ┌────────────┐        │   │
-│  │  │  Agent A   │~~~~│  Agent B   │        │   │
-│  │  └────────────┘    └────────────┘        │   │
-│  │        │ leakage detected │               │   │
-│  └────────│─────────────────│───────────────┘   │
-│           │                 │                    │
-│           ▼                 ▼                    │
-│      [Boundary Monitor: ALERT]                   │
-└─────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph OL["OVERSIGHT LAYER"]
+        subgraph EL["EXECUTION LAYER"]
+            AA["Agent A"] ~~~ AB["Agent B"]
+            LEAK["leakage detected"]
+        end
+        BM["Boundary Monitor: ALERT"]
+    end
+    AA --> BM
+    AB --> BM
+
+    style OL fill:#e6f3ff
+    style EL fill:#ffe6e6
+    style BM fill:#ffcccc
 ```
 
 ### Temporal Violation Tracking
@@ -453,16 +454,15 @@ Track boundary violations over time to detect:
 - Periodic violation patterns
 - Correlation with specific events or inputs
 
+```mermaid
+xychart-beta
+    title "Boundary Violations Over Time"
+    x-axis ["Week 1", "Week 2", "Week 3"]
+    y-axis "Violations" 0 --> 10
+    line [2, 8, 1]
 ```
-Boundary Violations Over Time
-│
-│    ╭─╮
-│   ╭╯ ╰╮  ╭──╮   deployment
-│  ╭╯   ╰──╯  ╰╮  of "optimization"
-│──╯          ╰──────────────────
-└──────────────────────────────────→ time
-   Week 1    Week 2    Week 3
-```
+
+Note: Spike in Week 2 correlates with deployment of "optimization" changes.
 
 ---
 
@@ -688,8 +688,11 @@ Make channel violations costly:
 - [Behavioral Fingerprinting](/applying/patterns/monitoring/#behavioral-fingerprinting) - Detect behavior changes
 - [Tripwire Mesh](/applying/patterns/monitoring/#tripwire-mesh) - Distributed violation detection
 
-**Interconnection:**
-- [Pattern Interconnection](/applying/patterns/interconnection/) - Passive correlation (complementary concern)
+**Entanglements:**
+- [Entanglements Overview](/applying/entanglements/) - Understanding all types of entanglement
+- [Types of Entanglement](/applying/entanglements/types/) - Passive, active, and adversarial entanglements
+- [Detecting Influence](/applying/entanglements/detecting-influence/) - Methods for detecting influence channels
+- [Temporal Dynamics](/applying/entanglements/solutions/#8-temporal-dynamics-management) - How entanglements evolve over time
 
 ---
 

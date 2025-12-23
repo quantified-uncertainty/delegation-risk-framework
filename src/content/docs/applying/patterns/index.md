@@ -120,7 +120,7 @@ How to **prevent unauthorized influence** between components:
 | **Boundary Enforcement** | Ensure components only interact through sanctioned channels |
 | **Influence Isolation** | Architectural separation preventing side-deals |
 
-Related: [Pattern Interconnection](/applying/patterns/interconnection/) addresses passive correlations (shared blind spots), while Channel Integrity addresses active boundary violations (side-deals, capture, collusion).
+Related: [Entanglements](/applying/entanglements/) addresses passive correlations (shared blind spots), while Channel Integrity addresses active boundary violations (side-deals, capture, collusion).
 
 ---
 
@@ -179,74 +179,104 @@ Each pattern is documented with:
 Patterns are most powerful in combination. Common compositions:
 
 ### Defense in Depth Stack
-```
-┌─────────────────────────────────────┐
-│      Gateway Chokepoint             │  ← Single entry point
-├─────────────────────────────────────┤
-│        Tripwire Mesh                │  ← Distributed detection
-├─────────────────────────────────────┤
-│    Behavioral Fingerprinting        │  ← Anomaly detection
-├─────────────────────────────────────┤
-│       Ghost Checker                 │  ← Async verification
-├─────────────────────────────────────┤
-│    Blast Radius Containment         │  ← Limit damage
-└─────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Stack["Defense in Depth"]
+        GC["Gateway Chokepoint<br/>Single entry point"]
+        TM["Tripwire Mesh<br/>Distributed detection"]
+        BF["Behavioral Fingerprinting<br/>Anomaly detection"]
+        GH["Ghost Checker<br/>Async verification"]
+        BR["Blast Radius Containment<br/>Limit damage"]
+    end
+    GC --> TM --> BF --> GH --> BR
+
+    style GC fill:#ffcccc
+    style TM fill:#ffe6cc
+    style BF fill:#ffffcc
+    style GH fill:#ccffcc
+    style BR fill:#cce6ff
 ```
 
 ### Trust Building Pipeline
-```
-Capability Airlock → Graduated Autonomy → Trust Decay
-    (start here)       (earn trust)        (maintain it)
+```mermaid
+flowchart LR
+    CA["Capability Airlock<br/>start here"] --> GA["Graduated Autonomy<br/>earn trust"] --> TD["Trust Decay<br/>maintain it"]
+
+    style CA fill:#ffcccc
+    style GA fill:#ffffcc
+    style TD fill:#ccffcc
 ```
 
 ### Multi-Agent Safety Stack
-```
-Voting Tribunal + Adversarial Collaboration + Rotating Validator
-   (agreement)           (debate)              (no capture)
+```mermaid
+flowchart LR
+    VT["Voting Tribunal<br/>agreement"] --- AC["Adversarial Collaboration<br/>debate"] --- RV["Rotating Validator<br/>no capture"]
+
+    style VT fill:#cce6ff
+    style AC fill:#e6ccff
+    style RV fill:#ffcce6
 ```
 
 ### Resilient Execution
-```
-Checkpoint-Rollback + Fallback Chain + Graceful Degradation + Self-Healing
-   (save state)       (alternatives)     (reduce scope)      (auto-fix)
+```mermaid
+flowchart LR
+    CR["Checkpoint-Rollback<br/>save state"] --- FC["Fallback Chain<br/>alternatives"] --- GD["Graceful Degradation<br/>reduce scope"] --- SH["Self-Healing<br/>auto-fix"]
+
+    style CR fill:#cce6ff
+    style FC fill:#ccffcc
+    style GD fill:#ffffcc
+    style SH fill:#ffcccc
 ```
 
 ### Economic Alignment
-```
-Bonding & Slashing + Reputation Staking + Bounty System + Insurance
-   (skin in game)         (calibrated)      (find issues)   (transfer risk)
+```mermaid
+flowchart LR
+    BS["Bonding & Slashing<br/>skin in game"] --- RS["Reputation Staking<br/>calibrated"] --- BY["Bounty System<br/>find issues"] --- IN["Insurance<br/>transfer risk"]
+
+    style BS fill:#ffcccc
+    style RS fill:#ffe6cc
+    style BY fill:#ffffcc
+    style IN fill:#ccffcc
 ```
 
 ---
 
-## Pattern Interconnection
+## Entanglements
 
 :::caution[Critical: Patterns Aren't Always Independent]
-The composition examples above assume patterns operate independently. In practice, **correlated failure modes** can make your actual protection 10-100× worse than the independent model predicts.
+The composition examples above assume patterns operate independently. In practice, **entanglements** can make your actual protection 10-100× worse than the independent model predicts.
 :::
 
-When you stack three 90%-effective layers, you might expect 99.9% protection. But if those layers share failure modes, you might only get 95% protection—a **50× worse** outcome than expected.
+When you stack three 90%-effective layers, you might expect 99.9% protection. But if those layers share failure modes, influence each other, or can collude, you might only get 95% protection—a **50× worse** outcome than expected.
 
-This "**correlation tax**" is one of the hardest problems in delegation architecture design.
+This "**entanglement tax**" is one of the hardest problems in delegation architecture design. Entanglements come in three forms:
+- **Passive**: Shared blind spots, correlated failures
+- **Active**: One component influences another (the "bureaucrat problem")
+- **Adversarial**: Components coordinate against the principal's interests
 
-**[See the full Pattern Interconnection section →](/applying/patterns/interconnection/)**
+**[See the full Entanglements section →](/applying/entanglements/)**
 
 ### Quick Overview
 
 | Topic | What It Covers |
 |-------|----------------|
-| [Types of Correlation](/applying/patterns/interconnection/types/) | Positive, negative, conditional, asymmetric, higher-order correlations |
-| [Challenge Categories](/applying/patterns/interconnection/challenges/) | 9 sources: shared infrastructure, blind spots, information flow, cascading failures, adversarial exploitation, emergent coupling, measurement gaps, organizational, irreducible |
-| [Modeling Approaches](/applying/patterns/interconnection/modeling/) | Correlation matrices, dependency graphs, delegation risk formulas, visualizations |
-| [Worked Examples](/applying/patterns/interconnection/examples/) | Code review, healthcare, and trading systems analyzed step-by-step |
-| [Solutions](/applying/patterns/interconnection/solutions/) | 7 mitigations: diversity, audits, stress testing, isolation, risk budgeting, circuit breakers, verification |
-| [Decision Framework](/applying/patterns/interconnection/decision-framework/) | When is diversity worth the cost? Stakes × correlation tradeoffs |
+| [Types of Entanglement](/applying/entanglements/types/) | Passive, active, and adversarial entanglements and their variants |
+| [Detecting Influence](/applying/entanglements/detecting-influence/) | Methods for detecting active and adversarial entanglements |
+| [Challenge Categories](/applying/entanglements/challenges/) | 9 sources of entanglement |
+| [Worked Examples](/applying/entanglements/examples/) | Code review, healthcare, trading, customer support |
+| [Solutions](/applying/entanglements/solutions/) | 8 mitigations including temporal dynamics |
+| [Research Connections](/applying/entanglements/research-connections/) | Principal-agent theory, game theory, adversarial ML |
+| [Formal Definitions](/applying/entanglements/formal-definitions/) | Information-theoretic and game-theoretic formalization |
+| [Historical Cases](/applying/entanglements/historical-cases/) | Enron, rating agencies, Boeing, Madoff, TMI |
+| [Quantitative Metrics](/applying/entanglements/metrics/) | Practical measurement and dashboards |
 
 ### Quick Diagnostic
 
-Your system likely has correlation problems if:
+Your system likely has entanglement problems if:
 - Multiple verification layers use the same LLM provider
 - All safety patterns were designed by the same team
+- Verifiers receive context from the components they verify
+- Agent-verifier pairs work together repeatedly without rotation
 - Your red team can find "master key" inputs that evade all layers
 - Dashboards only show per-component metrics (not joint failure rates)
 
@@ -261,7 +291,7 @@ Each pattern page notes related **anti-patterns** to avoid. Common mistakes:
 - **Incomplete implementation**: Half-implementing a pattern (often worse than nothing)
 - **Pattern conflicts**: Combining patterns that interfere with each other
 - **Missing the threat model**: Sophisticated patterns for the wrong threats
-- **Ignoring correlation**: Assuming composed patterns are independent (see [Pattern Interconnection](/applying/patterns/interconnection/))
+- **Ignoring correlation**: Assuming composed patterns are independent (see [Entanglements](/applying/entanglements/))
 
 ---
 

@@ -116,21 +116,15 @@ Tripwire         0.2      0.3        0.4        1.0
 
 ### Visual Representation - Correlation Heatmap
 
-```
-High correlation (risky)     Low correlation (good)
-        ████                         ░░░░
+| | Firewall | Ghost | Fingerprint | Tripwire |
+|---|---|---|---|---|
+| **Firewall** | 1.0 | 0.5 | 0.3 | 0.1 |
+| **Ghost** | 0.5 | 1.0 | **0.5** | 0.3 |
+| **Fingerprint** | 0.3 | **0.5** | 1.0 | 0.5 |
+| **Tripwire** | 0.1 | 0.3 | 0.5 | 1.0 |
 
-        Firewall  Ghost  Finger  Trip
-       ┌────────────────────────────────┐
-Fire   │  ████    ▓▓▓▓    ▒▒▒▒    ░░░░ │
-Ghost  │  ▓▓▓▓    ████    ▓▓▓▓    ▒▒▒▒ │
-Finger │  ▒▒▒▒    ▓▓▓▓    ████    ▓▓▓▓ │
-Trip   │  ░░░░    ▒▒▒▒    ▓▓▓▓    ████ │
-       └────────────────────────────────┘
-
-Concern: Ghost-Fingerprint correlation is high (0.5)
-Action: Investigate shared methodology or infrastructure
-```
+**Concern**: Ghost-Fingerprint correlation is high (0.5)
+**Action**: Investigate shared methodology or infrastructure
 
 A heatmap makes high-correlation pairs immediately visible.
 
@@ -142,26 +136,23 @@ A heatmap makes high-correlation pairs immediately visible.
 
 Represent interconnections as a weighted directed graph:
 
-```
-                    ┌─────────────────┐
-                    │   LLM Provider  │
-                    │  (common cause) │
-                    └────────┬────────┘
-                             │ weight: 0.8
-            ┌────────────────┼────────────────┐
-            │                │                │
-            ▼                ▼                ▼
-     ┌────────────┐   ┌────────────┐   ┌────────────┐
-     │  Semantic  │   │   Ghost    │   │  Voting    │
-     │  Firewall  │   │  Checker   │   │  Tribunal  │
-     └─────┬──────┘   └─────┬──────┘   └─────┬──────┘
-           │                │                │
-           │ data flow      │ timing         │ context
-           │ weight: 0.3    │ weight: 0.4    │ weight: 0.5
-           ▼                ▼                ▼
-     ┌────────────┐   ┌────────────┐   ┌────────────┐
-     │  Executor  │───│   Audit    │───│  Rollback  │
-     └────────────┘   └────────────┘   └────────────┘
+```mermaid
+flowchart TB
+    LLM["LLM Provider<br/>(common cause)"]
+    LLM -->|"weight: 0.8"| SF["Semantic Firewall"]
+    LLM -->|"weight: 0.8"| GC["Ghost Checker"]
+    LLM -->|"weight: 0.8"| VT["Voting Tribunal"]
+
+    SF -->|"data flow: 0.3"| EX[Executor]
+    GC -->|"timing: 0.4"| AU[Audit]
+    VT -->|"context: 0.5"| RB[Rollback]
+
+    EX --- AU --- RB
+
+    style LLM fill:#ffcccc
+    style SF fill:#cce6ff
+    style GC fill:#cce6ff
+    style VT fill:#cce6ff
 ```
 
 ### Edge Types
@@ -200,26 +191,33 @@ Edge weights represent coupling strength:
 
 Each defense layer is a slice of cheese with holes (failure modes). Threats pass through when holes align.
 
-```
-Independent Layers:          Correlated Layers:
+```mermaid
+flowchart TB
+    subgraph Ind["Independent Layers"]
+        I1["Layer 1: ● ○ ●"]
+        I2["Layer 2: ● ○ ●"]
+        I3["Layer 3: ○ ● ●"]
+        I1 --> I2 --> I3
+        IR["No straight path through"]
+    end
+    subgraph Cor["Correlated Layers"]
+        C1["Layer 1: ● ○ ●"]
+        C2["Layer 2: ● ○ ● (same holes!)"]
+        C3["Layer 3: ● ○ ● (same holes!)"]
+        C1 --> C2 --> C3
+        CR["Clear path through!"]
+    end
 
-   ┌─────────────┐             ┌─────────────┐
-   │ ●  ○    ●   │ Layer 1     │ ●  ○    ●   │ Layer 1
-   └─────────────┘             └─────────────┘
-   ┌─────────────┐             ┌─────────────┐
-   │   ●    ○  ● │ Layer 2     │ ●  ○    ●   │ Layer 2 (same holes!)
-   └─────────────┘             └─────────────┘
-   ┌─────────────┐             ┌─────────────┐
-   │ ○  ●  ●     │ Layer 3     │ ●  ○    ●   │ Layer 3 (same holes!)
-   └─────────────┘             └─────────────┘
-        │                           │
-        ▼                           ▼
-   No straight path           Clear path through
-   (threats blocked)          (threats pass all)
-
-● = solid (blocks threats)
-○ = hole (threat passes)
+    style Ind fill:#ccffcc
+    style Cor fill:#ffcccc
+    style IR fill:#99ff99
+    style CR fill:#ff9999
 ```
+
+- **Independent layers**: Different holes, no straight path through = threats blocked
+- **Correlated layers**: Same holes everywhere = clear path through = threats pass all layers
+
+(● = solid/blocks threats, ○ = hole/threat passes)
 
 ### Quantifying Hole Alignment
 
@@ -246,22 +244,17 @@ Maximum:     Score = 1.0   (all holes identical)
 
 Plot Delegation Risk as a surface over the space of possible threats:
 
+```mermaid
+xychart-beta
+    title "Delegation Risk vs Threat Space"
+    x-axis "Threat Space" [A, B, C, D, E, F, G, H]
+    y-axis "Delegation Risk (log)" 0.001 --> 1.0
+    line "Correlated model" [0.1, 0.8, 0.2, 0.9, 0.15, 0.7, 0.2, 0.1]
+    line "Independent model" [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
 ```
-                    DR (log scale)
-                         │
-                    1.0  ┼─────────────────── Correlated model
-                         │     ╱╲    ╱╲
-                    0.1  ┼────╱──╲──╱──╲────
-                         │   ╱    ╲╱    ╲
-                   0.01  ┼──╱──────────────── Independent model
-                         │ ╱
-                  0.001  ┼╱
-                         └────────────────────
-                              Threat space →
 
-The gap between curves = correlation tax
-Peaks in correlated model = shared blind spots
-```
+- **Gap between curves** = correlation tax
+- **Peaks in correlated model** = shared blind spots
 
 ### Interpretation
 
@@ -434,6 +427,6 @@ When in doubt:
 ---
 
 See also:
-- [Types of Correlation](/applying/patterns/interconnection/types/) - What types of correlation exist
-- [Challenge Categories](/applying/patterns/interconnection/challenges/) - Sources to measure
-- [Worked Examples](/applying/patterns/interconnection/examples/) - Applying these methods
+- [Types of Correlation](/applying/entanglements/types/) - What types of correlation exist
+- [Challenge Categories](/applying/entanglements/challenges/) - Sources to measure
+- [Worked Examples](/applying/entanglements/examples/) - Applying these methods

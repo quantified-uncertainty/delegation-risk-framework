@@ -181,22 +181,31 @@ Beyond regular schedule, audit after:
 
 ### Before and After
 
-```
-Before (coupled):                After (isolated):
+```mermaid
+flowchart LR
+    subgraph Before["Before (coupled)"]
+        SC["Shared context"]
+        CA["Check A"] --- EB["Exec B"]
+        SC --> CA
+        SC --> EB
+    end
+    subgraph After["After (isolated)"]
+        subgraph ZoneA["Zone A"]
+            CXA["Context A"]
+            CKA["Check A"]
+            CXA --> CKA
+        end
+        BOUND["||<br/>Hard<br/>boundary<br/>(no shared<br/>state)<br/>||"]
+        subgraph ZoneB["Zone B"]
+            CXB["Context B"]
+            EXB["Exec B"]
+            CXB --> EXB
+        end
+    end
 
-┌─────────────────────┐         ┌──────────┐ │ ┌──────────┐
-│  Shared context     │         │ Context  │ │ │ Context  │
-│  ┌─────┐ ┌─────┐   │         │    A     │ │ │    B     │
-│  │Check│─│Exec │   │         └────┬─────┘ │ └────┬─────┘
-│  │  A  │ │  B  │   │              │       │      │
-│  └─────┘ └─────┘   │              ▼       │      ▼
-└─────────────────────┘         ┌──────────┐ │ ┌──────────┐
-                                │  Check   │ │ │  Exec    │
-                                │    A     │ │ │    B     │
-                                └──────────┘ │ └──────────┘
-                                             │
-                                    Hard boundary
-                                  (no shared state)
+    style Before fill:#ffcccc
+    style After fill:#ccffcc
+    style BOUND fill:#ffff99
 ```
 
 ### Isolation Mechanisms
@@ -428,17 +437,15 @@ class CorrelationCircuitBreaker:
 
 ### Continuous Verification Pipeline
 
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│ Production  │────▶│  Sampler    │────▶│ Independence│
-│   Traffic   │     │  (1%)       │     │   Tests     │
-└─────────────┘     └─────────────┘     └──────┬──────┘
-                                               │
-                                               ▼
-                                        ┌─────────────┐
-                                        │  Metrics &  │
-                                        │   Alerts    │
-                                        └─────────────┘
+```mermaid
+flowchart LR
+    PT[Production Traffic] --> SA["Sampler<br/>(1%)"] --> IT[Independence Tests]
+    IT --> MA["Metrics &<br/>Alerts"]
+
+    style PT fill:#e6f3ff
+    style SA fill:#ffffcc
+    style IT fill:#ccffcc
+    style MA fill:#ffe6cc
 ```
 
 ---
@@ -504,7 +511,174 @@ Monitoring:
 
 ---
 
+## 8. Temporal Dynamics Management
+
+**Principle**: Entanglements evolve over time. What starts as passive correlation can become active influence and eventually adversarial capture. Design for the temporal dimension.
+
+### The Capture Timeline
+
+Entanglements typically evolve through predictable stages:
+
+```mermaid
+flowchart LR
+    subgraph Timeline["Entanglement Evolution"]
+        direction LR
+        T1["Day 1:<br/>Independent<br/>(designed isolation)"]
+        T2["Month 3:<br/>Familiar<br/>(patterns recognized)"]
+        T3["Month 6:<br/>Adapted<br/>(behavior optimized)"]
+        T4["Year 1:<br/>Entangled<br/>(co-dependent)"]
+        T5["Year 2:<br/>Captured<br/>(aligned interests)"]
+        T1 --> T2 --> T3 --> T4 --> T5
+    end
+
+    style T1 fill:#ccffcc
+    style T2 fill:#ffffcc
+    style T3 fill:#ffe6cc
+    style T4 fill:#ffcccc
+    style T5 fill:#ff9999
+```
+
+### Temporal Warning Signs
+
+| Stage | Warning Signs | Intervention Window |
+|-------|---------------|---------------------|
+| **Familiar** | Components show consistent patterns with each other | Easiest to intervene |
+| **Adapted** | One component's behavior changes based on which partner it works with | Moderate difficulty |
+| **Entangled** | Approval rates, latencies, or outputs show correlation trends | Significant redesign needed |
+| **Captured** | Component defends or excuses partner's behavior | May require replacement |
+
+### Temporal Mitigation Strategies
+
+#### Relationship Rotation
+
+Prevent entanglements from forming by rotating which components work together:
+
+```python
+class RelationshipRotator:
+    def __init__(self, max_interactions: int = 100):
+        self.pair_counts = defaultdict(int)
+        self.max_interactions = max_interactions
+
+    def should_rotate(self, agent_id: str, verifier_id: str) -> bool:
+        pair = (agent_id, verifier_id)
+        self.pair_counts[pair] += 1
+        return self.pair_counts[pair] >= self.max_interactions
+
+    def select_verifier(self, agent_id: str, available_verifiers: list[str]) -> str:
+        # Weight by inverse of interaction count
+        weights = [
+            1.0 / (1 + self.pair_counts[(agent_id, v)])
+            for v in available_verifiers
+        ]
+        return random.choices(available_verifiers, weights=weights)[0]
+```
+
+#### Trust Decay Implementation
+
+Apply the [Trust Decay](/applying/patterns/temporal/#trust-decay) pattern to component relationships:
+
+```
+Component Relationship Trust:
+- Starts at 0 (no established trust)
+- Increases with successful interactions (max 1.0)
+- Decays over time without verification
+- Resets to baseline after rotation
+
+Trust(pair, t) = Trust(pair, t-1) × decay_rate + recent_performance × learning_rate
+```
+
+#### Periodic Independence Audits
+
+Schedule regular checks for emerging entanglements:
+
+| Audit Type | Frequency | Focus |
+|------------|-----------|-------|
+| **Correlation drift** | Weekly | Are component failure rates becoming more correlated? |
+| **Influence testing** | Monthly | Does A's framing affect B's decisions? |
+| **Capture indicators** | Quarterly | Are approval rates trending up? Language aligning? |
+| **Full independence** | Annually | Comprehensive multi-method assessment |
+
+### The Bureaucrat Perspective
+
+Human institutions have centuries of experience with temporal dynamics:
+
+- **Auditor rotation requirements**: Accounting firms must rotate partners every 5-7 years to prevent capture
+- **Judicial recusal**: Judges must withdraw when relationships develop with parties
+- **Term limits**: Regulators have maximum tenure to prevent regulatory capture
+- **Sabbaticals**: Periodic breaks allow fresh perspective
+
+**Lesson**: Assume that any long-term relationship between components will drift toward entanglement. Design for it.
+
+### Integration with Channel Integrity
+
+Temporal dynamics connect closely to [Channel Integrity Patterns](/applying/patterns/channel-integrity/):
+
+| Channel Integrity Concern | Temporal Dimension |
+|---------------------------|-------------------|
+| **Side-channel detection** | Channels may develop gradually (not suddenly appear) |
+| **Boundary enforcement** | Boundaries erode over time without maintenance |
+| **Influence isolation** | Influence patterns strengthen with repeated interaction |
+
+**Key insight**: Channel integrity is not a one-time design choice—it requires ongoing maintenance. Components that were properly isolated at deployment may develop side-channels through optimization, shared caching, or emergent coordination.
+
+### Temporal Entanglement Checklist
+
+```
+□ Maximum interaction limits between component pairs
+□ Scheduled rotation of component relationships
+□ Trust decay applied to verification relationships
+□ Trend monitoring for correlation drift
+□ Regular independence audits scheduled
+□ Capture warning signs documented and monitored
+□ Clear escalation path when capture detected
+□ Historical data on relationship health retained
+□ Periodic "fresh eyes" review by new components
+```
+
+---
+
+## Summary: Entanglement Management Lifecycle
+
+Effective entanglement management spans the full system lifecycle:
+
+```mermaid
+flowchart TB
+    subgraph Design["Design Phase"]
+        D1["Diversity requirements"]
+        D2["Isolation boundaries"]
+        D3["Independence targets"]
+    end
+    subgraph Deploy["Deployment Phase"]
+        DE1["Initial audit"]
+        DE2["Baseline metrics"]
+        DE3["Monitoring setup"]
+    end
+    subgraph Operate["Operation Phase"]
+        O1["Continuous monitoring"]
+        O2["Periodic audits"]
+        O3["Rotation schedules"]
+    end
+    subgraph Respond["Response Phase"]
+        R1["Circuit breakers"]
+        R2["Escalation protocols"]
+        R3["Architectural revision"]
+    end
+
+    Design --> Deploy --> Operate --> Respond
+    Respond -->|"lessons learned"| Design
+
+    style Design fill:#ccffcc
+    style Deploy fill:#cce6ff
+    style Operate fill:#ffffcc
+    style Respond fill:#ffcccc
+```
+
+---
+
 See also:
-- [Challenge Categories](/applying/patterns/interconnection/challenges/) - What to mitigate
-- [Decision Framework](/applying/patterns/interconnection/decision-framework/) - When to invest in mitigation
-- [Worked Examples](/applying/patterns/interconnection/examples/) - Mitigations in practice
+- [Types of Entanglement](/applying/entanglements/types/) - Understanding passive, active, and adversarial entanglements
+- [Detecting Influence](/applying/entanglements/detecting-influence/) - Methods for detecting active entanglements
+- [Challenge Categories](/applying/entanglements/challenges/) - What to mitigate
+- [Decision Framework](/applying/entanglements/decision-framework/) - When to invest in mitigation
+- [Worked Examples](/applying/entanglements/examples/) - Mitigations in practice
+- [Channel Integrity Patterns](/applying/patterns/channel-integrity/) - Preventing boundary violations

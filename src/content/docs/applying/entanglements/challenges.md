@@ -7,7 +7,9 @@ sidebar:
 
 # Challenge Categories
 
-This page catalogs nine categories of interconnection challenges. Each represents a different way that ostensibly independent components can become correlated.
+This page catalogs nine categories of entanglement challenges. Each represents a different way that ostensibly independent components can become entangled—through passive correlation, active influence, or adversarial coordination.
+
+**The bureaucrat perspective**: Think of each challenge as a way that "Clerk A" and "Reviewer B" in a bureaucracy might fail to be truly independent—even when the org chart shows them as separate.
 
 ---
 
@@ -42,17 +44,24 @@ This page catalogs nine categories of interconnection challenges. Each represent
 
 **Problem**: Verification methods that seem diverse may share conceptual blind spots.
 
-```
-Apparent Diversity:
-├── Semantic Firewall (rule-based)
-├── Behavioral Fingerprinting (statistical)
-└── Ghost Checker (LLM-based)
+```mermaid
+flowchart TB
+    subgraph Apparent["Apparent Diversity"]
+        SF["Semantic Firewall<br/>(rule-based)"]
+        BF["Behavioral Fingerprinting<br/>(statistical)"]
+        GC["Ghost Checker<br/>(LLM-based)"]
+    end
+    subgraph Hidden["Hidden Correlation: All struggle with"]
+        N1["Novel attack patterns not in training data"]
+        N2["Slow-moving threats below detection thresholds"]
+        N3["Adversarial inputs crafted against similar architectures"]
+    end
+    SF --> Hidden
+    BF --> Hidden
+    GC --> Hidden
 
-Hidden Correlation:
-All three struggle with:
-├── Novel attack patterns not in training data
-├── Slow-moving threats below detection thresholds
-└── Adversarial inputs crafted against similar architectures
+    style Apparent fill:#ccffcc
+    style Hidden fill:#ffcccc
 ```
 
 ### Why This Happens
@@ -79,18 +88,23 @@ All three struggle with:
 
 **Problem**: Later stages inherit context from earlier stages. Compromised context propagates.
 
-```
-Clean Flow:                    Contaminated Flow:
+```mermaid
+flowchart LR
+    subgraph Clean["Clean Flow"]
+        T1[Task] --> D1[Decompose] --> V1[Verify]
+        D1 --> CS["[clean] steps"]
+        V1 --> CC["[clean] checks"]
+    end
+    subgraph Contaminated["Contaminated Flow"]
+        T2[Task] --> D2[Decompose] --> V2[Verify]
+        D2 --> PS["[poisoned] steps"]
+        V2 --> PC["[poisoned] checks"]
+        PS --> BAD["Both inherit bad context"]
+        PC --> BAD
+    end
 
-Task → Decompose → Verify      Task → Decompose → Verify
-         │           │                  │           │
-         ▼           ▼                  ▼           ▼
-      [clean]    [clean]           [poisoned]  [poisoned]
-       steps     checks             steps       checks
-                                      │           │
-                                      └─────┬─────┘
-                                            │
-                                    Both inherit bad context
+    style Clean fill:#ccffcc
+    style Contaminated fill:#ffcccc
 ```
 
 ### The Framing Problem
@@ -117,26 +131,21 @@ When a verifier receives context from the component being verified, the context 
 
 **Problem**: Failure in one component triggers failures in others.
 
-```
-Cascade Example:
+```mermaid
+flowchart TB
+    HL[High Load]
+    HL --> EL[Escalation Ladder]
+    HL --> GC[Ghost Checker]
+    HL --> VT[Voting Tribunal]
 
-                    ┌─────────────┐
-                    │ High Load   │
-                    └──────┬──────┘
-                           │
-              ┌────────────┼────────────┐
-              ▼            ▼            ▼
-        ┌──────────┐ ┌──────────┐ ┌──────────┐
-        │Escalation│ │ Ghost    │ │ Voting   │
-        │ Ladder   │ │ Checker  │ │ Tribunal │
-        └────┬─────┘ └────┬─────┘ └────┬─────┘
-             │            │            │
-             │ Timeouts   │ Backlogs   │ Quorum failures
-             ▼            ▼            ▼
-        ┌──────────┐ ┌──────────┐ ┌──────────┐
-        │ Human    │ │ Unchecked│ │ Deadlock │
-        │ overload │ │ actions  │ │          │
-        └──────────┘ └──────────┘ └──────────┘
+    EL -->|Timeouts| HO[Human overload]
+    GC -->|Backlogs| UA[Unchecked actions]
+    VT -->|Quorum failures| DL[Deadlock]
+
+    style HL fill:#ffcccc
+    style HO fill:#ff9999
+    style UA fill:#ff9999
+    style DL fill:#ff9999
 ```
 
 ### Cascade Patterns
@@ -193,18 +202,28 @@ Defenders must secure all paths; attackers only need one. Correlated failures me
 
 **Problem**: Systems become more coupled through optimization and operational pressure.
 
-```
-Day 1:                          Day 365:
+```mermaid
+flowchart LR
+    subgraph Day1["Day 1: Independent"]
+        CA1["Checker A"]
+        EB1["Executor B"]
+    end
+    subgraph Day365["Day 365: Coupled"]
+        CA2["Checker A"] --- EB2["Executor B"]
+        SC["shared cache"]
+        SM["shared model"]
+        OP["optimized codepath"]
+        OS["operational shortcuts"]
+        CA2 --> SC
+        CA2 --> SM
+        EB2 --> SC
+        EB2 --> OP
+        EB2 --> OS
+    end
+    Day1 --> Day365
 
-┌────────┐    ┌────────┐       ┌────────┐────┌────────┐
-│Checker │    │Executor│       │Checker │────│Executor│
-│   A    │    │   B    │       │   A    │    │   B    │
-└────────┘    └────────┘       └────┬───┘    └───┬────┘
-                                    │            │
-Independent                         ├─shared cache
-                                    ├─shared model
-                                    ├─optimized codepath
-                                    └─operational shortcuts
+    style Day1 fill:#ccffcc
+    style Day365 fill:#ffcccc
 ```
 
 ### How Coupling Emerges
@@ -265,21 +284,21 @@ Standard monitoring tools focus on individual components. You may have excellent
 
 **Problem**: Technical diversity can be undermined by organizational homogeneity.
 
-```
-Technical Architecture:           Organizational Reality:
+```mermaid
+flowchart LR
+    subgraph Tech["Technical Architecture"]
+        CA["Checker A<br/>(GPT-4)"]
+        CB["Checker B<br/>(Claude)"]
+        NOTE1["Different providers!<br/>Looks independent!"]
+    end
+    subgraph Org["Organizational Reality: Same Team"]
+        ALICE["Alice designs A"]
+        BOB["Bob designs B"]
+        ISSUES["Same training<br/>Same assumptions<br/>Same blind spots"]
+    end
 
-┌──────────┐  ┌──────────┐        ┌──────────────────────────┐
-│ Checker  │  │ Checker  │        │      Same Team           │
-│    A     │  │    B     │        │  ┌────────┐ ┌────────┐   │
-│ (GPT-4)  │  │(Claude)  │        │  │Alice   │ │ Bob    │   │
-└──────────┘  └──────────┘        │  │designs │ │designs │   │
-                                  │  │   A    │ │   B    │   │
-Different providers!              │  └────────┘ └────────┘   │
-Looks independent!                │                          │
-                                  │  Same training           │
-                                  │  Same assumptions        │
-                                  │  Same blind spots        │
-                                  └──────────────────────────┘
+    style Tech fill:#ccffcc
+    style Org fill:#ffcccc
 ```
 
 ### Sources of Organizational Correlation
@@ -323,25 +342,18 @@ Looks independent!                │                          │
 
 4. **Goodhart's law at scale**: If all systems optimize for measurable proxies, they may all fail when the proxy diverges from the true objective.
 
-```
-                    ┌─────────────────────────────────────┐
-                    │      Irreducible Correlation        │
-                    │   (Limits of AI oversight of AI)    │
-                    └───────────────┬─────────────────────┘
-                                    │
-         ┌──────────────────────────┼──────────────────────────┐
-         │                          │                          │
-         ▼                          ▼                          ▼
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│ LLM Provider A  │     │ LLM Provider B  │     │ LLM Provider C  │
-│                 │     │                 │     │                 │
-│ Can't detect    │     │ Can't detect    │     │ Can't detect    │
-│ reasoning flaws │     │ reasoning flaws │     │ reasoning flaws │
-│ it can't        │     │ it can't        │     │ it can't        │
-│ understand      │     │ understand      │     │ understand      │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
+```mermaid
+flowchart TB
+    IC["Irreducible Correlation<br/>(Limits of AI oversight of AI)"]
+    IC --> PA["LLM Provider A<br/>Can't detect reasoning flaws<br/>it can't understand"]
+    IC --> PB["LLM Provider B<br/>Can't detect reasoning flaws<br/>it can't understand"]
+    IC --> PC["LLM Provider C<br/>Can't detect reasoning flaws<br/>it can't understand"]
+    NOTE["All three providers are 'diverse'<br/>but share fundamental limitation"]
 
-All three providers are "diverse" but share fundamental limitation
+    style IC fill:#ffcccc
+    style PA fill:#ffe6e6
+    style PB fill:#ffe6e6
+    style PC fill:#ffe6e6
 ```
 
 ### Implications
@@ -376,6 +388,8 @@ All three providers are "diverse" but share fundamental limitation
 ---
 
 See also:
-- [Types of Correlation](/applying/patterns/interconnection/types/) - Classifying correlations
-- [Modeling Approaches](/applying/patterns/interconnection/modeling/) - Measuring these challenges
-- [Solutions](/applying/patterns/interconnection/solutions/) - Addressing each challenge
+- [Types of Entanglement](/applying/entanglements/types/) - Classifying entanglements
+- [Detecting Influence](/applying/entanglements/detecting-influence/) - Methods for detecting active entanglements
+- [Modeling Approaches](/applying/entanglements/modeling/) - Measuring these challenges
+- [Solutions & Mitigations](/applying/entanglements/solutions/) - Addressing each challenge
+- [Channel Integrity Patterns](/applying/patterns/channel-integrity/) - Preventing boundary violations

@@ -369,6 +369,6 @@ Decision Heuristics:
 ---
 
 See also:
-- [Solutions](/applying/patterns/interconnection/solutions/) - How to reduce correlation
-- [Modeling](/applying/patterns/interconnection/modeling/) - Quantifying correlation
-- [Examples](/applying/patterns/interconnection/examples/) - Decisions in practice
+- [Solutions](/applying/entanglements/solutions/) - How to reduce correlation
+- [Modeling](/applying/entanglements/modeling/) - Quantifying correlation
+- [Examples](/applying/entanglements/examples/) - Decisions in practice
