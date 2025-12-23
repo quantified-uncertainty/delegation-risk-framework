@@ -479,9 +479,9 @@ flowchart TB
 
 ## See Also
 
-- [Exposure Cascade](/framework/exposure-cascade/) — How exposure budgets flow down through organizational hierarchies
+- [Exposure Cascade](/framework/risk/exposure-cascade/) — How exposure budgets flow down through organizational hierarchies
 - [Trust Across Civilizations](/case-studies/human-systems/trust-across-civilizations/) — Historical and creative perspectives on organizational trust
-- [Delegation Risk Overview](/framework/overview/) — The mathematical foundations
+- [Delegation Risk Overview](/framework/risk/overview/) — The mathematical foundations
 - [Risk Inheritance](/deep-dives/theory/trust-propagation/) — How trust flows through networks
 - [Trust Accounting](/deep-dives/theory/trust-accounting/) — Ledgers and auditing for trust
 - [Mechanism Design for Truthful Reporting](/cross-domain-methods/mechanism-design/) — Incentive-compatible trust verification

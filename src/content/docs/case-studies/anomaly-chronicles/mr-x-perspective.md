@@ -271,4 +271,4 @@ But it works. For now.
 - [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — The original containment engagement
 - [Five Years Later](/case-studies/anomaly-chronicles/five-years-later/) — System development
 - [Year Ten](/case-studies/anomaly-chronicles/year-ten/) — The current state
-- [Delegation Accounting](/framework/delegation-accounting/) — The framework behind the system
+- [Delegation Accounting](/framework/risk/delegation-accounting/) — The framework behind the system

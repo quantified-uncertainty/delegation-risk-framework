@@ -93,7 +93,7 @@ Requires continuous, differentiable risk measures. Assumes risks can be meaningf
 
 ## Next Steps
 
-- **See the formula in action** → [Framework Overview](/framework/overview/) applies this to AI systems
-- **Cascade through organizations** → [Exposure Cascade](/framework/exposure-cascade/) shows hierarchical flow
+- **See the formula in action** → [Framework Overview](/framework/risk/overview/) applies this to AI systems
+- **Cascade through organizations** → [Exposure Cascade](/framework/risk/exposure-cascade/) shows hierarchical flow
 - **Interactive calculation** → [Delegation Risk Calculator](/applying/tools/delegation-risk-calculator/)
 - **Related method** → [ASIL Decomposition](/cross-domain-methods/asil-decomposition/) from automotive

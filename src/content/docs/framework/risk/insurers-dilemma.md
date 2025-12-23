@@ -1,7 +1,7 @@
 ---
 title: "The Insurer's Dilemma"
 sidebar:
-  order: 2
+  order: 6
 ---
 
 # The Insurer's Dilemma
@@ -503,5 +503,5 @@ She picks up the phone.
 ## Further Reading
 
 - [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — What Diana proposes
-- [Delegation Accounting](/framework/delegation-accounting/) — The underlying framework
+- [Delegation Accounting](/framework/risk/delegation-accounting/) — The underlying framework
 - [Five Years Later](/case-studies/anomaly-chronicles/five-years-later/) — How this scales to an industry

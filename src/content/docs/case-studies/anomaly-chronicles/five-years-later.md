@@ -1877,4 +1877,4 @@ But it's what we have.
 - [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — The original containment engagement
 - [Protocol Catalog](./protocol-catalog/) — Complete reference of containment measures
 - [Insurance Bot Specification](./insurance-bot-spec/) — Technical documentation
-- [Delegation Accounting](/framework/delegation-accounting/) — Balance sheet view of delegation risk
+- [Delegation Accounting](/framework/risk/delegation-accounting/) — Balance sheet view of delegation risk

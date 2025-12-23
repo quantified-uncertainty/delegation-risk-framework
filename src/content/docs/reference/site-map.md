@@ -233,7 +233,7 @@ What you need to understand before each major concept:
 - [Decision Guide](/applying/tools/decision-guide/)
 
 **Deep dives**:
-- [Delegation Risk Overview](/framework/overview/)
+- [Delegation Risk Overview](/framework/risk/overview/)
 - [Risk Budgeting Overview](/cross-domain-methods/overview/)
 - [Safety Mechanisms](/applying/safety-mechanisms/)
 

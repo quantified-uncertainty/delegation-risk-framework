@@ -3,7 +3,7 @@ title: "Potential Research Projects"
 description: "Research projects derived from the capability containment, coordinator constraints, risk budgeting, and delegation risk framework frameworks"
 ---
 
-Research projects to validate, extend, and implement the AI safety framework. Projects are organized into ten categories:
+Research projects to validate, extend, and implement the AI safety framework. Projects are organized into eleven categories:
 
 - **Empirical Validation** (3 projects) — Testing core assumptions
 - **Cross-Domain Analysis** (4 projects) — Learning from nuclear, finance, carbon markets
@@ -15,6 +15,7 @@ Research projects to validate, extend, and implement the AI safety framework. Pr
 - **Standards & Policy** (3 projects) — Certification and regulation
 - **Tools** (3 projects) — Simulation, monitoring, language support
 - **Meta-Research** (3 projects) — Historical failures, uncertainty, emergence
+- **Agency & Power** (10 projects) — Formalizing capability, agency measurement, strong tools hypothesis
 
 ---
 
@@ -265,3 +266,79 @@ The unknown unknowns problem:
 - Detecting emergence before exploitation
 - Capability elicitation and red-teaming
 - Dynamic trust adjustment as capabilities are discovered
+
+---
+
+## Agency, Power, and Capability Formalization
+
+Research questions related to [Agent, Power, and Authority Formalization](/framework/capability/agent-power-formalization/).
+
+### 31. Empirical Agency Measurement
+Can we reliably measure agency in AI systems?
+- Behavioral tests for goal-directedness (perturbation studies, goal persistence)
+- Temporal consistency probes (does apparent utility function drift?)
+- Cross-context generalization (same goals in different environments?)
+- Comparison of agency metrics to capability benchmarks
+
+### 32. The Strong Tools Hypothesis
+Is high capability achievable with low agency?
+- Analyze existing high-power, low-agency systems (search engines, compilers, databases)
+- What architectural patterns keep agency low?
+- Theoretical limits: As capability increases, does agency necessarily increase?
+- Empirical studies: Track agency measures across model scales
+
+### 33. Power Accumulation Dynamics
+When and how does AI system power grow over time?
+- Measure power growth rate (λ) for deployed systems
+- Identify factors that increase λ (resource access, influence, information accumulation)
+- Architectural constraints that bound λ to zero
+- Early warning indicators for power accumulation
+
+### 34. Agency-Capability Frontier
+What's the shape of the safety-capability tradeoff?
+- Map (Agency, Power, Risk) tuples for diverse systems
+- Is there a Pareto frontier? What's its shape?
+- Can alignment research push the frontier outward?
+- Compare frontier across architectural approaches
+
+### 35. Multi-Agent Agency Aggregation
+How does agency combine across components?
+- Does decomposition reduce total system agency?
+- Conditions for agency "emergence" in multi-agent systems
+- Voting/consensus effects on aggregate agency
+- Can low-agency components form high-agency collectives?
+
+### 36. RACAP Optimization
+Design systems that maximize Risk-Adjusted Capability:
+- Sensitivity analysis: Which design choices most affect RACAP?
+- Optimal agency level for given tasks
+- Power allocation across components
+- Benchmark architectures by RACAP
+
+### 37. Power-Seeking Behavior Detection
+Operationalize power-seeking in deployed systems:
+- Behavioral signatures of instrumental convergence
+- Resource acquisition monitoring
+- Influence expansion detection
+- Shutdown avoidance indicators
+
+### 38. Authority-Power Gap Analysis
+When does power exceed granted authority?
+- Methods for detecting authority violations
+- Dynamic authority adjustment protocols
+- Enforcement mechanisms when power exceeds authority
+- Case studies: Historical authority-power gaps (institutions, organizations)
+
+### 39. Formal Bounds on Power
+Mathematical limits on achievable power:
+- Given resource constraints, what's maximum power?
+- Power bounds from capability constraints
+- Information-theoretic limits on influence
+- Compositional power bounds for decomposed systems
+
+### 40. Agency Evolution During Training
+How does agency develop during AI training?
+- Track agency metrics across training runs
+- Phase transitions in goal-directedness
+- RLHF effects on agency
+- Can training be modified to suppress agency while maintaining capability?

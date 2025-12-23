@@ -205,4 +205,4 @@ When designing a new system:
 - [Coordinator Constraints](/applying/coordinator-constraints/) — Coordinator-specific principles
 - [Research Assistant Example](/applying/examples/research-assistant-example/) — Full worked example
 - [Code Deployment Example](/applying/examples/code-deployment-example/) — Higher-stakes example
-- [Delegation Risk Overview](/framework/overview/) — Delegation Risk computation and propagation
+- [Delegation Risk Overview](/framework/risk/overview/) — Delegation Risk computation and propagation

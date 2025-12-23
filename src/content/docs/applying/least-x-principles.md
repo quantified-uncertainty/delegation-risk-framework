@@ -773,7 +773,7 @@ Now that you understand the principles, here's where to go:
 - [Coordinator-Specific Principles](/applying/coordinator-constraints/) — Additional constraints for coordinators
 
 **To learn the math behind trust**:
-- [Delegation Risk Overview](/framework/overview/) — Delegation Risk computation and risk inheritance
+- [Delegation Risk Overview](/framework/risk/overview/) — Delegation Risk computation and risk inheritance
 
 **To start implementing**:
 - [Quick Start](/applying/tools/quick-start/) — Step-by-step checklist

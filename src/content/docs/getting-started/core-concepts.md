@@ -6,7 +6,7 @@ sidebar:
 
 # Core Concepts
 
-This page introduces the key ideas without mathematical formalism. For quantitative details, see [Delegation Risk](/framework/overview/).
+This page introduces the key ideas without mathematical formalism. For quantitative details, see [Delegation Risk](/framework/risk/overview/).
 
 ## Framework Overview
 
@@ -305,29 +305,42 @@ flowchart TB
 ## What This Framework Provides
 
 1. **Vocabulary**: Precise terms for discussing risk, delegation, and containment
-2. **Theory**: Mathematics for risk propagation and optimization
+2. **Theory**: Mathematics for risk propagation, capability quantification, and optimization
 3. **Methods**: Established approaches adapted from finance, nuclear safety, mechanism design
 4. **Principles**: Actionable design constraints (the "Least X" family)
 5. **Patterns**: Decomposed coordination, verification layers, safety mechanisms
 
 The goal is infrastructure for safely delegating at scale—not a complete solution to trust, but a foundation for managing risk as capabilities increase.
 
+### The Optimization Problem
+
+The framework isn't just about minimizing risk—it's about **maximizing capability subject to risk constraints**:
+
+$$\max \text{Capability} \quad \text{s.t.} \quad \text{DelegationRisk} \leq \text{Budget}$$
+
+Where **Capability = Power × Agency**:
+- **Power**: Ability to achieve diverse goals (what can the system accomplish?)
+- **Agency**: Coherence of goal-pursuit (how optimizer-like is the system?)
+
+See [Agent, Power, and Authority](/framework/capability/agent-power-formalization/) for full formalization.
+
 ---
 
 ## Key Takeaways
 
 :::note[Key Takeaways]
-1. **Delegation Risk quantifies trust**: Risk = Σ P(harm) × Damage
-2. **Decompose, don't centralize**: Many limited components are safer than one powerful delegate
-3. **Apply "Least X" principles**: Minimize capability, privilege, context, persistence, autonomy, connectivity
-4. **Budget risk like finance/nuclear**: Allocate, verify, and enforce limits
-5. **Propagate risk conservatively**: Multiplicative rule is safest default
-6. **AI is primary application**: General framework, focused on AI systems
+1. **The goal is maximizing capability subject to risk constraints**: Not minimizing risk to zero
+2. **Capability = Power × Agency**: We want high power, minimum necessary agency
+3. **Delegation Risk quantifies the downside**: Risk = Σ P(harm) × Damage
+4. **Decompose, don't centralize**: Many limited components are safer than one powerful delegate
+5. **Apply "Least X" principles**: Minimize capability, privilege, context, persistence, autonomy, connectivity
+6. **Budget both risk AND power**: Allocate, verify, and enforce limits on both sides
+7. **High power + low agency may be optimal**: "Strong tools" provide capability without coherent optimization pressure
 :::
 
 ## See Also
 
 - [Introduction](/getting-started/introduction/) — The full problem statement and approach
-- [Delegation Risk Overview](/framework/overview/) — The quantitative foundation
+- [Delegation Risk Overview](/framework/risk/overview/) — The quantitative foundation
 - [Least X Principles](/applying/least-x-principles/) — Deep dive into each principle
 - [Quick Start](/applying/tools/quick-start/) — Apply these concepts step-by-step

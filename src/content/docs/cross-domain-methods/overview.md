@@ -54,6 +54,7 @@ The theoretical apparatus exists: [linear logic](https://en.wikipedia.org/wiki/L
 - [ASIL Decomposition (Automotive)](/cross-domain-methods/asil-decomposition/) — ISO 26262 safety levels and decomposition rules
 - [Linear Logic & Type Systems](/cross-domain-methods/linear-logic-types/) — Formal foundations for trust as a consumable resource
 - [Carbon Budgets & Large-Scale Allocation](/cross-domain-methods/carbon-budgets/) — Lessons from global emissions allocation
+- [Access Control Systems](/cross-domain-methods/access-control-systems/) — Intelligence community and enterprise software access patterns
 
 ### Planned Topics
 

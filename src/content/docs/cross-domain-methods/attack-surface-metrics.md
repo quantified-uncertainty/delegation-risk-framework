@@ -82,6 +82,6 @@ For AI, similar challenges apply: how do you aggregate risks across components t
 ## Next Steps
 
 - **Apply to AI systems** → [Least-X Principles](/applying/least-x-principles/) systematically minimize capability surface
-- **See decomposition** → [Risk Decomposition](/framework/risk-decomposition/) breaks down harm modes
+- **See decomposition** → [Risk Decomposition](/framework/risk/risk-decomposition/) breaks down harm modes
 - **Quantify your system** → [Delegation Risk Calculator](/applying/tools/delegation-risk-calculator/)
 - **Related approach** → [ASIL Decomposition](/cross-domain-methods/asil-decomposition/) from automotive

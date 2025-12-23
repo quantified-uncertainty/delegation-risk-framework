@@ -1,7 +1,7 @@
 ---
 title: "Delegation Accounting: A Balance Sheet View"
 sidebar:
-  order: 2
+  order: 4
 ---
 
 # Delegation Accounting: A Balance Sheet View

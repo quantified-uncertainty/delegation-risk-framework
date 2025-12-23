@@ -1,7 +1,7 @@
 ---
 title: "Risk Decomposition: Accidents vs. Defection"
 sidebar:
-  order: 2
+  order: 3
 ---
 
 # Risk Decomposition: Accidents vs. Defection
@@ -90,7 +90,7 @@ Accidents leave traces in logs and tests. Defection may be actively hidden.
 
 ## Worked Example: Decomposing a Research Assistant
 
-Consider the research assistant from [Delegation Risk Overview](/framework/overview/):
+Consider the research assistant from [Delegation Risk Overview](/framework/risk/overview/):
 
 ### Summarizer Component
 
@@ -216,7 +216,7 @@ This means the *ratio* of defection to accident risk likely increases with capab
 
 ## See Also
 
-- [Delegation Risk Overview](/framework/overview/) — Core framework and calculations
+- [Delegation Risk Overview](/framework/risk/overview/) — Core framework and calculations
 - [Coordinator Constraints](/applying/coordinator-constraints/) — Managing defection risk in coordinators
 - [Safety Mechanisms](/applying/safety-mechanisms/) — Mitigations for both risk types
 - [Glossary](/getting-started/glossary/) — Formal definitions

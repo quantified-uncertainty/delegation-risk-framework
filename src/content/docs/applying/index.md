@@ -9,7 +9,7 @@ This section bridges theory and practice. It covers design principles, architect
 
 Before applying the framework, understand:
 - [Core Concepts](/getting-started/core-concepts/) — The key ideas
-- [Framework Overview](/framework/overview/) — The quantitative foundation
+- [Framework Overview](/framework/risk/overview/) — The quantitative foundation
 
 ## Section Organization
 

@@ -113,7 +113,7 @@ Budget: $500/mo → **Within budget. Ship it.**
 
 - **Want the full picture?** → [Core Concepts](/getting-started/core-concepts/)
 - **Ready to apply it?** → [Quick Start](/applying/tools/quick-start/)
-- **Want the math?** → [Delegation Risk](/framework/overview/)
+- **Want the math?** → [Delegation Risk](/framework/risk/overview/)
 - **Have questions?** → [FAQ](/getting-started/faq/)
 
 ---

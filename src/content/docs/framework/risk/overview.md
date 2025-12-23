@@ -1,5 +1,7 @@
 ---
 title: "Delegation Risk: Overview"
+sidebar:
+  order: 1
 ---
 
 # Delegation Risk: Overview
@@ -172,7 +174,7 @@ This kind of cross-domain comparison helps calibrate whether AI safety investmen
 
 ## Key Topics
 
-- [Risk Decomposition](/framework/risk-decomposition/) - Accidents vs. defection: two types of harm
+- [Risk Decomposition](/framework/risk/risk-decomposition/) - Accidents vs. defection: two types of harm
 - [Risk Inheritance](/deep-dives/theory/trust-propagation/) - How risk flows through delegation networks
 - [Delegation Interfaces & Contracts](/deep-dives/theory/trust-interfaces/) - Formalizing delegation relationships
 - [Risk Optimization](/deep-dives/theory/trust-optimization/) - Minimizing delegation risk subject to capability
@@ -185,7 +187,7 @@ This kind of cross-domain comparison helps calibrate whether AI safety investmen
 
 ### Applications
 - [Power Struggles](/case-studies/anomaly-chronicles/power-struggles/) - Board vs CEO, dictator vs military, regulatory capture
-- [Delegation Accounting](/framework/delegation-accounting/) - Balance sheet view of delegation
+- [Delegation Accounting](/framework/risk/delegation-accounting/) - Balance sheet view of delegation
 
 ## The Goal
 

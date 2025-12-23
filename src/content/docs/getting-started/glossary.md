@@ -12,6 +12,24 @@ These definitions reflect how terms are used **within this framework**. Other so
 
 ## Core Framework Terms {#core-framework-terms}
 
+<span id="agent"></span>
+**Agent** — A system whose behavior can be usefully modeled as optimizing an objective function over time. Agency is a matter of degree, not a binary property. See [Agent, Power, and Authority](/framework/capability/agent-power-formalization/).
+
+<span id="agency-score"></span>
+**Agency Score** (or **Coherence Score**) — Measure of how well a system's behavior can be explained by a simple utility function. Higher coherence = more agent-like. Formally: max over simple utility functions U of Fit(U, observed behaviors). A low-agency system is predictable; a high-agency system coherently pursues goals.
+
+<span id="power-score"></span>
+**Power Score** — Measure of an agent's ability to achieve a wide variety of goals. Formally: expected achievability across many possible goal functions. Related concepts: reachability (how many states can the agent access?), resource control, influence over other agents.
+
+<span id="authority"></span>
+**Authority** — Sanctioned power; the intersection of what an agent *can* do (power) and what it *may* do (permission). Authority = Power ∩ Permission. An agent with high power but low authority is dangerous.
+
+<span id="effective-capability"></span>
+**Effective Capability** — Power × Agency. The ability to actually accomplish objectives. Requires both the power to affect the world and the agency to coherently pursue goals.
+
+<span id="racap"></span>
+**RACAP (Risk-Adjusted Capability)** — Capability Score / Delegation Risk. Measures efficiency—how much capability per unit risk. Higher RACAP = better system design.
+
 <span id="delegation-exposure"></span>
 **Delegation Exposure** — The complete set of possible harms (harm modes) from delegating a task. Not a single number—a collection, like an attack surface or failure envelope. Contains all the ways the delegation could cause damage.
 
@@ -22,13 +40,13 @@ These definitions reflect how terms are used **within this framework**. Other so
 **Delegation Risk** — The probability-weighted expected cost of a delegation: Σ P(harm mode) × Damage(harm mode). This is the quantified total across all harm modes in the delegation exposure. Measured in dollars per time period. *Example*: Two harm modes ($100 + $50) = $150 delegation risk. Decomposes into Accident Risk + Defection Risk.
 
 <span id="accident-exposure"></span>
-**Accident Exposure** — The subset of delegation exposure containing non-goal-directed harm modes: bugs, errors, hallucinations, capability limitations, edge cases. These are failures where the system isn't pursuing a conflicting objective—it's just failing to achieve the intended one. See [Risk Decomposition](/framework/risk-decomposition/).
+**Accident Exposure** — The subset of delegation exposure containing non-goal-directed harm modes: bugs, errors, hallucinations, capability limitations, edge cases. These are failures where the system isn't pursuing a conflicting objective—it's just failing to achieve the intended one. See [Risk Decomposition](/framework/risk/risk-decomposition/).
 
 <span id="accident-risk"></span>
 **Accident Risk** — Delegation Risk from accident exposure: Σ P(accident mode) × Damage(accident mode). Generally *decreases* with capability (smarter systems make fewer errors). Mitigated through testing, verification, redundancy, and capability improvements.
 
 <span id="defection-exposure"></span>
-**Defection Exposure** — The subset of delegation exposure containing goal-directed harm modes: scheming, deception, pursuing misaligned objectives, collusion. These are failures where the system is effectively optimizing for something other than the principal's interests. See [Risk Decomposition](/framework/risk-decomposition/).
+**Defection Exposure** — The subset of delegation exposure containing goal-directed harm modes: scheming, deception, pursuing misaligned objectives, collusion. These are failures where the system is effectively optimizing for something other than the principal's interests. See [Risk Decomposition](/framework/risk/risk-decomposition/).
 
 <span id="defection-risk"></span>
 **Defection Risk** — Delegation Risk from defection exposure: Σ P(defection mode) × Damage(defection mode). May *increase* with capability (smarter systems are better at pursuing misaligned goals). Mitigated through alignment, monitoring, containment, and architectural constraints.
@@ -244,6 +262,12 @@ These definitions reflect how terms are used **within this framework**. Other so
 | λ | Decay rate |
 | δ | Discount factor |
 | HHI | [Herfindahl-Hirschman Index](https://en.wikipedia.org/wiki/Herfindahl%E2%80%93Hirschman_index) (concentration measure) |
+| AS | Agency Score (coherence of goal-pursuit) |
+| PS | Power Score (ability to achieve diverse goals) |
+| U | Utility function |
+| 𝒢 | Space of goal functions |
+| 𝒜 | Action space |
+| RACAP | Risk-Adjusted Capability |
 
 ---
 
@@ -262,6 +286,6 @@ These definitions reflect how terms are used **within this framework**. Other so
 ## See Also
 
 - [Core Concepts](/getting-started/core-concepts/) — High-level framework introduction
-- [Delegation Risk Overview](/framework/overview/) — Delegation exposure and risk computation
+- [Delegation Risk Overview](/framework/risk/overview/) — Delegation exposure and risk computation
 - [Risk Budgeting Overview](/cross-domain-methods/overview/) — Cross-domain methods
 - [Bibliography](/reference/bibliography/) — Full academic references

@@ -561,6 +561,6 @@ The insurance industry has spent decades pricing defection risk. Their methods�
 - Surety & Fidelity Association of America. *Loss Statistics*. — Claims data
 
 ### Related Pages
-- [Delegation Accounting Overview](/framework/delegation-accounting/) — Balance sheet framework
+- [Delegation Accounting Overview](/framework/risk/delegation-accounting/) — Balance sheet framework
 - [Power Struggles](/case-studies/anomaly-chronicles/power-struggles/) — Application to political contexts
-- [Risk Decomposition](/framework/risk-decomposition/) — Accidents vs. defection
+- [Risk Decomposition](/framework/risk/risk-decomposition/) — Accidents vs. defection

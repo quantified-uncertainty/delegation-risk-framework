@@ -1,7 +1,7 @@
 ---
 title: "A Walk-Through: The $1,000 Delivery"
 sidebar:
-  order: 1
+  order: 2
 ---
 
 # A Walk-Through: The $1,000 Delivery
@@ -449,7 +449,7 @@ The framework creates alignment:
 
 ## Next Steps
 
-- [Delegation Risk Overview](/framework/overview/) — The full framework and formulas
-- [Risk Decomposition](/framework/risk-decomposition/) — Accidents vs. defection: two types of harm
+- [Delegation Risk Overview](/framework/risk/overview/) — The full framework and formulas
+- [Risk Decomposition](/framework/risk/risk-decomposition/) — Accidents vs. defection: two types of harm
 - [Trust Interfaces](/deep-dives/theory/trust-interfaces/) — Formalizing the delegation contract
 - [Trust Accounting](/deep-dives/theory/trust-accounting/) — Ledgers, dashboards, and auditing

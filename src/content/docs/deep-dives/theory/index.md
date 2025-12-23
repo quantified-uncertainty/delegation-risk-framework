@@ -16,6 +16,10 @@ These documents explore the mathematical and economic foundations of delegation 
 
 ## Documents
 
+:::tip[Core Framework Theory]
+For the foundational concepts (Agency, Power, Authority, Strong Tools), see the [Framework section](/framework/) which contains the core theoretical contributions alongside the risk formalization.
+:::
+
 ### Risk Mechanics
 - [Risk Dynamics](./trust-dynamics/) — Bayesian updating, how risk estimates evolve over time
 - [Risk Accounting](./trust-accounting/) — Risk ledgers, balance sheets, auditing
@@ -39,4 +43,4 @@ These theoretical foundations inform:
 
 - **Protocol multipliers** in the [Protocol Catalog](/case-studies/anomaly-chronicles/protocol-catalog/)
 - **Track record calculations** in the [Insurance Bot](/case-studies/anomaly-chronicles/insurance-bot-spec/)
-- **Exposure modeling** in [Delegation Accounting](/framework/delegation-accounting/)
+- **Exposure modeling** in [Delegation Accounting](/framework/risk/delegation-accounting/)

@@ -53,8 +53,8 @@ The theoretical foundations connect to practical concepts:
 |-------------|---------|----------------------|
 | [Trust Dynamics](/deep-dives/theory/trust-dynamics/) | How trust changes | [Empirical Tests](/applying/tools/empirical-tests/) |
 | [Trust Propagation](/deep-dives/theory/trust-propagation/) | Risk flow | [Risk Inheritance Tool](/applying/tools/trust-propagation/) |
-| [Trust Economics](/deep-dives/theory/trust-economics/) | Incentive design | [Insurer's Dilemma](/framework/insurers-dilemma/) |
-| [Fidelity Insurance](/deep-dives/research/fidelity-insurance/) | Pricing defection | [Delegation Accounting](/framework/delegation-accounting/) |
+| [Trust Economics](/deep-dives/theory/trust-economics/) | Incentive design | [Insurer's Dilemma](/framework/risk/insurers-dilemma/) |
+| [Fidelity Insurance](/deep-dives/research/fidelity-insurance/) | Pricing defection | [Delegation Accounting](/framework/risk/delegation-accounting/) |
 
 ## Reading Suggestions
 

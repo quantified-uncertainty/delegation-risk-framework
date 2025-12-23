@@ -31,6 +31,20 @@ Delegation risk principles aren't new—human organizations have developed sophi
 | [Cross-Civilization Trust](/case-studies/human-systems/trust-across-civilizations/) | Historical | Trust across vast differences |
 | [The Oversight Dilemma](/case-studies/human-systems/oversight-dilemma/) | Governance | Who watches the watchers? |
 
+## Power, Agency, and Authority Case Studies
+
+Analysis of real systems through the lens of [agency and power formalization](/framework/capability/agent-power-formalization/):
+
+| Case | Power | Agency | Key Insight |
+|------|-------|--------|-------------|
+| [Central Banks](/case-studies/power-dynamics-cases/#case-study-1-central-banks) | Very High | Low | Institutional constraints limit agency despite high power |
+| [Recommendation Algorithms](/case-studies/power-dynamics-cases/#case-study-2-recommendation-algorithms) | High | Medium | Optimization creates emergent agency |
+| [AlphaFold](/case-studies/power-dynamics-cases/#case-study-3-alphafold) | High | Very Low | Strong tools are achievable in narrow domains |
+| [Corporate Boards](/case-studies/power-dynamics-cases/#case-study-4-corporate-boards) | High | Medium | Structural constraints substitute for alignment |
+| [Self-Driving Cars](/case-studies/power-dynamics-cases/#case-study-5-self-driving-cars) | Medium | Medium | Bounded agency through hard constraints |
+
+See [Power Dynamics Case Studies](/case-studies/power-dynamics-cases/) for full analysis.
+
 ## The Anomaly Chronicles
 
 :::note[Fiction]
@@ -65,7 +79,7 @@ The human systems cases show established approaches (with varying track records)
 
 ### Want the Full Picture
 The Anomaly Chronicles explores where these principles lead at scale:
-1. Start with [The Insurer's Dilemma](/framework/insurers-dilemma/) for context
+1. Start with [The Insurer's Dilemma](/framework/risk/insurers-dilemma/) for context
 2. Then read the Chronicles in order
 
 ## How Case Studies Connect to Principles

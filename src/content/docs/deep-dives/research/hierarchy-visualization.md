@@ -724,6 +724,6 @@ Based on this survey:
 
 ## See Also
 
-- [Framework Overview](/framework/overview/) — The delegation structures being visualized
+- [Framework Overview](/framework/risk/overview/) — The delegation structures being visualized
 - [Nuclear Safety PRA](/cross-domain-methods/nuclear-safety-pra/) — Fault tree examples
-- [Exposure Cascade](/framework/exposure-cascade/) — How risk flows through hierarchies
+- [Exposure Cascade](/framework/risk/exposure-cascade/) — How risk flows through hierarchies

@@ -1,7 +1,7 @@
 ---
 title: "Exposure Cascade: Hierarchical Risk Budgets"
 sidebar:
-  order: 3
+  order: 5
 ---
 
 # Exposure Cascade: Hierarchical Risk Budgets
@@ -280,7 +280,7 @@ Your company has been running with **Standard** oversight, but after a complianc
 
 ## See Also
 
-- [Delegation Accounting](/framework/delegation-accounting/) — Balance sheet view for individual delegations
+- [Delegation Accounting](/framework/risk/delegation-accounting/) — Balance sheet view for individual delegations
 - [Trust in Organizations](/case-studies/human-systems/organizational-trust/) — Detailed case studies with specific roles
 - [Risk Inheritance](/deep-dives/theory/trust-propagation/) — The math of how trust flows through networks
 - [Risk Budgeting Overview](/cross-domain-methods/overview/) — Cross-domain methods for allocating risk budgets
