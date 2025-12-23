@@ -94,6 +94,6 @@ The Anomaly Chronicles explores where these principles lead at scale:
 
 ## Next Steps
 
-- **Apply these lessons** → [Applying the Framework](/design-patterns/)
+- **Apply these lessons** → [Design Patterns](/design-patterns/)
 - **Understand the theory** → [Delegation Risk](/delegation-risk/)
 - **See other domains** → [Cross-Domain Methods](/cross-domain-methods/)

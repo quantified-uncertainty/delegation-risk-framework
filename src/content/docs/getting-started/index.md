@@ -41,7 +41,7 @@ flowchart TB
     GS[Getting Started]
     GS --> I[Introduction<br/>Start here for context]
     I --> CC[Core Concepts<br/>Understand the framework]
-    CC --> F[The Framework<br/>quantitative]
+    CC --> F[Delegation Risk<br/>quantitative]
     CC --> QS[Quick Start<br/>practical]
 
     style GS fill:#f0f0f0
@@ -55,5 +55,5 @@ flowchart TB
 
 Once you understand the basics:
 - **Want the math?** → [Delegation Risk](/delegation-risk/) for quantitative foundations
-- **Want to apply it?** → [Applying the Framework](/design-patterns/) for practical guidance
+- **Want to apply it?** → [Design Patterns](/design-patterns/) for practical guidance
 - **Want examples?** → [Case Studies](/case-studies/) for real-world applications

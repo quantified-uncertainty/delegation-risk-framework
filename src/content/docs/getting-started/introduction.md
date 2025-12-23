@@ -115,15 +115,15 @@ The documentation is organized from foundations to applications:
 
 **Getting Started** provides overviews at various levels of detail—from a 5-minute summary to a full conceptual introduction.
 
-**The Framework** develops the mathematics: how to quantify Delegation Risk, how risk propagates through delegation chains, how to decompose and allocate risk budgets.
+**Delegation Risk** develops the mathematics: how to quantify Delegation Risk, how risk propagates through delegation chains, how to decompose and allocate risk budgets.
 
-**Applying the Framework** provides actionable guidance: the Least X principles, decomposed architectures, safety mechanisms, worked examples.
+**Design Patterns** provides actionable guidance: the Least X principles, decomposed architectures, safety mechanisms, worked examples.
 
 **Cross-Domain Methods** covers techniques borrowed from other fields: nuclear safety's probabilistic risk assessment, finance's Euler allocation, mechanism design's incentive-compatible reporting.
 
 **Case Studies** applies the framework to specific scenarios: AI systems that succeeded or failed, human organizations, historical examples.
 
-**Deep Dives** goes further into theory and background research for readers who want more depth.
+**Research** goes further into theory and background research for readers who want more depth.
 
 You don't need to read linearly. If you want the core ideas fast, start with the [Five-Minute Intro](/getting-started/five-minute-intro/). If you want to apply the framework immediately, try the [Quick Start](/design-patterns/tools/quick-start/). If you want the full picture, the [Core Concepts](/getting-started/core-concepts/) page provides a visual overview of how everything connects.
 

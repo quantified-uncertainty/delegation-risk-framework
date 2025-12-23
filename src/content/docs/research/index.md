@@ -1,5 +1,5 @@
 ---
-title: Deep Dives
+title: Research
 description: Theoretical foundations and background research for those who want to understand the framework's underpinnings.
 ---
 
@@ -12,7 +12,7 @@ This section is for researchers, skeptics, and anyone who wants to understand *w
 - **Builders** needing to extend the framework for novel situations
 - **Academics** connecting this to existing literature
 
-**Not for you if**: You just want to apply the framework. Start with [Getting Started](/getting-started/) and [Applying the Framework](/design-patterns/) instead.
+**Not for you if**: You just want to apply the framework. Start with [Getting Started](/getting-started/) and [Design Patterns](/design-patterns/) instead.
 
 ## Two Tracks
 
@@ -78,6 +78,6 @@ If you want to connect to existing literature:
 
 ## Next Steps
 
-- **Apply these insights** → [Applying the Framework](/design-patterns/)
+- **Apply these insights** → [Design Patterns](/design-patterns/)
 - **See practical examples** → [Case Studies](/case-studies/)
 - **Return to basics** → [Delegation Risk](/delegation-risk/)
