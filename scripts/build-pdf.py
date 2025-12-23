@@ -101,7 +101,7 @@ def get_version_string():
 
     return version_str, version
 
-# Sidebar order matching astro.config.mjs
+# Sidebar order matching current site structure
 SIDEBAR_ORDER = [
     # Getting Started
     ("Getting Started", [
@@ -112,81 +112,96 @@ SIDEBAR_ORDER = [
         "getting-started/faq.md",
         "getting-started/glossary.md",
     ]),
-    # The Framework
-    ("The Framework", [
-        "framework/index.md",
-        # Capability Formalization
-        "framework/capability/index.md",
-        "framework/capability/agent-power-formalization.md",
-        "framework/capability/agency-power-examples.md",
-        "framework/capability/strong-tools-hypothesis.md",
-        # Risk Formalization
-        "framework/risk/index.md",
-        "framework/risk/overview.md",
-        "framework/risk/walkthrough.md",
-        "framework/risk/delegation-accounting.md",
-        "framework/risk/risk-decomposition.md",
-        "framework/risk/exposure-cascade.md",
-        "framework/risk/insurers-dilemma.md",
+    # Delegation Risk
+    ("Delegation Risk", [
+        "delegation-risk/index.md",
+        "delegation-risk/overview.md",
+        "delegation-risk/walkthrough.md",
+        "delegation-risk/delegation-accounting.md",
+        "delegation-risk/risk-decomposition.md",
+        "delegation-risk/exposure-cascade.md",
+        "delegation-risk/insurers-dilemma.md",
     ]),
-    # Applying the Framework
-    ("Applying the Framework", [
-        "applying/index.md",
-        "applying/principles-to-practice.md",
-        "applying/decomposed-coordination.md",
-        "applying/safety-mechanisms.md",
-        "applying/forecasting-navigation.md",
-        "applying/least-x-principles.md",
-        "applying/coordinator-constraints.md",
-        # Design Patterns
-        "applying/patterns/index.md",
-        "applying/patterns/structural.md",
-        "applying/patterns/verification.md",
-        "applying/patterns/information.md",
-        "applying/patterns/temporal.md",
-        "applying/patterns/monitoring.md",
-        "applying/patterns/multi-agent.md",
-        "applying/patterns/incentive.md",
-        "applying/patterns/recovery.md",
-        "applying/patterns/channel-integrity.md",
-        # Entanglements
-        "applying/interconnection/index.md",
-        "applying/interconnection/types.md",
-        "applying/interconnection/challenges.md",
-        "applying/interconnection/modeling.md",
-        "applying/interconnection/examples.md",
-        "applying/interconnection/solutions.md",
-        "applying/interconnection/decision-framework.md",
+    # Power Dynamics
+    ("Power Dynamics", [
+        "power-dynamics/index.md",
+        "power-dynamics/agent-power-formalization.md",
+        "power-dynamics/agency-power-examples.md",
+        "power-dynamics/strong-tools-hypothesis.md",
+    ]),
+    # Design Patterns
+    ("Design Patterns", [
+        "design-patterns/index.md",
+        "design-patterns/principles-to-practice.md",
+        "design-patterns/decomposed-coordination.md",
+        "design-patterns/safety-mechanisms.md",
+        "design-patterns/forecasting-navigation.md",
+        "design-patterns/least-x-principles.md",
+        "design-patterns/coordinator-constraints.md",
+        # Pattern Categories
+        "design-patterns/structural.md",
+        "design-patterns/verification.md",
+        "design-patterns/information.md",
+        "design-patterns/temporal.md",
+        "design-patterns/monitoring.md",
+        "design-patterns/multi-agent.md",
+        "design-patterns/incentive.md",
+        "design-patterns/recovery.md",
+        "design-patterns/channel-integrity.md",
         # Worked Examples
-        "applying/examples/research-assistant-example.md",
-        "applying/examples/code-deployment-example.md",
-        "applying/examples/trading-system-example.md",
-        "applying/examples/healthcare-bot-example.md",
+        "design-patterns/examples/research-assistant-example.md",
+        "design-patterns/examples/code-deployment-example.md",
+        "design-patterns/examples/trading-system-example.md",
+        "design-patterns/examples/healthcare-bot-example.md",
         # Tools & Guides
-        "applying/tools/quick-start.md",
-        "applying/tools/decision-guide.md",
-        "applying/tools/delegation-risk-calculator.mdx",
-        "applying/tools/trust-propagation.mdx",
-        "applying/tools/tradeoff-frontier.mdx",
-        "applying/tools/cost-benefit.md",
-        "applying/tools/empirical-tests.md",
+        "design-patterns/tools/quick-start.md",
+        "design-patterns/tools/decision-guide.md",
+        "design-patterns/tools/delegation-risk-calculator.mdx",
+        "design-patterns/tools/trust-propagation.mdx",
+        "design-patterns/tools/tradeoff-frontier.mdx",
+        "design-patterns/tools/interactive-delegation-graph.mdx",
+        "design-patterns/tools/cost-benefit.md",
+        "design-patterns/tools/empirical-tests.md",
     ]),
-    # Cross-Domain Methods
-    ("Cross-Domain Methods", [
-        "cross-domain-methods/overview.md",
-        "cross-domain-methods/euler-allocation.md",
-        "cross-domain-methods/nuclear-safety-pra.md",
-        "cross-domain-methods/mechanism-design.md",
-        "cross-domain-methods/asil-decomposition.md",
-        "cross-domain-methods/carbon-budgets.md",
-        "cross-domain-methods/attack-surface-metrics.md",
-        "cross-domain-methods/linear-logic-types.md",
-        "cross-domain-methods/lessons-from-failures.md",
-        "cross-domain-methods/access-control-systems.md",
+    # Entanglements
+    ("Entanglements", [
+        "entanglements/index.md",
+        # Fundamentals
+        "entanglements/fundamentals/types.md",
+        "entanglements/fundamentals/challenges.md",
+        "entanglements/fundamentals/formal-definitions.md",
+        # Detection
+        "entanglements/detection/modeling.md",
+        "entanglements/detection/detecting-influence.md",
+        "entanglements/detection/metrics.md",
+        "entanglements/detection/correlation-calculator.md",
+        # Case Studies
+        "entanglements/case-studies/examples.md",
+        "entanglements/case-studies/foundation-model-monoculture.md",
+        "entanglements/case-studies/intelligence-failures.md",
+        "entanglements/case-studies/historical-cases.md",
+        # Cross-Domain
+        "entanglements/cross-domain/software-dependency-patterns.md",
+        "entanglements/cross-domain/regulatory-approaches.md",
+        "entanglements/cross-domain/hidden-coordination.md",
+        "entanglements/cross-domain/legibility-and-control.md",
+        "entanglements/cross-domain/organizational-isolation.md",
+        "entanglements/cross-domain/psychology-of-oversight.md",
+        # Mitigation
+        "entanglements/mitigation/solutions.md",
+        "entanglements/mitigation/decision-framework.md",
+        "entanglements/mitigation/audit-guide.md",
+        "entanglements/mitigation/red-team-methodology.md",
+        # Research
+        "entanglements/research/adversarial-transferability.md",
+        "entanglements/research/ai-debate-entanglement.md",
+        "entanglements/research/impossibility-results.md",
+        "entanglements/research/research-connections.md",
     ]),
     # Case Studies
     ("Case Studies", [
         "case-studies/index.md",
+        "case-studies/power-dynamics-cases.md",
         # AI Systems
         "case-studies/ai-systems/case-study-sydney.md",
         "case-studies/ai-systems/case-study-success.md",
@@ -198,6 +213,7 @@ SIDEBAR_ORDER = [
         "case-studies/human-systems/nuclear-launch-authority.md",
         "case-studies/human-systems/criminal-trust.md",
         "case-studies/human-systems/jury-trust.md",
+        "case-studies/human-systems/alliance-cascades.md",
         "case-studies/human-systems/open-source-trust.md",
         "case-studies/human-systems/oversight-dilemma.md",
         "case-studies/human-systems/trust-across-civilizations.md",
@@ -212,47 +228,77 @@ SIDEBAR_ORDER = [
         "case-studies/anomaly-chronicles/protocol-catalog.md",
         "case-studies/anomaly-chronicles/insurance-bot-spec.md",
     ]),
-    # Deep Dives
-    ("Deep Dives", [
-        "deep-dives/index.md",
+    # Cross-Domain Methods
+    ("Cross-Domain Methods", [
+        "cross-domain-methods/overview.md",
+        "cross-domain-methods/euler-allocation.md",
+        "cross-domain-methods/nuclear-safety-pra.md",
+        "cross-domain-methods/mechanism-design.md",
+        "cross-domain-methods/asil-decomposition.md",
+        "cross-domain-methods/carbon-budgets.md",
+        "cross-domain-methods/attack-surface-metrics.md",
+        "cross-domain-methods/linear-logic-types.md",
+        "cross-domain-methods/lessons-from-failures.md",
+        "cross-domain-methods/access-control-systems.md",
+    ]),
+    # Research
+    ("Research", [
+        "research/index.md",
         # Theoretical Foundations
-        "deep-dives/theory/index.md",
-        "deep-dives/theory/trust-accounting.md",
-        "deep-dives/theory/trust-propagation.md",
-        "deep-dives/theory/trust-dynamics.md",
-        "deep-dives/theory/trust-optimization.md",
-        "deep-dives/theory/trust-economics.md",
-        "deep-dives/theory/trust-interfaces.md",
-        "deep-dives/theory/trust-protocols.md",
-        "deep-dives/theory/trust-at-scale.md",
-        "deep-dives/theory/human-ai-trust.md",
-        # Background Research
-        "deep-dives/research/index.md",
+        "research/theory/index.md",
+        "research/theory/trust-accounting.md",
+        "research/theory/trust-propagation.md",
+        "research/theory/trust-dynamics.md",
+        "research/theory/trust-optimization.md",
+        "research/theory/trust-economics.md",
+        "research/theory/trust-interfaces.md",
+        "research/theory/trust-protocols.md",
+        "research/theory/trust-at-scale.md",
+        "research/theory/human-ai-trust.md",
         # Risk & Financial Methods
-        "deep-dives/research/risk-methods/financial-risk-budgeting.md",
-        "deep-dives/research/risk-methods/fidelity-insurance.md",
-        "deep-dives/research/risk-methods/compositional-risk-measures.md",
-        "deep-dives/research/risk-methods/alignment-tax-quantification.md",
+        "research/risk-methods/financial-risk-budgeting.md",
+        "research/risk-methods/fidelity-insurance.md",
+        "research/risk-methods/compositional-risk-measures.md",
+        "research/risk-methods/complexity-pricing.md",
+        "research/risk-methods/alignment-tax-quantification.md",
         # Technical Safety
-        "deep-dives/research/technical-safety/ai-safety-frameworks.md",
-        "deep-dives/research/technical-safety/formal-verification-limits.md",
-        "deep-dives/research/technical-safety/runtime-monitoring-architectures.md",
-        "deep-dives/research/technical-safety/capability-elicitation-sandbagging.md",
-        "deep-dives/research/technical-safety/steganography-detection-prevention.md",
+        "research/technical-safety/ai-safety-frameworks.md",
+        "research/technical-safety/formal-verification-limits.md",
+        "research/technical-safety/runtime-monitoring-architectures.md",
+        "research/technical-safety/capability-elicitation-sandbagging.md",
+        "research/technical-safety/steganography-detection-prevention.md",
         # System Design
-        "deep-dives/research/system-design/mechanism-design.md",
-        "deep-dives/research/system-design/nuclear-aerospace-deep-dive.md",
-        "deep-dives/research/system-design/byzantine-coordinator-voting.md",
-        "deep-dives/research/system-design/prototype-architecture-feasibility.md",
+        "research/system-design/mechanism-design.md",
+        "research/system-design/nuclear-aerospace-deep-dive.md",
+        "research/system-design/byzantine-coordinator-voting.md",
+        "research/system-design/prototype-architecture-feasibility.md",
         # Trust & Behavior
-        "deep-dives/research/trust-behavior/human-trust-calibration.md",
-        "deep-dives/research/trust-behavior/trust-dynamics-adversarial-pressure.md",
-        "deep-dives/research/trust-behavior/empirical-scheming-reduction.md",
-        "deep-dives/research/trust-behavior/correlated-failure-modeling.md",
-        "deep-dives/research/trust-behavior/linear-logic-trust-budgets.md",
+        "research/trust-behavior/human-trust-calibration.md",
+        "research/trust-behavior/trust-dynamics-adversarial-pressure.md",
+        "research/trust-behavior/empirical-scheming-reduction.md",
+        "research/trust-behavior/correlated-failure-modeling.md",
+        "research/trust-behavior/linear-logic-trust-budgets.md",
         # Other
-        "deep-dives/research/hierarchy-visualization.md",
-        "deep-dives/research/potential-projects.md",
+        "research/hierarchy-visualization.md",
+        "research/potential-projects.md",
+    ]),
+    # Experimental
+    ("Experimental", [
+        "experimental/index.md",
+        "experimental/probabilistic-estimation/index.md",
+        "experimental/probabilistic-estimation/tools/index.md",
+        "experimental/probabilistic-estimation/tools/risk-calculator.mdx",
+        "experimental/probabilistic-estimation/tools/architecture-comparator.mdx",
+        "experimental/probabilistic-estimation/tools/trust-updater.mdx",
+        "experimental/probabilistic-estimation/tools/sensitivity-dashboard.mdx",
+        "experimental/probabilistic-estimation/estimates/index.md",
+        "experimental/probabilistic-estimation/estimates/probability-priors.md",
+        "experimental/probabilistic-estimation/estimates/damage-distributions.md",
+        "experimental/probabilistic-estimation/estimates/trust-calibration.md",
+        "experimental/probabilistic-estimation/estimates/mitigation-effectiveness.md",
+        "experimental/probabilistic-estimation/estimates/expert-elicitation.md",
+        "experimental/probabilistic-estimation/estimates/cross-domain-benchmarks.md",
+        "experimental/probabilistic-estimation/estimates/incident-database.md",
     ]),
     # Reference
     ("Reference", [
@@ -261,6 +307,7 @@ SIDEBAR_ORDER = [
         "reference/related-approaches.md",
         "reference/roadmap.md",
         "reference/site-map.md",
+        "reference/about-this-site.md",
         "reference/coordinator-constraints-brainstorm.md",
         "reference/potential-examples.md",
     ]),
@@ -385,6 +432,18 @@ def render_mermaid(code, diagram_id):
     """Render a mermaid diagram to PNG and return the path."""
     MERMAID_CACHE_DIR.mkdir(exist_ok=True)
 
+    # Mermaid CLI has issues with <br/> in labels - normalize and quote labels
+    code = re.sub(r'<br\s*/?>', '<br>', code)
+    # Wrap labels containing <br> in quotes to prevent parse errors
+    def quote_br_labels(m):
+        node_id = m.group(1)
+        label = m.group(2)
+        # If label contains <br> and isn't already quoted, quote it
+        if '<br>' in label and not label.startswith('"'):
+            return f'{node_id}["{label}"]'
+        return m.group(0)
+    code = re.sub(r'(\w+)\[([^\]]+)\]', quote_br_labels, code)
+
     code_hash = hashlib.md5(code.encode()).hexdigest()[:12]
     output_path = MERMAID_CACHE_DIR / f"diagram-{diagram_id}-{code_hash}.png"
 
@@ -463,6 +522,18 @@ def process_markdown(content, file_path):
 
     content = remove_jsx_block(content)
 
+    # Handle mermaid diagrams FIRST (before HTML tag removal, since Mermaid uses <br/> for line breaks)
+    def replace_mermaid(match):
+        _mermaid_counter[0] += 1
+        mermaid_code = match.group(1)
+        img_path = render_mermaid(mermaid_code, _mermaid_counter[0])
+        if img_path:
+            return f'\n![Diagram]({img_path})\n'
+        else:
+            return '\n*[Diagram could not be rendered]*\n'
+
+    content = re.sub(r'```mermaid\s*\n(.*?)```', replace_mermaid, content, flags=re.DOTALL)
+
     # Remove remaining style/script blocks
     content = re.sub(r'<style[^>]*>[\s\S]*?</style>', '', content)
     content = re.sub(r'<script[^>]*>[\s\S]*?</script>', '', content)
@@ -480,8 +551,24 @@ def process_markdown(content, file_path):
     content = re.sub(r'<select[^>]*>.*?</select>', '', content, flags=re.DOTALL)
     content = re.sub(r'<textarea[^>]*>.*?</textarea>', '', content, flags=re.DOTALL)
     content = re.sub(r'<form[^>]*>.*?</form>', '', content, flags=re.DOTALL)
+
+    # Protect math environments from JSX cleanup
+    math_blocks = []
+    def save_math(match):
+        math_blocks.append(match.group(0))
+        return f'__MATH_BLOCK_{len(math_blocks)-1}__'
+
+    # Protect display math ($$...$$) and inline math ($...$)
+    content = re.sub(r'\$\$[^$]+\$\$', save_math, content)
+    content = re.sub(r'\$[^$\n]+\$', save_math, content)
+
+    # Now safe to remove JSX expressions
     content = re.sub(r'\{`[^`]*`\}', '', content)
     content = re.sub(r'\{[^}]*\}', '', content)
+
+    # Restore math blocks
+    for i, block in enumerate(math_blocks):
+        content = content.replace(f'__MATH_BLOCK_{i}__', block)
 
     # Convert asides/callouts to blockquotes
     def convert_aside(match):
@@ -498,18 +585,6 @@ def process_markdown(content, file_path):
         convert_aside,
         content, flags=re.DOTALL | re.MULTILINE
     )
-
-    # Handle mermaid diagrams
-    def replace_mermaid(match):
-        _mermaid_counter[0] += 1
-        mermaid_code = match.group(1)
-        img_path = render_mermaid(mermaid_code, _mermaid_counter[0])
-        if img_path:
-            return f'\n![Diagram]({img_path})\n'
-        else:
-            return '\n*[Diagram could not be rendered]*\n'
-
-    content = re.sub(r'```mermaid\s*\n(.*?)```', replace_mermaid, content, flags=re.DOTALL)
 
     # Clean unicode
     content = clean_unicode(content)
