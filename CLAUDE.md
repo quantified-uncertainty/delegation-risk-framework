@@ -22,7 +22,13 @@ pnpm build        # Build site (runs Pagefind for search)
 ### Generated Files
 - `scripts/build-pdf.py` - Builds PDF and EPUB from markdown using Pandoc + XeLaTeX
 - `scripts/build-llms-txt.py` - Builds `/public/llms-core.txt` and `/public/llms-full.txt`
-- PDF/EPUB are generated locally (no GitHub Action yet)
+
+### GitHub Action (`.github/workflows/build-artifacts.yml`)
+On push to main:
+1. Builds PDF and EPUB
+2. Rebuilds llms.txt files
+3. Auto-commits version.json and llms.txt changes
+4. Creates/updates GitHub Release with PDF/EPUB downloads
 
 ## Content Structure
 

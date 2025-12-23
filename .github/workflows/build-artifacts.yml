@@ -1,0 +1,112 @@
+name: Build Artifacts
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Node dependencies
+        run: pnpm install
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli
+
+      - name: Build PDF and EPUB
+        run: python3 scripts/build-pdf.py
+        continue-on-error: true
+
+      - name: Build llms.txt
+        run: python3 scripts/build-llms-txt.py
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit updated artifacts
+        run: |
+          git add version.json public/llms-core.txt public/llms-full.txt
+          git diff --staged --quiet || git commit -m "Auto-update version and llms.txt [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get version
+        id: version
+        run: |
+          VERSION=$(python3 -c "import json; print(json.load(open('version.json'))['major'], json.load(open('version.json'))['minor'], json.load(open('version.json'))['patch'], sep='.')")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: delegation-risk-framework-book-pdf
+          path: delegation-risk-framework-book.pdf
+          if-no-files-found: warn
+
+      - name: Upload EPUB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: delegation-risk-framework-book-epub
+          path: delegation-risk-framework-book.epub
+          if-no-files-found: warn
+
+      - name: Create/Update Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          body: |
+            Automated build from main branch.
+
+            **Downloads:**
+            - PDF: `delegation-risk-framework-book.pdf`
+            - EPUB: `delegation-risk-framework-book.epub`
+          files: |
+            delegation-risk-framework-book.pdf
+            delegation-risk-framework-book.epub
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
