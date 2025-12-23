@@ -52,7 +52,39 @@ export default defineConfig({
 				{
 					label: 'Entanglements',
 					collapsed: true,
-					autogenerate: { directory: 'entanglements' },
+					items: [
+						{ label: 'Overview', slug: 'entanglements' },
+						{
+							label: 'Fundamentals',
+							collapsed: true,
+							autogenerate: { directory: 'entanglements/fundamentals' },
+						},
+						{
+							label: 'Detection & Measurement',
+							collapsed: true,
+							autogenerate: { directory: 'entanglements/detection' },
+						},
+						{
+							label: 'Mitigation',
+							collapsed: true,
+							autogenerate: { directory: 'entanglements/mitigation' },
+						},
+						{
+							label: 'Research',
+							collapsed: true,
+							autogenerate: { directory: 'entanglements/research' },
+						},
+						{
+							label: 'Case Studies',
+							collapsed: true,
+							autogenerate: { directory: 'entanglements/case-studies' },
+						},
+						{
+							label: 'Cross-Domain Patterns',
+							collapsed: true,
+							autogenerate: { directory: 'entanglements/cross-domain' },
+						},
+					],
 				},
 				{
 					label: 'Design Patterns',

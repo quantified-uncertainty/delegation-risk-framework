@@ -156,7 +156,7 @@ This is deliberate and often valuable. But we should recognize the pattern.
 - Measurement enables comparison and improvement
 
 **Examples:**
-- [Dependency injection](/entanglements/software-dependency-patterns/): Making dependencies explicit enables testing and substitution
+- [Dependency injection](/entanglements/cross-domain/software-dependency-patterns/): Making dependencies explicit enables testing and substitution
 - [Alliance mapping](/case-studies/human-systems/alliance-cascades/): Understanding hidden alliances prevents cascade disasters
 - [Channel monitoring](/design-patterns/channel-integrity/): Explicit channels can be logged and audited
 
@@ -355,10 +355,10 @@ Build in humility:
 
 ## See Also
 
-- [Organizational Isolation](/entanglements/organizational-isolation/) — Control through structure
-- [Software Dependency Patterns](/entanglements/software-dependency-patterns/) — Formalization that works
-- [Solutions](/entanglements/solutions/) — Approaches to reducing entanglement
-- [Hidden Coordination](/entanglements/hidden-coordination/) — When informality enables adversaries
+- [Organizational Isolation](/entanglements/cross-domain/organizational-isolation/) — Control through structure
+- [Software Dependency Patterns](/entanglements/cross-domain/software-dependency-patterns/) — Formalization that works
+- [Solutions](/entanglements/mitigation/solutions/) — Approaches to reducing entanglement
+- [Hidden Coordination](/entanglements/cross-domain/hidden-coordination/) — When informality enables adversaries
 
 ---
 

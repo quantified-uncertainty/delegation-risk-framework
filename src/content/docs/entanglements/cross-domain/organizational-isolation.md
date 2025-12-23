@@ -423,7 +423,7 @@ People route around isolation:
 **Destroyed tacit knowledge:**
 - Formal channels can't carry all information
 - Isolation kills the informal networks that actually work
-- See [Legibility and Control](/entanglements/legibility-and-control/)
+- See [Legibility and Control](/entanglements/cross-domain/legibility-and-control/)
 
 ---
 
@@ -558,9 +558,9 @@ Consider adjusting isolation based on:
 
 ## See Also
 
-- [Hidden Coordination](/entanglements/hidden-coordination/) — What isolation prevents
+- [Hidden Coordination](/entanglements/cross-domain/hidden-coordination/) — What isolation prevents
 - [Channel Integrity](/design-patterns/channel-integrity/) — Technical isolation patterns
-- [Legibility and Control](/entanglements/legibility-and-control/) — When isolation destroys beneficial complexity
+- [Legibility and Control](/entanglements/cross-domain/legibility-and-control/) — When isolation destroys beneficial complexity
 - [Multi-Agent Patterns](/design-patterns/multi-agent/) — Designing multi-agent systems
 - [Least Connectivity](/design-patterns/least-x-principles/#least-connectivity) — Minimizing communication paths
 

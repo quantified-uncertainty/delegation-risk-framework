@@ -447,7 +447,7 @@ Redundancy does not guarantee diverse outcomes.
 ---
 
 See also:
-- [Historical Case Studies](/entanglements/historical-cases/) - Financial and industrial failures
-- [Red Team Methodology](/entanglements/red-team-methodology/) - Testing for entanglement
-- [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting capture
-- [Psychology of Oversight](/entanglements/psychology-of-oversight/) - Human factors in verification
+- [Historical Case Studies](/entanglements/case-studies/historical-cases/) - Financial and industrial failures
+- [Red Team Methodology](/entanglements/mitigation/red-team-methodology/) - Testing for entanglement
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Methods for detecting capture
+- [Psychology of Oversight](/entanglements/cross-domain/psychology-of-oversight/) - Human factors in verification

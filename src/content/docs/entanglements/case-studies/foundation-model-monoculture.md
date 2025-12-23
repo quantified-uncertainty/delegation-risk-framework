@@ -460,7 +460,7 @@ Monoculture is a tragedy of the commons:
 ---
 
 See also:
-- [Adversarial Transferability](/entanglements/adversarial-transferability/) - Why attacks transfer between models
-- [Historical Case Studies](/entanglements/historical-cases/) - Past monoculture failures
-- [Regulatory Approaches](/entanglements/regulatory-approaches/) - Policy responses
-- [Types of Entanglement](/entanglements/types/) - Passive entanglement from shared training
+- [Adversarial Transferability](/entanglements/research/adversarial-transferability/) - Why attacks transfer between models
+- [Historical Case Studies](/entanglements/case-studies/historical-cases/) - Past monoculture failures
+- [Regulatory Approaches](/entanglements/cross-domain/regulatory-approaches/) - Policy responses
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Passive entanglement from shared training

@@ -647,7 +647,7 @@ check_delegation_acyclic(bad_graph)  # Raises CircularDelegationError
 
 - [Decomposed Coordination](/design-patterns/decomposed-coordination/) — The architectural pattern
 - [Least X Principles](/design-patterns/least-x-principles/) — Interface segregation for trust
-- [Solutions](/entanglements/solutions/) — Reducing entanglement
+- [Solutions](/entanglements/mitigation/solutions/) — Reducing entanglement
 - [Channel Integrity](/design-patterns/channel-integrity/) — Preventing unauthorized dependencies
 - [Alliance Cascades](/case-studies/human-systems/alliance-cascades/) — When hidden dependencies cause catastrophe
 

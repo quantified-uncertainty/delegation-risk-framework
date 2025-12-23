@@ -423,7 +423,7 @@ An adversarial input that fools the neural verifier is unlikely to also:
 ---
 
 See also:
-- [Types of Entanglement](/entanglements/types/) - Passive entanglement from shared blind spots
-- [Formal Definitions](/entanglements/formal-definitions/) - Mathematical treatment
-- [Red Team Methodology](/entanglements/red-team-methodology/) - Testing for transfer
-- [Foundation Model Monoculture](/entanglements/foundation-model-monoculture/) - Systemic transfer risk
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Passive entanglement from shared blind spots
+- [Formal Definitions](/entanglements/fundamentals/formal-definitions/) - Mathematical treatment
+- [Red Team Methodology](/entanglements/mitigation/red-team-methodology/) - Testing for transfer
+- [Foundation Model Monoculture](/entanglements/case-studies/foundation-model-monoculture/) - Systemic transfer risk

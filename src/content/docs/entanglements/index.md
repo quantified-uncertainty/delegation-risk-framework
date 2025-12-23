@@ -136,13 +136,13 @@ This "tax" compounds with system complexity. Organizations with many composed pa
 
 This section provides frameworks for understanding, measuring, and managing entanglements:
 
-### [Types of Entanglement](/entanglements/types/)
+### [Types of Entanglement](/entanglements/fundamentals/types/)
 The three classes of entanglement and their variants:
 - Passive: shared blind spots, conditional correlation, higher-order effects
 - Active: context contamination, feedback loops, asymmetric influence
 - Adversarial: collusion, capture, TDT-style logical correlation
 
-### [Challenge Categories](/entanglements/challenges/)
+### [Challenge Categories](/entanglements/fundamentals/challenges/)
 Nine categories of entanglement challenges:
 1. Shared infrastructure dependencies
 2. Correlated detection blind spots
@@ -154,7 +154,7 @@ Nine categories of entanglement challenges:
 8. Organizational entanglement
 9. Fundamental/irreducible entanglement
 
-### [Detecting Influence](/entanglements/detecting-influence/)
+### [Detecting Influence](/entanglements/detection/detecting-influence/)
 Methods for detecting active and adversarial entanglements:
 - A/B testing with frame variation
 - Counterfactual intervention
@@ -162,21 +162,21 @@ Methods for detecting active and adversarial entanglements:
 - Behavioral drift detection
 - Warning signs of capture and collusion
 
-### [Modeling Approaches](/entanglements/modeling/)
+### [Modeling Approaches](/entanglements/detection/modeling/)
 Quantitative tools for measuring entanglement:
 - Delegation Risk formulas with correlation terms
 - Dependency matrices and heatmaps
 - Influence graphs with risk edges
 - Visualization approaches
 
-### [Worked Examples](/entanglements/examples/)
+### [Worked Examples](/entanglements/case-studies/examples/)
 Step-by-step analysis of real architectures:
 - Code review verification pipeline (passive entanglement)
 - Healthcare decision system (passive entanglement)
 - Financial trading safeguards (passive entanglement)
 - Customer support escalation (active influence + capture)
 
-### [Solutions & Mitigations](/entanglements/solutions/)
+### [Solutions & Mitigations](/entanglements/mitigation/solutions/)
 Nine approaches to reducing entanglement:
 1. Architectural diversity requirements
 2. Explicit entanglement audits
@@ -188,27 +188,27 @@ Nine approaches to reducing entanglement:
 8. Temporal dynamics management
 9. Software engineering dependency patterns
 
-### [Decision Framework](/entanglements/decision-framework/)
+### [Decision Framework](/entanglements/mitigation/decision-framework/)
 When is independence worth the cost?
 - Stakes × entanglement decision matrix
 - Costs of true isolation
 - When to accept vs. address entanglement
 
-### [Research Connections](/entanglements/research-connections/)
+### [Research Connections](/entanglements/research/research-connections/)
 Academic literature relevant to entanglement:
 - Principal-agent theory and mechanism design
 - Game theory and collusion resistance
 - Information theory and causal inference
 - Adversarial ML and organizational theory
 
-### [Formal Definitions](/entanglements/formal-definitions/)
+### [Formal Definitions](/entanglements/fundamentals/formal-definitions/)
 Mathematical formalization of entanglement:
 - Information-theoretic definitions (mutual information, transfer entropy)
 - Game-theoretic definitions (collusion resistance, capture equilibrium)
 - Risk formalization (entanglement tax, effective redundancy)
 - Bounds and impossibility results
 
-### [Historical Case Studies](/entanglements/historical-cases/)
+### [Historical Case Studies](/entanglements/case-studies/historical-cases/)
 Real-world examples of entanglement failures:
 - Enron and Arthur Andersen (auditor capture)
 - Credit rating agencies and 2008 crisis (correlated blind spots)
@@ -216,7 +216,7 @@ Real-world examples of entanglement failures:
 - Madoff and SEC (oversight failure)
 - Three Mile Island (cascading alarms)
 
-### [Quantitative Metrics](/entanglements/metrics/)
+### [Quantitative Metrics](/entanglements/detection/metrics/)
 Practical measurement of entanglement:
 - Correlation metrics (failure correlation, mutual information)
 - Influence metrics (frame sensitivity, transfer entropy)
@@ -224,98 +224,98 @@ Practical measurement of entanglement:
 - Temporal metrics (drift rate, capture velocity)
 - Dashboard implementation
 
-### [Adversarial Transferability](/entanglements/adversarial-transferability/)
+### [Adversarial Transferability](/entanglements/research/adversarial-transferability/)
 Empirical research on why attacks transfer between models:
 - Key findings from adversarial ML literature
 - Transfer rates between architectures
 - Implications for verification independence
 - Factors affecting transfer
 
-### [Red Team Methodology](/entanglements/red-team-methodology/)
+### [Red Team Methodology](/entanglements/mitigation/red-team-methodology/)
 Protocols for discovering entanglements through adversarial testing:
 - Phase-by-phase testing approach
 - Transfer attack protocols
 - Master key discovery
 - Reporting and prioritization
 
-### [Foundation Model Monoculture](/entanglements/foundation-model-monoculture/)
+### [Foundation Model Monoculture](/entanglements/case-studies/foundation-model-monoculture/)
 Systemic risk from AI provider concentration:
 - Dimensions of monoculture
 - API dependency chains
 - Mitigation strategies
 - Ecosystem perspective
 
-### [Impossibility Results](/entanglements/impossibility-results/)
+### [Impossibility Results](/entanglements/research/impossibility-results/)
 Theoretical limits on verification independence:
 - Computational and logical limits
 - Information-theoretic constraints
 - Game-theoretic impossibilities
 - What we can and cannot achieve
 
-### [Intelligence Community Failures](/entanglements/intelligence-failures/)
+### [Intelligence Community Failures](/entanglements/case-studies/intelligence-failures/)
 Case studies with direct AI parallels:
 - Iraq WMD intelligence failure
 - 9/11 intelligence breakdown
 - Bay of Pigs groupthink
 - Lessons for AI oversight
 
-### [Correlation Calculator](/entanglements/correlation-calculator/)
+### [Correlation Calculator](/entanglements/detection/correlation-calculator/)
 Tools for calculating entanglement tax:
 - Quick reference tables
 - Python implementations
 - Effective redundancy calculations
 - Worked examples
 
-### [Psychology of Oversight](/entanglements/psychology-of-oversight/)
+### [Psychology of Oversight](/entanglements/cross-domain/psychology-of-oversight/)
 Human cognitive factors in AI verification:
 - Automation bias and complacency
 - Vigilance decrement
 - Social and organizational pressures
 - Designing against vulnerabilities
 
-### [AI Debate and Entanglement](/entanglements/ai-debate-entanglement/)
+### [AI Debate and Entanglement](/entanglements/research/ai-debate-entanglement/)
 How debate-based oversight connects to entanglement:
 - The debate proposal
 - Entanglement challenges in debate
 - Research results
 - When to use debate
 
-### [Regulatory Approaches](/entanglements/regulatory-approaches/)
+### [Regulatory Approaches](/entanglements/cross-domain/regulatory-approaches/)
 Policy frameworks for AI independence:
 - Existing regulatory models
 - Proposed AI regulations
 - Sector-specific considerations
 - International coordination
 
-### [Entanglement Audit Guide](/entanglements/audit-guide/)
+### [Entanglement Audit Guide](/entanglements/mitigation/audit-guide/)
 Step-by-step assessment process:
 - Component inventory
 - Passive and active assessment
 - Adversarial testing
 - Quantification and remediation
 
-### [Hidden Coordination](/entanglements/hidden-coordination/)
+### [Hidden Coordination](/entanglements/cross-domain/hidden-coordination/)
 When agents have "secret friends"—adversarial use of hidden networks:
 - Game of Thrones as case study
 - The power of non-obvious alliances
 - Detection strategies
 - The limits of detection
 
-### [Software Dependency Patterns](/entanglements/software-dependency-patterns/)
+### [Software Dependency Patterns](/entanglements/cross-domain/software-dependency-patterns/)
 Lessons from 50 years of software engineering:
 - Dependency injection and inversion of control
 - Acyclic dependencies principle
 - Interface segregation
 - Package management lessons
 
-### [Organizational Isolation](/entanglements/organizational-isolation/)
+### [Organizational Isolation](/entanglements/cross-domain/organizational-isolation/)
 How organizations deliberately create isolation:
 - Hub-and-spoke communication
 - Rotation policies
 - Competitive dynamics
 - Information compartmentalization
 
-### [Legibility and Control](/entanglements/legibility-and-control/)
+### [Legibility and Control](/entanglements/cross-domain/legibility-and-control/)
 When making entanglements explicit helps vs. hurts:
 - James C. Scott's "Seeing Like a State"
 - High modernism and its failures

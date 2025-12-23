@@ -348,6 +348,6 @@ Understanding entanglement at the model level requires interpretability.
 ---
 
 See also:
-- [Formal Definitions](/entanglements/formal-definitions/) - Mathematical formalization of entanglement
-- [Quantitative Metrics](/entanglements/metrics/) - Measuring entanglement in practice
-- [Historical Case Studies](/entanglements/historical-cases/) - Real-world examples of entanglement failures
+- [Formal Definitions](/entanglements/fundamentals/formal-definitions/) - Mathematical formalization of entanglement
+- [Quantitative Metrics](/entanglements/detection/metrics/) - Measuring entanglement in practice
+- [Historical Case Studies](/entanglements/case-studies/historical-cases/) - Real-world examples of entanglement failures

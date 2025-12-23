@@ -725,7 +725,7 @@ To detect hidden channels, map what relationships *should* exist vs. what *does*
 2. A acts, then B acts similarly shortly after
 3. Correlation in timing suggests coordination
 
-For detailed methods, see [Hidden Coordination](/entanglements/hidden-coordination/).
+For detailed methods, see [Hidden Coordination](/entanglements/cross-domain/hidden-coordination/).
 
 ### Defense: Make Hidden Networks Less Valuable
 
@@ -759,10 +759,10 @@ Since some hidden channels are undetectable, also focus on reducing their value:
 
 **Entanglements:**
 - [Entanglements Overview](/entanglements/) - Understanding all types of entanglement
-- [Types of Entanglement](/entanglements/types/) - Passive, active, and adversarial entanglements
-- [Hidden Coordination](/entanglements/hidden-coordination/) - Adversarial use of hidden networks
-- [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting influence channels
-- [Temporal Dynamics](/entanglements/solutions/#8-temporal-dynamics-management) - How entanglements evolve over time
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Passive, active, and adversarial entanglements
+- [Hidden Coordination](/entanglements/cross-domain/hidden-coordination/) - Adversarial use of hidden networks
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Methods for detecting influence channels
+- [Temporal Dynamics](/entanglements/mitigation/solutions/#8-temporal-dynamics-management) - How entanglements evolve over time
 
 ---
 

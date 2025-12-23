@@ -545,6 +545,6 @@ Use this template for your own systems:
 ---
 
 See also:
-- [Modeling Approaches](/entanglements/modeling/) - Quantification methods
-- [Solutions](/entanglements/solutions/) - Implementation guidance
-- [Decision Framework](/entanglements/decision-framework/) - Prioritization
+- [Modeling Approaches](/entanglements/detection/modeling/) - Quantification methods
+- [Solutions](/entanglements/mitigation/solutions/) - Implementation guidance
+- [Decision Framework](/entanglements/mitigation/decision-framework/) - Prioritization

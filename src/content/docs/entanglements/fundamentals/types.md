@@ -457,8 +457,8 @@ Design your architecture assuming passive entanglement exists, but monitor for s
 ---
 
 See also:
-- [Challenge Categories](/entanglements/challenges/) - Sources of entanglement
-- [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting active entanglements
-- [Modeling Approaches](/entanglements/modeling/) - Quantifying entanglement
-- [Solutions](/entanglements/solutions/) - Reducing entanglement
+- [Challenge Categories](/entanglements/fundamentals/challenges/) - Sources of entanglement
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Methods for detecting active entanglements
+- [Modeling Approaches](/entanglements/detection/modeling/) - Quantifying entanglement
+- [Solutions](/entanglements/mitigation/solutions/) - Reducing entanglement
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) - Preventing boundary violations

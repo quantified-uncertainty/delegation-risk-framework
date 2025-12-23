@@ -427,6 +427,6 @@ When in doubt:
 ---
 
 See also:
-- [Types of Correlation](/entanglements/types/) - What types of correlation exist
-- [Challenge Categories](/entanglements/challenges/) - Sources to measure
-- [Worked Examples](/entanglements/examples/) - Applying these methods
+- [Types of Correlation](/entanglements/fundamentals/types/) - What types of correlation exist
+- [Challenge Categories](/entanglements/fundamentals/challenges/) - Sources to measure
+- [Worked Examples](/entanglements/case-studies/examples/) - Applying these methods

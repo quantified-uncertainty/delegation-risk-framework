@@ -464,7 +464,7 @@ Detection should be combined with:
 ---
 
 See also:
-- [Types of Entanglement](/entanglements/types/) - Understanding passive vs. active vs. adversarial
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Understanding passive vs. active vs. adversarial
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) - Preventing influence channels
-- [Solutions & Mitigations](/entanglements/solutions/) - Reducing entanglement
-- [Worked Examples](/entanglements/examples/) - Detection in practice
+- [Solutions & Mitigations](/entanglements/mitigation/solutions/) - Reducing entanglement
+- [Worked Examples](/entanglements/case-studies/examples/) - Detection in practice

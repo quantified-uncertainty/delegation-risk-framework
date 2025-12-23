@@ -388,8 +388,8 @@ flowchart TB
 ---
 
 See also:
-- [Types of Entanglement](/entanglements/types/) - Classifying entanglements
-- [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting active entanglements
-- [Modeling Approaches](/entanglements/modeling/) - Measuring these challenges
-- [Solutions & Mitigations](/entanglements/solutions/) - Addressing each challenge
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Classifying entanglements
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Methods for detecting active entanglements
+- [Modeling Approaches](/entanglements/detection/modeling/) - Measuring these challenges
+- [Solutions & Mitigations](/entanglements/mitigation/solutions/) - Addressing each challenge
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) - Preventing boundary violations

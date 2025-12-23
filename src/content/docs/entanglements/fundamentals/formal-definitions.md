@@ -404,11 +404,11 @@ These formal definitions enable:
 3. **Design optimization**: Minimize entanglement subject to constraints
 4. **Alert thresholds**: Define precise conditions for intervention
 
-For practical measurement approaches, see [Quantitative Metrics](/entanglements/metrics/).
+For practical measurement approaches, see [Quantitative Metrics](/entanglements/detection/metrics/).
 
 ---
 
 See also:
-- [Quantitative Metrics](/entanglements/metrics/) - Practical measurement of these quantities
-- [Research Connections](/entanglements/research-connections/) - Academic foundations
-- [Types of Entanglement](/entanglements/types/) - Conceptual overview
+- [Quantitative Metrics](/entanglements/detection/metrics/) - Practical measurement of these quantities
+- [Research Connections](/entanglements/research/research-connections/) - Academic foundations
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Conceptual overview

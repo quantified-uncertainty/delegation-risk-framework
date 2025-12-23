@@ -260,15 +260,15 @@ This "**entanglement tax**" is one of the hardest problems in delegation archite
 
 | Topic | What It Covers |
 |-------|----------------|
-| [Types of Entanglement](/entanglements/types/) | Passive, active, and adversarial entanglements and their variants |
-| [Detecting Influence](/entanglements/detecting-influence/) | Methods for detecting active and adversarial entanglements |
-| [Challenge Categories](/entanglements/challenges/) | 9 sources of entanglement |
-| [Worked Examples](/entanglements/examples/) | Code review, healthcare, trading, customer support |
-| [Solutions](/entanglements/solutions/) | 8 mitigations including temporal dynamics |
-| [Research Connections](/entanglements/research-connections/) | Principal-agent theory, game theory, adversarial ML |
-| [Formal Definitions](/entanglements/formal-definitions/) | Information-theoretic and game-theoretic formalization |
-| [Historical Cases](/entanglements/historical-cases/) | Enron, rating agencies, Boeing, Madoff, TMI |
-| [Quantitative Metrics](/entanglements/metrics/) | Practical measurement and dashboards |
+| [Types of Entanglement](/entanglements/fundamentals/types/) | Passive, active, and adversarial entanglements and their variants |
+| [Detecting Influence](/entanglements/detection/detecting-influence/) | Methods for detecting active and adversarial entanglements |
+| [Challenge Categories](/entanglements/fundamentals/challenges/) | 9 sources of entanglement |
+| [Worked Examples](/entanglements/case-studies/examples/) | Code review, healthcare, trading, customer support |
+| [Solutions](/entanglements/mitigation/solutions/) | 8 mitigations including temporal dynamics |
+| [Research Connections](/entanglements/research/research-connections/) | Principal-agent theory, game theory, adversarial ML |
+| [Formal Definitions](/entanglements/fundamentals/formal-definitions/) | Information-theoretic and game-theoretic formalization |
+| [Historical Cases](/entanglements/case-studies/historical-cases/) | Enron, rating agencies, Boeing, Madoff, TMI |
+| [Quantitative Metrics](/entanglements/detection/metrics/) | Practical measurement and dashboards |
 
 ### Quick Diagnostic
 

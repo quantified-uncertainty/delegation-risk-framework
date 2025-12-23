@@ -7,7 +7,7 @@ sidebar:
 
 # Quantitative Metrics
 
-This page provides practical methods for measuring entanglement. While the [formal definitions](/entanglements/formal-definitions/) give theoretical foundations, these metrics are designed for real-world implementation.
+This page provides practical methods for measuring entanglement. While the [formal definitions](/entanglements/fundamentals/formal-definitions/) give theoretical foundations, these metrics are designed for real-world implementation.
 
 ---
 
@@ -770,6 +770,6 @@ To compute these metrics, you need:
 ---
 
 See also:
-- [Formal Definitions](/entanglements/formal-definitions/) - Mathematical foundations
-- [Detecting Influence](/entanglements/detecting-influence/) - Detection protocols
-- [Solutions & Mitigations](/entanglements/solutions/) - What to do when metrics are concerning
+- [Formal Definitions](/entanglements/fundamentals/formal-definitions/) - Mathematical foundations
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Detection protocols
+- [Solutions & Mitigations](/entanglements/mitigation/solutions/) - What to do when metrics are concerning

@@ -477,7 +477,7 @@ STEP 5: COMPARE TO REQUIREMENTS
 ---
 
 See also:
-- [Formal Definitions](/entanglements/formal-definitions/) - Mathematical foundations
-- [Metrics](/entanglements/metrics/) - Practical measurement approaches
-- [Modeling Approaches](/entanglements/modeling/) - Visualization and analysis
-- [Decision Framework](/entanglements/decision-framework/) - When to invest in independence
+- [Formal Definitions](/entanglements/fundamentals/formal-definitions/) - Mathematical foundations
+- [Metrics](/entanglements/detection/metrics/) - Practical measurement approaches
+- [Modeling Approaches](/entanglements/detection/modeling/) - Visualization and analysis
+- [Decision Framework](/entanglements/mitigation/decision-framework/) - When to invest in independence

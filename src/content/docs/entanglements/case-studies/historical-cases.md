@@ -484,7 +484,7 @@ flowchart LR
 ---
 
 See also:
-- [Research Connections](/entanglements/research-connections/) - Academic analysis of these phenomena
-- [Types of Entanglement](/entanglements/types/) - Formal classification
-- [Detecting Influence](/entanglements/detecting-influence/) - Practical detection methods
-- [Solutions & Mitigations](/entanglements/solutions/) - Prevention strategies
+- [Research Connections](/entanglements/research/research-connections/) - Academic analysis of these phenomena
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Formal classification
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Practical detection methods
+- [Solutions & Mitigations](/entanglements/mitigation/solutions/) - Prevention strategies

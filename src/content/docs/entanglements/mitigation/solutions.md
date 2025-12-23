@@ -748,7 +748,7 @@ Each task uses only the narrow interface it needs.
 
 ### For Full Details
 
-See [Software Dependency Patterns](/entanglements/software-dependency-patterns/) for comprehensive coverage of:
+See [Software Dependency Patterns](/entanglements/cross-domain/software-dependency-patterns/) for comprehensive coverage of:
 - The DI container as trust broker
 - Package management lessons for delegation
 - Microservices patterns for decomposed coordination
@@ -757,12 +757,12 @@ See [Software Dependency Patterns](/entanglements/software-dependency-patterns/)
 ---
 
 See also:
-- [Types of Entanglement](/entanglements/types/) - Understanding passive, active, and adversarial entanglements
-- [Detecting Influence](/entanglements/detecting-influence/) - Methods for detecting active entanglements
-- [Challenge Categories](/entanglements/challenges/) - What to mitigate
-- [Decision Framework](/entanglements/decision-framework/) - When to invest in mitigation
-- [Worked Examples](/entanglements/examples/) - Mitigations in practice
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Understanding passive, active, and adversarial entanglements
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Methods for detecting active entanglements
+- [Challenge Categories](/entanglements/fundamentals/challenges/) - What to mitigate
+- [Decision Framework](/entanglements/mitigation/decision-framework/) - When to invest in mitigation
+- [Worked Examples](/entanglements/case-studies/examples/) - Mitigations in practice
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) - Preventing boundary violations
-- [Software Dependency Patterns](/entanglements/software-dependency-patterns/) - Lessons from software engineering
-- [Organizational Isolation](/entanglements/organizational-isolation/) - Isolation as organizational strategy
-- [Legibility and Control](/entanglements/legibility-and-control/) - When explicit interfaces help vs. hurt
+- [Software Dependency Patterns](/entanglements/cross-domain/software-dependency-patterns/) - Lessons from software engineering
+- [Organizational Isolation](/entanglements/cross-domain/organizational-isolation/) - Isolation as organizational strategy
+- [Legibility and Control](/entanglements/cross-domain/legibility-and-control/) - When explicit interfaces help vs. hurt

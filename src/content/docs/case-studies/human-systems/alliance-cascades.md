@@ -341,7 +341,7 @@ Risk(System) = f(unknown network structure, hidden trigger conditions, cascade s
 
 - [Correlated Failure Modeling](/research/trust-behavior/correlated-failure-modeling/) — The 2008 parallel and formal models
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) — Preventing unauthorized coordination
-- [Hidden Coordination](/entanglements/hidden-coordination/) — Adversarial use of hidden networks
+- [Hidden Coordination](/entanglements/cross-domain/hidden-coordination/) — Adversarial use of hidden networks
 - [Entanglements Overview](/entanglements/) — Types of entanglement and their effects
 - [Exposure Cascade](/delegation-risk/exposure-cascade/) — How risk flows through hierarchies
 

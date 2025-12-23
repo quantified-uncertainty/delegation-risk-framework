@@ -603,7 +603,7 @@ What is "critical"?
 ---
 
 See also:
-- [Foundation Model Monoculture](/entanglements/foundation-model-monoculture/) - The concentration problem
-- [Historical Case Studies](/entanglements/historical-cases/) - Regulatory failures in other domains
-- [Metrics](/entanglements/metrics/) - Measurement for compliance
-- [Decision Framework](/entanglements/decision-framework/) - When independence is worth the cost
+- [Foundation Model Monoculture](/entanglements/case-studies/foundation-model-monoculture/) - The concentration problem
+- [Historical Case Studies](/entanglements/case-studies/historical-cases/) - Regulatory failures in other domains
+- [Metrics](/entanglements/detection/metrics/) - Measurement for compliance
+- [Decision Framework](/entanglements/mitigation/decision-framework/) - When independence is worth the cost

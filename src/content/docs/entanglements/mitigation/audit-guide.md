@@ -815,7 +815,7 @@ Annually:
 ---
 
 See also:
-- [Metrics](/entanglements/metrics/) - Detailed measurement approaches
-- [Red Team Methodology](/entanglements/red-team-methodology/) - Adversarial testing protocols
-- [Correlation Calculator](/entanglements/correlation-calculator/) - Quantitative tools
-- [Solutions](/entanglements/solutions/) - Remediation patterns
+- [Metrics](/entanglements/detection/metrics/) - Detailed measurement approaches
+- [Red Team Methodology](/entanglements/mitigation/red-team-methodology/) - Adversarial testing protocols
+- [Correlation Calculator](/entanglements/detection/correlation-calculator/) - Quantitative tools
+- [Solutions](/entanglements/mitigation/solutions/) - Remediation patterns

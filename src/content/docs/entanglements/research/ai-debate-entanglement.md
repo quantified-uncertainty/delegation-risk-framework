@@ -410,7 +410,7 @@ flowchart TB
 ---
 
 See also:
-- [Adversarial Transferability](/entanglements/adversarial-transferability/) - Why attacks transfer between models
-- [Types of Entanglement](/entanglements/types/) - Passive, active, and adversarial
-- [Research Connections](/entanglements/research-connections/) - Related academic literature
+- [Adversarial Transferability](/entanglements/research/adversarial-transferability/) - Why attacks transfer between models
+- [Types of Entanglement](/entanglements/fundamentals/types/) - Passive, active, and adversarial
+- [Research Connections](/entanglements/research/research-connections/) - Related academic literature
 - [Multi-Agent Patterns](/design-patterns/multi-agent/) - Including Adversarial Collaboration pattern

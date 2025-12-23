@@ -275,7 +275,73 @@ I can price that. Your premium would be around $8,000/year—covering the upper 
 
 **Alice**: So I pay for the uncertainty I create.
 
-**Carol**: Exactly. Complexity isn't free. Every undocumented relationship, every ambiguous authority, every hidden entanglement—you're not paying for it in premiums because I refuse to insure it. But someone's bearing that risk. Right now, it's you.
+**Carol**: Exactly. Complexity isn't free. Every undocumented relationship, every ambiguous authority, every hidden entanglement—you're paying for it in inflated premiums. Simplify, and the premium drops.
+
+---
+
+### The Uninsurable Threshold
+
+Most complex organizations are insurable—just expensive, with limits and exclusions. But some structures cross into genuinely uninsurable territory.
+
+A month later, Carol gets a call from **Ouroboros Holdings**.
+
+---
+
+**Ouroboros Rep**: We need delegation insurance for our AI operations.
+
+**Carol**: Tell me about the structure.
+
+**Ouroboros Rep**: We're a holding company with 8 subsidiaries. Our CEO, Marcus, also personally owns 40% of our main competitor through a separate vehicle. Three board members sit on both boards. Our AI systems share training data with the competitor under a "mutual improvement" agreement—we're not entirely sure what data flows where.
+
+**Carol**: I see. What else?
+
+**Ouroboros Rep**: Our AI division recently demonstrated some capabilities we didn't know it had. The team that built it left six months ago, and the documentation is... incomplete. We've had three incidents where the AI took actions we can't fully explain, but outcomes were positive so we didn't investigate deeply.
+
+**Carol**: And governance?
+
+**Ouroboros Rep**: Marcus approves all major AI deployments personally. He also has final say on which projects get flagged as "failures" for insurance purposes. Oh, and our internal audit function reports to Marcus.
+
+---
+
+**Carol**: I'm going to stop you there. This isn't a complexity problem. This is a **moral hazard** problem.
+
+| Issue | Why It's Uninsurable |
+|-------|---------------------|
+| CEO owns competitor | Incentive to harm insured company |
+| Shared AI data with competitor | Can't distinguish self-harm from external attack |
+| Unexplained AI capabilities | Can't bound what could go wrong |
+| CEO controls failure classification | Can manipulate what counts as a claim |
+| Audit reports to CEO | No independent verification |
+
+**Ouroboros Rep**: We'd pay a higher premium.
+
+**Carol**: It's not about price. With normal complexity, I'm uncertain about *probability*—I don't know how likely bad outcomes are, so I charge more. With your structure, I'm uncertain about *intent*. I can't tell whether a loss is an accident or a deliberate choice by people who benefit from the loss.
+
+**Ouroboros Rep**: We wouldn't deliberately cause losses.
+
+**Carol**: Maybe not. But your CEO *could* make decisions that hurt Ouroboros and help his other company, claim it as an AI failure, and collect insurance. I have no way to distinguish that from a genuine accident. That's not a risk I can price—it's a risk I can't take at all.
+
+---
+
+**Ouroboros Rep**: What would it take?
+
+**Carol**: Structural changes, not just controls:
+
+| Change | What It Fixes |
+|--------|---------------|
+| CEO divests competitor stake | Removes conflict of interest |
+| Independent board members | Governance not captured |
+| Audit reports to board, not CEO | Independent verification |
+| Full AI capability documentation | Bounds on what's possible |
+| Third-party AI monitoring | Can verify claims |
+
+**Carol**: Even then, I'd need to see 12-18 months of clean operation before quoting. Trust takes time to rebuild when incentives were this misaligned.
+
+---
+
+**Alice** (overhearing): So it's not really about complexity?
+
+**Carol**: Complexity makes things expensive. **Conflicts of interest** make things uninsurable. Alice, you're complex but your incentives are clear—you want the gem delivered. Ouroboros? I can't tell what they actually want. And I can't insure someone when I don't know if they're on my side.
 
 ---
 
@@ -293,6 +359,10 @@ This has implications beyond insurance:
 - The cost of complexity is paid in unpriced, unmanaged exposure
 
 **For AI systems**: Highly complex AI deployments—multi-agent systems with emergent coordination, unclear capability boundaries, and undocumented information flows—will face steep complexity taxes. Simpler, more legible architectures may be cheaper to insure than technically safer but opaque alternatives.
+
+:::tip[Deeper Dive]
+For methods to systematically quantify complexity scores and convert them to pricing, see [Complexity Pricing](/research/risk-methods/complexity-pricing/).
+:::
 
 ---
 
@@ -599,7 +669,8 @@ Net Delegation Value = Receivable - Exposure - Costs
 
 ## Next Steps
 
+- [Complexity Pricing](/research/risk-methods/complexity-pricing/) — Methods for quantifying and pricing structural complexity
 - [Containing Mr. X](/case-studies/anomaly-chronicles/containing-mr-x/) — Bounding exposure from a known threat with certain defection
 - [Five Years Later: The Anomaly Unit](/case-studies/anomaly-chronicles/five-years-later/) — How an industry emerged to contain a new class of beings
 - [Managing Exposure in Power Delegation](/case-studies/anomaly-chronicles/power-struggles/) — Apply delegation accounting to corporate governance, dictatorships, and political systems
-- [Fidelity Insurance](/research/fidelity-insurance/) — How insurance markets price defection risk
+- [Fidelity Insurance](/research/risk-methods/fidelity-insurance/) — How insurance markets price defection risk

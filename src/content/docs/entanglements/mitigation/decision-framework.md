@@ -369,6 +369,6 @@ Decision Heuristics:
 ---
 
 See also:
-- [Solutions](/entanglements/solutions/) - How to reduce correlation
-- [Modeling](/entanglements/modeling/) - Quantifying correlation
-- [Examples](/entanglements/examples/) - Decisions in practice
+- [Solutions](/entanglements/mitigation/solutions/) - How to reduce correlation
+- [Modeling](/entanglements/detection/modeling/) - Quantifying correlation
+- [Examples](/entanglements/case-studies/examples/) - Decisions in practice

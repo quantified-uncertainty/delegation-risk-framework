@@ -443,7 +443,7 @@ The existence of impossibility results doesn't mean verification is useless—it
 ---
 
 See also:
-- [Formal Definitions](/entanglements/formal-definitions/) - Mathematical formalization
-- [Research Connections](/entanglements/research-connections/) - Related academic literature
-- [Adversarial Transferability](/entanglements/adversarial-transferability/) - Empirical transfer results
-- [Decision Framework](/entanglements/decision-framework/) - When to accept vs. address entanglement
+- [Formal Definitions](/entanglements/fundamentals/formal-definitions/) - Mathematical formalization
+- [Research Connections](/entanglements/research/research-connections/) - Related academic literature
+- [Adversarial Transferability](/entanglements/research/adversarial-transferability/) - Empirical transfer results
+- [Decision Framework](/entanglements/mitigation/decision-framework/) - When to accept vs. address entanglement

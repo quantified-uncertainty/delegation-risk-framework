@@ -13,7 +13,7 @@ Hidden coordination is **entanglement weaponized**. While passive entanglement i
 
 ## The Pattern
 
-In [adversarial entanglement](/entanglements/types/#adversarial-entanglement), agents coordinate against the principal's interests. **Hidden coordination** adds a crucial element: the relationships themselves are concealed.
+In [adversarial entanglement](/entanglements/fundamentals/types/#adversarial-entanglement), agents coordinate against the principal's interests. **Hidden coordination** adds a crucial element: the relationships themselves are concealed.
 
 ```mermaid
 flowchart TB
@@ -439,10 +439,10 @@ Language is infinitely expressive. Any message can potentially encode hidden mea
 
 - [Channel Integrity Patterns](/design-patterns/channel-integrity/) — Preventing unauthorized influence
 - [Alliance Cascades](/case-studies/human-systems/alliance-cascades/) — When hidden networks trigger catastrophe
-- [Types of Entanglement](/entanglements/types/) — Passive, active, and adversarial
-- [Detecting Influence](/entanglements/detecting-influence/) — Methods for finding hidden channels
+- [Types of Entanglement](/entanglements/fundamentals/types/) — Passive, active, and adversarial
+- [Detecting Influence](/entanglements/detection/detecting-influence/) — Methods for finding hidden channels
 - [TDT and Logical Correlation](/design-patterns/channel-integrity/#timeless-decision-theory-and-logical-side-channels) — Coordination without communication
-- [Adversarial Transferability](/entanglements/adversarial-transferability/) — How attacks exploit hidden correlations
+- [Adversarial Transferability](/entanglements/research/adversarial-transferability/) — How attacks exploit hidden correlations
 
 ---
 

@@ -567,7 +567,7 @@ The red team itself can become captured:
 ---
 
 See also:
-- [Adversarial Transferability](/entanglements/adversarial-transferability/) - The science behind transfer attacks
-- [Detecting Influence](/entanglements/detecting-influence/) - Specific detection techniques
-- [Audit Guide](/entanglements/audit-guide/) - Step-by-step audit process
-- [Metrics](/entanglements/metrics/) - Quantifying findings
+- [Adversarial Transferability](/entanglements/research/adversarial-transferability/) - The science behind transfer attacks
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Specific detection techniques
+- [Audit Guide](/entanglements/mitigation/audit-guide/) - Step-by-step audit process
+- [Metrics](/entanglements/detection/metrics/) - Quantifying findings

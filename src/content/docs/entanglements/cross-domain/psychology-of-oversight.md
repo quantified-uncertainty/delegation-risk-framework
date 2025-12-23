@@ -507,7 +507,7 @@ Despite limitations, humans excel at:
 ---
 
 See also:
-- [Detecting Influence](/entanglements/detecting-influence/) - Measuring active entanglement
-- [Intelligence Community Failures](/entanglements/intelligence-failures/) - Historical case studies
-- [Historical Case Studies](/entanglements/historical-cases/) - Enron, Boeing, and other failures
-- [Audit Guide](/entanglements/audit-guide/) - Practical assessment steps
+- [Detecting Influence](/entanglements/detection/detecting-influence/) - Measuring active entanglement
+- [Intelligence Community Failures](/entanglements/case-studies/intelligence-failures/) - Historical case studies
+- [Historical Case Studies](/entanglements/case-studies/historical-cases/) - Enron, Boeing, and other failures
+- [Audit Guide](/entanglements/mitigation/audit-guide/) - Practical assessment steps
