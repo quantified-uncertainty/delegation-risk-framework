@@ -37,11 +37,11 @@ CORE_PAGES = [
     "getting-started/core-concepts.md",
     "getting-started/introduction.md",
     "getting-started/faq.md",
-    "framework/overview.md",
-    "framework/delegation-accounting.md",
-    "framework/risk-decomposition.md",
-    "applying/index.md",
-    "applying/least-x-principles.md",
+    "delegation-risk/overview.md",
+    "delegation-risk/delegation-accounting.md",
+    "delegation-risk/risk-decomposition.md",
+    "design-patterns/index.md",
+    "design-patterns/least-x-principles.md",
 ]
 
 
