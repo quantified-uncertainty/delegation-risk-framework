@@ -27,74 +27,19 @@ A delegation risk diagram must convey:
 
 ---
 
-## Live Example Gallery
+## Key Interactive Examples
 
-Before diving into details, here are real-world examples you can explore. Click each link to see interactive visualizations.
+Before diving into details, explore these representative examples:
 
-### Visual Samples
+| Type | Best Example | What It Shows |
+|------|--------------|---------------|
+| **Tree Diagrams** | [D3 Collapsible Tree](https://observablehq.com/@d3/collapsible-tree) | Click to expand/collapse |
+| **Treemaps** | [FinViz Stock Map](https://finviz.com/map.ashx) | Size = value, color = change |
+| **Circle Packing** | [D3 Zoomable Circle Packing](https://observablehq.com/@d3/zoomable-circle-packing) | Nested containment |
+| **Icicle Plots** | [D3 Zoomable Icicle](https://observablehq.com/@d3/zoomable-icicle) | Width = size, depth = level |
+| **Risk-Specific** | [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) | Attack technique heatmap |
 
-**Treemap** (exports by category) | **Circle Packing** (nested hierarchy) | **Sunburst** (radial hierarchy)
-:---:|:---:|:---:
-[![Treemap Example](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tree_Map_of_Employment_by_Industries_in_Alabama%2C_2021.svg/300px-Tree_Map_of_Employment_by_Industries_in_Alabama%2C_2021.svg.png)](https://commons.wikimedia.org/wiki/File:Tree_Map_of_Employment_by_Industries_in_Alabama,_2021.svg) | [![Circle Packing](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cercles_emballa%C3%A9s.svg/300px-Cercles_emballa%C3%A9s.svg.png)](https://commons.wikimedia.org/wiki/File:Cercles_emballa%C3%A9s.svg) | [![Sunburst Chart](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Disk_usage_%28Boabab%29.png/300px-Disk_usage_%28Boabab%29.png)](https://commons.wikimedia.org/wiki/File:Disk_usage_(Boabab).png)
-*Size = value, nested rectangles* | *Nested circles show containment* | *Rings = hierarchy levels*
-
-### Tree Diagrams
-| Example | Description | Link |
-|---------|-------------|------|
-| **Collapsible Tree** | Click nodes to expand/collapse. Classic org-chart style. | [Observable](https://observablehq.com/@d3/collapsible-tree) |
-| **Tidy Tree** | Clean algorithmic layout with curved links | [Observable](https://observablehq.com/@d3/tree) |
-| **Radial Tree** | Circular layout emanating from center | [Observable](https://observablehq.com/@d3/radial-tree) |
-| **Cluster Dendrogram** | Biology-style tree with aligned leaves | [Observable](https://observablehq.com/@d3/cluster) |
-
-### Space-Filling Visualizations
-| Example | Description | Link |
-|---------|-------------|------|
-| **FinViz Stock Map** | Famous treemap showing S&P 500 by market cap & daily change | [FinViz](https://finviz.com/map.ashx) |
-| **Zoomable Treemap** | Click rectangles to zoom into hierarchy levels | [Observable](https://observablehq.com/@d3/zoomable-treemap) |
-| **Zoomable Icicle** | Horizontal partition chart, click to zoom | [Observable](https://observablehq.com/@d3/zoomable-icicle) |
-| **Nested Treemap** | Shows labels at each hierarchy level | [Observable](https://observablehq.com/@d3/nested-treemap) |
-
-### Circle Packing
-| Example | Description | Link |
-|---------|-------------|------|
-| **Zoomable Circle Packing** | Nested circles, click to zoom in/out | [Observable](https://observablehq.com/@d3/zoomable-circle-packing) |
-| **World Population** | Interactive circle packing by continent/region/country | [Data to Viz](https://www.data-to-viz.com/graph/circularpacking.html) |
-| **Pack Layout** | Static version with size encoding | [Observable](https://observablehq.com/@d3/pack) |
-
-### Radial & Connection Charts
-| Example | Description | Link |
-|---------|-------------|------|
-| **Zoomable Sunburst** | Concentric rings, click segments to drill down | [Observable](https://observablehq.com/@d3/zoomable-sunburst) |
-| **Chord Diagram** | Shows flows/connections between groups | [Observable](https://observablehq.com/@d3/chord-diagram) |
-| **Hierarchical Edge Bundling** | Curved connections between tree leaves | [Observable](https://observablehq.com/@d3/hierarchical-edge-bundling) |
-| **Arc Diagram** | Linear layout with arcing connections | [Observable](https://observablehq.com/@d3/arc-diagram) |
-
-### Risk-Specific
-
-[![Fault Tree Example](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Fault_tree.svg/400px-Fault_tree.svg.png)](https://commons.wikimedia.org/wiki/File:Fault_tree.svg)
-*Fault tree diagram showing AND/OR gates for failure analysis*
-
-| Example | Description | Link |
-|---------|-------------|------|
-| **Fault Tree Templates** | AND/OR gate diagrams for failure analysis | [EdrawMax](https://www.edrawmax.com/fault-tree-analysis/) |
-| **Risk Matrix Templates** | Likelihood × Impact heat maps | [Miro](https://miro.com/templates/risk-matrix/) |
-| **Bow-Tie Diagram** | Causes → Event → Consequences format | [CGE Risk](https://www.cgerisk.com/knowledgebase/The_bowtie_method) |
-
-### Security Industry Tools
-| Tool | What It Shows | Link |
-|------|---------------|------|
-| **BloodHound** | Active Directory attack paths as Neo4j graph | [SpecterOps](https://specterops.io/bloodhound-community-edition/) |
-| **MITRE ATT&CK Navigator** | Attack technique coverage heatmap (interactive) | [MITRE](https://mitre-attack.github.io/attack-navigator/) |
-| **Terraform Blast Radius** | Infrastructure dependency graph (D3.js) | [GitHub](https://github.com/28mm/blast-radius) |
-| **Riverside** | Real-time network topology visualization | [GitHub](https://github.com/artemis19/riverside) |
-| **Wiz Security Graph** | Cloud infrastructure as queryable graph | [Wiz](https://www.wiz.io/lp/wiz-security-graph) |
-
-### Comparison Tools
-| Resource | What It Shows | Link |
-|----------|---------------|------|
-| **Hierarchy Comparison** | Side-by-side treemap vs icicle vs sunburst | [Univ. Bamberg](https://vis-uni-bamberg.github.io/hierarchy-vis/) |
-| **Data Viz Catalogue** | When to use each hierarchy chart type | [Catalogue](https://datavizcatalogue.com/search/hierarchy.html) |
-| **D3 Gallery** | Full collection of D3 hierarchy examples | [Observable](https://observablehq.com/@d3/gallery#hierarchies) |
+For a comprehensive comparison: [Hierarchy Visualization Comparison Tool](https://vis-uni-bamberg.github.io/hierarchy-vis/)
 
 ---
 
@@ -464,14 +409,6 @@ flowchart LR
     style Crown fill:#ffcdd2,stroke:#c62828,stroke-width:3px
 ```
 
-**Key tools:**
-
-| Tool | Description | Link |
-|------|-------------|------|
-| **BloodHound** | Open source AD attack path visualization using Neo4j graph database. Shows "shortest path to Domain Admin." | [SpecterOps](https://specterops.io/bloodhound-community-edition/) |
-| **Wiz Security Graph** | Cloud security platform ($12B startup) that models infrastructure as a queryable graph. | [Wiz](https://www.wiz.io/lp/wiz-security-graph) |
-| **Rapid7 Attack Path Analysis** | Shows risk scores along each node, highlights "choke points" for defense. | [Rapid7](https://www.rapid7.com/fundamentals/attack-path-analysis/) |
-
 **For delegation risk:** Model delegation chains as attack paths. "Shortest path to catastrophic harm" = which component chain could cause maximum damage fastest?
 
 ### Blast Radius Visualization
@@ -502,14 +439,6 @@ flowchart TD
     style W4 fill:#ffcdd2
     style W5 fill:#ffcdd2
 ```
-
-**Key tools:**
-
-| Tool | Description | Link |
-|------|-------------|------|
-| **Wiz Blast Radius** | Shows potential impact of security incidents as expanding zones. | [Wiz Blog](https://www.wiz.io/blog/wiz-security-graph-enhances-cloud-incident-response) |
-| **Varonis AWS Access Graph** | Visualizes "who can access what" and credential compromise impact. | [Varonis](https://www.varonis.com/blog/aws-access-graph) |
-| **Terraform Blast Radius** | Open source D3.js tool showing infrastructure dependency impact. | [GitHub](https://github.com/28mm/blast-radius) |
 
 **For delegation risk:** "If this coordinator defects, what's exposed?" Expand outward from any node to show everything in its delegation subtree.
 

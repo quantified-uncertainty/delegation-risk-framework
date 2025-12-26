@@ -7,6 +7,10 @@ sidebar:
 
 # Monitoring Patterns
 
+:::note[TL;DR]
+Watch for patterns, anomalies, and trends over time. Key patterns: **Tripwire Mesh** (distributed detection points at input/processing/output layers), **Behavioral Baselines** (detect deviation from normal), **Capability Probing** (test for hidden capabilities), **Anomaly Aggregation** (correlate weak signals into strong alerts). Single tripwires miss things—use a mesh for defense in depth.
+:::
+
 Monitoring patterns provide **continuous observation** of AI agent behavior. Unlike verification patterns (which check specific outputs), monitoring patterns watch for patterns, anomalies, and trends over time.
 
 These patterns are essential for detecting gradual drift, emerging problems, and behaviors that might only be visible in aggregate.

@@ -1,8 +1,15 @@
 ---
 title: "Forecasting-Based Navigation"
+description: "Using AI forecasting to navigate outcome space instead of specifying values"
+sidebar:
+  order: 10
 ---
 
 # Forecasting-Based Navigation
+
+:::note[TL;DR]
+Instead of perfectly specifying what "good" means, use AI forecasting to **navigate outcome space**. Have the AI forecast outcomes of different strategies, sample broadly, and choose paths that look good across many scenarios. Requires **calibrated forecasting**—predictions must be honest, not strategically optimistic. This sidesteps the hard problem of value specification.
+:::
 
 The hardest part of alignment is specifying what you want. Value specification is philosophically fraught and practically difficult.
 
@@ -122,3 +129,12 @@ The three principles compose into safety properties:
 :::note[Safety Margins]
 This gives you **safety margins**: distance between current operation and catastrophic failure. As systems get more capable, margins might shrink—but forecasting should detect this, allowing course correction.
 :::
+
+---
+
+## See Also
+
+- [Verification Patterns](/design-patterns/verification/) — Checking outputs and behavior
+- [Monitoring Patterns](/design-patterns/monitoring/) — Detecting drift and anomalies
+- [Decomposed Coordination](/design-patterns/decomposed-coordination/) — Breaking coordination into verifiable sub-tasks
+- [Experimental Estimates](/experimental/) — Probability estimation tools

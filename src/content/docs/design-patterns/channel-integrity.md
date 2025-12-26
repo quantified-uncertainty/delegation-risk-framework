@@ -7,6 +7,10 @@ sidebar:
 
 # Channel Integrity Patterns
 
+:::note[TL;DR]
+Prevent components from influencing each other outside official channels. Key threats: **side deals** (explicit communication bypassing coordinators), **shared state** (covert read/write), **timing signals** (latency encoding), **steganography** (hidden data in outputs), and **logical correlation** (shared reasoning patterns). Solutions: enforce communication through coordinators only, detect unauthorized channels, use decision theory to prevent logical coordination.
+:::
+
 Channel integrity patterns address a distinct class of problems from [correlated failures](/entanglements/): **active boundary violations** where components influence each other outside sanctioned channels.
 
 While interconnection patterns focus on passive correlations (shared blind spots, common infrastructure), channel integrity focuses on **intentional or emergent circumvention** of architectural boundaries.

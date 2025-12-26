@@ -176,7 +176,9 @@ Each pattern is documented with:
 
 ## Composing Patterns
 
-Patterns are most powerful in combination. Common compositions:
+Patterns are most powerful in combination. See [Composing Patterns](/design-patterns/composing-patterns/) for complete architecture examples and a step-by-step composition guide.
+
+Common compositions:
 
 ### Defense in Depth Stack
 ```mermaid

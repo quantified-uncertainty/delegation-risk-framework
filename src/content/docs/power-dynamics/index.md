@@ -6,6 +6,14 @@ sidebar:
 
 # Capability Formalization
 
+:::note[TL;DR]
+This section answers: "How do we measure what AI systems can do?" We formalize **Agency** (goal-directedness), **Power** (ability to achieve goals), and explore the **Strong Tools Hypothesis**—can we get high capability with low risk?
+:::
+
+:::tip[What to Expect]
+This section is more mathematical than Getting Started. If you're comfortable with utility functions and optimization, dive in. If not, start with the [Core Concepts](/getting-started/core-concepts/) which covers these ideas intuitively.
+:::
+
 This section formalizes the **positive side** of the optimization problem: what we're trying to maximize.
 
 $$\text{Capability} = \text{Power} \times \text{Agency}$$

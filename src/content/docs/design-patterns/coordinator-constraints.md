@@ -4,6 +4,10 @@ title: "Coordinator Constraints"
 
 # Coordinator-Specific Principles
 
+:::note[TL;DR]
+Coordinators are the highest-risk components—constrain them aggressively across four dimensions: **Influence** (route tasks, don't execute them), **Desires** (narrow, immediate goals only), **Intelligence** (short planning horizon, no self-model), **Knowledge** (current task only, no memory). Add external safeguards: redundancy, verification, easy veto, and full logging. Coordinators should be switchboard operators, not CEOs.
+:::
+
 Coordinators are the highest-risk components in decomposed AI systems. They see more context, make more decisions, and have more influence than other components. This page applies the [general "Least X" principles](/design-patterns/least-x-principles/) specifically to coordinators, with additional constraints unique to the coordination role.
 
 :::caution[Defection Risk Concentration]
@@ -756,4 +760,9 @@ This is a LOT of constraints. Which is the point—coordination is the highest-r
 
 ---
 
-**See also:** [Brainstorming improvements to this page](/reference/coordinator-constraints-brainstorm/) - analysis of taxonomy, missing principles, and potential reorganizations.
+## See Also
+
+- [Least-X Principles](/design-patterns/least-x-principles/) — General containment principles
+- [Decomposed Coordination](/design-patterns/decomposed-coordination/) — Breaking coordination into sub-tasks
+- [Structural Patterns](/design-patterns/structural/) — Architectural foundations
+- [Multi-Agent Patterns](/design-patterns/multi-agent/) — Verification through multiple agents

@@ -91,6 +91,7 @@ export default defineConfig({
 					collapsed: true,
 					items: [
 						{ label: 'Overview', slug: 'design-patterns' },
+						{ label: 'Composing Patterns', slug: 'design-patterns/composing-patterns' },
 						{ label: 'Principles to Practice', slug: 'design-patterns/principles-to-practice' },
 						{ label: 'Architecture Overview', slug: 'design-patterns/decomposed-coordination' },
 						{ label: 'Safety Mechanisms', slug: 'design-patterns/safety-mechanisms' },

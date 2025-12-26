@@ -10,6 +10,25 @@ Key terms used throughout this framework, organized by domain.
 These definitions reflect how terms are used **within this framework**. Other sources (academic literature, industry standards, other AI safety work) may define some of these terms differently. When reading external sources, be aware of potential definitional differences.
 :::
 
+## Common Terminology Confusions {#terminology-clarifications}
+
+Some terms are used interchangeably in casual discussion but have distinct meanings in this framework:
+
+| Term | When to Use | Related Terms |
+|------|-------------|---------------|
+| **Agent** | When emphasizing goal-directed behavior and optimization | Component, Delegate, System |
+| **Component** | When emphasizing architecture and system structure | Agent, Module, Subsystem |
+| **Delegate** | When emphasizing the delegation relationship from principal | Agent, Subordinate, Executor |
+| **Defection** | Intentional deviation from principal's goals (scheming) | Misalignment, Failure |
+| **Misalignment** | Goals don't match principal's (may or may not be intentional) | Defection, Value Drift |
+| **Harm Mode** | Specific way delegation causes damage | Failure Mode (related but distinct) |
+| **Failure Mode** | Engineering term for how systems fail (from FMEA) | Harm Mode (our AI-specific term) |
+
+**When in doubt:**
+- Use **agent** when discussing optimization, goals, and agency scores
+- Use **component** when discussing architecture and system decomposition
+- Use **delegate** when discussing the principal-agent relationship
+
 ## Core Framework Terms {#core-framework-terms}
 
 <span id="agent"></span>

@@ -101,223 +101,140 @@ def get_version_string():
 
     return version_str, version
 
-# Sidebar order matching current site structure
-SIDEBAR_ORDER = [
-    # Getting Started
-    ("Getting Started", [
-        "getting-started/index.md",
-        "getting-started/five-minute-intro.md",
-        "getting-started/core-concepts.md",
-        "getting-started/introduction.md",
-        "getting-started/faq.md",
-        "getting-started/glossary.md",
-    ]),
-    # Delegation Risk
-    ("Delegation Risk", [
-        "delegation-risk/index.md",
-        "delegation-risk/overview.md",
-        "delegation-risk/walkthrough.md",
-        "delegation-risk/delegation-accounting.md",
-        "delegation-risk/risk-decomposition.md",
-        "delegation-risk/exposure-cascade.md",
-        "delegation-risk/insurers-dilemma.md",
-    ]),
-    # Power Dynamics
-    ("Power Dynamics", [
-        "power-dynamics/index.md",
-        "power-dynamics/agent-power-formalization.md",
-        "power-dynamics/agency-power-examples.md",
-        "power-dynamics/strong-tools-hypothesis.md",
-    ]),
-    # Design Patterns
-    ("Design Patterns", [
-        "design-patterns/index.md",
-        "design-patterns/principles-to-practice.md",
-        "design-patterns/decomposed-coordination.md",
-        "design-patterns/safety-mechanisms.md",
-        "design-patterns/forecasting-navigation.md",
-        "design-patterns/least-x-principles.md",
-        "design-patterns/coordinator-constraints.md",
-        # Pattern Categories
-        "design-patterns/structural.md",
-        "design-patterns/verification.md",
-        "design-patterns/information.md",
-        "design-patterns/temporal.md",
-        "design-patterns/monitoring.md",
-        "design-patterns/multi-agent.md",
-        "design-patterns/incentive.md",
-        "design-patterns/recovery.md",
-        "design-patterns/channel-integrity.md",
-        # Worked Examples
-        "design-patterns/examples/research-assistant-example.md",
-        "design-patterns/examples/code-deployment-example.md",
-        "design-patterns/examples/trading-system-example.md",
-        "design-patterns/examples/healthcare-bot-example.md",
-        # Tools & Guides
-        "design-patterns/tools/quick-start.md",
-        "design-patterns/tools/decision-guide.md",
-        "design-patterns/tools/delegation-risk-calculator.mdx",
-        "design-patterns/tools/trust-propagation.mdx",
-        "design-patterns/tools/tradeoff-frontier.mdx",
-        "design-patterns/tools/interactive-delegation-graph.mdx",
-        "design-patterns/tools/cost-benefit.md",
-        "design-patterns/tools/empirical-tests.md",
-    ]),
-    # Entanglements
-    ("Entanglements", [
-        "entanglements/index.md",
-        # Fundamentals
-        "entanglements/fundamentals/types.md",
-        "entanglements/fundamentals/challenges.md",
-        "entanglements/fundamentals/formal-definitions.md",
-        # Detection
-        "entanglements/detection/modeling.md",
-        "entanglements/detection/detecting-influence.md",
-        "entanglements/detection/metrics.md",
-        "entanglements/detection/correlation-calculator.md",
-        # Case Studies
-        "entanglements/case-studies/examples.md",
-        "entanglements/case-studies/foundation-model-monoculture.md",
-        "entanglements/case-studies/intelligence-failures.md",
-        "entanglements/case-studies/historical-cases.md",
-        # Cross-Domain
-        "entanglements/cross-domain/software-dependency-patterns.md",
-        "entanglements/cross-domain/regulatory-approaches.md",
-        "entanglements/cross-domain/hidden-coordination.md",
-        "entanglements/cross-domain/legibility-and-control.md",
-        "entanglements/cross-domain/organizational-isolation.md",
-        "entanglements/cross-domain/psychology-of-oversight.md",
-        # Mitigation
-        "entanglements/mitigation/solutions.md",
-        "entanglements/mitigation/decision-framework.md",
-        "entanglements/mitigation/audit-guide.md",
-        "entanglements/mitigation/red-team-methodology.md",
-        # Research
-        "entanglements/research/adversarial-transferability.md",
-        "entanglements/research/ai-debate-entanglement.md",
-        "entanglements/research/impossibility-results.md",
-        "entanglements/research/research-connections.md",
-    ]),
-    # Case Studies
-    ("Case Studies", [
-        "case-studies/index.md",
-        "case-studies/power-dynamics-cases.md",
-        # AI Systems
-        "case-studies/ai-systems/case-study-sydney.md",
-        "case-studies/ai-systems/case-study-success.md",
-        "case-studies/ai-systems/case-study-near-miss.md",
-        "case-studies/ai-systems/case-study-drift.md",
-        "case-studies/ai-systems/anti-patterns.md",
-        # Human Systems
-        "case-studies/human-systems/organizational-trust.md",
-        "case-studies/human-systems/nuclear-launch-authority.md",
-        "case-studies/human-systems/criminal-trust.md",
-        "case-studies/human-systems/jury-trust.md",
-        "case-studies/human-systems/alliance-cascades.md",
-        "case-studies/human-systems/open-source-trust.md",
-        "case-studies/human-systems/oversight-dilemma.md",
-        "case-studies/human-systems/trust-across-civilizations.md",
-        # Anomaly Chronicles
-        "case-studies/anomaly-chronicles/index.md",
-        "case-studies/anomaly-chronicles/power-struggles.md",
-        "case-studies/anomaly-chronicles/containing-mr-x.md",
-        "case-studies/anomaly-chronicles/five-years-later.md",
-        "case-studies/anomaly-chronicles/task-architecture.md",
-        "case-studies/anomaly-chronicles/year-ten.md",
-        "case-studies/anomaly-chronicles/mr-x-perspective.md",
-        "case-studies/anomaly-chronicles/protocol-catalog.md",
-        "case-studies/anomaly-chronicles/insurance-bot-spec.md",
-    ]),
-    # Cross-Domain Methods
-    ("Cross-Domain Methods", [
-        "cross-domain-methods/overview.md",
-        "cross-domain-methods/euler-allocation.md",
-        "cross-domain-methods/nuclear-safety-pra.md",
-        "cross-domain-methods/mechanism-design.md",
-        "cross-domain-methods/asil-decomposition.md",
-        "cross-domain-methods/carbon-budgets.md",
-        "cross-domain-methods/attack-surface-metrics.md",
-        "cross-domain-methods/linear-logic-types.md",
-        "cross-domain-methods/lessons-from-failures.md",
-        "cross-domain-methods/access-control-systems.md",
-    ]),
-    # Research
-    ("Research", [
-        "research/index.md",
-        # Theoretical Foundations
-        "research/theory/index.md",
-        "research/theory/trust-accounting.md",
-        "research/theory/trust-propagation.md",
-        "research/theory/trust-dynamics.md",
-        "research/theory/trust-optimization.md",
-        "research/theory/trust-economics.md",
-        "research/theory/trust-interfaces.md",
-        "research/theory/trust-protocols.md",
-        "research/theory/trust-at-scale.md",
-        "research/theory/human-ai-trust.md",
-        # Risk & Financial Methods
-        "research/risk-methods/financial-risk-budgeting.md",
-        "research/risk-methods/fidelity-insurance.md",
-        "research/risk-methods/compositional-risk-measures.md",
-        "research/risk-methods/complexity-pricing.md",
-        "research/risk-methods/alignment-tax-quantification.md",
-        # Technical Safety
-        "research/technical-safety/ai-safety-frameworks.md",
-        "research/technical-safety/formal-verification-limits.md",
-        "research/technical-safety/runtime-monitoring-architectures.md",
-        "research/technical-safety/capability-elicitation-sandbagging.md",
-        "research/technical-safety/steganography-detection-prevention.md",
-        # System Design
-        "research/system-design/mechanism-design.md",
-        "research/system-design/nuclear-aerospace-deep-dive.md",
-        "research/system-design/byzantine-coordinator-voting.md",
-        "research/system-design/prototype-architecture-feasibility.md",
-        # Trust & Behavior
-        "research/trust-behavior/human-trust-calibration.md",
-        "research/trust-behavior/trust-dynamics-adversarial-pressure.md",
-        "research/trust-behavior/empirical-scheming-reduction.md",
-        "research/trust-behavior/correlated-failure-modeling.md",
-        "research/trust-behavior/linear-logic-trust-budgets.md",
-        # Other
-        "research/hierarchy-visualization.md",
-        "research/potential-projects.md",
-    ]),
-    # Experimental
-    ("Experimental", [
-        "experimental/index.md",
-        "experimental/probabilistic-estimation/index.md",
-        "experimental/probabilistic-estimation/tools/index.md",
-        "experimental/probabilistic-estimation/tools/risk-calculator.mdx",
-        "experimental/probabilistic-estimation/tools/architecture-comparator.mdx",
-        "experimental/probabilistic-estimation/tools/trust-updater.mdx",
-        "experimental/probabilistic-estimation/tools/sensitivity-dashboard.mdx",
-        "experimental/probabilistic-estimation/estimates/index.md",
-        "experimental/probabilistic-estimation/estimates/probability-priors.md",
-        "experimental/probabilistic-estimation/estimates/damage-distributions.md",
-        "experimental/probabilistic-estimation/estimates/trust-calibration.md",
-        "experimental/probabilistic-estimation/estimates/mitigation-effectiveness.md",
-        "experimental/probabilistic-estimation/estimates/expert-elicitation.md",
-        "experimental/probabilistic-estimation/estimates/cross-domain-benchmarks.md",
-        "experimental/probabilistic-estimation/estimates/incident-database.md",
-    ]),
-    # Reference
-    ("Reference", [
-        "reference/index.md",
-        "reference/bibliography.md",
-        "reference/related-approaches.md",
-        "reference/roadmap.md",
-        "reference/site-map.md",
-        "reference/about-this-site.md",
-        "reference/coordinator-constraints-brainstorm.md",
-        "reference/potential-examples.md",
-    ]),
-]
+# ============================================================================
+# SIDEBAR PARSING - Dynamically reads from astro.config.mjs
+# ============================================================================
+
+ASTRO_CONFIG = ROOT / "astro.config.mjs"
+
+def get_frontmatter_order(file_path):
+    """Extract sidebar.order from frontmatter, return large number if not found."""
+    try:
+        content = file_path.read_text(encoding='utf-8')
+        # Match sidebar: { order: N } or sidebar:\n  order: N
+        match = re.search(r'sidebar:\s*(?:\{[^}]*order:\s*(\d+)|order:\s*(\d+))', content)
+        if match:
+            return int(match.group(1) or match.group(2))
+        # Also check for simple order: N in frontmatter
+        fm_match = re.search(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+        if fm_match:
+            order_match = re.search(r'^\s*order:\s*(\d+)', fm_match.group(1), re.MULTILINE)
+            if order_match:
+                return int(order_match.group(1))
+    except Exception:
+        pass
+    return 999  # Default: put at end
+
+def get_files_in_directory(directory):
+    """Get all .md/.mdx files in a directory, sorted by frontmatter order then filename."""
+    dir_path = DOCS_DIR / directory
+    if not dir_path.exists():
+        return []
+
+    files = []
+    for ext in ['*.md', '*.mdx']:
+        files.extend(dir_path.glob(ext))
+
+    # Sort by frontmatter order, then by filename
+    files_with_order = [(f, get_frontmatter_order(f), f.name) for f in files]
+    files_with_order.sort(key=lambda x: (x[1], x[2]))
+
+    return [str(f.relative_to(DOCS_DIR)) for f, _, _ in files_with_order]
+
+def slug_to_filepath(slug):
+    """Convert a Starlight slug to a file path."""
+    # Try with index.md first, then .md, then .mdx
+    for suffix in ['/index.md', '.md', '/index.mdx', '.mdx']:
+        path = DOCS_DIR / (slug + suffix)
+        if path.exists():
+            return slug + suffix
+    # Fallback
+    return slug + '.md'
+
+def parse_sidebar_items(items_str):
+    """Parse a JavaScript array of sidebar items."""
+    files = []
+
+    # Find all slug entries: { label: '...', slug: '...' }
+    slug_pattern = r"\{\s*label:\s*['\"]([^'\"]+)['\"],\s*slug:\s*['\"]([^'\"]+)['\"]"
+    for match in re.finditer(slug_pattern, items_str):
+        slug = match.group(2)
+        files.append(slug_to_filepath(slug))
+
+    # Find all autogenerate entries: autogenerate: { directory: '...' }
+    auto_pattern = r"autogenerate:\s*\{\s*directory:\s*['\"]([^'\"]+)['\"]"
+    for match in re.finditer(auto_pattern, items_str):
+        directory = match.group(1)
+        files.extend(get_files_in_directory(directory))
+
+    # Find nested items arrays and recurse
+    # This handles: items: [ ... ]
+    nested_items_pattern = r"items:\s*\[((?:[^\[\]]|\[(?:[^\[\]]|\[[^\]]*\])*\])*)\]"
+    for match in re.finditer(nested_items_pattern, items_str):
+        nested = match.group(1)
+        # Avoid re-processing the same content
+        if 'slug:' in nested or 'autogenerate:' in nested:
+            files.extend(parse_sidebar_items(nested))
+
+    return files
+
+def parse_astro_sidebar():
+    """Parse the sidebar configuration from astro.config.mjs."""
+    if not ASTRO_CONFIG.exists():
+        print("Warning: astro.config.mjs not found, using empty sidebar")
+        return []
+
+    content = ASTRO_CONFIG.read_text(encoding='utf-8')
+
+    # Extract the sidebar array
+    sidebar_match = re.search(r'sidebar:\s*\[(.*)\]', content, re.DOTALL)
+    if not sidebar_match:
+        print("Warning: Could not find sidebar in astro.config.mjs")
+        return []
+
+    sidebar_content = sidebar_match.group(1)
+
+    # Split into top-level sections by finding { label: '...' patterns at the right nesting level
+    sections = []
+
+    # Find each top-level section
+    # Pattern: { label: 'Name', ... items/autogenerate ... }
+    section_pattern = r"\{\s*label:\s*['\"]([^'\"]+)['\"][^{}]*(?:autogenerate:\s*\{\s*directory:\s*['\"]([^'\"]+)['\"][^{}]*\}|items:\s*\[((?:[^\[\]]|\[(?:[^\[\]]|\[[^\]]*\])*\])*)\])"
+
+    for match in re.finditer(section_pattern, sidebar_content):
+        label = match.group(1)
+        autogen_dir = match.group(2)
+        items_content = match.group(3)
+
+        files = []
+        if autogen_dir:
+            # Simple autogenerate section
+            files = get_files_in_directory(autogen_dir)
+        elif items_content:
+            # Section with explicit items
+            files = parse_sidebar_items(items_content)
+
+        if files:
+            sections.append((label, files))
+
+    return sections
+
+def get_sidebar_order():
+    """Get the sidebar order, parsing from astro.config.mjs."""
+    sections = parse_astro_sidebar()
+    if not sections:
+        print("Warning: No sections found in sidebar, check astro.config.mjs")
+    return sections
+
+# Legacy constant for compatibility - now dynamically generated
+SIDEBAR_ORDER = None  # Will be set at runtime
 
 def get_ordered_chapters():
-    """Get chapters in sidebar order, falling back to discovery for missing files."""
+    """Get chapters in sidebar order by parsing astro.config.mjs."""
     chapters = []
+    sidebar_order = get_sidebar_order()
 
-    for part_name, files in SIDEBAR_ORDER:
+    for part_name, files in sidebar_order:
         found_files = []
         for rel_path in files:
             full_path = DOCS_DIR / rel_path

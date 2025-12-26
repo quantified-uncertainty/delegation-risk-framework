@@ -7,6 +7,22 @@ sidebar:
 
 # Structural Patterns
 
+:::note[TL;DR]
+Define the architecture of delegation. Key patterns: **Escalation Ladder** (match oversight to stakes—autonomous for low-risk, human review for high-risk), **Gateway Chokepoint** (single entry point for validation), **Bulkhead Isolation** (contain failures to compartments), **Separation of Powers** (split authority so no single component controls everything). Choose structural patterns first, then layer others on top.
+:::
+
+**Patterns in this section:**
+- [Escalation Ladder](#escalation-ladder) — Match oversight intensity to actual stakes
+- [Voting Tribunal](#voting-tribunal) — Require multi-party agreement for high-stakes actions
+- [Graduated Autonomy](#graduated-autonomy) — Earn trust through demonstrated performance
+- [Capability Airlock](#capability-airlock) — Isolate dangerous capabilities behind barriers
+- [Task Decomposition Pipeline](#task-decomposition-pipeline) — Break complex tasks into verifiable steps
+- [Gateway Chokepoint](#gateway-chokepoint) — Funnel operations through monitored control points
+- [Bulkhead Isolation](#bulkhead-isolation) — Contain failures to compartments
+- [Separation of Powers](#separation-of-powers) — Distribute authority across independent parties
+
+---
+
 Structural patterns define the **architecture** of delegation relationships. They determine who can do what, how authority flows, and what constraints are baked into the system's design.
 
 These patterns are foundational—you typically choose structural patterns first, then layer other patterns on top.

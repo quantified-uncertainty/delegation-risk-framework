@@ -50,13 +50,13 @@ We focus on **architectural properties** that bound potential harm regardless of
 
 <CardGrid>
   <Card title="Risk as a Resource" icon="seti:notebook">
-    Every delegation involves risk. We can measure it, budget it, and optimize it—just like compute or money. [Delegation Risk](/framework/risk/overview/) quantifies what you're betting on each delegate.
+    Every delegation involves risk. We can measure it, budget it, and optimize it—just like compute or money. [Delegation Risk](/delegation-risk/overview/) quantifies what you're betting on each delegate.
   </Card>
   <Card title="Containment via Decomposition" icon="puzzle">
     Instead of one powerful delegate, decompose tasks across many limited components. No single component has enough capability, context, or connectivity to cause catastrophic harm.
   </Card>
   <Card title="Principles that Bound Behavior" icon="list-format">
-    The ["Least X" principles](/applying/least-x-principles/)—least privilege, least capability, least context—systematically limit what each component can do.
+    The ["Least X" principles](/design-patterns/least-x-principles/)—least privilege, least capability, least context—systematically limit what each component can do.
   </Card>
   <Card title="Cross-Domain Wisdom" icon="open-book">
     Nuclear safety, financial risk, and mechanism design have decades of experience. We adapt their [proven methods](/cross-domain-methods/overview/) to delegation problems.
@@ -89,6 +89,45 @@ While the framework applies generally, **AI systems are our primary focus**. AI 
 - Possible unknown failure modes in systems we don't fully understand
 
 None of these claims are certain, but if even some hold, having infrastructure for managing Delegation Risk seems valuable. The framework aims to help deploy AI more safely—not by solving alignment, but by bounding the damage from any single component.
+
+---
+
+## Navigate This Site
+
+```mermaid
+flowchart LR
+    subgraph Start["Start Here"]
+        GS[Getting Started]
+    end
+
+    subgraph Theory["Understand"]
+        DR[Delegation Risk]
+        PD[Power Dynamics]
+        ENT[Entanglements]
+    end
+
+    subgraph Apply["Apply"]
+        DP[Design Patterns]
+        CS[Case Studies]
+    end
+
+    GS --> DR
+    GS --> PD
+    GS --> ENT
+    DR --> DP
+    PD --> DP
+    ENT --> DP
+    DP --> CS
+
+    style GS fill:#e3f2fd
+    style DR fill:#fff3e0
+    style PD fill:#fff3e0
+    style ENT fill:#fff3e0
+    style DP fill:#e8f5e9
+    style CS fill:#e8f5e9
+```
+
+**[See full reading order →](/getting-started/reading-order/)** | **[Site Map →](/reference/site-map/)**
 
 ---
 
@@ -134,13 +173,13 @@ None of these claims are certain, but if even some hold, having infrastructure f
     Short on time? Get the core ideas in one page. [Read the 5-minute intro →](/getting-started/five-minute-intro/)
   </Card>
   <Card title="Ready to Implement?" icon="laptop">
-    Step-by-step checklist for applying the framework. [Quick Start →](/applying/tools/quick-start/)
+    Step-by-step checklist for applying the framework. [Quick Start →](/design-patterns/tools/quick-start/)
   </Card>
   <Card title="Have Questions?" icon="information">
     Common objections answered. [Read the FAQ →](/getting-started/faq/)
   </Card>
   <Card title="Evaluate the ROI" icon="seti:notebook">
-    Concrete cost-benefit analysis with real numbers. [See the analysis →](/applying/tools/cost-benefit/)
+    Concrete cost-benefit analysis with real numbers. [See the analysis →](/design-patterns/tools/cost-benefit/)
   </Card>
 </CardGrid>
 
@@ -160,10 +199,12 @@ Learn from real-world examples:
 ## Start Reading
 
 1. **[Introduction](/getting-started/introduction/)** — The full problem statement and approach
-2. **[Delegation Risk Overview](/framework/risk/overview/)** — The mathematical foundation
-3. **[Design Principles](/applying/least-x-principles/)** — Actionable constraints
+2. **[Delegation Risk Overview](/delegation-risk/overview/)** — The mathematical foundation
+3. **[Design Principles](/design-patterns/least-x-principles/)** — Actionable constraints
 
-**Interactive Tools**: [Delegation Risk Calculator](/applying/tools/delegation-risk-calculator/) · [Risk Inheritance](/applying/tools/trust-propagation/) · [Tradeoff Frontier](/applying/tools/tradeoff-frontier/)
+**Navigation Guides**: [Reading Order](/getting-started/reading-order/) · [How Sections Connect](/getting-started/how-sections-connect/) · [Site Map](/reference/site-map/)
+
+**Interactive Tools**: [Delegation Risk Calculator](/design-patterns/tools/delegation-risk-calculator/) · [Risk Inheritance](/design-patterns/tools/trust-propagation/) · [Tradeoff Frontier](/design-patterns/tools/tradeoff-frontier/)
 
 ---
 
