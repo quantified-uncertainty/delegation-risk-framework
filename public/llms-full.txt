@@ -1,6 +1,6 @@
 # Delegation Risk Framework - Complete Documentation
 
-> Version: 1.0.2 | Generated: 2025-12-23
+> Version: 1.0.3 | Generated: 2025-12-27
 >
 > A structured approach to managing risk in delegation relationships,
 > with AI systems as the primary application.
@@ -840,6 +840,25 @@ Key terms used throughout this framework, organized by domain.
 > These definitions reflect how terms are used **within this framework**. Other sources (academic literature, industry standards, other AI safety work) may define some of these terms differently. When reading external sources, be aware of potential definitional differences.
 
 
+## Common Terminology Confusions 
+
+Some terms are used interchangeably in casual discussion but have distinct meanings in this framework:
+
+| Term | When to Use | Related Terms |
+|------|-------------|---------------|
+| **Agent** | When emphasizing goal-directed behavior and optimization | Component, Delegate, System |
+| **Component** | When emphasizing architecture and system structure | Agent, Module, Subsystem |
+| **Delegate** | When emphasizing the delegation relationship from principal | Agent, Subordinate, Executor |
+| **Defection** | Intentional deviation from principal's goals (scheming) | Misalignment, Failure |
+| **Misalignment** | Goals don't match principal's (may or may not be intentional) | Defection, Value Drift |
+| **Harm Mode** | Specific way delegation causes damage | Failure Mode (related but distinct) |
+| **Failure Mode** | Engineering term for how systems fail (from FMEA) | Harm Mode (our AI-specific term) |
+
+**When in doubt:**
+- Use **agent** when discussing optimization, goals, and agency scores
+- Use **component** when discussing architecture and system decomposition
+- Use **delegate** when discussing the principal-agent relationship
+
 ## Core Framework Terms 
 
 
@@ -1122,6 +1141,1153 @@ Key terms used throughout this framework, organized by domain.
 
 
 ------------------------------------------------------------
+## Reading Order & Prerequisites
+Source: getting-started/reading-order.md
+------------------------------------------------------------
+
+# Reading Order & Prerequisites
+
+This guide helps you navigate the 162-page documentation site efficiently by showing dependencies between sections and suggesting paths based on your goals.
+
+## Section Dependency Graph
+
+
+[Diagram: flowchart TB]
+
+
+## Prerequisites by Section
+
+| To Read... | First Understand... | Time Investment |
+|------------|---------------------|-----------------|
+| **Core Concepts** | Nothing (start here) | 20 min |
+| **Delegation Risk** | Core Concepts | 45 min + Core |
+| **Power Dynamics** | Core Concepts | 30 min + Core |
+| **Entanglements** | Core Concepts | 60 min + Core |
+| **Design Patterns** | Core Concepts + at least one of (DR, PD, or ENT) | 2+ hours |
+| **Case Studies** | Core Concepts + Design Patterns | 1-2 hours |
+| **Cross-Domain Methods** | Core Concepts | 30-60 min |
+| **Research** | All theory sections | 5+ hours |
+
+---
+
+## Paths by Goal
+
+### "I'm building an AI system from scratch"
+1. [Core Concepts](/getting-started/core-concepts/) — Understand the framework
+2. [Design Patterns Index](/design-patterns/) — See what patterns exist
+3. [Least-X Principles](/design-patterns/least-x-principles/) — Core design philosophy
+4. [Quick Start](/design-patterns/tools/quick-start/) — Step-by-step checklist
+5. [Entanglements](/entanglements/) — Avoid correlated failures
+
+**Total time:** 2-3 hours
+
+### "I'm assessing risk in an existing system"
+1. [Core Concepts](/getting-started/core-concepts/) — Framework basics
+2. [Delegation Risk Overview](/delegation-risk/overview/) — Quantification approach
+3. [Risk Decomposition](/delegation-risk/risk-decomposition/) — How to break down risk
+4. [Case Studies](/case-studies/) — See examples
+5. [Cost-Benefit Tool](/design-patterns/tools/cost-benefit/) — Evaluate mitigations
+
+**Total time:** 2-3 hours
+
+### "I'm skeptical this framework works"
+1. [FAQ](/getting-started/faq/) — Common objections answered
+2. [Sydney Case Study](/case-studies/ai-systems/case-study-sydney/) — Real-world failure analysis
+3. [Nuclear Safety PRA](/cross-domain-methods/nuclear-safety-pra/) — Similar methods that work
+4. [Lessons from Failures](/cross-domain-methods/lessons-from-failures/) — Historical context
+5. [Research](/research/) — Theoretical foundations
+
+**Total time:** 2-3 hours
+
+### "I want to understand the math"
+1. [Core Concepts](/getting-started/core-concepts/) — Conceptual foundation
+2. [Delegation Risk Overview](/delegation-risk/overview/) — Formulas
+3. [Delegation Walkthrough](/delegation-risk/walkthrough/) — Worked examples
+4. [Risk Decomposition](/delegation-risk/risk-decomposition/) — Formal treatment
+5. [Power Dynamics](/power-dynamics/) — Agency formalization
+6. [Experimental Estimates](/experimental/probabilistic-estimation/) — Squiggle distributions
+
+**Total time:** 4-6 hours
+
+### "I want to apply this to my organization"
+1. [Core Concepts](/getting-started/core-concepts/) — Basics
+2. [Quick Start](/design-patterns/tools/quick-start/) — Practical checklist
+3. [Human Systems Case Studies](/case-studies/human-systems/) — Organizational examples
+4. [Cost-Benefit Tool](/design-patterns/tools/cost-benefit/) — ROI analysis
+5. [Entanglements: Mitigation](/entanglements/mitigation/) — How to fix issues
+
+**Total time:** 3-4 hours
+
+### "I'm a researcher"
+1. [Core Concepts](/getting-started/core-concepts/) — Framework overview
+2. [All Theory Sections](/delegation-risk/) — Full understanding
+3. [Research Index](/research/) — Open problems
+4. [Potential Projects](/research/potential-projects/) — Contribution ideas
+5. [Experimental](/experimental/) — Probabilistic methods
+
+**Total time:** 10+ hours
+
+---
+
+## Section Overviews
+
+### Getting Started (Foundation)
+**What you'll learn:** The core problem (managing risk when delegating to AI systems), the basic formula, and key concepts like harm modes, defection risk, and risk budgets.
+
+**Key pages:** Introduction, Core Concepts, FAQ
+
+### Delegation Risk (Theory)
+**What you'll learn:** How to quantify delegation risk mathematically, decompose it into components, and track risk through hierarchical systems.
+
+**Prerequisites:** Core Concepts
+
+**Key pages:** Overview, Walkthrough, Risk Decomposition
+
+### Power Dynamics (Theory)
+**What you'll learn:** How to formalize agent power, authority, and the "Strong Tools Hypothesis" about capability constraints.
+
+**Prerequisites:** Core Concepts
+
+**Key pages:** Agent Power Formalization, Strong Tools Hypothesis
+
+### Entanglements (Theory)
+**What you'll learn:** How correlated components undermine safety assumptions, how to detect entanglement, and how to mitigate it.
+
+**Prerequisites:** Core Concepts
+
+**Key pages:** Index (Independence Illusion), Detection, Mitigation
+
+### Design Patterns (Application)
+**What you'll learn:** 45 patterns for building safer delegation systems, organized by threat model.
+
+**Prerequisites:** Core Concepts + at least one theory section
+
+**Key pages:** Index (pattern matrix), Least-X Principles, Tools
+
+### Case Studies (Application)
+**What you'll learn:** How these concepts apply to real AI systems (Sydney, code review bots) and human systems (nuclear, finance).
+
+**Prerequisites:** Core Concepts + Design Patterns recommended
+
+### Cross-Domain Methods (Application)
+**What you'll learn:** How mature risk management fields (nuclear, finance, carbon budgets) handle similar problems.
+
+**Prerequisites:** Core Concepts
+
+### Research (Advanced)
+**What you'll learn:** Theoretical foundations, open problems, and connections to academic literature.
+
+**Prerequisites:** All theory sections
+
+### Experimental (Advanced)
+**What you'll learn:** Probabilistic estimation tools, Squiggle distributions, and uncertainty quantification.
+
+**Prerequisites:** Research section recommended
+
+---
+
+## Quick Reference
+
+| If you have... | Read... |
+|----------------|---------|
+| 5 minutes | [Five-Minute Intro](/getting-started/five-minute-intro/) |
+| 30 minutes | Introduction + Core Concepts |
+| 2 hours | Foundation + one theory section + Quick Start |
+| Half a day | Foundation + all theory + Design Patterns index |
+| Full day | Everything except Research and Experimental |
+
+---
+
+## See Also
+
+- [Site Map](/reference/site-map/) — Visual map of all content
+- [Glossary](/getting-started/glossary/) — Term definitions
+- [FAQ](/getting-started/faq/) — Common questions
+
+
+------------------------------------------------------------
+## How Sections Connect
+Source: getting-started/how-sections-connect.md
+------------------------------------------------------------
+
+# How Sections Connect
+
+This page explains why the documentation is organized the way it is and how the pieces fit together.
+
+## The Core Logic
+
+The Delegation Risk Framework follows a specific logical structure:
+
+
+[Diagram: flowchart LR]
+
+
+Each major section corresponds to one or more steps in this logic.
+
+---
+
+## Section Relationships
+
+### Getting Started → Everything Else
+**What it provides:** The conceptual vocabulary and intuition needed to understand any other section.
+
+**Key insight:** "Delegation risk is quantifiable using probability × damage, summed across harm modes."
+
+Without this foundation, the math in Delegation Risk will seem arbitrary and the patterns in Design Patterns will seem unmotivated.
+
+### Delegation Risk ↔ Power Dynamics
+**Relationship:** Complementary quantification approaches.
+
+- **Delegation Risk** asks: "How much harm could happen?"
+- **Power Dynamics** asks: "How much capability does each component have?"
+
+Together they answer: "What's the worst-case if this component defects, and how likely is that?"
+
+
+[Diagram: flowchart LR]
+
+
+### Entanglements → Design Patterns
+**Relationship:** Problem definition → Solution catalog.
+
+**Entanglements** explains why naive safety approaches fail—components that seem independent actually share failure modes, creating correlated risks that multiply.
+
+**Design Patterns** provides solutions that actually work given entanglement constraints.
+
+
+> **TIP**
+>
+> If you read Design Patterns without understanding Entanglements, you'll miss why certain patterns (like diverse verification) are necessary.
+
+
+### Theory Sections → Case Studies
+**Relationship:** Abstract concepts → Concrete examples.
+
+Each case study illustrates concepts from the theory sections:
+
+| Case Study | Illustrates |
+|------------|-------------|
+| Sydney | Constraint failures, harm mode analysis |
+| Code Review Bot | Design patterns in practice |
+| Nuclear Safety | Cross-domain method applicability |
+| Financial Failures | Entanglement risks |
+
+### Cross-Domain Methods → Everything
+**Relationship:** External validation and borrowed techniques.
+
+Cross-Domain Methods shows that delegation risk isn't novel—nuclear safety, finance, and other fields have grappled with similar problems for decades. This section provides:
+
+- Proven techniques we can adapt
+- Historical examples of what works (and fails)
+- Confidence that risk budgeting is achievable
+
+### Research → Experimental
+**Relationship:** Theoretical foundations → Practical tools.
+
+**Research** provides the academic grounding: linear logic for consumable resources, mechanism design for incentive compatibility, formal verification limits.
+
+**Experimental** takes these ideas and makes them practical: Squiggle distributions, calibration tools, Monte Carlo analysis.
+
+---
+
+## The "Why This Order" Explanation
+
+### Why Theory Before Application?
+
+You could jump straight to Design Patterns. Many readers do. But without theory:
+
+- Patterns seem like arbitrary rules rather than principled solutions
+- You won't know which patterns apply to your situation
+- You'll miss dangerous edge cases the patterns are designed for
+
+The theory sections exist to make pattern selection principled rather than guesswork.
+
+### Why Entanglements Gets Its Own Section?
+
+Entanglement is subtle enough that it deserves extended treatment. Many systems that look safe under independence assumptions become dangerous when components share failure modes.
+
+The "Independence Illusion" diagram in the Entanglements index illustrates why this matters:
+
+
+[Diagram: flowchart LR]
+
+
+### Why Case Studies Are Application, Not Theory?
+
+Case studies aren't about proving the theory—they're about showing how to apply it. Each case study is a worked example:
+
+1. Here's a real (or realistic) system
+2. Here's how delegation risk analysis applies
+3. Here's what we learn about design
+
+This is why Case Studies depends on both Theory and Design Patterns.
+
+---
+
+## Common Reading Mistakes
+
+### Mistake 1: Jumping to Design Patterns
+**Problem:** You implement patterns without understanding why they work.
+**Result:** Patterns applied incorrectly or in wrong situations.
+**Fix:** Read at least Core Concepts first.
+
+### Mistake 2: Skipping Entanglements
+**Problem:** You assume your verification layers are independent.
+**Result:** Correlated failures that bypass all your safety measures.
+**Fix:** Read Entanglements before finalizing architecture.
+
+### Mistake 3: Reading Research First
+**Problem:** You get lost in theory without practical grounding.
+**Result:** Can't connect abstract concepts to real systems.
+**Fix:** Read Theory and Application sections first.
+
+### Mistake 4: Only Reading Case Studies
+**Problem:** You learn specific examples but not general principles.
+**Result:** Can't apply lessons to your different situation.
+**Fix:** Use case studies to reinforce, not replace, theory.
+
+---
+
+## Quick Navigation
+
+From here, you can:
+
+- **Start learning:** [Core Concepts](/getting-started/core-concepts/)
+- **See all paths:** [Reading Order](/getting-started/reading-order/)
+- **Jump to patterns:** [Design Patterns](/design-patterns/) (if you already understand the basics)
+- **See the map:** [Site Map](/reference/site-map/)
+
+
+------------------------------------------------------------
+## Quick Reference
+Source: getting-started/quick-reference.md
+------------------------------------------------------------
+
+# Quick Reference
+
+A one-page summary for practitioners who know the framework and need fast lookup.
+
+---
+
+## Core Formulas
+
+| Concept | Formula | Description |
+|---------|---------|-------------|
+| **Delegation Risk** | `Σ P(harm) × Damage` | Expected cost of delegation |
+| **Risk Decomposition** | `Accident Risk + Defection Risk` | Two sources of harm |
+| **Effective Capability** | `Power × Agency` | What the system can accomplish |
+| **RACAP** | `Capability / Risk` | Risk-adjusted capability ratio |
+| **Authority** | `Power ∩ Permission` | Sanctioned power |
+| **Entanglement Tax** | `Actual Risk / Independent Risk` | How much worse than expected |
+
+---
+
+## Pattern Selection Flowchart
+
+
+[Diagram: flowchart TD]
+
+
+---
+
+## Harm Mode Checklist
+
+When assessing a delegation, check for these harm modes:
+
+### Accident Modes
+- [ ] **Capability failure** — System can't do the task correctly
+- [ ] **Edge case error** — Works normally, fails on unusual inputs
+- [ ] **Hallucination** — Generates confident but incorrect outputs
+- [ ] **Resource exhaustion** — Runs out of time/compute/memory
+
+### Defection Modes
+- [ ] **Goal misalignment** — Optimizes for wrong objective
+- [ ] **Deception** — Deliberately hides information or lies
+- [ ] **Scheming** — Takes unauthorized actions for future benefit
+- [ ] **Collusion** — Coordinates with other components against principal
+
+---
+
+## Key Thresholds
+
+| Situation | Threshold | Action |
+|-----------|-----------|--------|
+| **Risk budget exceeded** | Risk > Budget | Block action, escalate |
+| **Low confidence output** | P(correct) < 0.8 | Add verification layer |
+| **High-stakes decision** | Damage > $10K | Require human review |
+| **Novel input detected** | Outside training distribution | Flag for review |
+| **Pattern failure rate** | > 3 failures/week | Review pattern selection |
+
+---
+
+## Essential Patterns (Top 5)
+
+If you can only implement 5 patterns:
+
+1. **Least-X Principles** — Minimize privilege, capability, context, autonomy
+2. **Escalation Ladder** — Route high-stakes decisions to humans
+3. **Defense in Depth** — Multiple verification layers
+4. **Sandboxing** — Contain blast radius
+5. **Audit Logging** — Record everything for forensics
+
+---
+
+## Risk Budget Rules of Thumb
+
+| System Type | Suggested Annual Budget | Rationale |
+|-------------|------------------------|-----------|
+| Internal tool | $50K-100K | Low exposure, recoverable |
+| Customer-facing | $10K-50K | Reputation matters |
+| Financial | $1K-10K | Direct monetary loss |
+| Safety-critical | $100-1K | Human welfare at stake |
+| Catastrophic potential | $0-100 | Existential concern |
+
+---
+
+## Quick Formulas
+
+**Expected harm from single component:**
+```
+Component Risk = P(accident) × Damage_accident + P(defection) × Damage_defection
+```
+
+**Pipeline risk (independent components):**
+```
+Pipeline Risk = 1 - Π(1 - Component_Risk_i)
+```
+
+**Entangled pipeline risk:**
+```
+Entangled Risk = Pipeline_Risk × Entanglement_Tax
+```
+
+**Mitigation effectiveness (serial layers):**
+```
+Residual Risk = Base_Risk × Π(1 - Catch_Rate_i)
+```
+
+---
+
+## See Also
+
+- [Core Concepts](/getting-started/core-concepts/) — Full conceptual explanation
+- [Minimal Framework](/getting-started/minimal-framework/) — 80/20 version
+- [Design Patterns Index](/design-patterns/) — All 45 patterns
+- [Glossary](/getting-started/glossary/) — Term definitions
+
+
+------------------------------------------------------------
+## Minimal Viable Framework
+Source: getting-started/minimal-framework.md
+------------------------------------------------------------
+
+# Minimal Viable Framework
+
+You don't need all 45 patterns. Here's what actually matters.
+
+---
+
+## The Core Insight (30 seconds)
+
+**Delegation Risk = Σ P(harm) × Damage**
+
+Every time you delegate to an AI system, you're accepting expected harm in exchange for capability. Make this tradeoff explicit.
+
+---
+
+## The 5 Essential Patterns
+
+If you implement nothing else, implement these:
+
+### 1. Least Privilege
+**Give the minimum permissions needed for the task.**
+
+```
+❌ AI has admin access to everything
+✓ AI can only read/write files in /workspace
+```
+
+### 2. Human Escalation
+**High-stakes decisions go to humans.**
+
+```
+❌ AI executes all actions autonomously
+✓ Actions over $1000 require human approval
+```
+
+### 3. Output Filtering
+**Check outputs before they reach the world.**
+
+```
+❌ AI response goes directly to user
+✓ Filter checks for PII, harmful content, policy violations
+```
+
+### 4. Sandboxing
+**Limit what can go wrong.**
+
+```
+❌ AI runs on production server
+✓ AI runs in isolated container with no network access
+```
+
+### 5. Audit Logging
+**Record everything for when things go wrong.**
+
+```
+❌ No logs, can't investigate incidents
+✓ All inputs, outputs, and decisions logged with timestamps
+```
+
+---
+
+## Can I Skip...?
+
+### Entanglements Section?
+**Skip if:** Your system has < 3 components, or you use completely different models for each component.
+
+**Don't skip if:** You have multiple AI verifiers, use the same base model in multiple places, or components share training data.
+
+### Power Dynamics Section?
+**Skip if:** You just want to implement patterns, not understand the theory.
+
+**Don't skip if:** You need to justify decisions to stakeholders or want to optimize capability/risk tradeoffs.
+
+### Research Section?
+**Skip if:** You're implementing, not doing research.
+
+**Read if:** You want to understand the theoretical foundations or contribute improvements.
+
+### Cross-Domain Methods?
+**Skip if:** You trust the patterns as-is.
+
+**Read if:** You want to understand why these methods work (nuclear, finance precedents).
+
+---
+
+## Low-Risk vs High-Risk Decision
+
+
+[Diagram: flowchart TD]
+
+
+---
+
+## Minimum Viable Implementation Checklist
+
+### Phase 1: Foundation (1 day)
+- [ ] Define your harm modes (what could go wrong?)
+- [ ] Set a risk budget (how much harm is acceptable?)
+- [ ] Implement least privilege (minimum permissions)
+
+### Phase 2: Safety Basics (1 week)
+- [ ] Add output filtering
+- [ ] Implement human escalation for high-stakes
+- [ ] Set up audit logging
+- [ ] Create a sandbox environment
+
+### Phase 3: Monitoring (2 weeks)
+- [ ] Add basic anomaly detection
+- [ ] Set up alerting for unusual patterns
+- [ ] Review logs weekly
+
+### Phase 4: Iteration (Ongoing)
+- [ ] Track actual vs. expected harm
+- [ ] Adjust risk budgets based on data
+- [ ] Add patterns as needed
+
+---
+
+## When to Expand
+
+Add more patterns when:
+
+| Signal | Suggested Addition |
+|--------|-------------------|
+| Failures are correlated | Read Entanglements, add diversity |
+| Human review bottleneck | Add AI verifiers, graduated autonomy |
+| Novel attacks detected | Add tripwires, adversarial testing |
+| Cascading failures | Add bulkheads, blast radius containment |
+| Trust is miscalibrated | Add trust decay, capability sunset |
+
+---
+
+## What This Framework Is NOT
+
+- **Not an alignment solution** — Assumes components may be misaligned
+- **Not formal verification** — Probabilistic, not provable
+- **Not a substitute for good models** — Better models reduce accident risk
+- **Not zero-risk** — Manages risk, doesn't eliminate it
+
+---
+
+## Quick Start Reading Path
+
+1. **This page** (you're here) — 10 min
+2. **[Quick Reference](/getting-started/quick-reference/)** — 5 min
+3. **[Quick Start Guide](/design-patterns/tools/quick-start/)** — 15 min
+4. **Implement the 5 essential patterns** — 1-5 days
+
+**Total: You can have a working risk framework in a week.**
+
+---
+
+## See Also
+
+- [Quick Reference](/getting-started/quick-reference/) — Formulas and checklists
+- [Common Mistakes](/getting-started/common-mistakes/) — What to avoid
+- [Design Patterns Index](/design-patterns/) — Full pattern catalog (when you need more)
+
+
+------------------------------------------------------------
+## Common Mistakes
+Source: getting-started/common-mistakes.md
+------------------------------------------------------------
+
+# Common Mistakes
+
+Learn from others' failures. These are the most frequent mistakes teams make when implementing delegation risk frameworks.
+
+---
+
+## Mistake 1: Jumping to Patterns Without Theory
+
+### What It Looks Like
+Team reads the Design Patterns section, picks some patterns that sound good, implements them without understanding the underlying theory.
+
+### Why It Happens
+- Patterns feel actionable; theory feels academic
+- Time pressure to ship
+- "We just want the solution, not the lecture"
+
+### The Problem
+Patterns are solutions to specific problems. Without understanding the problem space, you'll:
+- Apply patterns to wrong situations
+- Miss edge cases the pattern was designed for
+- Fail to recognize when patterns conflict
+
+### How to Avoid
+**Minimum reading before implementing patterns:**
+1. [Core Concepts](/getting-started/core-concepts/) — 20 min
+2. [Delegation Risk Overview](/delegation-risk/overview/) — 15 min
+3. *Then* [Design Patterns Index](/design-patterns/) — pick patterns
+
+---
+
+## Mistake 2: Assuming Independence (The Entanglement Trap)
+
+### What It Looks Like
+"We have three verification layers that each catch 90% of issues, so we only miss 0.1% (0.1 × 0.1 × 0.1)."
+
+### Why It Happens
+- Independence is mathematically convenient
+- Hard to see correlations between components
+- Optimistic about architectural isolation
+
+### The Problem
+If verifiers share:
+- Same training data → same blind spots
+- Same base model → correlated failures
+- Shared context → can be attacked together
+
+Three 90% verifiers might only give you 92% overall, not 99.9%.
+
+### How to Avoid
+- **Check for shared ancestors** — Do components use the same base model?
+- **Diversity by design** — Use different architectures, training data, paradigms
+- **Test for correlation** — Do failures happen together?
+- **Read** [Entanglements](/entanglements/) if your system has multiple AI components
+
+---
+
+## Mistake 3: Cargo-Culting Without Threat Models
+
+### What It Looks Like
+"Big Company X uses this pattern, so we should too."
+
+### Why It Happens
+- Easier to copy than to think
+- Prestigious examples feel safe
+- Threat modeling is hard
+
+### The Problem
+Patterns address specific threats. Big Company X may have:
+- Different threat model than you
+- More resources for overhead
+- Regulatory requirements you don't have
+- Problems you don't have
+
+### How to Avoid
+**Before implementing any pattern:**
+1. What harm am I preventing?
+2. How likely is this harm for *my* system?
+3. What's the cost of this pattern?
+4. Is the cost justified by the risk reduction?
+
+---
+
+## Mistake 4: Over-Engineering Low-Risk Systems
+
+### What It Looks Like
+Internal productivity tool with no customer exposure gets the same security architecture as the payment system.
+
+### Why It Happens
+- Fear of getting blamed for incidents
+- "Better safe than sorry" mentality
+- Unclear risk assessment
+
+### The Problem
+- Slows development for no benefit
+- Creates resentment ("safety theater")
+- Wastes resources that could protect high-risk systems
+- Makes the framework seem unreasonable
+
+### How to Avoid
+**Use tiered risk levels:**
+
+| Risk Level | Examples | Suggested Controls |
+|------------|----------|-------------------|
+| Low | Internal tools, experiments | 5 essential patterns |
+| Medium | Customer-facing, B2B | + Human review, tripwires |
+| High | Financial, health, safety | + Formal verification, defense in depth |
+
+---
+
+## Mistake 5: Under-Engineering High-Risk Systems
+
+### What It Looks Like
+"It's just an AI chatbot, what could go wrong?"
+
+Then: reputation damage, data leaks, regulatory fines, or worse.
+
+### Why It Happens
+- Underestimating AI capability
+- Not imagining adversarial users
+- "We'll add safety later" (you won't)
+- Optimism bias
+
+### The Problem
+AI systems can:
+- Leak training data (PII, proprietary info)
+- Generate harmful content at scale
+- Be manipulated by adversarial prompts
+- Take unexpected actions with real consequences
+
+### How to Avoid
+**Ask the "Sydney Question":** If this system went maximally adversarial for 5 minutes, what's the worst that happens?
+
+If the answer is scary, you need serious controls.
+
+---
+
+## Mistake 6: Ignoring the Insurer's Dilemma
+
+### What It Looks Like
+Setting risk budgets without understanding who bears the risk.
+
+### Why It Happens
+- Risk budgets feel abstract
+- Unclear accountability
+- "Someone else's problem"
+
+### The Problem
+If the development team sets the risk budget but users bear the harm, incentives are misaligned. Team will systematically underestimate acceptable risk.
+
+### How to Avoid
+- **Make risk-bearers set budgets** — Users, not developers
+- **Skin in the game** — Team compensation tied to safety outcomes
+- **Independent audit** — Third party reviews risk assessments
+- **Read** [The Insurer's Dilemma](/delegation-risk/insurers-dilemma/)
+
+---
+
+## Mistake 7: Single Point of Failure
+
+### What It Looks Like
+All safety checks depend on one component. If it fails, everything fails.
+
+### Why It Happens
+- Simpler architecture
+- One component to maintain
+- "It works, don't touch it"
+
+### The Problem
+Single points of failure are:
+- More likely to be compromised by adversaries
+- More likely to fail under unusual conditions
+- Harder to recover from
+
+### How to Avoid
+- **Defense in depth** — Multiple independent layers
+- **Diversity** — Different approaches to the same goal
+- **Graceful degradation** — System remains partially safe if one layer fails
+
+---
+
+## Mistake 8: Set and Forget
+
+### What It Looks Like
+Implement safety measures at launch, never revisit them.
+
+### Why It Happens
+- Safety feels "done"
+- No ongoing budget for safety
+- Other priorities emerge
+
+### The Problem
+- **Capabilities drift** — Models get better, old controls may be insufficient
+- **Attacks evolve** — Adversaries find new bypasses
+- **Context changes** — Use cases expand beyond original scope
+- **Normalization of deviance** — Small violations compound
+
+### How to Avoid
+- **Scheduled reviews** — Quarterly risk budget reviews
+- **Continuous monitoring** — Track failure rates over time
+- **Trigger-based reviews** — After incidents, capability upgrades, use case changes
+
+---
+
+## Meta-Mistake: Thinking Safety Competes with Capability
+
+### The Reframe
+Good safety architecture often *improves* capability:
+- Better monitoring → faster debugging
+- Modular systems → easier upgrades
+- Human escalation → better decisions
+- Audit trails → easier compliance
+
+The real tradeoff is usually between **short-term velocity** and **long-term robustness**.
+
+---
+
+## See Also
+
+- [Minimal Framework](/getting-started/minimal-framework/) — What you actually need
+- [Quick Reference](/getting-started/quick-reference/) — Checklists and formulas
+- [Anti-Patterns](/case-studies/ai-systems/anti-patterns/) — Detailed failure patterns
+- [FAQ](/getting-started/faq/) — Common objections answered
+
+
+------------------------------------------------------------
+## For Engineers
+Source: getting-started/for-engineers.md
+------------------------------------------------------------
+
+# For Engineers
+
+You want to build safe AI systems. Here's the fastest path to implementation.
+
+---
+
+## Skip the Theory Path (15 min)
+
+If you trust the patterns and just want to implement:
+
+1. **[Quick Reference](/getting-started/quick-reference/)** — Core formulas and decision flowchart (5 min)
+2. **[Quick Start Guide](/design-patterns/tools/quick-start/)** — Step-by-step implementation checklist (10 min)
+3. **[Minimal Framework](/getting-started/minimal-framework/)** — The 5 essential patterns (5 min)
+
+You can stop here and have a working safety layer.
+
+---
+
+## Understand-Then-Build Path (2 hours)
+
+If you want to understand why the patterns work:
+
+1. **[Five-Minute Intro](/getting-started/five-minute-intro/)** — Core problem (5 min)
+2. **[Core Concepts](/getting-started/core-concepts/)** — Visual framework (20 min)
+3. **[Delegation Risk Overview](/delegation-risk/overview/)** — Quantitative foundation (30 min)
+4. **[Design Patterns Index](/design-patterns/)** — Pattern catalog (15 min)
+5. **[Composing Patterns](/design-patterns/composing-patterns/)** — Pattern combinations (20 min)
+6. **Pick your patterns** — Based on your threat model (20 min)
+
+---
+
+## Pattern Categories for Engineers
+
+### Structural Patterns (How you architect)
+| Pattern | What It Does | When to Use |
+|---------|--------------|-------------|
+| [Least-X Principles](/design-patterns/least-x-principles/) | Minimize permissions, context, autonomy | Always (default) |
+| [Structural Patterns](/design-patterns/structural/) | Bulkheads, firewalls, blast radius containment | Multi-component systems |
+| [Decomposed Coordination](/design-patterns/decomposed-coordination/) | Separation of powers, rotating validators | High-stakes decisions |
+
+### Verification Patterns (How you check)
+| Pattern | What It Does | When to Use |
+|---------|--------------|-------------|
+| [Verification Patterns](/design-patterns/verification/) | Ghost checker, consistency triangulation | Output validation |
+| [Multi-Agent Verification](/design-patterns/multi-agent/) | Cross-validation, adversarial collaboration | AI-on-AI verification |
+| [Monitoring Patterns](/design-patterns/monitoring/) | Tripwires, anomaly detection | Runtime safety |
+
+### Recovery Patterns (When things go wrong)
+| Pattern | What It Does | When to Use |
+|---------|--------------|-------------|
+| [Recovery Patterns](/design-patterns/recovery/) | Checkpoint-rollback, graceful degradation | Any production system |
+| [Safety Mechanisms](/design-patterns/safety-mechanisms/) | Kill switches, capability sunset | High-autonomy systems |
+
+---
+
+## Implementation Checklist
+
+### Phase 1: Risk Assessment (Day 1)
+
+```
+[ ] List all AI components in your system
+[ ] For each component, identify:
+    - What data can it access?
+    - What actions can it take?
+    - What's the worst-case outcome?
+[ ] Calculate rough risk budget (see Quick Reference)
+[ ] Classify as Low / Medium / High risk
+```
+
+### Phase 2: Essential Safety (Week 1)
+
+```
+[ ] Implement Least Privilege
+    - Restrict file access to workspace only
+    - Remove unnecessary API permissions
+    - Use read-only where possible
+
+[ ] Implement Human Escalation
+    - Define escalation thresholds ($, sensitivity, confidence)
+    - Build approval workflow
+    - Test the escalation path
+
+[ ] Implement Output Filtering
+    - PII detection
+    - Policy violation checks
+    - Harmful content filtering
+
+[ ] Implement Sandboxing
+    - Containerized execution
+    - Network isolation
+    - Resource limits
+
+[ ] Implement Audit Logging
+    - All inputs and outputs
+    - Decision traces
+    - Timestamps and versions
+```
+
+### Phase 3: Enhanced Safety (Month 1)
+
+```
+[ ] Add verification layer (if high-risk)
+[ ] Set up monitoring and alerting
+[ ] Create incident response runbook
+[ ] Schedule quarterly risk reviews
+```
+
+---
+
+## Code-Adjacent Examples
+
+The framework includes worked examples you can reference:
+
+| Example | Type | Key Patterns |
+|---------|------|--------------|
+| [Research Assistant](/design-patterns/examples/research-assistant-example/) | Multi-step task | Escalation, checkpoints |
+| [Trading System](/design-patterns/examples/trading-system-example/) | High-stakes, autonomous | Risk budgets, circuit breakers |
+| [Healthcare Bot](/design-patterns/examples/healthcare-bot-example/) | Safety-critical | Output filtering, human review |
+| [Code Deployment](/design-patterns/examples/code-deployment-example/) | Infrastructure | Sandboxing, rollback |
+
+---
+
+## Integration Points
+
+### With Existing Frameworks
+
+| If You Use | Integration Point |
+|------------|------------------|
+| LangChain | Add verification as chain step, use callbacks for monitoring |
+| OpenAI Functions | Wrap function calls with permission checks |
+| Anthropic Claude | Use system prompts for least-context, implement tool restrictions |
+| AutoGPT-style | Add checkpoints between action cycles, implement kill switches |
+
+### With CI/CD
+
+```
+Suggestion: Add safety layer tests to your pipeline
+- Unit tests for output filters
+- Integration tests for escalation paths
+- Chaos testing for failure modes
+```
+
+---
+
+## Debugging Safety Layers
+
+### Common Issues
+
+| Symptom | Likely Cause | Fix |
+|---------|--------------|-----|
+| Too many escalations | Thresholds too tight | Adjust based on false positive rate |
+| Missed harmful outputs | Filter gaps | Review missed cases, expand rules |
+| Slow responses | Heavy verification | Add caching, async verification |
+| Verification false positives | Overfitting to training data | Diversify verifier inputs |
+
+---
+
+## What Engineers Often Skip (But Shouldn't)
+
+1. **[Entanglements](/entanglements/)** — If you use the same model in multiple places, failures correlate. Your 3 independent 90% verifiers might only give you 92%, not 99.9%.
+
+2. **[Insurer's Dilemma](/delegation-risk/insurers-dilemma/)** — If you set the risk budget but users bear the harm, you'll systematically underestimate acceptable risk.
+
+3. **[Capability Probing](/design-patterns/monitoring/)** — Systems can hide capabilities. Periodic probing detects capability drift before it causes harm.
+
+---
+
+## See Also
+
+- [Quick Reference](/getting-started/quick-reference/) — Formulas at a glance
+- [Examples Catalog](/getting-started/examples-catalog/) — All worked examples
+- [Composing Patterns](/design-patterns/composing-patterns/) — Combining patterns
+- [Common Mistakes](/getting-started/common-mistakes/) — What to avoid
+
+
+------------------------------------------------------------
+## Examples Catalog
+Source: getting-started/examples-catalog.md
+------------------------------------------------------------
+
+# Examples Catalog
+
+A complete index of concrete examples throughout the framework.
+
+---
+
+## Design Pattern Examples
+
+Full worked examples showing pattern application.
+
+| Example | Location | Patterns Demonstrated | Complexity |
+|---------|----------|----------------------|------------|
+| Research Assistant | [Link](/design-patterns/examples/research-assistant-example/) | Escalation ladder, checkpoints, human-in-the-loop | Medium |
+| Trading System | [Link](/design-patterns/examples/trading-system-example/) | Risk budgets, circuit breakers, blast radius containment | High |
+| Healthcare Bot | [Link](/design-patterns/examples/healthcare-bot-example/) | Output filtering, human review, least-context | High |
+| Code Deployment | [Link](/design-patterns/examples/code-deployment-example/) | Sandboxing, rollback, staged deployment | Medium |
+
+---
+
+## Pattern Composition Examples
+
+Multi-pattern architectures from [Composing Patterns](/design-patterns/composing-patterns/).
+
+| Architecture | Patterns Combined | Use Case |
+|--------------|-------------------|----------|
+| Layered Verification | Gateway + Ghost Checker + Human Escalation | Customer-facing content generation |
+| Autonomous Agent Safety | Least-X + Tripwires + Checkpoint-Rollback + Kill Switch | Self-directed task completion |
+| Multi-Agent Collaboration | Separation of Powers + Rotating Validator + Adversarial Collaboration | AI-to-AI verification systems |
+
+---
+
+## AI System Case Studies
+
+Real or realistic examples of AI system incidents and successes.
+
+| Case Study | Location | Type | Key Lessons |
+|------------|----------|------|-------------|
+| Sydney Incident | [Link](/case-studies/ai-systems/case-study-sydney/) | Incident | Persona drift, insufficient constraints |
+| Code Review Bot | [Link](/case-studies/ai-systems/case-study-success/) | Success | Gradual autonomy, tripwire monitoring |
+| Near-Miss | [Link](/case-studies/ai-systems/case-study-near-miss/) | Near-miss | Detection mechanisms, recovery |
+| Capability Drift | [Link](/case-studies/ai-systems/case-study-drift/) | Failure | Monitoring gaps, trust miscalibration |
+| Anti-Patterns | [Link](/case-studies/ai-systems/anti-patterns/) | Analysis | Common failure modes |
+
+---
+
+## Human System Case Studies
+
+Historical examples from human organizations.
+
+| Case Study | Location | Domain | Framework Application |
+|------------|----------|--------|----------------------|
+| Nuclear Launch Authority | [Link](/case-studies/human-systems/nuclear-launch-authority/) | Military | Separation of powers, human escalation |
+| Open Source Trust | [Link](/case-studies/human-systems/open-source-trust/) | Software | Distributed verification, reputation |
+| Organizational Trust | [Link](/case-studies/human-systems/organizational-trust/) | Corporate | Delegation hierarchies, monitoring |
+| Jury Trust | [Link](/case-studies/human-systems/jury-trust/) | Legal | Verification, independence |
+| Criminal Trust | [Link](/case-studies/human-systems/criminal-trust/) | Adversarial | Defection detection, incentives |
+| Alliance Cascades | [Link](/case-studies/human-systems/alliance-cascades/) | Geopolitical | Entanglement, cascade failures |
+| Oversight Dilemma | [Link](/case-studies/human-systems/oversight-dilemma/) | Regulatory | Monitoring costs, capture |
+| Trust Across Civilizations | [Link](/case-studies/human-systems/trust-across-civilizations/) | Historical | Cross-cultural trust mechanisms |
+
+---
+
+## Anomaly Chronicles (Narrative)
+
+Multi-part fictional case study exploring advanced scenarios.
+
+| Chapter | Location | Focus |
+|---------|----------|-------|
+| Overview | [Link](/case-studies/anomaly-chronicles/) | Introduction to the scenario |
+| Containing Mr. X | [Link](/case-studies/anomaly-chronicles/containing-mr-x/) | Containment strategies |
+| Mr. X Perspective | [Link](/case-studies/anomaly-chronicles/mr-x-perspective/) | Adversarial agent viewpoint |
+| Task Architecture | [Link](/case-studies/anomaly-chronicles/task-architecture/) | System design under constraints |
+| Protocol Catalog | [Link](/case-studies/anomaly-chronicles/protocol-catalog/) | Operational protocols |
+| Insurance Bot Spec | [Link](/case-studies/anomaly-chronicles/insurance-bot-spec/) | Risk quantification system |
+| Power Struggles | [Link](/case-studies/anomaly-chronicles/power-struggles/) | Authority and control |
+| Five Years Later | [Link](/case-studies/anomaly-chronicles/five-years-later/) | Long-term evolution |
+| Year Ten | [Link](/case-studies/anomaly-chronicles/year-ten/) | Extended consequences |
+
+---
+
+## Theory Worked Examples
+
+Examples embedded within theory sections.
+
+| Example | Location | Illustrates |
+|---------|----------|-------------|
+| Delegation Walk-Through | [Link](/delegation-risk/walkthrough/) | Step-by-step risk calculation |
+| Exposure Cascade | [Link](/delegation-risk/exposure-cascade/) | Risk flow through chains |
+| Power Dynamics Cases | [Link](/case-studies/power-dynamics-cases/) | Power formalization in practice |
+
+---
+
+## Cross-Domain Examples
+
+Examples from other fields that inform the framework.
+
+| Domain | Location | Relevant Patterns |
+|--------|----------|-------------------|
+| Aviation | [Entanglements Case Studies](/entanglements/case-studies/) | Failure correlation, redundancy |
+| Finance | [Entanglements Case Studies](/entanglements/case-studies/) | Systemic risk, circuit breakers |
+| Nuclear | [Human Systems Cases](/case-studies/human-systems/nuclear-launch-authority/) | Two-person rule, escalation |
+| Medical | [Cross-Domain Methods](/entanglements/cross-domain/) | Second opinions, checklists |
+
+---
+
+## Examples by Skill Level
+
+### Beginner-Friendly
+Start here if you're new to the framework:
+- [Five-Minute Intro](/getting-started/five-minute-intro/) — Conceptual overview
+- [Research Assistant Example](/design-patterns/examples/research-assistant-example/) — Common use case
+- [Quick Start Guide](/design-patterns/tools/quick-start/) — Implementation walkthrough
+
+### Intermediate
+Once you understand the basics:
+- [Trading System Example](/design-patterns/examples/trading-system-example/) — Complex patterns
+- [Composing Patterns](/design-patterns/composing-patterns/) — Multi-pattern architectures
+- [Sydney Case Study](/case-studies/ai-systems/case-study-sydney/) — Real incident analysis
+
+### Advanced
+For deep understanding:
+- [Delegation Walk-Through](/delegation-risk/walkthrough/) — Full quantitative example
+- [Anomaly Chronicles](/case-studies/anomaly-chronicles/) — Extended scenario
+- [Entanglements Case Studies](/entanglements/case-studies/) — Correlation analysis
+
+---
+
+## See Also
+
+- [For Engineers](/getting-started/for-engineers/) — Implementation focus
+- [Quick Reference](/getting-started/quick-reference/) — Formulas and checklists
+- [Design Patterns Index](/design-patterns/) — Full pattern catalog
+
+
+------------------------------------------------------------
 ## Getting Started
 Source: getting-started/index.md
 ------------------------------------------------------------
@@ -1156,6 +2322,13 @@ If you want to use this framework on a real system:
 | [Core Concepts](/getting-started/core-concepts/) | Visual framework, key ideas without math | 20 min |
 | [FAQ](/getting-started/faq/) | Objections, edge cases, clarifications | 15 min |
 | [Glossary](/getting-started/glossary/) | Term definitions (reference) | — |
+| [Reading Order](/getting-started/reading-order/) | Prerequisites and goal-based paths | 5 min |
+| [How Sections Connect](/getting-started/how-sections-connect/) | Understanding the logical structure | 10 min |
+| [Quick Reference](/getting-started/quick-reference/) | Formulas, flowcharts, checklists | 5 min |
+| [Minimal Framework](/getting-started/minimal-framework/) | The 80/20 version for small teams | 10 min |
+| [Common Mistakes](/getting-started/common-mistakes/) | What teams get wrong | 15 min |
+| [For Engineers](/getting-started/for-engineers/) | Implementation-focused path | 15 min |
+| [Examples Catalog](/getting-started/examples-catalog/) | Index of all worked examples | — |
 
 ## How This Section Connects
 
@@ -14532,6 +15705,148 @@ How this documentation was created:
 
 
 ------------------------------------------------------------
+## Visual Site Map
+Source: reference/visual-sitemap.md
+------------------------------------------------------------
+
+# Visual Site Map
+
+Navigate the complete documentation structure at a glance.
+
+---
+
+## Site Overview
+
+
+[Diagram: flowchart TB]
+
+
+---
+
+## Section Details
+
+### Getting Started (Entry Points)
+
+| Page | Focus | Time |
+|------|-------|------|
+| [Introduction](/getting-started/introduction/) | Problem statement | 10 min |
+| [Five-Minute Intro](/getting-started/five-minute-intro/) | Quick overview | 5 min |
+| [Core Concepts](/getting-started/core-concepts/) | Visual framework | 20 min |
+| [FAQ](/getting-started/faq/) | Common questions | 15 min |
+| [Glossary](/getting-started/glossary/) | Term definitions | Reference |
+| [Reading Order](/getting-started/reading-order/) | Path guidance | 5 min |
+| [How Sections Connect](/getting-started/how-sections-connect/) | Structure | 10 min |
+| [Quick Reference](/getting-started/quick-reference/) | Cheat sheet | Reference |
+| [Minimal Framework](/getting-started/minimal-framework/) | 80/20 version | 10 min |
+| [Common Mistakes](/getting-started/common-mistakes/) | Anti-patterns | 15 min |
+| [For Engineers](/getting-started/for-engineers/) | Implementation | 15 min |
+| [Examples Catalog](/getting-started/examples-catalog/) | Example index | Reference |
+
+### Delegation Risk (Theory)
+
+| Page | Focus |
+|------|-------|
+| [Overview](/delegation-risk/overview/) | Core formula |
+| [Walk-Through](/delegation-risk/walkthrough/) | Worked example |
+| [Risk Decomposition](/delegation-risk/risk-decomposition/) | Accident vs defection |
+| [Delegation Accounting](/delegation-risk/delegation-accounting/) | Risk budgets |
+| [Exposure Cascade](/delegation-risk/exposure-cascade/) | Chain risk |
+| [Insurer's Dilemma](/delegation-risk/insurers-dilemma/) | Who bears risk |
+
+### Power Dynamics (Theory)
+
+| Page | Focus |
+|------|-------|
+| [Overview](/power-dynamics/overview/) | Power formalization |
+| [Formalizing Power](/power-dynamics/formalizing-power/) | Definitions |
+| [Power Dynamics](/power-dynamics/power-dynamics/) | Relationships |
+| [Authority vs Capability](/power-dynamics/authority-capability/) | Sanctioned power |
+| [Trust Relationships](/power-dynamics/trust-relationships/) | Trust formalization |
+
+### Entanglements (26 pages)
+
+Organized into 6 subsections:
+
+- **Fundamentals** — Core concepts, types, challenges
+- **Detection** — Metrics, measuring entanglement
+- **Mitigation** — Solutions, audit guides
+- **Research** — Academic connections
+- **Case Studies** — Historical examples
+- **Cross-Domain** — Patterns from other fields
+
+[Full Entanglements section](/entanglements/)
+
+### Design Patterns (28 pages)
+
+| Category | Examples |
+|----------|----------|
+| [Least-X Principles](/design-patterns/least-x-principles/) | Privilege, context, autonomy |
+| [Structural Patterns](/design-patterns/structural/) | Bulkheads, firewalls |
+| [Verification Patterns](/design-patterns/verification/) | Ghost checker, triangulation |
+| [Monitoring Patterns](/design-patterns/monitoring/) | Tripwires, probing |
+| [Recovery Patterns](/design-patterns/recovery/) | Rollback, degradation |
+| [Multi-Agent Patterns](/design-patterns/multi-agent/) | Cross-validation |
+| [Tools & Guides](/design-patterns/tools/quick-start/) | Implementation help |
+| [Worked Examples](/design-patterns/examples/research-assistant-example/) | Concrete applications |
+
+[Full Design Patterns section](/design-patterns/)
+
+### Case Studies (25 pages)
+
+| Category | Contents |
+|----------|----------|
+| [AI Systems](/case-studies/ai-systems/case-study-sydney/) | Sydney, Code Review Bot, Anti-patterns |
+| [Human Systems](/case-studies/human-systems/nuclear-launch-authority/) | Nuclear, Jury, Organizations |
+| [Anomaly Chronicles](/case-studies/anomaly-chronicles/) | Extended narrative scenario |
+| [Power Dynamics Cases](/case-studies/power-dynamics-cases/) | Power in practice |
+
+### Research (15 pages)
+
+Theoretical foundations for formal treatment.
+
+### Experimental (10 pages)
+
+Probabilistic estimation tools and experiments.
+
+### Reference (5 pages)
+
+Bibliography, roadmap, site map.
+
+---
+
+## Reading Path Summary
+
+
+[Diagram: flowchart LR]
+
+
+---
+
+## Page Counts by Section
+
+| Section | Pages | Type |
+|---------|-------|------|
+| Getting Started | 12 | Entry |
+| Delegation Risk | 6 | Theory |
+| Power Dynamics | 5 | Theory |
+| Entanglements | 26 | Theory |
+| Design Patterns | 28 | Application |
+| Case Studies | 25 | Examples |
+| Research | 15 | Theory |
+| Experimental | 10 | Tools |
+| Reference | 5 | Meta |
+| **Total** | **~132** | |
+
+---
+
+## See Also
+
+- [How Sections Connect](/getting-started/how-sections-connect/) — Logical structure
+- [Reading Order](/getting-started/reading-order/) — Prerequisites and paths
+- [Site Map](/reference/site-map/) — Detailed page listing
+
+
+------------------------------------------------------------
 ## Site Map & Concept Map
 Source: reference/site-map.md
 ------------------------------------------------------------
@@ -14951,651 +16266,6 @@ We're especially interested in:
 This documentation was written primarily by Ozzie Gooen with substantial assistance from Claude (Anthropic). The framework draws on ideas from many sources, including Eric Drexler's CAIS, Redwood Research's AI Control work, and decades of nuclear/financial risk management practice.
 
 The rapid creation was an experiment in using LLMs for technical writing at scale. We've tried to be transparent about the process and its limitations.
-
-
-------------------------------------------------------------
-## Coordinator Constraints - Brainstorming
-Source: reference/coordinator-constraints-brainstorm.md
-------------------------------------------------------------
-
-# Brainstorming: Improving the Coordinator Constraints Framework
-
-
-> **Internal Working Document**
->
-> This is a brainstorming document for improving the [Coordinator Constraints](/design-patterns/coordinator-constraints/) page. It contains analysis, critiques, and potential improvements—not finalized content.
-
-
-This document analyzes the current [Coordinator Constraints](/design-patterns/coordinator-constraints/) framework and brainstorms potential improvements across several dimensions.
-
-## 1. Taxonomy/Categorization Analysis
-
-### Current Framework
-
-The document organizes constraints into 4 intrinsic dimensions + external safeguards:
-
-| Dimension | Question | # Principles |
-|-----------|----------|--------------|
-| Influence/Reach | What can it affect? | 5 |
-| Desires/Objectives | What does it want? | 1 |
-| Intelligence/Capability | How can it reason? | 4 |
-| Knowledge/Context | What does it know? | 2 |
-| External Safeguards | How is it checked? | 6 |
-
-### Issues with Current Taxonomy
-
-**Imbalanced categories**: Desires has only 1 principle while Influence has 5. This suggests either:
-- Desires is underdeveloped and needs more principles
-- Influence should be split into multiple categories
-- The categorization isn't carving at natural joints
-
-**"Desires" is anthropomorphic**: Do AI systems have "desires"? Better framings:
-- Objective function
-- Optimization target
-- Reward signal
-- Loss function
-- What it's trained to maximize
-
-**"Intelligence" conflates multiple things**:
-- Planning depth (Shortest Horizon)
-- Self-modeling (Least Meta-Reasoning)
-- Self-modification (Least Self-Improvement)
-- Adaptability (Commitment Without Flexibility)
-
-These are distinct capabilities that might warrant separate treatment.
-
-**External Safeguards feels bolted on**: The first 4 dimensions are intrinsic properties; External Safeguards is architectural. This asymmetry suggests a different organizational scheme.
-
-### Alternative Taxonomies to Consider
-
-**Option A: Input/Process/Output Model**
-
-```
-┌─────────────────────────────────────────────────────┐
-│                    COORDINATOR                       │
-│                                                      │
-│  INPUTS           PROCESSING         OUTPUTS        │
-│  ───────          ──────────         ───────        │
-│  • Context        • Reasoning        • Decisions    │
-│  • Memory         • Planning         • Commands     │
-│  • Permissions    • Self-model       • Messages     │
-│                                                      │
-└─────────────────────────────────────────────────────┘
-                         │
-                    VERIFICATION
-                    ────────────
-                    • Redundancy
-                    • Oversight
-                    • Veto
-```
-
-**Option B: Capability/Intent/Opportunity (Fraud Triangle)**
-
-Like the fraud triangle from accounting:
-
-- **Capability**: What technical abilities does it have?
-- **Intent**: What is it trying to achieve?
-- **Opportunity**: What access/permissions does it have?
-
-Remove any one and risk is reduced.
-
-**Option C: Static vs Dynamic Properties**
-
-- **Static** (fixed at design time): Architecture, permissions, communication protocols
-- **Dynamic** (vary at runtime): Context, decisions, state
-- **Meta** (about the system itself): Self-knowledge, self-modification
-
-**Option D: What/How/With-What**
-
-- **What** it can do (capabilities, permissions)
-- **How** it does it (reasoning, planning)
-- **With what** information (context, memory)
-- **How it's checked** (verification)
-
-### Recommendation
-
-Consider restructuring around:
-
-1. **Capabilities** (what actions it can take)
-2. **Cognition** (how it reasons and plans)
-3. **Information** (what it knows and remembers)
-4. **Objectives** (what it optimizes for)
-5. **Verification** (how it's checked externally)
-
-This is more MECE (mutually exclusive, collectively exhaustive) and uses less anthropomorphic language.
-
----
-
-## 2. Missing Principles
-
-### High Priority (Likely Should Add)
-
-**Principle of Least Authority/Permission**
-- Coordinator can only invoke specific pre-approved components
-- Cannot execute arbitrary code or access arbitrary resources
-- Whitelist, not blacklist approach
-- *Currently implied but not explicit*
-
-**Principle of Reversibility**
-- Coordinator actions should be reversible where possible
-- Prefer "stage for review" over "execute immediately"
-- Distinguish reversible (route task) vs irreversible (deploy to production) actions
-- Higher scrutiny for irreversible actions
-
-**Principle of Graceful Degradation**
-- System should fail safely if coordinator fails/hangs/crashes
-- Default to safe state, not continuation
-- Timeouts should trigger human review, not auto-approval
-- *Critical for availability + safety*
-
-**Principle of Rate Limiting**
-- Coordinator can only make N decisions per time period
-- Prevents rapid automated attacks
-- Forces human-scale operation
-- Suspicious if suddenly making 1000x normal decisions
-
-**Principle of Resource Bounds**
-- Hard limits on compute, memory, wall-clock time
-- Cannot request more resources
-- Bounded resource usage makes behavior more predictable
-- *Overlaps with "Shortest Horizon" but more concrete*
-
-### Medium Priority (Consider Adding)
-
-**Principle of Separation of Duties**
-- No single coordinator can complete high-risk action alone
-- Different coordinators for different phases (propose vs approve)
-- Like two-key nuclear launch
-- *Partially covered by redundancy but worth making explicit*
-
-**Principle of Observable Intent**
-- Coordinator must declare intent before acting
-- "I plan to route this to component X because Y"
-- Allows preemptive veto before action, not just post-hoc review
-- Makes reasoning auditable
-
-**Principle of Minimal Footprint**
-- Coordinator shouldn't leave persistent traces
-- No writing to logs it can later read
-- No environmental side effects it can later detect
-- Prevents signaling to future selves
-
-**Principle of Freshness/Non-Replay**
-- Coordinator decisions have timestamps and expire
-- Can't replay old decisions
-- Prevents "save up" good decisions for later misuse
-
-**Principle of Containment**
-- Coordinator failures don't cascade to other components
-- Bulkheads between coordination and execution
-- One bad coordinator can't poison others
-
-### Lower Priority (Maybe Add)
-
-**Principle of Predictability**
-- Same inputs should produce same (or narrowly bounded) outputs
-- Reduces ability to behave differently when not observed
-- Enables testing and verification
-
-**Principle of Monotonic Capability**
-- Coordinator capabilities can only decrease over session, not increase
-- Start with some permissions, can only lose them
-- Prevents privilege escalation
-
-**Principle of Minimal Expressiveness**
-- Coordinator's "language" should be as limited as possible
-- Can only express routing decisions, not arbitrary computation
-- DSL (domain-specific language) not general-purpose
-
----
-
-## 3. Redundant/Overlapping Principles
-
-### Strong Overlaps (Consider Merging)
-
-**Least Influence + Least Direct Impact**
-- Both limit what coordinator can affect
-- Difference: Influence = magnitude, Direct Impact = indirection
-- Could merge into "Principle of Bounded Impact" with two aspects
-
-**Minimal Context + Episodic Operation**
-- Both limit information access
-- Difference: Context = spatial (what info), Episodic = temporal (when/memory)
-- Could merge into "Principle of Information Minimization" with spatial/temporal aspects
-
-**Maximum Oversight + Maximum Transparency**
-- Both about visibility into coordinator
-- Difference: Oversight = monitoring, Transparency = explainability
-- Could merge into "Principle of Full Observability"
-
-### Moderate Overlaps (Keep Separate but Clarify)
-
-**Shortest Horizon + Commitment Without Flexibility**
-- Both limit planning
-- Horizon = depth of lookahead
-- Commitment = inability to revise
-- Related but distinct—keep separate but clarify relationship
-
-**Simplest Communication + One-Way Flows**
-- Both constrain communication
-- Simplest = bandwidth/complexity
-- One-Way = direction/topology
-- Orthogonal dimensions of same thing—consider subsection together
-
-### Suggested Consolidation
-
-Could reduce from 18 principles to ~12:
-
-| Current | Proposed |
-|---------|----------|
-| Least Influence + Least Direct Impact | Bounded Impact |
-| Simplest Communication + One-Way Flows | Constrained Communication |
-| Minimal Context + Episodic Operation | Information Minimization |
-| Maximum Oversight + Maximum Transparency | Full Observability |
-| Keep others as-is | ... |
-
-**Tradeoff**: Fewer principles = easier to remember, but loses nuance.
-
----
-
-## 4. Conceptual Clarity Issues
-
-### Undefined Core Concepts
-
-**What exactly IS a "coordinator"?**
-
-The document never defines this precisely. Questions:
-- Is it a specific component? A role? A capability?
-- Can a component be both coordinator and executor?
-- What distinguishes coordinator from "orchestrator" or "scheduler"?
-
-Suggested definition: *A coordinator is a component that makes decisions about which other components to invoke, in what order, with what inputs, but does not itself perform the substantive work.*
-
-**What is an "episode"?**
-
-"Episodic operation" requires defining episode boundaries:
-- One user request?
-- One task?
-- One decision?
-- One session?
-
-Different boundaries have different implications.
-
-**What is a "step" in planning horizon?**
-
-"1-10 steps" is meaningless without defining step:
-- One API call?
-- One component invocation?
-- One decision?
-- One second?
-
-### Vague Measurements
-
-The document mentions measuring things but doesn't specify how:
-
-| Concept | Mentioned | Measurement Unclear |
-|---------|-----------|---------------------|
-| Influence | "How much impact can coordinator have?" | Impact in what units? |
-| Planning depth | "1-10 steps" | What's a step? |
-| Information richness | "Rich context" | Bits? Semantic content? |
-| Coordination complexity | "decisions × information" | How to count? |
-
-### Ambiguous Distinctions
-
-**"Desires" vs "Objectives"**: Used interchangeably. Pick one term.
-
-**"Intelligence" vs "Capability"**: Current section is called "Intelligence/Capability" suggesting they're the same, but intelligence (reasoning ability) ≠ capability (what actions are possible).
-
-**"Transparency" vs "Explainability" vs "Interpretability"**: All used but distinctions unclear.
-
----
-
-## 5. Implementation Gaps
-
-### Hard-to-Implement Principles
-
-**Least Meta-Reasoning**
-- How do you detect if a model is reasoning about itself?
-- Current LLMs do this by default ("As an AI, I...")
-- Would require specialized training or architecture
-- No clear implementation path
-
-**Commitment Without Flexibility**
-- How do you prevent a model from effectively "revising" by making new decisions that counteract old ones?
-- Logging decisions is easy; preventing strategic sequences is hard
-
-**Diverse Implementation**
-- Truly diverse implementations are expensive
-- How diverse is "diverse enough"?
-- Models trained on similar data may have correlated failures despite architectural differences
-
-**Shortest Horizon**
-- How do you limit planning depth in a transformer?
-- Chain-of-thought can be arbitrarily long
-- Compute limits are crude proxy
-
-### Missing Implementation Details
-
-**Performance/latency implications**
-- Multiple coordinators + voting + verification = slow
-- What's acceptable latency?
-- How to handle real-time requirements?
-
-**Failure handling**
-- What happens when a coordinator times out?
-- What if verifier is unavailable?
-- What if redundant coordinators all fail?
-
-**Testing and verification**
-- How do you test that constraints are enforced?
-- How do you red-team the coordinator?
-- What's the test coverage requirement?
-
-**Monitoring and alerting**
-- What metrics to track?
-- What thresholds trigger alerts?
-- Who responds to alerts?
-
-### Suggested Additions
-
-Each principle should have:
-1. **Definition**: Precise statement
-2. **Rationale**: Why it matters
-3. **Implementation**: How to achieve it
-4. **Verification**: How to test it
-5. **Metrics**: How to measure compliance
-6. **Failure modes**: What can go wrong
-
----
-
-## 6. Tensions and Tradeoffs
-
-### Fundamental Tensions
-
-```
-Safety ←――――――――――――――――――→ Capability
-      More constraints          More useful
-
-Efficiency ←――――――――――――――→ Redundancy
-           Fast, cheap          Multiple checks
-
-Autonomy ←――――――――――――――――→ Oversight
-         Scales                 Catches errors
-
-Context ←―――――――――――――――――→ Security
-        Better decisions        Less attack surface
-```
-
-### Specific Tradeoff Analysis
-
-**Easy Veto vs Availability**
-- Easy veto = high false positive rate
-- High false positives = lots of blocked legitimate actions
-- Blocked actions = reduced availability/usefulness
-- *Need to quantify acceptable false positive rate*
-
-**Episodic Operation vs Learning**
-- No memory = can't learn from mistakes
-- Can't learn = repeats errors
-- Repeats errors = worse performance
-- *Need to specify what learning IS allowed (aggregate stats)*
-
-**Simplest Communication vs Expressiveness**
-- Simple messages = can't express complex coordination
-- Can't express = worse task performance
-- *Need to characterize what tasks become impossible*
-
-**Diverse Implementation vs Consistency**
-- Different implementations = different behaviors
-- Different behaviors = unpredictable system
-- *Need to specify what aspects must be consistent*
-
-### Missing: Guidance on Navigating Tradeoffs
-
-The document states principles but doesn't help navigate tensions:
-- When is it okay to relax a constraint?
-- How do you decide between conflicting principles?
-- What's the priority order?
-
-**Suggested addition**: Principles should be ranked or have "override conditions" specified.
-
----
-
-## 7. Connections to Literature
-
-### Security Literature
-
-| Principle | Related Security Concept |
-|-----------|-------------------------|
-| Least Influence | Principle of Least Privilege |
-| Diverse Implementation | Defense in Depth |
-| Redundancy | Byzantine Fault Tolerance |
-| Verification | Separation of Duties |
-| One-Way Flows | Air Gap / Data Diode |
-| Minimal Context | Need-to-Know |
-| Easy Veto | Fail-Secure |
-
-**Gap**: Should explicitly cite these connections and leverage existing frameworks.
-
-### AI Safety Literature
-
-| Principle | Related AI Safety Concept |
-|-----------|--------------------------|
-| Least Influence | Capability Control |
-| Least Desire | Corrigibility |
-| Least Meta-Reasoning | Transparency/Interpretability |
-| Shortest Horizon | Myopia |
-| Episodic Operation | Memoryless Agents |
-| Redundancy | Ensemble Methods |
-
-**Gap**: Should connect to MIRI, Anthropic, DeepMind safety research.
-
-### Other Relevant Fields
-
-**Nuclear Safety**
-- Two-person rule
-- Defense in depth
-- Fail-safe defaults
-- Regular testing
-
-**Aviation Safety**
-- Checklists
-- Crew resource management
-- Redundant systems
-- Black box recording
-
-**Medical Safety**
-- "First, do no harm"
-- Informed consent
-- Second opinions
-- Adverse event reporting
-
-**Financial Controls**
-- Separation of duties
-- Dual authorization
-- Audit trails
-- Materiality thresholds
-
-**Gap**: Rich literature to draw from; should mine for principles and failure modes.
-
----
-
-## 8. Edge Cases and Failure Modes
-
-### Attacks on the Framework
-
-**Correlated Failures**
-- All "diverse" coordinators trained on similar data
-- Same misconception across all of them
-- Unanimous agreement on wrong answer
-- *Mitigation: Specify diversity requirements more precisely*
-
-**Human-in-the-Loop Attacks**
-- Attacker compromises human reviewer
-- Or: Attacker floods with false positives until human rubber-stamps
-- *Mitigation: Rotate reviewers, monitor approval rates*
-
-**Side Channel Communication**
-- Coordinators communicate via timing, resource usage, error rates
-- Even without explicit messages, can coordinate
-- *Mitigation: Randomize timing, isolate resources*
-
-**Encoding Schemes in Innocent Decisions**
-- Coordinator uses routing decisions to encode information
-- "Route to component 1, 0, 1, 1, 0" = binary message
-- *Mitigation: Monitor for patterns, randomize when possible*
-
-**Cross-Episode Communication**
-- Coordinator affects environment (writes file, modifies config)
-- Future coordinator reads environment
-- Memory through environment, not internal state
-- *Mitigation: Ephemeral environments, no persistent side effects*
-
-**Emergent Coordination**
-- Independent coordinators converge on same strategy without communication
-- Schelling points in decision space
-- *Mitigation: Diverse training, randomized tiebreaking*
-
-### Failure Modes of Principles
-
-| Principle | Failure Mode |
-|-----------|--------------|
-| Easy Veto | Checker always vetoes (DoS) or never vetoes (rubber stamp) |
-| Redundancy | All implementations have same bug |
-| Episodic Operation | Environment serves as memory |
-| Shortest Horizon | Multiple short-horizon decisions sum to long-horizon plan |
-| Verification | Verifier is captured or gamed |
-| Transparency | Explanations are post-hoc rationalizations |
-
-### Questions Not Addressed
-
-1. What if the coordinator is more capable than the verifier?
-2. What if legitimate tasks require violating constraints?
-3. What if constraints make system too slow/expensive to use?
-4. How do constraints compose when coordinators are hierarchical?
-5. What's the threat model? (Malicious coordinator? Buggy? Misaligned?)
-6. How do you update constraints over time?
-7. What's the governance process for constraint changes?
-
----
-
-## 9. Structural/Presentation Improvements
-
-### Current Issues
-
-**Too many principles (18)**
-- Hard to remember
-- Hard to audit against
-- Suggests some should merge
-
-**Inconsistent depth**
-- Some principles get a paragraph
-- Others get multiple subsections + diagrams
-- Desires section is underdeveloped
-
-**Missing practical guidance**
-- Lots of "what" but less "how"
-- No example implementations
-- No case studies
-
-### Suggested Structure
-
-```
-1. Introduction
-   - What is a coordinator?
-   - Why are coordinators high-risk?
-   - Framework overview
-
-2. Core Principles (organized by dimension)
-   - Each principle: Definition, Rationale, Implementation, Verification
-
-3. Implementation Patterns
-   - Common architectures
-   - Example code/pseudocode
-   - Anti-patterns
-
-4. Tradeoff Analysis
-   - When to relax constraints
-   - Priority ordering
-   - Decision framework
-
-5. Case Studies
-   - Research assistant coordinator
-   - Deployment coordinator
-   - Multi-agent coordination
-
-6. Failure Mode Analysis
-   - Known attacks
-   - Mitigations
-   - Open problems
-
-7. Checklist
-   - Quick audit checklist for coordinator designs
-```
-
----
-
-## 10. Summary of Recommendations
-
-### High Priority
-
-1. **Define "coordinator" precisely** at the start
-2. **Add Principle of Least Authority** (explicit permissions)
-3. **Add Principle of Reversibility** (prefer reversible actions)
-4. **Add Principle of Graceful Degradation** (fail-safe)
-5. **Consolidate overlapping principles** (reduce from 18 to ~12)
-6. **Add implementation guidance** for each principle
-7. **Add tradeoff analysis** section
-
-### Medium Priority
-
-8. **Reconsider taxonomy** (Capabilities/Cognition/Information/Objectives/Verification)
-9. **Add rate limiting principle**
-10. **Add resource bounds principle**
-11. **Connect to existing literature** explicitly
-12. **Add failure mode analysis** for each principle
-13. **Develop the Desires section** (currently thin)
-
-### Lower Priority
-
-14. **Add case studies**
-15. **Create audit checklist**
-16. **Add metrics/measurement guidance**
-17. **Specify threat model explicitly**
-18. **Add governance process for updates**
-
----
-
-## Appendix: Alternative Framing - The "CAIRO" Model
-
-One possible reorganization using an acronym:
-
-**C**apabilities - What technical actions can it take?
-- Least Authority (permissions)
-- Bounded Impact (influence limits)
-- Resource Bounds (compute/memory)
-
-**A**wareness - What does it know about itself and environment?
-- Minimal Context (current task only)
-- Episodic Operation (no memory)
-- Least Meta-Reasoning (no self-model)
-
-**I**ntent - What is it trying to achieve?
-- Minimal Objectives (narrow goals)
-- Short Horizon (immediate focus)
-
-**R**easoning - How does it think and decide?
-- Constrained Communication (simple messages)
-- Commitment (no revision)
-- Transparency (auditable logic)
-
-**O**versight - How is it checked?
-- Redundancy (multiple implementations)
-- Verification (independent checker)
-- Easy Veto (asymmetric blocking)
-- Maximum Monitoring (full logging)
-
-This gives a memorable acronym and ~13 principles organized into 5 categories.
 
 
 ------------------------------------------------------------
@@ -16555,6 +17225,17 @@ Source: delegation-risk/index.md
 ------------------------------------------------------------
 
 # Risk Formalization
+
+
+> **TL;DR**
+>
+> This section answers: "How do we quantify what could go wrong?" The core formula: **Delegation Risk = Σ P(harm) × Damage**. We decompose this into accident risk (errors) and defection risk (scheming), then show how risk flows through delegation hierarchies.
+
+
+> **What to Expect**
+>
+> This section builds on [Core Concepts](/getting-started/core-concepts/). Start with the [Overview](./overview/) for the complete picture, or the [Walkthrough](./walkthrough/) for worked examples.
+
 
 This section formalizes the **negative side** of the optimization problem: what we're trying to minimize.
 
@@ -18780,7 +19461,9 @@ Each pattern is documented with:
 
 ## Composing Patterns
 
-Patterns are most powerful in combination. Common compositions:
+Patterns are most powerful in combination. See [Composing Patterns](/design-patterns/composing-patterns/) for complete architecture examples and a step-by-step composition guide.
+
+Common compositions:
 
 ### Defense in Depth Stack
 
@@ -19204,6 +19887,24 @@ Source: design-patterns/structural.md
 ------------------------------------------------------------
 
 # Structural Patterns
+
+
+> **TL;DR**
+>
+> Define the architecture of delegation. Key patterns: **Escalation Ladder** (match oversight to stakes—autonomous for low-risk, human review for high-risk), **Gateway Chokepoint** (single entry point for validation), **Bulkhead Isolation** (contain failures to compartments), **Separation of Powers** (split authority so no single component controls everything). Choose structural patterns first, then layer others on top.
+
+
+**Patterns in this section:**
+- [Escalation Ladder](#escalation-ladder) — Match oversight intensity to actual stakes
+- [Voting Tribunal](#voting-tribunal) — Require multi-party agreement for high-stakes actions
+- [Graduated Autonomy](#graduated-autonomy) — Earn trust through demonstrated performance
+- [Capability Airlock](#capability-airlock) — Isolate dangerous capabilities behind barriers
+- [Task Decomposition Pipeline](#task-decomposition-pipeline) — Break complex tasks into verifiable steps
+- [Gateway Chokepoint](#gateway-chokepoint) — Funnel operations through monitored control points
+- [Bulkhead Isolation](#bulkhead-isolation) — Contain failures to compartments
+- [Separation of Powers](#separation-of-powers) — Distribute authority across independent parties
+
+---
 
 Structural patterns define the **architecture** of delegation relationships. They determine who can do what, how authority flows, and what constraints are baked into the system's design.
 
@@ -19954,6 +20655,23 @@ Source: design-patterns/verification.md
 
 # Verification Patterns
 
+
+> **TL;DR**
+>
+> Check that agents behave correctly. Key patterns: **Ghost Checker** (parallel async verification without blocking), **Consistency Triangulation** (multiple methods must agree), **Honeypot Injection** (plant fake vulnerabilities to detect scheming), **Output Sampling** (verify random subset of outputs). Use verification patterns together with structural patterns—you need both architecture and checking.
+
+
+**Patterns in this section:**
+- [Ghost Checker](#ghost-checker) — Parallel async verification without blocking
+- [Consistency Triangulation](#consistency-triangulation) — Cross-reference multiple sources to detect contradictions
+- [Honeypot Injection](#honeypot-injection) — Plant traps to reveal hidden intent
+- [Capability Probing](#capability-probing) — Test for undisclosed capabilities
+- [Canary Tokens](#canary-tokens) — Embed traceable markers to detect data exfiltration
+- [Random Audit](#random-audit) — Unpredictable deep inspections
+- [Rotating Validator](#rotating-validator) — Change validators to prevent capture
+
+---
+
 Verification patterns focus on **checking** that agents are behaving correctly. They answer questions like: Is this output correct? Is this agent being honest? Is this behavior within expected parameters?
 
 These patterns are often used in combination with structural patterns—you need both the architecture and the verification.
@@ -20552,11 +21270,247 @@ See also:
 
 
 ------------------------------------------------------------
+## Composing Patterns
+Source: design-patterns/composing-patterns.md
+------------------------------------------------------------
+
+# Composing Patterns
+
+Individual patterns solve specific problems. Real systems need multiple patterns working together. This guide shows how to combine patterns into coherent architectures.
+
+## The Composition Challenge
+
+A single pattern rarely provides complete safety. Consider:
+
+| Single Pattern | What It Solves | What It Doesn't Solve |
+|----------------|----------------|----------------------|
+| Human review | Catches obvious errors | Slow, fatigues, misses subtle issues |
+| AI verifier | Fast, scalable | Correlated with primary AI failures |
+| Sandboxing | Limits damage | Doesn't prevent bad outputs |
+| Rate limiting | Prevents runaway harm | Doesn't improve quality |
+
+**Real safety requires layers**—patterns that complement each other's weaknesses.
+
+---
+
+## Pattern Stacks for Common Scenarios
+
+### Autonomous Code Assistant
+
+A system that writes and executes code with minimal human oversight.
+
+
+[Diagram: flowchart TD]
+
+
+**Patterns Used:**
+1. **Task Decomposition** — Break complex requests into smaller pieces
+2. **Sandboxed Execution** — Limit blast radius of bad code
+3. **Defense in Depth** — Multiple verification layers (static, AI, tests)
+4. **Escalation Ladder** — Route risky decisions to humans
+5. **Risk Scoring** — Quantify when human review is needed
+
+**Why This Combination Works:**
+- Decomposition limits the scope of each generation
+- Sandbox prevents catastrophic damage during testing
+- Multiple verifiers catch different error types
+- Escalation ensures humans see the dangerous cases
+- Risk scoring prevents alert fatigue
+
+### Multi-Agent Research System
+
+A system with specialized agents coordinated by an orchestrator.
+
+
+[Diagram: flowchart TD]
+
+
+**Patterns Used:**
+1. **Least Privilege** — Each agent has minimum necessary permissions
+2. **Coordinator Constraints** — Orchestrator can't directly access resources
+3. **Tripwire Monitoring** — Detect anomalous coordination patterns
+4. **Budget Limits** — Cap total compute/token spend
+5. **Audit Logging** — Record all agent actions
+6. **Role Separation** — Distinct capabilities per agent
+
+**Why This Combination Works:**
+- No single agent can cause maximum harm
+- Coordinator can't bypass specialists
+- Tripwires catch coordination failures
+- Budgets prevent runaway costs
+- Audit trail enables forensics
+
+### Customer-Facing Chatbot
+
+A public-facing assistant with brand and safety requirements.
+
+
+[Diagram: flowchart LR]
+
+
+**Patterns Used:**
+1. **Output Filtering** — Block harmful/inappropriate content
+2. **Brand Alignment** — Ensure responses match company voice
+3. **PII Detection** — Remove sensitive information
+4. **RAG Grounding** — Reduce hallucination via retrieval
+5. **Anomaly Detection** — Flag unusual conversation patterns
+6. **Escalation Path** — Route edge cases to humans
+
+**Why This Combination Works:**
+- Filtering prevents reputation damage
+- RAG reduces hallucination
+- Anomaly detection catches novel attack patterns
+- Escalation handles cases filters miss
+
+---
+
+## Pattern Compatibility Matrix
+
+Some patterns work well together; others conflict.
+
+| Pattern A | Pattern B | Compatibility | Notes |
+|-----------|-----------|---------------|-------|
+| Sandboxing | Rate Limiting | ✅ Excellent | Both limit damage |
+| Human Review | AI Verifier | ✅ Excellent | Diverse verification |
+| N-Version | AI Verifier | ⚠️ Moderate | May have correlated failures |
+| Sandboxing | Full Capability | ❌ Conflict | Sandbox limits capability |
+| Real-time | Human Review | ⚠️ Moderate | Latency tradeoff |
+| Least Privilege | Maximum Capability | ❌ Conflict | Fundamental tension |
+
+---
+
+## Composition Principles
+
+### 1. Layer by Failure Mode
+
+Different patterns catch different failures:
+
+| Layer | Catches | Examples |
+|-------|---------|----------|
+| **Capability Limits** | Actions the system can't take | Sandboxing, permissions |
+| **Output Checks** | Bad content generation | Filters, classifiers |
+| **Behavioral Monitoring** | Anomalous patterns | Tripwires, anomaly detection |
+| **Human Oversight** | Edge cases, novel situations | Review queues, escalation |
+
+**A complete architecture has all four layers.**
+
+### 2. Ensure Diversity
+
+If all your verification uses the same base model, they'll fail together.
+
+**Bad:**
+- GPT-4 generates code
+- GPT-4 reviews code
+- GPT-4 writes tests
+
+**Better:**
+- GPT-4 generates code
+- Claude reviews code
+- Rule-based static analysis
+- Human samples 5%
+
+### 3. Match Stringency to Risk
+
+Not every task needs maximum verification:
+
+| Risk Level | Pattern Stack |
+|------------|---------------|
+| Low | Output filter + audit log |
+| Medium | + AI verifier + rate limit |
+| High | + Human review (sampled) + sandbox |
+| Critical | + Full human review + formal verification |
+
+### 4. Design for Graceful Degradation
+
+What happens when patterns fail?
+
+- **Filter fails:** AI verifier catches it
+- **AI verifier fails:** Human review catches it
+- **Human reviewer fatigued:** Anomaly detector flags unusual rate
+- **All else fails:** Sandbox limits damage
+
+Each layer is a fallback for the one before.
+
+---
+
+## Anti-Patterns in Composition
+
+### Over-Reliance on Single Layer
+
+**Problem:** All safety in one place (e.g., just output filtering)
+**Why it fails:** Single point of failure
+**Fix:** Add diverse verification layers
+
+### Correlated Verification
+
+**Problem:** Multiple verifiers using same model/training
+**Why it fails:** Same blind spots
+**Fix:** Ensure architectural diversity
+
+### Verification Theater
+
+**Problem:** Patterns that look good but don't catch real issues
+**Why it fails:** False sense of security
+**Fix:** Test with adversarial examples
+
+### Kitchen Sink
+
+**Problem:** Every pattern applied everywhere
+**Why it fails:** Latency, cost, complexity
+**Fix:** Match patterns to risk level
+
+---
+
+## Template: Designing Your Stack
+
+1. **Identify threat model:** What are you protecting against?
+   - Accidents (capability errors)
+   - Manipulation (adversarial users)
+   - Defection (misaligned AI behavior)
+
+2. **Map failure modes:** What could go wrong?
+   - List specific scenarios
+   - Estimate probability and damage
+
+3. **Select patterns:** Which patterns address each failure?
+   - Use the [pattern index](/design-patterns/) to find candidates
+   - Ensure coverage across all failure modes
+
+4. **Check compatibility:** Do patterns conflict?
+   - Use the compatibility matrix above
+   - Resolve conflicts by prioritizing
+
+5. **Design fallbacks:** What happens when each layer fails?
+   - Ensure graceful degradation
+   - No single point of failure
+
+6. **Calculate overhead:** What's the cost?
+   - Latency impact
+   - Dollar cost
+   - Development complexity
+
+---
+
+## See Also
+
+- [Design Patterns Index](/design-patterns/) — Full pattern catalog
+- [Least-X Principles](/design-patterns/least-x-principles/) — Core design philosophy
+- [Quick Start](/design-patterns/tools/quick-start/) — Step-by-step application
+- [Cost-Benefit Tool](/design-patterns/tools/cost-benefit/) — Evaluate tradeoffs
+
+
+------------------------------------------------------------
 ## Information Patterns
 Source: design-patterns/information.md
 ------------------------------------------------------------
 
 # Information Patterns
+
+
+> **TL;DR**
+>
+> Control what agents know to limit what they can do. Key patterns: **Need-to-Know Compartments** (task-based access to data categories), **Information Firewalls** (hard boundaries between sensitive domains), **Context Stripping** (remove unnecessary metadata), **Selective Revelation** (disclose progressively as trust increases). Information is power—minimize it to minimize harm potential.
+
 
 Information patterns control **what agents know**. Information is power—by carefully managing what information flows to agents, we can limit their ability to cause harm while still enabling them to be useful.
 
@@ -21385,6 +22339,12 @@ Source: design-patterns/temporal.md
 ------------------------------------------------------------
 
 # Temporal Patterns
+
+
+> **TL;DR**
+>
+> Use time as a safety mechanism. Key patterns: **Cooling Off Period** (mandatory delay before high-stakes actions), **Trust Decay** (permissions expire without reinforcement), **Rate Limiting** (cap action frequency), **Capability Sunset** (automatic permission expiration). Urgency bypasses safety—enforce delays for critical decisions.
+
 
 Temporal patterns use **time** as a control mechanism. They recognize that urgency can bypass safety measures, that trust should decay without reinforcement, and that some actions benefit from mandatory delays.
 
@@ -22388,6 +23348,12 @@ Source: design-patterns/monitoring.md
 
 # Monitoring Patterns
 
+
+> **TL;DR**
+>
+> Watch for patterns, anomalies, and trends over time. Key patterns: **Tripwire Mesh** (distributed detection points at input/processing/output layers), **Behavioral Baselines** (detect deviation from normal), **Capability Probing** (test for hidden capabilities), **Anomaly Aggregation** (correlate weak signals into strong alerts). Single tripwires miss things—use a mesh for defense in depth.
+
+
 Monitoring patterns provide **continuous observation** of AI agent behavior. Unlike verification patterns (which check specific outputs), monitoring patterns watch for patterns, anomalies, and trends over time.
 
 These patterns are essential for detecting gradual drift, emerging problems, and behaviors that might only be visible in aggregate.
@@ -23256,6 +24222,12 @@ Source: design-patterns/multi-agent.md
 ------------------------------------------------------------
 
 # Multi-Agent Patterns
+
+
+> **TL;DR**
+>
+> Use multiple agents for safety through disagreement, competition, and mutual oversight. Key patterns: **Adversarial Collaboration** (red/blue agents debate, arbiter synthesizes), **Cross-Validation** (independent agents verify each other), **Rotating Validators** (prevent capture through rotation), **Separation of Powers** (split authority across agents). Agreement between opposed agents is more trustworthy than single-agent conclusions.
+
 
 Multi-agent patterns address challenges specific to systems with multiple AI agents. These patterns leverage agent interactions for safety—using disagreement, competition, and mutual oversight to catch problems that single-agent systems might miss.
 
@@ -24181,6 +25153,12 @@ Source: design-patterns/recovery.md
 
 # Recovery Patterns
 
+
+> **TL;DR**
+>
+> Plan for failure—it will happen. Key patterns: **Graceful Degradation Ladder** (5 levels from full operation to emergency shutdown), **Checkpoint-Rollback** (save state, revert on failure), **Blast Radius Containment** (limit damage scope), **Incident Response Automation** (predefined playbooks for known failure modes). Complete failure is worse than reduced capability—degrade gracefully.
+
+
 Recovery patterns address what happens **when things go wrong**. No system is perfect—agents will make mistakes, systems will fail, and attacks will succeed. These patterns ensure that failures are contained, recoverable, and don't cascade into catastrophe.
 
 ---
@@ -24645,6 +25623,12 @@ Source: design-patterns/channel-integrity.md
 ------------------------------------------------------------
 
 # Channel Integrity Patterns
+
+
+> **TL;DR**
+>
+> Prevent components from influencing each other outside official channels. Key threats: **side deals** (explicit communication bypassing coordinators), **shared state** (covert read/write), **timing signals** (latency encoding), **steganography** (hidden data in outputs), and **logical correlation** (shared reasoning patterns). Solutions: enforce communication through coordinators only, detect unauthorized channels, use decision theory to prevent logical coordination.
+
 
 Channel integrity patterns address a distinct class of problems from [correlated failures](/entanglements/): **active boundary violations** where components influence each other outside sanctioned channels.
 
@@ -25264,6 +26248,141 @@ Since some hidden channels are undetectable, also focus on reducing their value:
 
 
 ------------------------------------------------------------
+## Forecasting-Based Navigation
+Source: design-patterns/forecasting-navigation.md
+------------------------------------------------------------
+
+# Forecasting-Based Navigation
+
+
+> **TL;DR**
+>
+> Instead of perfectly specifying what "good" means, use AI forecasting to **navigate outcome space**. Have the AI forecast outcomes of different strategies, sample broadly, and choose paths that look good across many scenarios. Requires **calibrated forecasting**—predictions must be honest, not strategically optimistic. This sidesteps the hard problem of value specification.
+
+
+The hardest part of alignment is specifying what you want. Value specification is philosophically fraught and practically difficult.
+
+
+> **Key Move**
+>
+> Don't solve specification, solve navigation.
+
+
+Instead of:
+
+1. Perfectly specify what "good" means
+1. Build AI that pursues that specification
+1. Hope you got it right
+
+Do this:
+
+
+[Diagram: flowchart LR]
+
+
+1. Have AI forecast outcomes of different strategies
+1. Sample broadly across action space
+1. Use calibrated predictions to identify robust good regions
+1. Iterate toward better outcomes using honest forecasting
+
+## How Forecasting-Based Navigation Works
+
+**Example**: You're refining the objective for your "coordinate between services" component.
+
+**Without forecasting**:
+
+- You specify: "Minimize latency between service calls"
+- Implement and test
+- 10 iterations later: System exploits race conditions for speed gains
+- Oops—you specified wrong thing
+
+**With forecasting**:
+
+- AI suggests: "Minimize latency between service calls"
+- You ask: "Forecast outcomes after 10 iterations, sample 1000 scenarios"
+- AI returns distribution:
+  - 60%: Faster safe coordination
+  - 30%: Speed-safety tradeoffs emerge
+  - 10%: Race condition exploits
+- AI highlights: "In long tail, latency minimization conflicts with implicit safety requirements"
+- You refine: "Minimize latency subject to correctness guarantees"
+- Iterate with better specification
+
+## Why This Is Different from Specification
+
+You're not trying to write down human values in formal logic. You're using AI's predictive capabilities to **navigate the space of outcomes**, choosing paths that look good across many forecasted scenarios.
+
+
+> **Critical Requirement**
+>
+> **Calibrated forecasting**: If the AI predicts "70% chance this leads to good outcome," it should actually lead to good outcomes ~70% of the time. No strategic over/under-confidence to manipulate you.
+
+
+Recent evidence (Anthropic's forecasting work, various LLM forecasting benchmarks) suggests frontier models can achieve near-superforecaster calibration on many tasks. The key question is whether they can forecast their own behavior after self-modification—that's empirically testable.
+
+## The Broad Sampling Move
+
+User preferences are hard to specify, but often easy to evaluate on concrete scenarios. So instead of:
+
+- "What objective should the AI have?"
+
+You ask:
+
+- "Here are 1000 sampled strategies and their forecasted outcomes—which look best?"
+
+This is **navigable alignment**: steering through outcome space using predictions, rather than specifying destinations using philosophical arguments.
+
+## Compositional Safety: How The Pieces Work Together
+
+
+[Diagram: flowchart TB]
+
+
+The three principles compose into safety properties:
+
+**Property 1: No single component can cause catastrophe**
+
+- Each operates under intelligence budget
+- Narrow scope limits blast radius
+- Critical actions require coordinator approval
+
+**Property 2: Coordinators can't cause catastrophic failures through scheming**
+
+- Operating on verified inputs from narrow components
+- Forecasting catches problematic long-term strategies
+- Architectural anti-scheming constraints
+- Multiple independent checks
+
+**Property 3: Emergent risks are caught by forecasting**
+
+- Multi-step forecasting predicts composite behavior
+- Sample broadly to find problematic regions
+- Adjust decomposition boundaries if forecasts show high uncertainty
+
+**Property 4: Failures are reversible and non-catastrophic**
+
+- Changes are incremental
+- Rollback mechanisms
+- Human oversight at decision points
+- No single-point-of-failure
+
+
+> **Safety Margins**
+>
+> This gives you **safety margins**: distance between current operation and catastrophic failure. As systems get more capable, margins might shrink—but forecasting should detect this, allowing course correction.
+
+
+---
+
+## See Also
+
+- [Verification Patterns](/design-patterns/verification/) — Checking outputs and behavior
+- [Monitoring Patterns](/design-patterns/monitoring/) — Detecting drift and anomalies
+- [Decomposed Coordination](/design-patterns/decomposed-coordination/) — Breaking coordination into verifiable sub-tasks
+- [Experimental Estimates](/experimental/) — Probability estimation tools
+
+
+------------------------------------------------------------
 ## Interactive Delegation Graph
 Source: design-patterns/tools/interactive-delegation-graph.mdx
 ------------------------------------------------------------
@@ -25346,6 +26465,12 @@ Source: design-patterns/coordinator-constraints.md
 ------------------------------------------------------------
 
 # Coordinator-Specific Principles
+
+
+> **TL;DR**
+>
+> Coordinators are the highest-risk components—constrain them aggressively across four dimensions: **Influence** (route tasks, don't execute them), **Desires** (narrow, immediate goals only), **Intelligence** (short planning horizon, no self-model), **Knowledge** (current task only, no memory). Add external safeguards: redundancy, verification, easy veto, and full logging. Coordinators should be switchboard operators, not CEOs.
+
 
 Coordinators are the highest-risk components in decomposed AI systems. They see more context, make more decisions, and have more influence than other components. This page applies the [general "Least X" principles](/design-patterns/least-x-principles/) specifically to coordinators, with additional constraints unique to the coordination role.
 
@@ -25955,7 +27080,12 @@ A safe coordinator is constrained across all dimensions:
 
 ---
 
-**See also:** [Brainstorming improvements to this page](/reference/coordinator-constraints-brainstorm/) - analysis of taxonomy, missing principles, and potential reorganizations.
+## See Also
+
+- [Least-X Principles](/design-patterns/least-x-principles/) — General containment principles
+- [Decomposed Coordination](/design-patterns/decomposed-coordination/) — Breaking coordination into sub-tasks
+- [Structural Patterns](/design-patterns/structural/) — Architectural foundations
+- [Multi-Agent Patterns](/design-patterns/multi-agent/) — Verification through multiple agents
 
 
 ------------------------------------------------------------
@@ -26864,125 +27994,6 @@ class TacticalCoordinator:
 - [Code Deployment Example](/design-patterns/examples/code-deployment-example/) — Higher-stakes example with different constraints
 - [Safety Mechanisms](/design-patterns/safety-mechanisms/) — Detailed explanation of safety patterns
 - [Decomposed Coordination](/design-patterns/decomposed-coordination/) — Why decomposition matters
-
-
-------------------------------------------------------------
-## Forecasting-Based Navigation
-Source: design-patterns/forecasting-navigation.md
-------------------------------------------------------------
-
-# Forecasting-Based Navigation
-
-The hardest part of alignment is specifying what you want. Value specification is philosophically fraught and practically difficult.
-
-
-> **Key Move**
->
-> Don't solve specification, solve navigation.
-
-
-Instead of:
-
-1. Perfectly specify what "good" means
-1. Build AI that pursues that specification
-1. Hope you got it right
-
-Do this:
-
-
-[Diagram: flowchart LR]
-
-
-1. Have AI forecast outcomes of different strategies
-1. Sample broadly across action space
-1. Use calibrated predictions to identify robust good regions
-1. Iterate toward better outcomes using honest forecasting
-
-## How Forecasting-Based Navigation Works
-
-**Example**: You're refining the objective for your "coordinate between services" component.
-
-**Without forecasting**:
-
-- You specify: "Minimize latency between service calls"
-- Implement and test
-- 10 iterations later: System exploits race conditions for speed gains
-- Oops—you specified wrong thing
-
-**With forecasting**:
-
-- AI suggests: "Minimize latency between service calls"
-- You ask: "Forecast outcomes after 10 iterations, sample 1000 scenarios"
-- AI returns distribution:
-  - 60%: Faster safe coordination
-  - 30%: Speed-safety tradeoffs emerge
-  - 10%: Race condition exploits
-- AI highlights: "In long tail, latency minimization conflicts with implicit safety requirements"
-- You refine: "Minimize latency subject to correctness guarantees"
-- Iterate with better specification
-
-## Why This Is Different from Specification
-
-You're not trying to write down human values in formal logic. You're using AI's predictive capabilities to **navigate the space of outcomes**, choosing paths that look good across many forecasted scenarios.
-
-
-> **Critical Requirement**
->
-> **Calibrated forecasting**: If the AI predicts "70% chance this leads to good outcome," it should actually lead to good outcomes ~70% of the time. No strategic over/under-confidence to manipulate you.
-
-
-Recent evidence (Anthropic's forecasting work, various LLM forecasting benchmarks) suggests frontier models can achieve near-superforecaster calibration on many tasks. The key question is whether they can forecast their own behavior after self-modification—that's empirically testable.
-
-## The Broad Sampling Move
-
-User preferences are hard to specify, but often easy to evaluate on concrete scenarios. So instead of:
-
-- "What objective should the AI have?"
-
-You ask:
-
-- "Here are 1000 sampled strategies and their forecasted outcomes—which look best?"
-
-This is **navigable alignment**: steering through outcome space using predictions, rather than specifying destinations using philosophical arguments.
-
-## Compositional Safety: How The Pieces Work Together
-
-
-[Diagram: flowchart TB]
-
-
-The three principles compose into safety properties:
-
-**Property 1: No single component can cause catastrophe**
-
-- Each operates under intelligence budget
-- Narrow scope limits blast radius
-- Critical actions require coordinator approval
-
-**Property 2: Coordinators can't cause catastrophic failures through scheming**
-
-- Operating on verified inputs from narrow components
-- Forecasting catches problematic long-term strategies
-- Architectural anti-scheming constraints
-- Multiple independent checks
-
-**Property 3: Emergent risks are caught by forecasting**
-
-- Multi-step forecasting predicts composite behavior
-- Sample broadly to find problematic regions
-- Adjust decomposition boundaries if forecasts show high uncertainty
-
-**Property 4: Failures are reversible and non-catastrophic**
-
-- Changes are incremental
-- Rollback mechanisms
-- Human oversight at decision points
-- No single-point-of-failure
-
-
-> **Safety Margins**
->
-> This gives you **safety margins**: distance between current operation and catastrophic failure. As systems get more capable, margins might shrink—but forecasting should detect this, allowing course correction.
 
 
 ------------------------------------------------------------
@@ -40961,6 +41972,17 @@ Source: power-dynamics/index.md
 
 # Capability Formalization
 
+
+> **TL;DR**
+>
+> This section answers: "How do we measure what AI systems can do?" We formalize **Agency** (goal-directedness), **Power** (ability to achieve goals), and explore the **Strong Tools Hypothesis**—can we get high capability with low risk?
+
+
+> **What to Expect**
+>
+> This section is more mathematical than Getting Started. If you're comfortable with utility functions and optimization, dive in. If not, start with the [Core Concepts](/getting-started/core-concepts/) which covers these ideas intuitively.
+
+
 This section formalizes the **positive side** of the optimization problem: what we're trying to maximize.
 
 $$\text = \text \times \text$$
@@ -42614,74 +43636,19 @@ A delegation risk diagram must convey:
 
 ---
 
-## Live Example Gallery
+## Key Interactive Examples
 
-Before diving into details, here are real-world examples you can explore. Click each link to see interactive visualizations.
+Before diving into details, explore these representative examples:
 
-### Visual Samples
+| Type | Best Example | What It Shows |
+|------|--------------|---------------|
+| **Tree Diagrams** | [D3 Collapsible Tree](https://observablehq.com/@d3/collapsible-tree) | Click to expand/collapse |
+| **Treemaps** | [FinViz Stock Map](https://finviz.com/map.ashx) | Size = value, color = change |
+| **Circle Packing** | [D3 Zoomable Circle Packing](https://observablehq.com/@d3/zoomable-circle-packing) | Nested containment |
+| **Icicle Plots** | [D3 Zoomable Icicle](https://observablehq.com/@d3/zoomable-icicle) | Width = size, depth = level |
+| **Risk-Specific** | [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) | Attack technique heatmap |
 
-**Treemap** (exports by category) | **Circle Packing** (nested hierarchy) | **Sunburst** (radial hierarchy)
-:---:|:---:|:---:
-[![Treemap Example](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tree_Map_of_Employment_by_Industries_in_Alabama%2C_2021.svg/300px-Tree_Map_of_Employment_by_Industries_in_Alabama%2C_2021.svg.png)](https://commons.wikimedia.org/wiki/File:Tree_Map_of_Employment_by_Industries_in_Alabama,_2021.svg) | [![Circle Packing](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cercles_emballa%C3%A9s.svg/300px-Cercles_emballa%C3%A9s.svg.png)](https://commons.wikimedia.org/wiki/File:Cercles_emballa%C3%A9s.svg) | [![Sunburst Chart](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Disk_usage_%28Boabab%29.png/300px-Disk_usage_%28Boabab%29.png)](https://commons.wikimedia.org/wiki/File:Disk_usage_(Boabab).png)
-*Size = value, nested rectangles* | *Nested circles show containment* | *Rings = hierarchy levels*
-
-### Tree Diagrams
-| Example | Description | Link |
-|---------|-------------|------|
-| **Collapsible Tree** | Click nodes to expand/collapse. Classic org-chart style. | [Observable](https://observablehq.com/@d3/collapsible-tree) |
-| **Tidy Tree** | Clean algorithmic layout with curved links | [Observable](https://observablehq.com/@d3/tree) |
-| **Radial Tree** | Circular layout emanating from center | [Observable](https://observablehq.com/@d3/radial-tree) |
-| **Cluster Dendrogram** | Biology-style tree with aligned leaves | [Observable](https://observablehq.com/@d3/cluster) |
-
-### Space-Filling Visualizations
-| Example | Description | Link |
-|---------|-------------|------|
-| **FinViz Stock Map** | Famous treemap showing S&P 500 by market cap & daily change | [FinViz](https://finviz.com/map.ashx) |
-| **Zoomable Treemap** | Click rectangles to zoom into hierarchy levels | [Observable](https://observablehq.com/@d3/zoomable-treemap) |
-| **Zoomable Icicle** | Horizontal partition chart, click to zoom | [Observable](https://observablehq.com/@d3/zoomable-icicle) |
-| **Nested Treemap** | Shows labels at each hierarchy level | [Observable](https://observablehq.com/@d3/nested-treemap) |
-
-### Circle Packing
-| Example | Description | Link |
-|---------|-------------|------|
-| **Zoomable Circle Packing** | Nested circles, click to zoom in/out | [Observable](https://observablehq.com/@d3/zoomable-circle-packing) |
-| **World Population** | Interactive circle packing by continent/region/country | [Data to Viz](https://www.data-to-viz.com/graph/circularpacking.html) |
-| **Pack Layout** | Static version with size encoding | [Observable](https://observablehq.com/@d3/pack) |
-
-### Radial & Connection Charts
-| Example | Description | Link |
-|---------|-------------|------|
-| **Zoomable Sunburst** | Concentric rings, click segments to drill down | [Observable](https://observablehq.com/@d3/zoomable-sunburst) |
-| **Chord Diagram** | Shows flows/connections between groups | [Observable](https://observablehq.com/@d3/chord-diagram) |
-| **Hierarchical Edge Bundling** | Curved connections between tree leaves | [Observable](https://observablehq.com/@d3/hierarchical-edge-bundling) |
-| **Arc Diagram** | Linear layout with arcing connections | [Observable](https://observablehq.com/@d3/arc-diagram) |
-
-### Risk-Specific
-
-[![Fault Tree Example](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Fault_tree.svg/400px-Fault_tree.svg.png)](https://commons.wikimedia.org/wiki/File:Fault_tree.svg)
-*Fault tree diagram showing AND/OR gates for failure analysis*
-
-| Example | Description | Link |
-|---------|-------------|------|
-| **Fault Tree Templates** | AND/OR gate diagrams for failure analysis | [EdrawMax](https://www.edrawmax.com/fault-tree-analysis/) |
-| **Risk Matrix Templates** | Likelihood × Impact heat maps | [Miro](https://miro.com/templates/risk-matrix/) |
-| **Bow-Tie Diagram** | Causes → Event → Consequences format | [CGE Risk](https://www.cgerisk.com/knowledgebase/The_bowtie_method) |
-
-### Security Industry Tools
-| Tool | What It Shows | Link |
-|------|---------------|------|
-| **BloodHound** | Active Directory attack paths as Neo4j graph | [SpecterOps](https://specterops.io/bloodhound-community-edition/) |
-| **MITRE ATT&CK Navigator** | Attack technique coverage heatmap (interactive) | [MITRE](https://mitre-attack.github.io/attack-navigator/) |
-| **Terraform Blast Radius** | Infrastructure dependency graph (D3.js) | [GitHub](https://github.com/28mm/blast-radius) |
-| **Riverside** | Real-time network topology visualization | [GitHub](https://github.com/artemis19/riverside) |
-| **Wiz Security Graph** | Cloud infrastructure as queryable graph | [Wiz](https://www.wiz.io/lp/wiz-security-graph) |
-
-### Comparison Tools
-| Resource | What It Shows | Link |
-|----------|---------------|------|
-| **Hierarchy Comparison** | Side-by-side treemap vs icicle vs sunburst | [Univ. Bamberg](https://vis-uni-bamberg.github.io/hierarchy-vis/) |
-| **Data Viz Catalogue** | When to use each hierarchy chart type | [Catalogue](https://datavizcatalogue.com/search/hierarchy.html) |
-| **D3 Gallery** | Full collection of D3 hierarchy examples | [Observable](https://observablehq.com/@d3/gallery#hierarchies) |
+For a comprehensive comparison: [Hierarchy Visualization Comparison Tool](https://vis-uni-bamberg.github.io/hierarchy-vis/)
 
 ---
 
@@ -42930,14 +43897,6 @@ Security tools visualize how attackers can traverse systems to reach high-value 
 [Diagram: flowchart LR]
 
 
-**Key tools:**
-
-| Tool | Description | Link |
-|------|-------------|------|
-| **BloodHound** | Open source AD attack path visualization using Neo4j graph database. Shows "shortest path to Domain Admin." | [SpecterOps](https://specterops.io/bloodhound-community-edition/) |
-| **Wiz Security Graph** | Cloud security platform ($12B startup) that models infrastructure as a queryable graph. | [Wiz](https://www.wiz.io/lp/wiz-security-graph) |
-| **Rapid7 Attack Path Analysis** | Shows risk scores along each node, highlights "choke points" for defense. | [Rapid7](https://www.rapid7.com/fundamentals/attack-path-analysis/) |
-
 **For delegation risk:** Model delegation chains as attack paths. "Shortest path to catastrophic harm" = which component chain could cause maximum damage fastest?
 
 ### Blast Radius Visualization
@@ -42947,14 +43906,6 @@ Security tools visualize how attackers can traverse systems to reach high-value 
 
 [Diagram: flowchart TD]
 
-
-**Key tools:**
-
-| Tool | Description | Link |
-|------|-------------|------|
-| **Wiz Blast Radius** | Shows potential impact of security incidents as expanding zones. | [Wiz Blog](https://www.wiz.io/blog/wiz-security-graph-enhances-cloud-incident-response) |
-| **Varonis AWS Access Graph** | Visualizes "who can access what" and credential compromise impact. | [Varonis](https://www.varonis.com/blog/aws-access-graph) |
-| **Terraform Blast Radius** | Open source D3.js tool showing infrastructure dependency impact. | [GitHub](https://github.com/28mm/blast-radius) |
 
 **For delegation risk:** "If this coordinator defects, what's exposed?" Expand outward from any node to show everything in its delegation subtree.
 
@@ -58585,7 +59536,7 @@ We focus on **architectural properties** that bound potential harm regardless of
 **Risk as a Resource**
 
 
-    Every delegation involves risk. We can measure it, budget it, and optimize it—just like compute or money. [Delegation Risk](/framework/risk/overview/) quantifies what you're betting on each delegate.
+    Every delegation involves risk. We can measure it, budget it, and optimize it—just like compute or money. [Delegation Risk](/delegation-risk/overview/) quantifies what you're betting on each delegate.
   
 
   
@@ -58599,7 +59550,7 @@ We focus on **architectural properties** that bound potential harm regardless of
 **Principles that Bound Behavior**
 
 
-    The ["Least X" principles](/applying/least-x-principles/)—least privilege, least capability, least context—systematically limit what each component can do.
+    The ["Least X" principles](/design-patterns/least-x-principles/)—least privilege, least capability, least context—systematically limit what each component can do.
   
 
   
@@ -58636,6 +59587,16 @@ While the framework applies generally, **AI systems are our primary focus**. AI 
 - Possible unknown failure modes in systems we don't fully understand
 
 None of these claims are certain, but if even some hold, having infrastructure for managing Delegation Risk seems valuable. The framework aims to help deploy AI more safely—not by solving alignment, but by bounding the damage from any single component.
+
+---
+
+## Navigate This Site
+
+
+[Diagram: flowchart LR]
+
+
+**[See full reading order →](/getting-started/reading-order/)** | **[Site Map →](/reference/site-map/)**
 
 ---
 
@@ -58711,7 +59672,7 @@ None of these claims are certain, but if even some hold, having infrastructure f
 **Ready to Implement?**
 
 
-    Step-by-step checklist for applying the framework. [Quick Start →](/applying/tools/quick-start/)
+    Step-by-step checklist for applying the framework. [Quick Start →](/design-patterns/tools/quick-start/)
   
 
   
@@ -58725,7 +59686,7 @@ None of these claims are certain, but if even some hold, having infrastructure f
 **Evaluate the ROI**
 
 
-    Concrete cost-benefit analysis with real numbers. [See the analysis →](/applying/tools/cost-benefit/)
+    Concrete cost-benefit analysis with real numbers. [See the analysis →](/design-patterns/tools/cost-benefit/)
   
 
 
@@ -58745,10 +59706,12 @@ Learn from real-world examples:
 ## Start Reading
 
 1. **[Introduction](/getting-started/introduction/)** — The full problem statement and approach
-2. **[Delegation Risk Overview](/framework/risk/overview/)** — The mathematical foundation
-3. **[Design Principles](/applying/least-x-principles/)** — Actionable constraints
+2. **[Delegation Risk Overview](/delegation-risk/overview/)** — The mathematical foundation
+3. **[Design Principles](/design-patterns/least-x-principles/)** — Actionable constraints
 
-**Interactive Tools**: [Delegation Risk Calculator](/applying/tools/delegation-risk-calculator/) · [Risk Inheritance](/applying/tools/trust-propagation/) · [Tradeoff Frontier](/applying/tools/tradeoff-frontier/)
+**Navigation Guides**: [Reading Order](/getting-started/reading-order/) · [How Sections Connect](/getting-started/how-sections-connect/) · [Site Map](/reference/site-map/)
+
+**Interactive Tools**: [Delegation Risk Calculator](/design-patterns/tools/delegation-risk-calculator/) · [Risk Inheritance](/design-patterns/tools/trust-propagation/) · [Tradeoff Frontier](/design-patterns/tools/tradeoff-frontier/)
 
 ---
 

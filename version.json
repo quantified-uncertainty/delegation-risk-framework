@@ -1,9 +1,9 @@
 {
   "major": 1,
   "minor": 0,
-  "patch": 2,
-  "contentHash": "07d9cad5ace8",
-  "lastBuildDate": "2025-12-23T15:32:36.115564",
+  "patch": 3,
+  "contentHash": "73bbdd4312e7",
+  "lastBuildDate": "2025-12-27T00:00:18.954508",
   "description": "Version auto-increments patch when content changes. Bump major/minor manually for significant changes.",
-  "gitHash": "59cd557"
+  "gitHash": "43cebd7"
 }
